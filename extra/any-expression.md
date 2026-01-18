@@ -7,7 +7,7 @@
 | Person | 아무도 | any person + even | nobody | negative verb required | 아무도 몰라요. |
 | Thing | 아무것도 | any thing + even | nothing | negative verb required | 아무것도 안 먹었어요. |
 | Time | 아무 때도 | any time + even | never | negative verb required | 아무 때도 안 와요. |
-| Reason | 아무 이유도 | any reason + even | no reason | negative verb required | 아무 이유도 없어요. |
+| Reason| 아무 이유도 | any reason + even | no reason | negative verb required | 아무 이유도 없어요. |
 | Method | 아무 방법도 | any method + even | no way | negative verb required | 아무 방법도 없어요. |
 | Choice (Thing) | 아무거나 | any thing | anything | positive sentence | 아무거나 괜찮아요. |
 | Choice (Person) | 아무나 | any person | anyone | positive sentence | 아무나 와도 돼요. |
