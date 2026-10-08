@@ -4,7 +4,7 @@ Personal Korean grammar practice built around my own grammar list and a Claude C
 
 | File | What it's for |
 | --- | --- |
-| `GrammarList.md` | My numbered grammar points (1–44) with meanings, examples and notes |
+| `GrammarList.md` | My numbered grammar points (1–45) with meanings, examples and notes |
 | `StudyGuide.md` | Quick fill-in-the-blank warm-up dialogues |
 | `KoreanProgress.md` | Progress the mentor tracks: status per point, recurring mistakes, nuance to verify, sentences heard in the wild, session log |
 | `.claude/skills/korean-mentor/` | The `/korean-mentor` Claude Code skill |

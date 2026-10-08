@@ -24,6 +24,10 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 
 ## Recurring mistakes
 
+## Lesson mistakes
+
+Mistakes the tutor corrected (from `Homework/`) that are being practiced. Each item is marked ✓ after it is right in 2 sessions.
+
 ## To verify
 
 Nuance questions to check with a native speaker or teacher.
