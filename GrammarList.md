@@ -451,3 +451,14 @@
 ✔ Compares something with what is typical for its category
 ✔ Often expresses a result that differs from expectations
 ✔ Attaches directly to the noun: 중고차치고는
+
+### 45. V-자마자
+**Meaning:** as soon as…
+
+- 교실에 도착하자마자 바로 시험이 시작됐어요.
+  🔁 The test started as soon as I got to the classroom.
+
+✔ The second action happens right after the first one
+✔ Attaches to the verb stem: 도착하다 → 도착하자마자, 먹다 → 먹자마자
+✔ Doesn't take a past ending: ~~도착했자마자~~; the past goes at the end of the sentence
+✔ Compare: -다가 means the first action is interrupted or changes into another; -자마자 means the first action finishes and the next follows immediately (from Lesson 14)
