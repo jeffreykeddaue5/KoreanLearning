@@ -4,10 +4,13 @@ Personal Korean grammar practice built around my own grammar list and a Claude C
 
 | File | What it's for |
 | --- | --- |
-| `GrammarList.md` | My numbered grammar points (1–45) with meanings, examples and notes |
+| `Grammar/` | My numbered grammar points (1–45), grouped by topic, with examples, common mistakes and compare tables. Start at `Grammar/README.md` |
 | `StudyGuide.md` | Quick fill-in-the-blank warm-up dialogues |
 | `KoreanProgress.md` | Progress the mentor tracks: status per point, recurring mistakes, nuance to verify, sentences heard in the wild, session log |
+| `Homework/` | One file per tutor lesson: notes, homework and corrections |
+| `anki/` | Weekly vocab CSVs for Anki (`YYYY-MM-DD.csv`, the week's Monday), made by `/anki-vocab` |
 | `.claude/skills/korean-mentor/` | The `/korean-mentor` Claude Code skill |
+| `.claude/skills/anki-vocab/` | The `/anki-vocab` skill: 70 conversational words a week, with conjugations |
 
 ## Practicing
 
