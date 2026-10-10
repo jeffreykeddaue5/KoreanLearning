@@ -11,6 +11,7 @@ Personal Korean grammar practice built around my own grammar list and a Claude C
 | `anki/` | Weekly vocab CSVs for Anki (`YYYY-MM-DD.csv`, the week's Monday), made by `/anki-vocab` |
 | `.claude/skills/korean-mentor/` | The `/korean-mentor` Claude Code skill |
 | `.claude/skills/anki-vocab/` | The `/anki-vocab` skill: 70 conversational words a week, with conjugations |
+| `.claude/skills/voice-prep/` | The `/voice-prep` skill: builds a ChatGPT voice-practice prompt from current weak points, mistakes and Anki words; `/voice-prep recap` logs the result |
 
 ## Practicing
 
