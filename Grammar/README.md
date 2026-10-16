@@ -64,6 +64,7 @@ Each point has spoken examples, ❌ → ✅ lines for common mistakes (many from
 | 43 | -다던데(요) | [heard-and-experienced](heard-and-experienced.md) |
 | 44 | N치고(는) | [contrast](contrast.md) |
 | 45 | V-자마자 | [time-and-sequence](time-and-sequence.md) |
+| 46 | V-아/어 두다 | [time-and-sequence](time-and-sequence.md) |
 
 ## Adding a point
 

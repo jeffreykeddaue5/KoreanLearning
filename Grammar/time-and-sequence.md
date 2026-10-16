@@ -123,6 +123,26 @@
 ✔ Doesn't take a past ending: ~~도착했자마자~~; the past goes at the end of the sentence
 ✔ Compare: -다가 means the first action is interrupted or changes into another; -자마자 means the first action finishes and the next follows immediately (L14)
 
+### 46. V-아/어 두다
+**Meaning:** do something and leave it that way; do something in advance (so it's ready)
+
+- 영화가 무서울까 봐서 불을 켜 뒀어요.
+  🔁 I left the lights on because I was worried the movie might be scary. (L15)
+- 소화제를 먹어 뒀어요.
+  🔁 I took some indigestion medicine (just in case). (L15)
+- 휴대폰을 충전해 뒀어요.
+  🔁 I've charged my phone (so it's ready when I need it). (L15)
+- 표를 미리 사 둘게요.
+  🔁 I'll buy the tickets ahead of time.
+- 창문을 열어 두세요.
+  🔁 Leave the window open.
+
+✔ The action is finished and its result stays in place (= -아/어 놓다, which is a little more casual)
+✔ 불을 켰어요 = I turned the light on · 불을 켜 뒀어요 = I left the light on (L15)
+✔ 충전했어요 = I charged it · 충전해 뒀어요 = I charged it so it's ready (L15)
+✔ Past tense: 두었어요 is usually shortened to 뒀어요 in speech
+✔ Related word: 준비하다 = to prepare, get ready (L15)
+
 ---
 
 ## Compare
@@ -135,4 +155,5 @@
 | -다 보니(까) (#37) | doing A over and over led to B | 자주 만나다 보니 친해졌어요 |
 | -게 되다 (#25) | B happened through circumstances | 친해지게 됐어요 |
 | -(으)ㄴ 채로 (#1) | doing B with A's state still in place | 옷을 입은 채로 잤어요 |
+| -아/어 두다 (#46) | doing A and leaving it that way, or doing it in advance | 불을 켜 뒀어요 |
 | -는 김에 (#3) | since you're doing A, you also do B | 나가는 김에 쓰레기도 버릴게요 |
