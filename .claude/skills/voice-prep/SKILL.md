@@ -13,7 +13,7 @@ ChatGPT can't see this folder, so the prompt has to include everything it needs.
    - Start with the "Focus next time" points from the latest session log line, then Shaky points, then New points with the oldest "Last practiced" date.
    - Look up each point in `Grammar/README.md` and its file. For each, write a one-line gloss that includes the user's specific trap, e.g. `#11 -기는 했지만 (past: the past goes on 하다 → 쉽기는 했지만)`.
 2. **Mistakes (4–6).** Take them from **Recurring mistakes** and the **Lesson mistakes** not yet marked ✓. Add the newest `(❌)` items from the 2 most recent `Homework/` lessons. Write each as `wrong → right`.
-3. **Words (10–12).** Use the `anki/` file for the week that contains today, or the newest file if none does. Take words from the days that have started so far (day 1 = Monday). If the week hasn't started yet, use days 1–2.
+3. **Words (10–12).** Use the newest `anki/` file whose date is today or earlier (the file name is the date its day 1 started, and it covers 7 days). Take words from the days that have started so far (day 1 = the file's date).
 4. **Topic ideas (3).** Pick topics that suit the targets. Prefer things from the user's life: recent session log lines and `Homework/` 💬 sections (dramas, work, moving, pickleball, 3D modeling, trips). Don't reuse the previous session's exact topics. These are only starting points; the conversation can go anywhere.
 
 There is no time plan or minute breakdown. The session is a checklist: it ends when every target is hit or the user says stop.

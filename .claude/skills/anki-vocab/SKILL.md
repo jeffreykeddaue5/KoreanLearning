@@ -9,7 +9,7 @@ Make one CSV of 70 new words for the week: 7 days × 10 words.
 
 ## Setup
 
-1. **File name.** Name the file after the Monday its week starts: `anki/YYYY-MM-DD.csv`. Use the Monday after the newest existing week file. If there isn't one, use the coming Monday, or today if today is Monday. If the user names a week, use that week.
+1. **File name.** Name the file after today's date, the day the week of words starts: `anki/YYYY-MM-DD.csv`. Day 1 is today. If the user names a start date, use that.
 2. **Known words. Never repeat these:**
    - the first field of every row in `anki/*.csv`
    - the 📚 vocabulary sections of `Homework/[0-9]*.md`
@@ -47,7 +47,7 @@ word;meaning;Korean example;English translation;note;tags
   - Optionally add `cf)` with a near-synonym and how it differs.
     `cf) 연기하다 = more formal (postpone an event)`
   - Nouns: give the related 하다 verb or common collocations. Expressions: say when to use them.
-- **tags:** `conversation YYYY-MM-DD dayN`, using the week's Monday and the day number 1–7.
+- **tags:** `conversation YYYY-MM-DD dayN`, using the file's date and the day number 1–7.
 - Never put `;` or `"` inside a field. Write `<br>` for line breaks, never actual newlines.
 
 Example row:
