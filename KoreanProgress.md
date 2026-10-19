@@ -8,26 +8,26 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 
 | # | Point | Status | Last practiced | Notes |
 | --- | --- | --- | --- | --- |
-| 2 | -(으)ㄴ/는 걸 보니(까) | New | 2026-10-17 | Only for evidence you see now (많을 걸 보니까 ✗ → 많을 테니까) |
+| 2 | -(으)ㄴ/는 걸 보니(까) | New | 2026-10-18 | Right with hint (우산을 쓴 걸 보니); already happening → 오는 모양 not 올 모양 |
 | 3 | -는 김에 | New | 2026-10-17 | Right with hint (숙소에 가는 김에) |
 | 4 | -(으)ㄴ/는 만큼 | New | 2026-10-17 | Right with hints (기대한 만큼, 큰 만큼) |
-| 7 | -(으)ㄴ/는 탓에 | Shaky | 2026-10-17 | Right with hint (피곤한 탓에 구경을 못 했어요) |
+| 7 | -(으)ㄴ/는 탓에 | Shaky | 2026-10-18 | Right with hint, past form right (늦게 잔 탓에) |
 | 10 | -(으)ㄴ/는 줄 몰랐다 | New | 2026-10-11 | Used unprompted (이렇게 어려운 줄 몰랐어요) |
-| 11 | -기는 하지만 | New | 2026-10-11 | Past form right (모르기는 했지만); 2nd clause tense must match |
+| 11 | -기는 하지만 | New | 2026-10-18 | Past form right again with hint (모르기는 했지만) |
 | 14 | -는 편이다 | Solid | 2026-10-17 | Unprompted again (비슷한 편이에요) |
-| 16 | -거든요 | New | 2026-10-12 | Past event → -았/었거든요 (많았거든요) |
+| 16 | -거든요 | New | 2026-10-18 | Right with hint (팬이거든요, 살 수밖에 없었거든요) |
 | 18 | -네요 | New | 2026-10-12 | Right (늦게 왔네요); for what you see yourself |
 | 21 | N(이)나 | New | 2026-10-12 | Right on amounts (1시간이나); not after 많이 (많이나 ✗) |
 | 22 | -군요 | New | 2026-10-12 | 유명하군요 ✔; verbs take -는군요 (가는군요); heard → -군요 not -더라고요 |
 | 19 | -(으)ㄹ까 하다 | New | 2026-10-11 | Right unprompted for an unsure plan (만날까 해요) |
-| 20 | -(으)ㄹ까 봐 | New | 2026-10-17 | Used 봐서 once, then right unprompted (멀미할까 봐); worry about not getting → 못 |
+| 20 | -(으)ㄹ까 봐 | New | 2026-10-18 | Right twice, no -서, 못 included (못 예매할까 봐) |
 | 26 | -는 게 좋겠어요 | New | 2026-10-12 | Right with -니까 before it (금요일이니까 … 가는 게 좋겠어요) |
-| 29 | -나 보다 | Shaky | 2026-10-17 | Tense slip: 잃어버리나 → 잃어버렸나 봐요 |
+| 29 | -나 보다 | Shaky | 2026-10-18 | Past tense right with hint (크게 했나 봐요) |
 | 30 | -나요? | New | 2026-10-17 | Right with hint (외국인인가요?); softer: 처음 오셨나요? |
 | 33 | -(으)니만큼 | New | 2026-10-12 | Right with hint (맛있으니만큼 추천하려고 해요) |
-| 35 | -더라고요 | New | 2026-10-13 | Right with hint (은근히 재미있더라고요); used it for heard info once |
+| 35 | -더라고요 | New | 2026-10-18 | Right with hint (타 보니까 … 많더라고요); own experience → -더라고요, not -군요 |
 | 36 | -길래 | Solid | 2026-10-12 | Right unprompted (좋길래 세 개나 샀어요) |
-| 37 | -다 보니(까) | Shaky | 2026-10-17 | 다니다 보니 좋아졌어요 ✔, but 확인하다 보니 ✗ (needs repeated action → -아/어 보니까) |
+| 37 | -다 보니(까) | Shaky | 2026-10-18 | 듣다 보니 ✔ unprompted, but used for a one-time check again (→ -아/어 보니까) |
 | 38 | -아/어서 그런지 | New | 2026-10-12 | Right again (칠면조를 시켜서 그런지) |
 | 39 | -(으)ㄹ 텐데 | Solid | 2026-10-17 | Unprompted again (못 갈 텐데, 비가 많이 올 텐데) |
 | 40 | -(으)ㄹ걸 그랬다 | Solid | 2026-10-10 | Used unprompted again (일찍 잘걸 그랬어요) |
@@ -41,23 +41,24 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 ## Recurring mistakes
 
 - Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past)
-- -(으)ㄹ까 봐: adds -서 (걸릴까 봐서, L7; 멀미할까 봐서, 2026-10-17) and drops 못 (갈까 봐, L16; 받을까 봐, 2026-10-17)
+- -(으)ㄹ까 봐: adds -서 (걸릴까 봐서, L7; 멀미할까 봐서, 2026-10-17) and drops 못 (갈까 봐, L16; 받을까 봐, 2026-10-17) · right 2026-10-18
+- -다 보니 for a one-time action → -아/어 보니까: 확인하다 보니 (2026-10-17), 찾아볼 때 가다 보니 (2026-10-18)
 - 커피를 먹다 → 커피를 마시다 (2026-10-11, 2026-10-12 and earlier)
 
 ## Practice mistakes
 
 Mistakes corrected during mentor sessions. Each session starts with a quick fix-this-sentence warm-up from this list, and items are removed at 2/2.
 
-- 그 식당에서 다시 먹나 봐요. 그래서 기프트 카드를 사 보세요 → 칠면조를 정말 좋아하나 봐요. 그래서 기프트 카드를 사 주세요 (2026-10-12) · 0/2
-- (heard from someone) 은근히 기프트 카드를 좋아하더라고요 → 은근히 기프트 카드를 좋아했군요 (2026-10-12) · 0/2
-- 어쩐지 그 식당에 자주 가군요 → 어쩐지 그 식당에 자주 가는군요 (2026-10-12) · 0/2
-- 친구를 사귀는 게 쉬었어요 → 쉬웠어요 (쉽다, ㅂ irregular) (2026-10-13) · 0/2
-- 정말 부더러웠어요 → 정말 부드러웠어요 (2026-10-13) · 0/2
+- 어쩐지 그 식당에 자주 가군요 → 어쩐지 그 식당에 자주 가는군요 (2026-10-12) · 1/2
+- 친구를 사귀는 게 쉬었어요 → 쉬웠어요 (쉽다, ㅂ irregular) (2026-10-13) · 1/2
+- 정말 부더러웠어요 → 정말 부드러웠어요 (2026-10-13) · 1/2
 - 늘 약을 먹어 뒸어요 / 맡겨 둬려고 → 늘 약을 먹어 둬요 / 맡겨 두려고 (2026-10-17) · 0/2
 - 한국에 여행은 막상 가 보니까 → 한국 여행은 막상 가 보니까 (2026-10-17) · 0/2
 - 다른 계획을 쓰는 게 좋겠어요 → 다른 계획을 세우는 게 좋겠어요 (2026-10-17) · 0/2
 - 사람이 많을 걸 보니까 표를 사 두려고 해요 → 사람이 많을 테니까 표를 사 두려고 해요 (2026-10-17) · 0/2
-- 날씨를 확인하다 보니 날씨가 안 좋아졌어요 → 날씨를 확인해 보니까 안 좋더라고요 (2026-10-17) · 0/2
+- 이 가수를 계속 듣다 보니 → 이 가수의 노래를 계속 듣다 보니 (2026-10-18) · 0/2
+- (people already using umbrellas) 비가 올 모양이었어요 → 비가 오는 모양이었어요 (2026-10-18) · 0/2
+- 지하철로 타 보니까 → 지하철을 타 보니까 (2026-10-18) · 0/2
 
 ## Lesson mistakes
 
@@ -66,16 +67,16 @@ Mistakes the tutor corrected (from `Homework/`) that are being practiced. Each i
 - 다가 for "as soon as" → -자마자 · 시험을 시작했어요 → 시험이 시작됐어요 (L14) · ✓ 2026-10-10
 - 갔는 김에 / 먹었는 김에 → 간 김에 / 먹은 김에 (L7) · ✓ 2026-10-10
 - 좋아하나 봐서 → 좋아하나 봐요. 그래서 (L7) · ✓ 2026-10-10
-- 몰랐기는 하지만 → 모르기는 했지만 (L12) · 1/2
+- 몰랐기는 하지만 → 모르기는 했지만 (L12) · ✓ 2026-10-18
 - 일찍 아침에 → 아침 일찍 (L14) · ✓ 2026-10-17
 - 볼까 해요 (50–60%) vs 볼 것 같아요 (80–90%) (L15) · 1/2
 - 월급 vs 월세: 월세가 비쌀 텐데요 (L13) · 1/2
 - 맨 앞자리밖에 없었거든요 → 남은 자리가 맨 앞자리밖에 없었거든요 (L6) · 0/2
 - 막힐 모양이라서 + -는 게 좋겠어요 → 모양이니까 (reason before advice = -(으)니까) (L7) · 1/2
 - 크니 만큼 → 큰 만큼 (A-(으)ㄴ 만큼) (L15) · 1/2
-- 좋아해졌어요 → 좋아하게 됐어요 / 좋아졌어요 (L15) · 1/2
-- 걸릴까 봐서 → 걸릴까 봐 (no -서) (L7) · 0/2
-- 축제 갈까 봐서 → 축제 못 갈까 봐 (worry about not getting it → 못) (L16) · 0/2
+- 좋아해졌어요 → 좋아하게 됐어요 / 좋아졌어요 (L15) · ✓ 2026-10-18
+- 걸릴까 봐서 → 걸릴까 봐 (no -서) (L7) · 1/2
+- 축제 갈까 봐서 → 축제 못 갈까 봐 (worry about not getting it → 못) (L16) · 1/2
 
 ## Hard words
 
@@ -110,6 +111,10 @@ Nuance questions to check with a native speaker or teacher.
 - Reacting to heard news: is "은근히 기프트 카드를 좋아하네요" OK in speech, or does it have to be 좋아했군요 / 좋아하는군요?
 - "막상 가 보니까 기대한 만큼 재미있었어요": does 막상 sound odd when the result matches the expectation? The mentor suggested 기대보다 훨씬 재미있었어요.
 
+- L16 marks "못 갈까 봐서 걱정이에요" ✅, but L7 says no -서 after -까 봐. Which is right?
+- "어쩐지 가수 목소리가 쉬었군요" (about a concert you attended): the mentor suggested 쉬었더라고요 / 이상하다 했어요. Is -군요 wrong here?
+- "은근히 굿즈가 비싸지 않았어요": can 은근히 go with a negative? The mentor suggested 굿즈가 은근히 싸더라고요.
+
 ## Heard in the wild
 
 Real sentences from dramas, YouTube, or conversations that use a grammar point.
@@ -119,6 +124,7 @@ Real sentences from dramas, YouTube, or conversations that use a grammar point.
 
 ## Session log
 
+- 2026-10-18 · #7, 16, 20, 29, 37 + review #2, #11 · drill · strong: 까 봐 (no 서, 못), 했나 봐요, 좋아하게 됐어요, 모르기는 했지만, 실컷 · fix: 다 보니 vs 아/어 보니까, 오는 모양, 지하철을 타다, 은근히 + negative
 - 2026-10-17 · #4, 7, 20, 29, 46 + review #3, #30 · conversation · strong: 아/어 두다, 까 봐 unprompted, 큰 만큼, 막상, 아침 일찍 · fix: 까 봐서 / 못 갈까 봐, tense (잃어버렸나 봐요), 걸 보니까 vs 테니까
 - 2026-10-13 · #35, 39, 43, 44 + review #7, #29, #30 · conversation (stopped at 5/15) · strong: 나 봐요 unprompted, 치고는, 다던데 + suggestion, 텐데 · fix: ㅂ irregular (쉬웠어요, 부드러웠어요), 요즘 → -고 있다
 - 2026-10-12 · #16, 18, 22, 29, 33, 35, 36 + review #7, #26, #38 · conversation · strong: 길래, 서 그런지, 텐데 unprompted, 려다가, 아침 일찍 · fix: tense (많았거든요, 걸린 탓에), -는군요, 군요 vs 더라고요, 막상 V-(으)니까
