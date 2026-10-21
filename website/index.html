@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>::: 와이어드 일지 ::: 레이어 01 :::</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 부팅 화면 -->
+  <div id="boot">
+    <pre id="boot-text"></pre>
+    <p id="boot-enter" class="blink">[ 클릭해서 접속하기 ]</p>
+  </div>
+
+  <!-- CRT 효과 -->
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <div id="wrap">
+
+    <!-- 헤더 -->
+    <header id="header">
+      <svg class="wires" viewBox="0 0 800 160" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1a0006"/>
+            <stop offset="70%" stop-color="#5a0014"/>
+            <stop offset="100%" stop-color="#8f1530"/>
+          </linearGradient>
+        </defs>
+        <rect width="800" height="160" fill="url(#sky)"/>
+        <!-- 전봇대 -->
+        <g fill="#000">
+          <rect x="88" y="20" width="6" height="140"/>
+          <rect x="66" y="34" width="50" height="4"/>
+          <rect x="72" y="50" width="38" height="3"/>
+          <rect x="468" y="10" width="7" height="150"/>
+          <rect x="440" y="26" width="62" height="4"/>
+          <rect x="448" y="44" width="46" height="3"/>
+          <rect x="712" y="44" width="4" height="116"/>
+          <rect x="698" y="54" width="32" height="3"/>
+        </g>
+        <!-- 전선 -->
+        <g stroke="#000" stroke-width="1.4" fill="none">
+          <path d="M-10 60 Q 40 75 68 36"/>
+          <path d="M-10 70 Q 40 82 74 51"/>
+          <path d="M68 36 Q 260 80 442 28"/>
+          <path d="M114 36 Q 300 90 500 28"/>
+          <path d="M74 51 Q 270 95 450 45"/>
+          <path d="M108 51 Q 290 100 492 45"/>
+          <path d="M442 28 Q 580 75 700 55"/>
+          <path d="M500 28 Q 620 80 728 55"/>
+          <path d="M492 45 Q 600 90 714 56"/>
+          <path d="M728 55 Q 780 70 810 66"/>
+        </g>
+      </svg>
+
+      <div class="header-text">
+        <p class="present">현재 날짜. 현재 시간. <span id="clock">--:--:--</span></p>
+        <h1 class="glitch" data-text="와이어드 일지">와이어드 일지</h1>
+        <p class="sub">navi://나의_방/index.html &nbsp;|&nbsp; 프로젝트 · 일상 · 미디어</p>
+      </div>
+    </header>
+
+    <!-- 흐르는 글자 -->
+    <div class="marquee-box">
+      <marquee scrollamount="4">
+        ★ 와이어드에 오신 것을 환영합니다 ★ 이 사이트는 아직 공사 중입니다 ★ 한국어로 쓰는 연습 중이니까 틀린 문장이 있어도 이해해 주세요 ★ 어디에 있든, 모두 연결되어 있어 ★
+      </marquee>
+    </div>
+
+    <div id="layout">
+
+      <!-- 왼쪽 메뉴 -->
+      <aside class="col side">
+        <div class="box">
+          <div class="box-title">▼ 프로필</div>
+          <div class="box-body profile">
+<pre class="ascii">
+   .-""""-.
+  /  _  _  \
+ |  (o)(o)  |
+ |    __    |
+  \  '--'  /
+   '-.__.-'
+</pre>
+            <p><b>닉네임:</b> 익명_01</p>
+            <p><b>상태:</b> <span class="online">● 접속 중</span></p>
+            <p><b>위치:</b> 와이어드 어딘가</p>
+            <p class="small">"나는 여기에 있어."</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">▼ 메뉴</div>
+          <ul class="box-body menu" id="menu">
+            <li><a href="#/">» 홈</a></li>
+            <li><a href="#/category/projects">» 프로젝트</a></li>
+            <li><a href="#/category/daily">» 일상</a></li>
+            <li><a href="#/category/media">» 미디어</a></li>
+            <li><a href="#/category/talk">» 대화</a></li>
+            <li><a href="#/category/mistakes">» 실수</a></li>
+            <li><a href="#/about">» 자기소개</a></li>
+            <li><a href="#/guestbook">» 방명록</a></li>
+            <li><a href="#/links">» 링크</a></li>
+          </ul>
+        </div>
+
+        <!-- 방문자 · 시스템 (잠시 숨김)
+        <div class="box">
+          <div class="box-title">▼ 방문자</div>
+          <div class="box-body counter">
+            <p>오늘 <span id="today" class="digits">0000</span></p>
+            <p>전체 <span id="total" class="digits">000000</span></p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">▼ 시스템</div>
+          <div class="box-body term">
+            <p>OS: 코플랜드 v2.3</p>
+            <p>프로토콜: 7</p>
+            <p>신호: <span id="signal">||||||</span></p>
+            <p class="blink">_</p>
+          </div>
+        </div>
+        -->
+
+        <div class="box">
+          <div class="box-title">▼ 오늘의 기분</div>
+          <div class="box-body mood">
+            <!-- 지난 기분: 상쾌하다 -->
+            <p class="face">( ˙▿˙ )♪</p>
+            <p>상쾌하다</p>
+            <p class="small">날씨가 맑아서 기분이 상쾌해요</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">▼ 오늘 날씨</div>
+          <div class="box-body tonight">
+            <pre class="rain">\ | /
+— ☼ —</pre>
+            <p>맑음 · 19°C</p>
+            <p class="small">아침저녁엔 7°까지 내려가요. 겉옷을 챙기세요</p>
+            <div class="weather-phrase">
+              <p class="small">오늘의 표현</p>
+              <p class="phrase">「날씨가 화창해요」</p>
+              <p class="small">화창하다: 날씨가 맑고 따뜻하다</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">▼ 배너</div>
+          <div class="box-body buttons">
+            <span class="btn88 b1">NAVI<br>접속</span>
+            <span class="btn88 b2">HTML<br>4.01</span>
+            <span class="btn88 b3">레인<br>최고</span>
+            <span class="btn88 b4">공사중<br>!!</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 가운데 본문 -->
+      <main class="col main" id="content">
+        <p class="loading blink">불러오는 중...</p>
+      </main>
+
+      <!-- 오른쪽 -->
+      <aside class="col side">
+        <div class="box">
+          <div class="box-title">▼ 자꾸 까먹는 단어</div>
+          <div class="box-body">
+            <ol id="forgot-list" class="rank-list"></ol>
+            <p id="forgot-nav" class="month-nav"></p>
+            <p class="small">단어에 마우스를 올리면 뜻이 보여요</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">▼ 자주 틀리는 문법</div>
+          <div class="box-body">
+            <ol id="grammar-list" class="rank-list"></ol>
+            <p id="grammar-nav" class="month-nav"></p>
+            <p class="small">마우스를 올리면 맞는 문장이 보여요</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">▼ 이달의 음악</div>
+          <div class="box-body music">
+            <div class="np-row">
+              <div class="eq"><span></span><span></span><span></span><span></span><span></span></div>
+              <span id="music-month" class="month">----.--</span>
+            </div>
+            <ol id="music-list" class="tracks"></ol>
+            <p id="music-note" class="note"></p>
+            <p class="month-nav">
+              <a href="#" id="music-prev">« 이전</a> | <a href="#" id="music-next">다음 »</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">▼ 지금</div>
+          <div class="box-body currently">
+            <p><b>읽는 중</b> 아몬드 — 손원평</p>
+            <p><b>보는 중</b> 시리얼 익스페리먼츠 레인</p>
+            <p><b>하는 중</b> 한국어 일기 쓰기</p>
+            <p><b>만드는 중</b> 이 웹사이트</p>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer id="footer">
+      <p>어디에 있든, 모두 연결되어 있어.</p>
+      <p class="small">800×600 해상도에 최적화 · 인터넷 익스플로러 6.0 권장 · © 2026 와이어드 일지</p>
+    </footer>
+  </div>
+
+  <!-- ===== 고정 페이지 (HTML로 직접 수정) ===== -->
+  <template id="page-notice">
+    <div class="box notice">
+      <div class="box-title">!! 공지 !!</div>
+      <div class="box-body">
+        <p>안녕하세요. 여기는 제 개인 블로그입니다. 만든 것들, 매일의 생활, 그리고 보고 듣고 읽은 것들에 대해서 씁니다.</p>
+        <p>한국어 공부를 위해서 모든 글을 한국어로 쓰고 있어요. 천천히 하지만 꾸준히. ^^</p>
+      </div>
+    </div>
+  </template>
+
+  <template id="page-about">
+    <div class="box">
+      <div class="box-title">▣ 자기소개</div>
+      <div class="box-body page">
+        <p>안녕하세요! 저는 프로그래머이고 한국어를 공부하고 있어요.</p>
+        <p>이 블로그에는 제가 만든 것, 매일의 생활, 그리고 좋아하는 애니메이션이나 음악 이야기를 써요.</p>
+        <h4>좋아하는 것</h4>
+        <ul>
+          <li>오래된 컴퓨터와 CRT 모니터</li>
+          <li>비 오는 밤</li>
+          <li>시리얼 익스페리먼츠 레인</li>
+        </ul>
+      </div>
+    </div>
+  </template>
+
+  <template id="page-links">
+    <div class="box">
+      <div class="box-title">▣ 링크</div>
+      <div class="box-body page">
+        <p>제가 자주 가는 사이트들이에요.</p>
+        <ul>
+          <li><a href="https://neocities.org" target="_blank">네오시티즈</a> — 개인 홈페이지 모음</li>
+          <li><a href="https://korean.dict.naver.com" target="_blank">네이버 국어사전</a></li>
+          <li><a href="https://www.howtostudykorean.com" target="_blank">How to Study Korean</a></li>
+        </ul>
+      </div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+  <script src="posts/list.js"></script>
+  <script src="blog.js"></script>
+</body>
+</html>
