@@ -131,15 +131,18 @@ function renderMusic() {
   musicNext.classList.toggle("off", musicIndex <= 0);
 }
 
-musicPrev.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (musicIndex < monthlyMusic.length - 1) { musicIndex++; renderMusic(); }
-});
-musicNext.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (musicIndex > 0) { musicIndex--; renderMusic(); }
-});
-renderMusic();
+// 패널을 index.html에서 주석 처리하면 건너뛴다
+if (musicPrev) {
+  musicPrev.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (musicIndex < monthlyMusic.length - 1) { musicIndex++; renderMusic(); }
+  });
+  musicNext.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (musicIndex > 0) { musicIndex--; renderMusic(); }
+  });
+  renderMusic();
+}
 
 // ===== 자꾸 까먹는 단어 =====
 // 몇 개든 추가할 수 있다. 까먹을 때마다 misses를 1씩 올린다.
