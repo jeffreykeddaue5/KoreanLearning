@@ -82,7 +82,7 @@ post({
 ```
 
 - Written in simple Korean (반말 diary style like the existing posts), easy to read.
-- 2–3 of the session's clear mistakes at most, each as a ✕/○ pair. Skip nuance tips.
+- Include every mistake from the session, but condensed: one ✕/○ pair per distinct mistake (if the same mistake happened more than once, show it once). The ✕/○ sentences don't have to be the user's exact words. A short, simplified sentence showing the same error is better. Keep the explanation line to one short sentence each. Skip nuance tips.
 - If there were no real mistakes, write about the one correction or near-miss instead, still short.
 - Use `'` or backticks inside strings that contain `"`.
 
