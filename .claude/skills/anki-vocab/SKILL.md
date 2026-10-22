@@ -42,11 +42,12 @@ word;meaning;Korean example;English translation;note;tags
 - **note:** conjugation help and usage, separated by `<br>`:
   - Verbs and adjectives start with `Conj:` followed by the present (해요), past, future (-(으)ㄹ 거예요), modifier, and -아/어서 forms. Mark irregular verbs and adjectives, e.g. `(르 irregular)` or `(ㅂ irregular)`.
     `Conj: 미뤄요 · 미뤘어요 · 미룰 거예요 · 미루는 N · 미뤄서`
-  - Next comes `Use:` with the particle pattern and a common collocation.
+  - Add `Use:` only when a key grammar or usage point is needed to use the word correctly (an unexpected particle, a fixed collocation, a restriction like "only negative"). Skip it when the word is used the obvious way.
     `Use: N을/를 미루다 · 약속을 미루다, 내일로 미루다`
-  - Optionally add `cf)` with a near-synonym and how it differs.
+  - Add `cf)` only when a synonym or contrast prevents a likely mix-up (a near-synonym, a look-alike word, an easily confused English gloss). Skip it otherwise.
     `cf) 연기하다 = more formal (postpone an event)`
-  - Nouns: give the related 하다 verb or common collocations. Expressions: say when to use them.
+  - Nouns: give the related 하다 verb or a collocation only if it's needed. Expressions: say when to use them if that isn't obvious.
+  - Keep notes lean: many rows will have just `Conj:`, or an empty note for nouns.
 - **tags:** `conversation YYYY-MM-DD dayN`, using the file's date and the day number 1–7.
 - Never put `;` or `"` inside a field. Write `<br>` for line breaks, never actual newlines.
 
