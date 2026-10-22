@@ -143,6 +143,21 @@
 ✔ Past tense: 두었어요 is usually shortened to 뒀어요 in speech
 ✔ Related word: 준비하다 = to prepare, get ready (L15)
 
+### 47. V-(으)ㄹ 뻔하다
+**Meaning:** almost…; something almost happened, but it didn't
+
+- 커피를 쏟을 뻔했어요.
+  🔁 I almost spilled my coffee. (But I didn't.)
+- 계단에서 넘어질 뻔했어요.
+  🔁 I almost fell on the stairs. (But I didn't fall.)
+- 늦잠을 자서 버스를 놓칠 뻔했어요.
+  🔁 I overslept and almost missed the bus.
+
+✔ The action did **not** actually happen
+✔ Almost always used in the past: -(으)ㄹ 뻔했어요
+✔ Usually for things you didn't want to happen (spilling, falling, being late)
+✔ Compare: -(으)려다가 = you *intended* A but didn't do it; -(으)ㄹ 뻔했다 = A *nearly happened* to you
+
 ---
 
 ## Compare
@@ -152,6 +167,7 @@
 | -자마자 (#45) | A finishes, B happens right away | 집에 오자마자 잤어요 |
 | -다가 | A is in progress and gets interrupted by B | 집에 오다가 친구를 만났어요 |
 | -(으)려다가 (#41) | you *planned* A but did B instead | 집에 가려다가 친구를 만났어요 |
+| -(으)ㄹ 뻔했다 (#47) | A almost happened, but didn't | 넘어질 뻔했어요 |
 | -다 보니(까) (#37) | doing A over and over led to B | 자주 만나다 보니 친해졌어요 |
 | -게 되다 (#25) | B happened through circumstances | 친해지게 됐어요 |
 | -(으)ㄴ 채로 (#1) | doing B with A's state still in place | 옷을 입은 채로 잤어요 |

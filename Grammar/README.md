@@ -65,6 +65,7 @@ Each point has spoken examples, ❌ → ✅ lines for common mistakes (many from
 | 44 | N치고(는) | [contrast](contrast.md) |
 | 45 | V-자마자 | [time-and-sequence](time-and-sequence.md) |
 | 46 | V-아/어 두다 | [time-and-sequence](time-and-sequence.md) |
+| 47 | V-(으)ㄹ 뻔하다 | [time-and-sequence](time-and-sequence.md) |
 
 ## Adding a point
 
