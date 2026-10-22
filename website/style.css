@@ -166,12 +166,12 @@ h1.glitch.active::after {
 .box-body p { margin: 2px 0; }
 
 /* 프로필 */
-.ascii {
-  margin: 0 0 6px;
-  color: var(--pink);
-  font-size: 11px;
-  line-height: 1.15;
-  text-align: center;
+.pfp {
+  display: block;
+  width: 128px; height: 128px;
+  margin: 0 auto 6px;
+  border: 1px solid var(--line);
+  image-rendering: pixelated;
 }
 .online { color: var(--green); }
 
@@ -369,6 +369,7 @@ h1.glitch.active::after {
   border: 1px solid var(--line);
   background: #000;
 }
+.post-content figure audio { width: 100%; max-width: 420px; }
 .post-content figure a:hover { background: none; }
 .post-content figcaption { font-size: 11px; color: var(--dim); margin-top: 4px; }
 .post-content figcaption::before { content: "▲ "; }

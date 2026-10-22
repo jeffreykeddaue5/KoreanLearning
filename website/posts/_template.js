@@ -32,6 +32,9 @@ post({
     { video: "media/my-post/clip.mp4", caption: "영상 설명" },
     { video: "media/my-post/loop.mp4", gif: true },
 
+    // 음성 (mp3)
+    { audio: "media/my-post/voice.mp3", caption: "음성 설명" },
+
     // 유튜브 (주소의 v= 뒤에 있는 ID)
     { youtube: "dQw4w9WgXcQ" },
 

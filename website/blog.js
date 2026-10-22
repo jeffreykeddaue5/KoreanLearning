@@ -7,7 +7,7 @@ const CATEGORIES = {
   mistakes: { name: "실수", layer: "05" },
 };
 const HOME_POSTS_PER_CATEGORY = 3;
-const SITE_TITLE = "와이어드 일지";
+const SITE_TITLE = "일지";
 
 const content = document.getElementById("content");
 const allPosts = [];
@@ -70,6 +70,7 @@ function renderBlock(b) {
     const attrs = b.gif ? "autoplay loop muted playsinline" : "controls";
     return figure(`<video src="${b.video}" ${attrs}></video>`, b.caption);
   }
+  if (b.audio) return figure(`<audio src="${b.audio}" controls preload="none"></audio>`, b.caption);
   if (b.youtube) {
     return figure(
       `<div class="yt"><iframe src="https://www.youtube.com/embed/${b.youtube}" allowfullscreen></iframe></div>`,
@@ -98,6 +99,7 @@ function mediaBadges(p) {
   let out = "";
   if (has("image") || has("gallery")) out += '<span class="badge">사진</span>';
   if (has("video") || has("youtube")) out += '<span class="badge">영상</span>';
+  if (has("audio")) out += '<span class="badge">음성</span>';
   return out;
 }
 

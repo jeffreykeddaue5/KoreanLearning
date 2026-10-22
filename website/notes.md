@@ -1,4 +1,4 @@
-# 와이어드 일지 — Notes
+# 일지 — Notes
 
 ## 1. Files at a glance
 
@@ -11,7 +11,7 @@
 | `posts/list.js` | **Which posts are live** |
 | `posts/*.js` | One file per post |
 | `posts/_template.js` | Copy this to start a new post |
-| `media/` | Images, GIFs, videos (one folder per post) |
+| `media/` | Images, GIFs, videos, audio (one folder per post) |
 
 To preview locally, just open `index.html` in a browser. No server needed.
 
@@ -63,6 +63,7 @@ post({
     { gallery: ["media/my-post/1.jpg", "media/my-post/2.jpg"], caption: "설명" },
     { video: "media/my-post/clip.mp4", caption: "설명" },   // with controls
     { video: "media/my-post/loop.mp4", gif: true },        // silent autoplay loop
+    { audio: "media/my-post/voice.mp3", caption: "설명" },  // mp3 with controls
     { youtube: "VIDEO_ID" },                               // the part after v= in the URL
     { html: "<hr>" },                                      // anything else
   ],

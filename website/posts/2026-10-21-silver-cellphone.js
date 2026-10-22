@@ -13,6 +13,8 @@ post({
       "<b>남자:</b> 그럼, 이 은색 핸드폰이 좋겠군요. 사진이 예쁘게 잘 나와요.",
       "<b>여자:</b> 처음부터 그 제품이 마음에 들었는데 잘됐네요.",
     ].join("<br>") },
+    { audio: "media/2026-10-21-silver-cellphone/native.mp3", caption: "원어민 음성" },
+    { audio: "media/2026-10-21-silver-cellphone/my-voice.mp3", caption: "내 목소리" },
     { heading: "-겠군요" },
     "Used with action verbs and descriptive verbs to express a guess about how a situation will be, based on what the listener just heard from the speaker.",
     { quote: [
