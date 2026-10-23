@@ -227,7 +227,7 @@ renderRankList({
 // 몇 개든 추가할 수 있다. 틀릴 때마다 misses를 1씩 올린다.
 // 많이 틀린 순서로 5개씩 보이고, « 이전 | 다음 » 으로 넘긴다.
 const misusedGrammar = [
-  { grammar: "시제 (과거/현재/진행)", wrong: "요즘 버텼거든요", right: "요즘 버티고 있거든요", misses: 7 },
+  { grammar: "시제 (과거/현재/진행)", wrong: "모자를 사고 싶은데 다 팔렸어요", right: "모자를 사고 싶었는데 다 팔렸어요", misses: 8 },
   { grammar: "커피를 먹다 → 마시다", wrong: "커피를 많이 먹은 탓에", right: "커피를 많이 마신 탓에", misses: 3 },
   { grammar: "-(으)ㄹ까 봐 (+서 ✕)", wrong: "멀미할까 봐서 약을 먹었어요", right: "멀미할까 봐 약을 먹었어요", misses: 2 },
   { grammar: "-(으)ㄹ까 봐 (못 빠짐)", wrong: "표를 받을까 봐 걱정했어요", right: "표를 못 받을까 봐 걱정했어요", misses: 2 },
@@ -235,8 +235,8 @@ const misusedGrammar = [
   { grammar: "N에 N (복합 명사)", wrong: "일본에 여행은 어땠어요?", right: "일본 여행은 어땠어요?", misses: 2 },
   { grammar: "계획 → -(으)ㄹ 셈이다", wrong: "앞으로 하루에 1잔 마시는 셈이에요", right: "앞으로 하루에 1잔 마실 셈이에요", misses: 1 },
   { grammar: "-(으)나 마나 + -(으)ㄹ 거예요", wrong: "커피를 줄이나 마나 와이프가 믿을 수 없어요", right: "말하나 마나 와이프는 안 믿을 거예요", misses: 1 },
-  { grammar: "-(으)려면 vs -(으)면", wrong: "한 달 전에 예약하려면 어렵지 않아요", right: "한 달 전에 예약하면 어렵지 않아요", misses: 1 },
-  { grammar: "부터 ~ 까지", wrong: "어젯밤에 지금까지 정주행했어요", right: "어젯밤부터 지금까지 정주행했어요", misses: 1 },
+  { grammar: "-(으)ㄹ 뻔하다 + 감정 ✕", wrong: "보냈으면 창피할 뻔했어요", right: "보냈으면 창피했을 거예요", misses: 1 },
+  { grammar: "지난 일 가정 -았/었으면", wrong: "그때 사지 않으면 못 살 뻔했어요", right: "그때 안 샀으면 못 살 뻔했어요", misses: 1 },
 ];
 
 renderRankList({
