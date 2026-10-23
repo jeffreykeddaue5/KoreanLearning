@@ -147,7 +147,7 @@ function template(id) {
 // ===== 화면 =====
 function viewHome() {
   const posts = visiblePosts();
-  let html = template("page-notice");
+  let html = template("page-phrase");
   for (const [key, cat] of Object.entries(CATEGORIES)) {
     const inCat = posts.filter((p) => p.category === key);
     const more = inCat.length > HOME_POSTS_PER_CATEGORY

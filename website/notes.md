@@ -4,7 +4,7 @@
 
 | File | What it's for |
 |---|---|
-| `index.html` | Page layout, side panels, and the 공지 / 자기소개 / 링크 pages (`<template>` blocks at the bottom) |
+| `index.html` | Page layout, side panels, and the 써먹을 표현 panel / 자기소개 / 링크 pages (`<template>` blocks at the bottom) |
 | `style.css` | All styling |
 | `script.js` | Boot screen, clock, counter, 이달의 음악 |
 | `blog.js` | Blog engine: loads posts, menu, routing. Categories are set at the top (`CATEGORIES`) |
@@ -81,7 +81,7 @@ post({
 - **자주 틀리는 문법:** edit `misusedGrammar` in `script.js` (`grammar`, `wrong`, `right`, `misses`). Same idea, 5 per page.
 - **이달의 음악:** add a new month at the **top** of `monthlyMusic` in `script.js` (`plays` is 1–5).
 - **지금 / 오늘의 기분 / 오늘 날씨:** edit directly in `index.html`. In 오늘 날씨, change the weather, temperature and the 오늘의 표현 (expression + short meaning) each day.
-- **자기소개 / 링크 / 공지:** the `<template>` blocks at the bottom of `index.html`.
+- **자기소개 / 링크 / 써먹을 표현:** the `<template>` blocks at the bottom of `index.html`.
 - **New category:** add it to `CATEGORIES` in `blog.js` and add a menu link in `index.html` (`#/category/키`).
 
 ---

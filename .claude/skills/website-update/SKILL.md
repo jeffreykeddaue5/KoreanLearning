@@ -5,7 +5,7 @@ description: Updates the Korean blog in website/ after a study session — today
 
 # Website update
 
-The site is in `website/` (see `website/notes.md`). Do all five steps, then tell the user what changed in a few lines. Keep everything short and simple: this is a personal blog, not study notes.
+The site is in `website/` (see `website/notes.md`). Do all six steps, then tell the user what changed in a few lines. Keep everything short and simple: this is a personal blog, not study notes.
 
 ## 1. 오늘 날씨 (`website/index.html`, the `▼ 오늘 날씨` box)
 
@@ -85,6 +85,16 @@ post({
 - Include every mistake from the session, but condensed: one ✕/○ pair per distinct mistake (if the same mistake happened more than once, show it once). The ✕/○ sentences don't have to be the user's exact words. A short, simplified sentence showing the same error is better. Keep the explanation line to one short sentence each. Skip nuance tips.
 - If there were no real mistakes, write about the one correction or near-miss instead, still short.
 - Use `'` or backticks inside strings that contain `"`.
+
+## 6. 써먹을 표현 (`index.html`, the `<template id="page-phrase">` block at the bottom)
+
+The top panel on the home page. Pick one natural Korean phrase that fixes or goes with a mistake from today's session (or a recurring mistake in `KoreanProgress.md`), something the user can actually say in conversation. Don't reuse a phrase from the `<!-- 지난 표현: … -->` comment.
+
+Update:
+- `<p class="phrase">`: the phrase in 「…」.
+- The next `<p>`: one or two simple Korean sentences on when to use it.
+- The `small` line: one ✕ → ○ pair from today that the phrase helps with, plus a one-line reminder.
+- Add the phrase to the `<!-- 지난 표현: … -->` comment.
 
 ## Check
 

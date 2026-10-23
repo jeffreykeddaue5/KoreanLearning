@@ -195,6 +195,7 @@ h1.glitch.active::after {
 /* ===== 글 ===== */
 .notice .box-body { color: #eee; }
 .notice .box-title { background: #fff; color: #000; }
+.notice .phrase { color: var(--pink); font-size: 14px; }
 
 .post {
   padding: 6px 0 10px;
