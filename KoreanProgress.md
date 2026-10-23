@@ -12,7 +12,7 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 | 2 | -(으)ㄴ/는 걸 보니(까) | New | 2026-10-18 | Right with hint (우산을 쓴 걸 보니); already happening → 오는 모양 not 올 모양 |
 | 3 | -는 김에 | New | 2026-10-17 | Right with hint (숙소에 가는 김에) |
 | 4 | -(으)ㄴ/는 만큼 | New | 2026-10-22 | 기대한 만큼 + 비싸지 않다 mismatch; reason → 전문점인 만큼 |
-| 7 | -(으)ㄴ/는 탓에 | Shaky | 2026-10-22 | Right with hint again (많이 마신 탓에 속이 안 좋았어요) |
+| 7 | -(으)ㄴ/는 탓에 | Shaky | 2026-10-23 | Unprompted (표를 사는 걸 잊어버린 탓에); 아쉽다 → -아서 ⚠ |
 | 8 | -(으)ㄴ/는/(으)ㄹ 모양이다 | New | 2026-10-20 | Right with hint (공포 영화를 보는 모양이에요) |
 | 10 | -(으)ㄴ/는 줄 몰랐다 | New | 2026-10-11 | Used unprompted (이렇게 어려운 줄 몰랐어요) |
 | 9 | -(으)ㄴ/는/(으)ㄹ 셈이다 | New | 2026-10-22 | Used -는 셈 for a plan → -(으)ㄹ 셈; amounts to: 14잔 마시는 셈 |
@@ -43,13 +43,13 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 | 42 | -다면서요? | Solid | 2026-10-10 | Right unprompted (이사했다면서요?) |
 | 43 | -다던데(요) | New | 2026-10-13 | Right with hint + suggestion (재미있다던데 한 번 해 보세요) |
 | 44 | N치고(는) | New | 2026-10-13 | Right with hint (처음 만든 것치고는 잘 만들었어요) |
-| 45 | -자마자 | Solid | 2026-10-17 | Unprompted again (일어나자마자) |
+| 45 | -자마자 | Solid | 2026-10-23 | Unprompted again (나오자마자 샀어요) |
 | 46 | -아/어 두다 | New | 2026-10-22 | Warm-up: 둬어요 ✗ → 둬요; forms: 둬요 / 뒀어요 / 두려고 |
-| 47 | -(으)ㄹ 뻔하다 | New | 2026-10-22 | Right with hint (커피를 쏟을 뻔했어요) |
+| 47 | -(으)ㄹ 뻔하다 | New | 2026-10-23 | Right every turn with hint + 하마터면; not for feelings (창피할 뻔 ✗) |
 
 ## Recurring mistakes
 
-- Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past, 2026-10-20 warm-up: 늘 … 뒀어요 for a habit → 둬요)
+- Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에, 사고 싶은데) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past, 2026-10-20 warm-up: 늘 … 뒀어요 for a habit → 둬요, 2026-10-23: 사고 싶은데 → 싶었는데)
 - -(으)ㄹ까 봐: adds -서 (걸릴까 봐서, L7; 멀미할까 봐서, 2026-10-17) and drops 못 (갈까 봐, L16; 받을까 봐, 2026-10-17) · right 2026-10-18
 - -다 보니 for a one-time action → -아/어 보니까: 확인하다 보니 (2026-10-17), 찾아볼 때 가다 보니 (2026-10-18)
 - N에 N for a compound noun: 한국에 여행은 → 한국 여행은 (2026-10-17), 일본에 여행은 → 일본 여행은 (2026-10-20 warm-up)
@@ -59,16 +59,16 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 
 Mistakes corrected during mentor sessions. Each session starts with a quick fix-this-sentence warm-up from this list, and items are removed at 2/2.
 
-- 늘 약을 먹어 뒸어요 / 둬어요 / 맡겨 둬려고 → 늘 약을 먹어 둬요 / 맡겨 두려고 (2026-10-17) · 0/2
-- 이 가수를 계속 듣다 보니 → 이 가수의 노래를 계속 듣다 보니 (2026-10-18) · 0/2
-- (people already using umbrellas) 비가 올 모양이었어요 → 비가 오는 모양이었어요 (2026-10-18) · 1/2
-- 지하철로 타 보니까 → 지하철을 타 보니까 (2026-10-18) · 1/2
-- 어젯밤에 지금까지 정주행했어요 → 어젯밤부터 지금까지 정주행했어요 (2026-10-20) · 0/2
-- 배가 뻐근했어요 → 속이 안 좋았어요 / 배가 아팠어요 (뻐근하다 = stiff muscles) (2026-10-22) · 0/2
 - 건강 위해서 → 건강을 위해서 (2026-10-22) · 0/2
 - 앞으로 하루에 1잔 마시는 셈이에요 → 마실 셈이에요 (plan → -(으)ㄹ 셈) (2026-10-22) · 0/2
 - 커피를 줄이나 마나 와이프가 믿을 수 없어요 → 말하나 마나 와이프는 안 믿을 거예요 (2026-10-22) · 0/2
 - 한 달 전에 예약하려면 어렵지 않아요 → 예약하면 어렵지 않아요 (2026-10-22) · 0/2
+- 당황할 뻔했어요 / 창피할 뻔했어요 → 보낼 뻔해서 당황했어요 / 보냈으면 창피했을 거예요 (feelings don't take 뻔하다) (2026-10-23) · 0/2
+- 그때 사지 않으면 못 살 뻔했어요 → 그때 안 샀으면 못 살 뻔했어요 (2026-10-23) · 0/2
+- 웹사이트를 다시 확인해서 다 품절됐어요 → 확인해 보니까 다 품절됐더라고요 (2026-10-23) · 0/2
+- 비디오 게임이 필요없잖아요 → 생각해 보니까 필요 없었어요 (-잖아요 = listener already knows) (2026-10-23) · 0/2
+- 다리가 다칠 뻔했어요 → 다리를 다칠 뻔했어요 (2026-10-23) · 0/2
+- 르네상스 (표가) 품절됬어요 → 르네상스 축제 표가 매진됐어요 (tickets → 매진) (2026-10-23) · 0/2
 
 ## Lesson mistakes
 
@@ -138,6 +138,8 @@ Nuance questions to check with a native speaker or teacher.
 - "한국 드라마 보는 걸 시작하게 됐어요": natural, or just 보게 됐어요 / 보기 시작했어요?
 - "은근히 굿즈가 비싸지 않았어요": can 은근히 go with a negative? The mentor suggested 굿즈가 은근히 싸더라고요. (came up again 2026-10-22: 은근히 비싸지 않더라고요)
 - "웬만하면 그냥 아침 일찍 출발하면 돼요": natural, or should 웬만하면 go with -(으)려고 해요 (웬만하면 아침 일찍 출발하려고 해요)?
+- "르네상스에 못 간 탓에 아쉬웠어요": is -(으)ㄴ 탓에 OK before 아쉽다, or is 못 가서 아쉬웠어요 better?
+- "갑자기 사슴이 길을 건넜어요 … 어이없었어요": the mentor said 어이없다 is for people's absurd behavior and suggested 깜짝 놀랐어요. Right?
 
 ## Heard in the wild
 
@@ -148,6 +150,7 @@ Real sentences from dramas, YouTube, or conversations that use a grammar point.
 
 ## Session log
 
+- 2026-10-23 · #47 only + pinned words (day 631) · conversation · strong: 하마터면 … 뻔했어요, 큰일 날 뻔했어요, 탓에, 자마자, 뻐근하다, 낭비하다 · fix: 뻔하다 + feelings, 안 샀으면, 확인해 보니까, 다리를 다치다, 매진
 - 2026-10-22 · #1, 9, 23, 31, 47 + review #7, #37 · conversation · strong: 쏟을 뻔했어요, 켜진 채로, 커피밖에 없다고, 마시다 보니, 늦을까 봐 · fix: 커피를 마시다, 마실 셈, 말하나 마나 + 거예요, 예약하면, 전문점인 만큼
 - 2026-10-20 · #5, 8, 17, 25, 32 + review #29, #37 · drill (stopped at 4/10) · strong: 는 모양이에요, 잖아요, ㄹ지도 몰라요 form, 테니까/텐데 + plan · fix: 어젯밤부터, 일본 여행은, 세우다, 걸 보니까 needs a known fact, 없을지도
 - 2026-10-18 · #7, 16, 20, 29, 37 + review #2, #11 · drill · strong: 까 봐 (no 서, 못), 했나 봐요, 좋아하게 됐어요, 모르기는 했지만, 실컷 · fix: 다 보니 vs 아/어 보니까, 오는 모양, 지하철을 타다, 은근히 + negative
