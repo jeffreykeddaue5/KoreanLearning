@@ -46,29 +46,36 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 | 45 | -자마자 | Solid | 2026-10-23 | Unprompted again (나오자마자 샀어요) |
 | 46 | -아/어 두다 | New | 2026-10-22 | Warm-up: 둬어요 ✗ → 둬요; forms: 둬요 / 뒀어요 / 두려고 |
 | 47 | -(으)ㄹ 뻔하다 | New | 2026-10-23 | Right every turn with hint + 하마터면; not for feelings (창피할 뻔 ✗) |
+| – | V-(으)ㄴ 지 + 기간 + 되다/넘다 | New | 2026-10-25 | Right with hint (화해한 지 2년이 됐어요, 다툰 지 일주일이 넘었지만); 띄어 쓰기: 받은 지 |
+| – | V-는 데 + 시간/돈 + 걸리다/들다 | New | 2026-10-25 | Right with hint (배우는 데 3년이 걸렸어요); 들다 = cost; 그만하는 데 (not 는데) |
+| – | N 만에 | New | 2026-10-25 | Right with hint (5년 만에 대학교 친구를 만났고) |
+| – | -(으)ㄴ 지 얼마 안 되다 / 오래되다 | New | 2026-10-25 | Right with hint (뒷담화를 한 지 오래됐어요); only N → N밖에 안 됐어요 |
+| – | V-기까지 + 기간 | New | 2026-10-25 | Form right; future → 걸릴 거예요 |
+| – | V-(으)ㄴ 이후로 | New | 2026-10-25 | Right twice with hint (체한 이후로, 결혼한 이후로) |
 
 ## Recurring mistakes
 
-- Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에, 사고 싶은데) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past, 2026-10-20 warm-up: 늘 … 뒀어요 for a habit → 둬요, 2026-10-23: 사고 싶은데 → 싶었는데)
+- Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에, 사고 싶은데) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past, 2026-10-20 warm-up: 늘 … 뒀어요 for a habit → 둬요, 2026-10-23: 사고 싶은데 → 싶었는데, 2026-10-25: 풀리기까지 2달이 걸려요 → 걸릴 거예요, 500달러가 들어요 → 들었어요)
 - -(으)ㄹ까 봐: adds -서 (걸릴까 봐서, L7; 멀미할까 봐서, 2026-10-17) and drops 못 (갈까 봐, L16; 받을까 봐, 2026-10-17) · right 2026-10-18
 - -다 보니 for a one-time action → -아/어 보니까: 확인하다 보니 (2026-10-17), 찾아볼 때 가다 보니 (2026-10-18)
 - N에 N for a compound noun: 한국에 여행은 → 한국 여행은 (2026-10-17), 일본에 여행은 → 일본 여행은 (2026-10-20 warm-up)
+- -(으)나 마나 on the wrong action: 커피를 줄이나 마나 → 말하나 마나 와이프는 안 믿을 거예요 (2026-10-22, 2026-10-25 warm-up)
 - 커피를 먹다 → 커피를 마시다 (2026-10-11, 2026-10-12 and earlier, 2026-10-22: 많이 먹은 탓에)
 
 ## Practice mistakes
 
 Mistakes corrected during mentor sessions. Each session starts with a quick fix-this-sentence warm-up from this list, and items are removed at 2/2.
 
-- 건강 위해서 → 건강을 위해서 (2026-10-22) · 0/2
-- 앞으로 하루에 1잔 마시는 셈이에요 → 마실 셈이에요 (plan → -(으)ㄹ 셈) (2026-10-22) · 0/2
-- 커피를 줄이나 마나 와이프가 믿을 수 없어요 → 말하나 마나 와이프는 안 믿을 거예요 (2026-10-22) · 0/2
-- 한 달 전에 예약하려면 어렵지 않아요 → 예약하면 어렵지 않아요 (2026-10-22) · 0/2
+- 한 달 전에 예약하려면 어렵지 않아요 → 예약하면 어렵지 않아요 (2026-10-22) · 1/2
 - 당황할 뻔했어요 / 창피할 뻔했어요 → 보낼 뻔해서 당황했어요 / 보냈으면 창피했을 거예요 (feelings don't take 뻔하다) (2026-10-23) · 0/2
 - 그때 사지 않으면 못 살 뻔했어요 → 그때 안 샀으면 못 살 뻔했어요 (2026-10-23) · 0/2
 - 웹사이트를 다시 확인해서 다 품절됐어요 → 확인해 보니까 다 품절됐더라고요 (2026-10-23) · 0/2
 - 비디오 게임이 필요없잖아요 → 생각해 보니까 필요 없었어요 (-잖아요 = listener already knows) (2026-10-23) · 0/2
 - 다리가 다칠 뻔했어요 → 다리를 다칠 뻔했어요 (2026-10-23) · 0/2
 - 르네상스 (표가) 품절됬어요 → 르네상스 축제 표가 매진됐어요 (tickets → 매진) (2026-10-23) · 0/2
+- 날씨가 풀리기까지 2달이 걸려요 → 두 달 정도 더 걸릴 거예요 (future → -(으)ㄹ 거예요) (2026-10-25) · 0/2
+- 스카이다이빙을 도전하는 데 500달러가 들어요 → 스카이다이빙에 도전하는 데 500달러가 들었어요 (N에 도전하다 + past) (2026-10-25) · 0/2
+- 게임을 그만하는데 2시간이 걸려요 → 그만하는 데 2시간이 걸려요 (-는 데 + 걸리다, spaced) (2026-10-25) · 0/2
 
 ## Lesson mistakes
 
@@ -109,7 +116,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 - 숙소 — place to stay, lodging; 숙소를 잡다/예약하다 (anki 2026-10-13 day1) · 0/2
 - 웬만하면 — if possible, unless there's a good reason; 웬만하면 V-(으)려고 해요 (anki 2026-10-12 day1) · 0/2
 - 늘 — always, habitually; 늘 + present for a habit (늘 약을 먹어 둬요) (not in anki) · 0/2
-- 다투다 — argue, quarrel; N하고/와 다투다 · 다퉈요/다퉜어요 (milder than 싸우다) (anki 2026-10-13 day3) · 0/2
+- 다투다 — argue, quarrel; N하고/와 다투다 · 다퉈요/다퉜어요 (milder than 싸우다) (anki 2026-10-13 day3) · 1/2
 - 화해하다 — make up, reconcile; N하고/와 화해하다 (anki 2026-10-13 day3) · 0/2
 - 몰입하다 — get absorbed in; N에 몰입하다 · 몰입감 (anki 2026-10-13 day5) · 0/2
 - 지루하다 — boring (the thing); vs 심심하다 = bored, nothing to do (anki 2026-10-13 day5) · 0/2
@@ -139,6 +146,8 @@ Nuance questions to check with a native speaker or teacher.
 - "은근히 굿즈가 비싸지 않았어요": can 은근히 go with a negative? The mentor suggested 굿즈가 은근히 싸더라고요. (came up again 2026-10-22: 은근히 비싸지 않더라고요)
 - "웬만하면 그냥 아침 일찍 출발하면 돼요": natural, or should 웬만하면 go with -(으)려고 해요 (웬만하면 아침 일찍 출발하려고 해요)?
 - "르네상스에 못 간 탓에 아쉬웠어요": is -(으)ㄴ 탓에 OK before 아쉽다, or is 못 가서 아쉬웠어요 better?
+- "그 식당에서 체한 이후로 다시 안 돌아갔어요": the mentor suggested 다시 안 갔어요 (돌아가다 = go back home/where you belong). Right?
+- "결혼한 이후로 뒷담화를 안 해 봤어요": the mentor suggested 안 했어요, since -아/어 보다 sounds like "never tried". Right?
 - "갑자기 사슴이 길을 건넜어요 … 어이없었어요": the mentor said 어이없다 is for people's absurd behavior and suggested 깜짝 놀랐어요. Right?
 
 ## Heard in the wild
@@ -150,6 +159,7 @@ Real sentences from dramas, YouTube, or conversations that use a grammar point.
 
 ## Session log
 
+- 2026-10-25 · time expressions: -(으)ㄴ 지 되다, -는 데 걸리다/들다, 만에, 얼마 안 되다, -기까지, 이후로 + pinned words (day 634) · drill · strong: 화해한 지 2년, 배우는 데 3년이 걸렸어요, 5년 만에, 체한 이후로, 뿌듯하다, 수다를 떨다 · fix: 걸릴 거예요 / 들었어요 (tense), N에 도전하다, -는 데 spacing, 말하나 마나
 - 2026-10-23 · #47 only + pinned words (day 631) · conversation · strong: 하마터면 … 뻔했어요, 큰일 날 뻔했어요, 탓에, 자마자, 뻐근하다, 낭비하다 · fix: 뻔하다 + feelings, 안 샀으면, 확인해 보니까, 다리를 다치다, 매진
 - 2026-10-22 · #1, 9, 23, 31, 47 + review #7, #37 · conversation · strong: 쏟을 뻔했어요, 켜진 채로, 커피밖에 없다고, 마시다 보니, 늦을까 봐 · fix: 커피를 마시다, 마실 셈, 말하나 마나 + 거예요, 예약하면, 전문점인 만큼
 - 2026-10-20 · #5, 8, 17, 25, 32 + review #29, #37 · drill (stopped at 4/10) · strong: 는 모양이에요, 잖아요, ㄹ지도 몰라요 form, 테니까/텐데 + plan · fix: 어젯밤부터, 일본 여행은, 세우다, 걸 보니까 needs a known fact, 없을지도
