@@ -3,6 +3,7 @@ const CATEGORIES = {
   daily: { name: "일상" },
   talk: { name: "대화" },
   mistakes: { name: "실수" },
+  homework: { name: "숙제" },
 };
 const HOME_POSTS_PER_CATEGORY = 3;
 const SITE_TITLE = "일지";

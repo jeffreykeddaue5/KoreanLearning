@@ -7,7 +7,7 @@
 post({
   title: "글 제목",
   date: "2026-11-01",
-  category: "daily",            // "projects" | "daily" | "media" | "talk" | "mistakes"
+  category: "daily",            // "daily" | "talk" | "mistakes" | "homework"
   tags: ["태그1", "태그2"],
   // summary: "목록에 보일 요약 (없으면 첫 문단이 쓰인다)",
   // cover:   "media/my-post/cover.jpg",   // 목록에 보일 작은 사진 (선택)
