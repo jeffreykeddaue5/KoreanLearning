@@ -227,16 +227,16 @@ renderRankList({
 // 몇 개든 추가할 수 있다. 틀릴 때마다 misses를 1씩 올린다.
 // 많이 틀린 순서로 5개씩 보이고, « 이전 | 다음 » 으로 넘긴다.
 const misusedGrammar = [
-  { grammar: "시제 (과거/현재/미래)", wrong: "날씨가 풀리기까지 2달이 걸려요", right: "날씨가 풀리기까지 두 달 정도 더 걸릴 거예요", misses: 9 },
+  { grammar: "시제 (과거/현재/미래)", wrong: "표가 매진되나 봐요 (앞으로 일어날 일)", right: "표가 곧 매진될 것 같아요", misses: 10 },
+  { grammar: "-아/어 보니까 (해 보고 알게 됨)", wrong: "웹사이트를 확인하자마자 다 품절됐어요", right: "웹사이트를 확인해 보니까 다 품절됐더라고요", misses: 4 },
   { grammar: "커피를 먹다 → 마시다", wrong: "커피를 많이 먹은 탓에", right: "커피를 많이 마신 탓에", misses: 3 },
+  { grammar: "-(으)ㄹ 뻔하다 + 감정 ✕", wrong: "보냈으면 창피할 뻔했어요", right: "보냈으면 창피했을 거예요", misses: 2 },
   { grammar: "-(으)ㄹ까 봐 (+서 ✕)", wrong: "멀미할까 봐서 약을 먹었어요", right: "멀미할까 봐 약을 먹었어요", misses: 2 },
   { grammar: "-(으)ㄹ까 봐 (못 빠짐)", wrong: "표를 받을까 봐 걱정했어요", right: "표를 못 받을까 봐 걱정했어요", misses: 2 },
-  { grammar: "-다 보니 vs -아/어 보니까", wrong: "확인하다 보니 틀렸더라고요", right: "확인해 보니까 틀렸더라고요", misses: 2 },
   { grammar: "N에 N (복합 명사)", wrong: "일본에 여행은 어땠어요?", right: "일본 여행은 어땠어요?", misses: 2 },
   { grammar: "-(으)나 마나 (어디에 붙나)", wrong: "커피를 줄이나 마나 와이프가 안 믿을 거예요", right: "말하나 마나 와이프는 안 믿을 거예요", misses: 2 },
+  { grammar: "-길래 + 남의 감정", wrong: "친구가 슬프길래 핫초코를 사 줬어요", right: "친구가 슬퍼 보이길래 핫초코를 사 줬어요", misses: 1 },
   { grammar: "N에 도전하다", wrong: "스카이다이빙을 도전하는 데 500달러가 들어요", right: "스카이다이빙에 도전하는 데 500달러가 들었어요", misses: 1 },
-  { grammar: "-는 데 걸리다 (띄어 쓰기)", wrong: "게임을 그만하는데 2시간이 걸려요", right: "게임을 그만하는 데 2시간이 걸려요", misses: 1 },
-  { grammar: "-(으)ㄹ 뻔하다 + 감정 ✕", wrong: "보냈으면 창피할 뻔했어요", right: "보냈으면 창피했을 거예요", misses: 1 },
 ];
 
 renderRankList({
