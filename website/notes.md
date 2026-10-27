@@ -49,7 +49,7 @@ Order in `list.js` doesn't matter. Posts are sorted by `date`.
 post({
   title: "글 제목",
   date: "2026-11-01",
-  category: "daily",            // "projects" | "daily" | "media" | "talk" | "mistakes"
+  category: "daily",            // "daily" | "talk" | "mistakes"
   tags: ["한국어", "생각"],
   summary: "목록에 보일 요약",     // optional, otherwise the first paragraph is used
   cover: "media/my-post/cover.jpg", // optional thumbnail in lists

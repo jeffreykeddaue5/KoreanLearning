@@ -1,10 +1,8 @@
 // ===== 블로그 설정 =====
 const CATEGORIES = {
-  projects: { name: "프로젝트", layer: "01" },
-  daily: { name: "일상", layer: "02" },
-  media: { name: "미디어", layer: "03" },
-  talk: { name: "대화", layer: "04" },
-  mistakes: { name: "실수", layer: "05" },
+  daily: { name: "일상" },
+  talk: { name: "대화" },
+  mistakes: { name: "실수" },
 };
 const HOME_POSTS_PER_CATEGORY = 3;
 const SITE_TITLE = "일지";
@@ -153,7 +151,7 @@ function viewHome() {
     const more = inCat.length > HOME_POSTS_PER_CATEGORY
       ? `<p class="all"><a href="#/category/${key}">→ 전체 보기 (${inCat.length})</a></p>`
       : "";
-    html += listBox(`▣ 레이어:${cat.layer} — ${cat.name}`, inCat.slice(0, HOME_POSTS_PER_CATEGORY), more);
+    html += listBox(`▣ ${cat.name}`, inCat.slice(0, HOME_POSTS_PER_CATEGORY), more);
   }
   return { title: "", html };
 }
@@ -164,7 +162,7 @@ function viewCategory(key) {
   const posts = visiblePosts().filter((p) => p.category === key);
   return {
     title: cat.name,
-    html: listBox(`▣ 레이어:${cat.layer} — ${cat.name} (${posts.length})`, posts),
+    html: listBox(`▣ ${cat.name} (${posts.length})`, posts),
   };
 }
 
@@ -185,7 +183,7 @@ function viewPost(id) {
     title: p.title,
     html: `
       <article class="box post-full">
-        <div class="box-title">▣ ${cat ? `레이어:${cat.layer} — ${cat.name}` : "글"}</div>
+        <div class="box-title">▣ ${cat ? cat.name : "글"}</div>
         <div class="box-body">
           ${postMeta(p)}
           <h2>${p.title}</h2>
