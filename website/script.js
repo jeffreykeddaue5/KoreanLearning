@@ -167,7 +167,7 @@ const forgottenWords = [
   { word: "교환하다", meaning: "산 물건을 다른 것으로 바꾸다", misses: 3 },
   { word: "품절되다", meaning: "물건이 다 팔려서 없다", misses: 3 },
   { word: "장바구니", meaning: "살 물건을 담는 바구니", misses: 3 },
-  { word: "삐지다", meaning: "마음이 상해서 토라지다", misses: 3 },
+  { word: "속상하다", meaning: "일이 잘 안 돼서 마음이 아프고 답답하다", misses: 3 },
 ];
 
 // 많이 틀린 순서로 정렬해서 pageSize개씩 보여 준다. detail은 마우스를 올려야 보인다.
