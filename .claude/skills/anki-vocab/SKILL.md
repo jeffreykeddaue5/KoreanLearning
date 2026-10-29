@@ -62,4 +62,15 @@ Example row:
 Write the file as UTF-8. Check that every row has exactly 6 fields and that there are 70 rows. Then tell the user, in a few lines:
 - the file name and the 7 day themes
 - the import steps the first time only: in Anki, go to File → Import and set Field separator to Semicolon, check Allow HTML, map field 6 to Tags, and set the deck's New cards/day to 10
+- that after importing they should close Anki and tell you, and you'll add audio
 - that they can `git commit` it
+
+## Audio
+
+When the user says they've imported the words and closed Anki, run:
+
+```
+~/.local/share/anki-tts/venv/bin/python -I anki/add_audio.py
+```
+
+It adds Korean TTS (edge-tts, free) to the Front and Example fields of every `conversation` card that doesn't have audio yet, and backs up the collection first. If it says Anki is running, ask the user to close it. If the venv is missing, recreate it: `python3 -m venv ~/.local/share/anki-tts/venv && ~/.local/share/anki-tts/venv/bin/pip install edge-tts anki==<Anki version>`. Get the version from `snap list anki-desktop` (26.09.3 → `26.9.3`).
