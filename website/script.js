@@ -147,19 +147,26 @@ if (musicPrev) {
 // ===== 고정한 단어 =====
 // Anki에서 고정한 단어. 단어 카드(#/cards)에 쓰이고, 오늘 날짜일 때만 흐르는 글자에 나온다.
 const pinnedWords = {
-  date: "2026-10-29",
+  date: "2026-10-30",
   words: [
-    { word: "약속을 어기다", meaning: "break a promise", example: "그 친구는 자꾸 약속을 어겨요.", translation: "That friend keeps breaking promises." },
-    { word: "동점", meaning: "tie (score)", example: "후반에 동점이 됐어요.", translation: "It became a tie in the second half." },
-    { word: "역전하다", meaning: "come from behind, turn the tables", example: "마지막 1분에 역전했어요!", translation: "They came from behind in the last minute!" },
-    { word: "몸을 풀다", meaning: "warm up, stretch", example: "운동하기 전에 꼭 몸을 풀어야 해요.", translation: "You have to warm up before exercising." },
-    { word: "짐을 싸다", meaning: "pack (bags, belongings)", example: "이사 때문에 하루 종일 짐을 쌌어요.", translation: "I packed all day because of the move." },
-    { word: "계약하다", meaning: "sign a contract", example: "어제 새 집을 계약했어요.", translation: "I signed the lease on a new place yesterday." },
-    { word: "이삿짐센터", meaning: "moving company", example: "이삿짐센터를 부르는 게 좋겠어요.", translation: "We'd better call a moving company." },
-    { word: "층간소음", meaning: "noise from the floor above or below", example: "위층 층간소음 때문에 잠을 못 자요.", translation: "I can't sleep because of the noise from upstairs." },
-    { word: "꾸미다", meaning: "decorate, dress up", example: "방을 예쁘게 꾸몄어요.", translation: "I decorated my room nicely." },
-    { word: "보증금", meaning: "security deposit", example: "보증금을 아직 못 돌려받았어요.", translation: "I still haven't gotten my deposit back." },
-    { word: "아늑하다", meaning: "cozy", example: "방이 작지만 아늑해요.", translation: "The room is small but cozy." },
+    { word: "그러게요", meaning: "I know, right / tell me about it", example: "그러게요, 오늘 진짜 덥네요.", translation: "I know, it's really hot today." },
+    { word: "지치다", meaning: "be worn out, exhausted", example: "일주일 내내 야근해서 완전히 지쳤어요.", translation: "I worked late all week, so I'm completely worn out." },
+    { word: "무리하다", meaning: "overdo it, push too hard", example: "감기 걸렸으면 무리하지 마세요.", translation: "If you have a cold, don't push yourself." },
+    { word: "뒤끝", meaning: "grudge, lingering bad feelings", example: "저는 화가 나도 뒤끝은 없어요.", translation: "Even when I get angry, I don't hold a grudge." },
+    { word: "칼퇴", meaning: "leaving work right on time", example: "오늘은 꼭 칼퇴할 거예요.", translation: "I'm definitely leaving right on time today." },
+    { word: "연차", meaning: "annual leave, day off", example: "다음 주에 연차를 쓰려고 해요.", translation: "I'm planning to take a day off next week." },
+    { word: "정신없다", meaning: "hectic, swamped, frazzled", example: "오늘 하루 종일 정신없었어요.", translation: "I was swamped all day today." },
+    { word: "해내다", meaning: "pull off, accomplish", example: "결국 혼자 다 해냈어요!", translation: "In the end, I pulled it all off by myself!" },
+    { word: "설마", meaning: "no way, surely not", example: "설마 벌써 다 먹었어요?", translation: "No way, you already ate it all?" },
+    { word: "하긴", meaning: "well, come to think of it", example: "하긴, 주말이니까 사람이 많겠네요.", translation: "Well, it's the weekend, so I guess it'll be crowded." },
+    { word: "차라리", meaning: "rather, might as well", example: "차라리 집에서 쉬는 게 낫겠어요.", translation: "I might as well just rest at home." },
+    { word: "일부러", meaning: "on purpose, deliberately", example: "일부러 그런 거 아니에요.", translation: "I didn't do it on purpose." },
+    { word: "그나저나", meaning: "by the way, anyway (changing topic)", example: "그나저나 저녁은 뭐 먹을까요?", translation: "By the way, what should we eat for dinner?" },
+    { word: "왠지", meaning: "somehow, for some reason", example: "왠지 오늘은 일이 잘될 것 같아요.", translation: "For some reason, I feel like things will go well today." },
+    { word: "오히려", meaning: "rather, on the contrary", example: "약을 먹었는데 오히려 더 아파요.", translation: "I took medicine, but it actually hurts more." },
+    { word: "하마터면", meaning: "almost, nearly (something bad)", example: "하마터면 버스를 놓칠 뻔했어요.", translation: "I almost missed the bus." },
+    { word: "깜빡하다", meaning: "forget (for a moment), slip one's mind", example: "미안해요, 완전히 깜빡했어요.", translation: "Sorry, it completely slipped my mind." },
+    { word: "신경 쓰다", meaning: "care about, pay attention to, worry about", example: "제 말은 신경 쓰지 마세요.", translation: "Don't worry about what I said." },
   ],
 };
 const pinnedToday = pinnedWords.date === new Date().toLocaleDateString("en-CA");
