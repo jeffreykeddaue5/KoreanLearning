@@ -257,14 +257,14 @@ h1.glitch.active::after {
 }
 .rank-list .word { color: #fff; }
 .rank-list .misses { float: right; color: var(--red); font-size: 10px; }
-.rank-list .meaning {
+.rank-list .meaning, .hint .meaning {
   display: block;
   color: var(--green);
   font-size: 11px;
   filter: blur(4px);
   transition: filter 0.2s;
 }
-.rank-list li:hover .meaning { filter: none; }
+.rank-list li:hover .meaning, .hint:hover .meaning { filter: none; }
 .rank-list .wrong { color: var(--red); }
 
 /* 이달의 음악 */
@@ -313,6 +313,7 @@ h1.glitch.active::after {
 
 /* 기분 · 오늘 날씨 */
 .mood, .tonight { text-align: center; }
+.hint { cursor: help; }
 .face { font-size: 18px; color: var(--pink); }
 .rain { margin: 0; color: #6f8cff; font-size: 11px; line-height: 1.2; }
 .weather-phrase { margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--line); }

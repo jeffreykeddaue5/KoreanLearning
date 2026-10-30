@@ -81,7 +81,7 @@ post({
 - **단어 카드 / 오늘의 단어:** `pinnedWords` in `script.js` feeds the flash cards at `#/cards`. The words also show in the marquee when `date` is today. `/daily-update` refreshes it from Anki.
 - **자주 틀리는 문법:** edit `misusedGrammar` in `script.js` (`grammar`, `wrong`, `right`, `misses`). Same idea, 5 per page.
 - **이달의 음악:** add a new month at the **top** of `monthlyMusic` in `script.js` (`plays` is 1–5).
-- **지금 / 오늘의 기분 / 오늘 날씨:** edit directly in `index.html`. In 오늘 날씨, change the weather, temperature and the 오늘의 표현 (expression + short meaning) each day.
+- **지금 / 오늘의 기분 / 오늘 날씨:** edit directly in `index.html`. In 오늘 날씨, change the weather, temperature and the 오늘의 표현 (expression + short meaning) each day. The English in `<p class="meaning">` stays blurred until you hover, so update it too.
 - **자기소개 / 링크 / 써먹을 표현:** the `<template>` blocks at the bottom of `index.html`.
 - **New category:** add it to `CATEGORIES` in `blog.js` and add a menu link in `index.html` (`#/category/키`).
 

@@ -29,6 +29,7 @@ Update in that box:
 - `<p>날씨 · NN°C</p>` using the current temperature, rounded.
 - The `small` line under it: a short tip for the day, e.g. 우산을 챙기세요, 겉옷을 챙기세요, 햇볕이 좋아요.
 - **오늘의 표현:** one natural Korean expression for today's weather in 「…요」 form, plus a short meaning line in simple Korean, e.g. 「하늘이 쨍해요」 / 쨍하다: 햇빛이 아주 밝고 맑다. Don't reuse the expression that's there now.
+- `<p class="meaning">` (blurred until hover): the English meaning of the expression's key word, e.g. bright and sunny.
 
 ## 2. 오늘의 기분 (`index.html`, the `▼ 오늘의 기분` box)
 
@@ -38,6 +39,7 @@ Update:
 - `class="face"`: a kaomoji that fits.
 - The middle `<p>`: the word.
 - The `small` line: a short sentence with the word, e.g. 오늘 문법을 다 맞혀서 뿌듯해요.
+- `<p class="meaning">` (blurred until hover): the word's English meaning, e.g. fresh, refreshing.
 - Add the word to the `<!-- 지난 기분: … -->` comment just inside the box (create it if it's missing).
 
 ## 3. 자꾸 까먹는 단어 (`forgottenWords` in `website/script.js`)
