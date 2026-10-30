@@ -396,6 +396,43 @@ h1.glitch.active::after {
 .page h4 { color: var(--pink); margin: 12px 0 4px; }
 .page ul { margin: 4px 0; padding-left: 20px; }
 
+/* 단어 카드 */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 260px;
+  margin: 6px 0;
+  padding: 16px;
+  font-family: var(--font-ko);
+  font-size: 16px;
+  color: var(--text);
+  background: #000;
+  border: 1px solid var(--red);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.card b { font-size: 30px; color: #fff; }
+.card small { font-size: 13px; color: var(--dim); }
+.card-meaning { font-size: 18px; color: var(--green); }
+.card-grade { display: flex; gap: 8px; visibility: hidden; }
+.card-grade.on { visibility: visible; }
+.card-grade button {
+  flex: 1;
+  min-height: 52px;
+  font-family: var(--font-ko);
+  font-size: 16px;
+  background: linear-gradient(#e0e0e0, #a8a8a8);
+  color: #000;
+  border: 2px outset #ddd;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.card-grade button:active { border-style: inset; }
+
 /* 방명록 */
 .gb-form { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
 .gb-form input,

@@ -1,6 +1,6 @@
 ---
 name: daily-update
-description: Updates the website's side panels for the day — 오늘 날씨 (Northern Virginia weather and a weather expression), 오늘의 기분, 자꾸 까먹는 단어 from the Anki database, and 자주 틀리는 문법 from KoreanProgress.md. Runs at most once per day. Use when the user runs /daily-update or asks to update the side panels; website-update also runs it after a korean-mentor session if it hasn't run yet today.
+description: Updates the website's side panels for the day — 오늘 날씨 (Northern Virginia weather and a weather expression), 오늘의 기분, 자꾸 까먹는 단어 from the Anki database, and 자주 틀리는 문법 from KoreanProgress.md — plus today's pinned Anki words (marquee and flash cards). The panels run at most once per day; the pinned words refresh on every run. Use when the user runs /daily-update or asks to update the side panels or pinned words; website-update also runs it after a korean-mentor session.
 ---
 
 # Daily update
@@ -11,8 +11,8 @@ Updates the four side panels in `website/` (see `website/notes.md`). Keep everyt
 
 `website/index.html` has a `<!-- daily-update: YYYY-MM-DD -->` comment right after `<!-- 왼쪽 메뉴 -->`. Compare it with today's date (`date +%F`):
 
-- Same date: the panels were already updated today. Don't change anything. Tell the user in one line, and stop.
-- Different date or missing: do steps 1–4, then set the comment to today's date (add it if missing).
+- Same date: the panels were already updated today. Do step 5 only, since the user may have pinned more words.
+- Different date or missing: do steps 1–5, then set the comment to today's date (add it if missing).
 
 ## 1. 오늘 날씨 (`website/index.html`, the `▼ 오늘 날씨` box)
 
@@ -69,6 +69,29 @@ Build it from `KoreanProgress.md`: **Recurring mistakes** first, then **Practice
 - `misses`: the number of dates the mistake shows up with (at least 1)
 
 Replace the whole array. Leave the rest of the file alone.
+
+## 5. 오늘의 단어 (`pinnedWords` in `website/script.js`)
+
+Read today's pinned words from a fresh copy of the collection. They're tagged `review_pinned_day_<N>`, where N is Anki's day number:
+
+```bash
+SCRATCH=<your scratchpad directory>
+cp ~/snap/anki-desktop/common/User\ 1/collection.anki2 "$SCRATCH/collection.anki2"
+python3 -I - "$SCRATCH/collection.anki2" <<'EOF'
+import json, re, sqlite3, sys, time
+c = sqlite3.connect(sys.argv[1])
+crt = c.execute("select crt from col").fetchone()[0]
+day = int((time.time() - crt) // 86400)
+def clean(s):
+    return re.sub(r"\[sound:[^]]*\]|<[^>]+>", "", s).strip()
+for (flds,) in c.execute("select flds from notes where ' ' || tags || ' ' like ?", (f"% review_pinned_day_{day} %",)):
+    f = [clean(x) for x in flds.split("\x1f")] + ["", "", "", ""]
+    print(json.dumps(dict(zip(("word", "meaning", "example", "translation"), f)), ensure_ascii=False))
+EOF
+```
+
+- Words printed: set `date` to today (`date +%F`) and replace the whole `words` array with them, keeping Anki's English as written. Leave the code around it alone.
+- Nothing printed: leave `pinnedWords` as it is. The flash cards keep the last set, and the marquee hides it because the date isn't today.
 
 ## Check
 

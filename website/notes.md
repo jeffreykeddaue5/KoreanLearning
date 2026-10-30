@@ -78,6 +78,7 @@ post({
 
 ### Other things to update
 - **자꾸 까먹는 단어:** edit `forgottenWords` in `script.js`. Add as many as you want and bump `misses` each time you forget one. They're sorted by `misses` and shown 10 per page with « 이전 | 다음 ». Delete words once you've learned them.
+- **단어 카드 / 오늘의 단어:** `pinnedWords` in `script.js` feeds the flash cards at `#/cards`. The words also show in the marquee when `date` is today. `/daily-update` refreshes it from Anki.
 - **자주 틀리는 문법:** edit `misusedGrammar` in `script.js` (`grammar`, `wrong`, `right`, `misses`). Same idea, 5 per page.
 - **이달의 음악:** add a new month at the **top** of `monthlyMusic` in `script.js` (`plays` is 1–5).
 - **지금 / 오늘의 기분 / 오늘 날씨:** edit directly in `index.html`. In 오늘 날씨, change the weather, temperature and the 오늘의 표현 (expression + short meaning) each day.

@@ -42,8 +42,8 @@ Update:
 
 ## 3. Side panels
 
-Check the `<!-- daily-update: YYYY-MM-DD -->` comment in `website/index.html`. If it isn't today's date (`date +%F`), follow `.claude/skills/daily-update/SKILL.md`. If it is, skip this step and leave the side panels alone.
+Check the `<!-- daily-update: YYYY-MM-DD -->` comment in `website/index.html`. Follow `.claude/skills/daily-update/SKILL.md`. It handles the date: if the comment is already today's, it leaves the side panels alone and only refreshes the pinned words.
 
 ## Check
 
-Run `node --check` on the new post (and on `website/script.js` if step 3 ran). Don't stage or commit anything in `website/`. Don't push.
+Run `node --check` on the new post and on `website/script.js`. Don't stage or commit anything in `website/`. Don't push.

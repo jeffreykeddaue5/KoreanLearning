@@ -144,6 +144,42 @@ if (musicPrev) {
   renderMusic();
 }
 
+// ===== 고정한 단어 =====
+// Anki에서 고정한 단어. 단어 카드(#/cards)에 쓰이고, 오늘 날짜일 때만 흐르는 글자에 나온다.
+const pinnedWords = {
+  date: "2026-10-29",
+  words: [
+    { word: "약속을 어기다", meaning: "break a promise", example: "그 친구는 자꾸 약속을 어겨요.", translation: "That friend keeps breaking promises." },
+    { word: "동점", meaning: "tie (score)", example: "후반에 동점이 됐어요.", translation: "It became a tie in the second half." },
+    { word: "역전하다", meaning: "come from behind, turn the tables", example: "마지막 1분에 역전했어요!", translation: "They came from behind in the last minute!" },
+    { word: "몸을 풀다", meaning: "warm up, stretch", example: "운동하기 전에 꼭 몸을 풀어야 해요.", translation: "You have to warm up before exercising." },
+    { word: "짐을 싸다", meaning: "pack (bags, belongings)", example: "이사 때문에 하루 종일 짐을 쌌어요.", translation: "I packed all day because of the move." },
+    { word: "계약하다", meaning: "sign a contract", example: "어제 새 집을 계약했어요.", translation: "I signed the lease on a new place yesterday." },
+    { word: "이삿짐센터", meaning: "moving company", example: "이삿짐센터를 부르는 게 좋겠어요.", translation: "We'd better call a moving company." },
+    { word: "층간소음", meaning: "noise from the floor above or below", example: "위층 층간소음 때문에 잠을 못 자요.", translation: "I can't sleep because of the noise from upstairs." },
+    { word: "꾸미다", meaning: "decorate, dress up", example: "방을 예쁘게 꾸몄어요.", translation: "I decorated my room nicely." },
+    { word: "보증금", meaning: "security deposit", example: "보증금을 아직 못 돌려받았어요.", translation: "I still haven't gotten my deposit back." },
+    { word: "아늑하다", meaning: "cozy", example: "방이 작지만 아늑해요.", translation: "The room is small but cozy." },
+  ],
+};
+const pinnedToday = pinnedWords.date === new Date().toLocaleDateString("en-CA");
+
+// 오늘 고정한 단어를 흐르는 글자 맨 앞에 붙인다. 마우스를 올리면 멈추고 뜻이 보인다.
+if (pinnedToday) {
+  const marquee = document.querySelector("marquee");
+  const parts = ["★ 오늘의 단어 ★ "];
+  pinnedWords.words.forEach((w, i) => {
+    const a = document.createElement("a");
+    a.href = "#/cards";
+    a.title = w.meaning;
+    a.textContent = w.word;
+    parts.push(i ? " · " : "", a);
+  });
+  marquee.prepend(...parts, " ");
+  marquee.addEventListener("mouseenter", () => marquee.stop());
+  marquee.addEventListener("mouseleave", () => marquee.start());
+}
+
 // ===== 자꾸 까먹는 단어 =====
 // 몇 개든 추가할 수 있다. 까먹을 때마다 misses를 1씩 올린다.
 // 많이 까먹은 순서로 10개씩 보이고, « 이전 | 다음 » 으로 넘긴다. 외웠으면 지우면 된다.
@@ -227,7 +263,7 @@ renderRankList({
 // 몇 개든 추가할 수 있다. 틀릴 때마다 misses를 1씩 올린다.
 // 많이 틀린 순서로 5개씩 보이고, « 이전 | 다음 » 으로 넘긴다.
 const misusedGrammar = [
-  { grammar: "시제 (과거/현재/미래)", wrong: "표가 매진되나 봐요 (앞으로 일어날 일)", right: "표가 곧 매진될 것 같아요", misses: 10 },
+  { grammar: "시제 (과거/현재/미래)", wrong: "표가 매진되나 봐요 (앞으로 일어날 일)", right: "표가 곧 매진될 것 같아요", misses: 11 },
   { grammar: "-아/어 보니까 (해 보고 알게 됨)", wrong: "웹사이트를 확인하자마자 다 품절됐어요", right: "웹사이트를 확인해 보니까 다 품절됐더라고요", misses: 4 },
   { grammar: "커피를 먹다 → 마시다", wrong: "커피를 많이 먹은 탓에", right: "커피를 많이 마신 탓에", misses: 3 },
   { grammar: "-(으)ㄹ 뻔하다 + 감정 ✕", wrong: "보냈으면 창피할 뻔했어요", right: "보냈으면 창피했을 거예요", misses: 2 },
@@ -235,7 +271,7 @@ const misusedGrammar = [
   { grammar: "-(으)ㄹ까 봐 (못 빠짐)", wrong: "표를 받을까 봐 걱정했어요", right: "표를 못 받을까 봐 걱정했어요", misses: 2 },
   { grammar: "N에 N (복합 명사)", wrong: "일본에 여행은 어땠어요?", right: "일본 여행은 어땠어요?", misses: 2 },
   { grammar: "-(으)나 마나 (어디에 붙나)", wrong: "커피를 줄이나 마나 와이프가 안 믿을 거예요", right: "말하나 마나 와이프는 안 믿을 거예요", misses: 2 },
-  { grammar: "-길래 + 남의 감정", wrong: "친구가 슬프길래 핫초코를 사 줬어요", right: "친구가 슬퍼 보이길래 핫초코를 사 줬어요", misses: 1 },
+  { grammar: "몸 + 을/를 다치다", wrong: "다리가 다칠 뻔했어요", right: "다리를 다칠 뻔했어요", misses: 2 },
   { grammar: "N에 도전하다", wrong: "스카이다이빙을 도전하는 데 500달러가 들어요", right: "스카이다이빙에 도전하는 데 500달러가 들었어요", misses: 1 },
 ];
 

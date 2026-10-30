@@ -239,6 +239,67 @@ function viewGuestbook() {
   };
 }
 
+// 단어 카드: 누르면 뒤집힌다. "알아요"는 빼고, "다시"는 맨 뒤로 보낸다.
+function viewCards() {
+  const title = pinnedToday ? "오늘의 단어" : `${normDate(pinnedWords.date)} 단어`;
+  return {
+    title,
+    html: `
+      <div class="box">
+        <div class="box-title">▣ ${title}</div>
+        <div class="box-body">
+          <p id="card-count" class="small"></p>
+          <button id="card" class="card" type="button"></button>
+          <div id="card-grade" class="card-grade">
+            <button id="card-again" type="button">✕ 다시</button>
+            <button id="card-know" type="button">○ 알아요</button>
+          </div>
+        </div>
+      </div>`,
+    after() {
+      const card = document.getElementById("card");
+      const count = document.getElementById("card-count");
+      const grade = document.getElementById("card-grade");
+      const total = pinnedWords.words.length;
+      let queue, flipped;
+
+      function show() {
+        flipped = false;
+        grade.classList.remove("on");
+        count.textContent = `남은 카드 ${queue.length} / ${total}`;
+        card.innerHTML = queue.length
+          ? `<b>${escapeHtml(queue[0].word)}</b>`
+          : "<b>끝!</b><small>누르면 처음부터 다시 해요</small>";
+      }
+
+      function restart() {
+        queue = pinnedWords.words.slice().sort(() => Math.random() - 0.5);
+        show();
+      }
+
+      card.addEventListener("click", () => {
+        if (!queue.length) return restart();
+        flipped = !flipped;
+        grade.classList.toggle("on", flipped);
+        const w = queue[0];
+        card.innerHTML = `<b>${escapeHtml(w.word)}</b>` + (flipped
+          ? `<span class="card-meaning">${escapeHtml(w.meaning)}</span>` +
+            `<span>${escapeHtml(w.example)}</span><small>${escapeHtml(w.translation)}</small>`
+          : "");
+      });
+      document.getElementById("card-again").addEventListener("click", () => {
+        queue.push(queue.shift());
+        show();
+      });
+      document.getElementById("card-know").addEventListener("click", () => {
+        queue.shift();
+        show();
+      });
+      restart();
+    },
+  };
+}
+
 function viewNotFound() {
   return {
     title: "404",
@@ -267,6 +328,7 @@ function route() {
     about: () => ({ title: "자기소개", html: template("page-about") }),
     links: () => ({ title: "링크", html: template("page-links") }),
     guestbook: viewGuestbook,
+    cards: viewCards,
   };
   const page = (views[view] || viewNotFound)();
 
@@ -284,7 +346,9 @@ function route() {
     a.classList.toggle("active", a.getAttribute("href") === current);
   });
 
-  window.scrollTo(0, 0);
+  // 휴대폰에서는 본문이 왼쪽 메뉴 아래에 있어서, 카드는 바로 보이도록 본문까지 내려간다
+  if (view === "cards") content.scrollIntoView();
+  else window.scrollTo(0, 0);
 }
 
 window.addEventListener("hashchange", route);
