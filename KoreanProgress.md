@@ -70,9 +70,6 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 
 Mistakes corrected during mentor sessions. Each session starts with a quick fix-this-sentence warm-up from this list, and items are removed at 2/2.
 
-- 스카이다이빙을 도전하는 데 500달러가 들어요 → 스카이다이빙에 도전하는 데 500달러가 들었어요 (N에 도전하다 + past) (2026-10-25) · 0/2
-- 게임을 그만하는데 2시간이 걸려요 → 그만하는 데 2시간이 걸려요 (-는 데 + 걸리다, spaced) (2026-10-25) · 1/2
-- 표가 매진되나 봐요 → 곧 매진될 것 같아요 (-나 보다 isn't for the future) (2026-10-26) · 1/2
 - 계속 가다 보니까 구경이 좋아졌어요 → 구경하는 게 좋아졌어요 (2026-10-26) · 1/2
 - 친구가 슬프길래 핫초코를 사 줬어요 → 친구가 슬퍼 보이길래 (others' feelings → -아/어 보이다) (2026-10-26) · 1/2
 - 온라인에는 마스크를 사는 게 좋겠어요 → 온라인에서 사는 게 좋겠어요 (2026-10-26) · 0/2
@@ -80,6 +77,9 @@ Mistakes corrected during mentor sessions. Each session starts with a quick fix-
 - 세일이 많은 만큼 어쩐지 주차하는 데 30분이 걸렸어요 → 어쩐지 주차하는 데 30분이나 걸리더라고요 (어쩐지 + result you now understand) (2026-10-29) · 0/2
 - 빵이 품절되는 걸 보니까 6시에 가야겠어요 → 9시면 빵이 다 팔리니까 6시에 가야겠어요 (-는 걸 보니까 → a guess, not a decision) (2026-10-29) · 0/2
 - 처음 봤을 야구에 신경이 안 썼는데 → 처음 봤을 때 야구에 관심이 없었는데 (관심이 없다 for "not interested") (2026-10-30) · 0/2
+- 늦어도 발표를 해냈어요 → 늦었지만 발표를 해냈어요 (-아/어도 = even if, not for something that already happened) (2026-10-31) · 0/2
+- 마라톤을 끝낼까 봐 걱정이었어요 → 마라톤을 못 끝낼까 봐 걱정이었어요 (worry about not doing it → 못, same as L16) (2026-10-31) · 0/2
+- 오늘에 뒤끝이 없는 것 같아요 → 오늘은 뒤끝이 없는 것 같아요 (오늘 doesn't take 에) (2026-10-31) · 0/2
 
 ## Lesson mistakes
 
@@ -134,6 +134,17 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 - 결말 — ending; 결말이 아쉽다 · 열린 결말 (anki 2026-10-13 day5) · 0/2
 - 줄거리 — plot, storyline; 줄거리가 헷갈리다 · 간단한 줄거리 (anki 2026-10-13 day5) · 1/2
 - 주인공 — main character; 남자/여자 주인공 · 주인공을 맡다 (anki 2026-10-13 day5) · 0/2
+
+## Pinned drill
+
+Pinned Anki words drilled with `/pinned-words`, marked passed or missed. A word missed in two runs moves to **Hard words**, and lines are deleted once the pin is more than 7 days old.
+
+- 역전하다 · pinned 2026-10-29 · passed 2026-10-31
+- 연차 · pinned 2026-10-30 · passed 2026-10-31
+- 뒤끝 · pinned 2026-10-30 · passed 2026-10-31
+- 칼퇴 · pinned 2026-10-30 · passed 2026-10-31
+- 해내다 · pinned 2026-10-30 · passed 2026-10-31
+- 설마 · pinned 2026-10-30 · missed 2026-10-31
 
 ## To verify
 
