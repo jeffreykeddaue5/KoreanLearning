@@ -147,26 +147,20 @@ if (musicPrev) {
 // ===== 고정한 단어 =====
 // Anki에서 고정한 단어. 단어 카드(#/cards)에 쓰이고, 오늘 날짜일 때만 흐르는 글자에 나온다.
 const pinnedWords = {
-  date: "2026-10-30",
+  date: "2026-10-31",
   words: [
-    { word: "그러게요", meaning: "I know, right / tell me about it", example: "그러게요, 오늘 진짜 덥네요.", translation: "I know, it's really hot today." },
-    { word: "지치다", meaning: "be worn out, exhausted", example: "일주일 내내 야근해서 완전히 지쳤어요.", translation: "I worked late all week, so I'm completely worn out." },
-    { word: "무리하다", meaning: "overdo it, push too hard", example: "감기 걸렸으면 무리하지 마세요.", translation: "If you have a cold, don't push yourself." },
-    { word: "뒤끝", meaning: "grudge, lingering bad feelings", example: "저는 화가 나도 뒤끝은 없어요.", translation: "Even when I get angry, I don't hold a grudge." },
-    { word: "칼퇴", meaning: "leaving work right on time", example: "오늘은 꼭 칼퇴할 거예요.", translation: "I'm definitely leaving right on time today." },
-    { word: "연차", meaning: "annual leave, day off", example: "다음 주에 연차를 쓰려고 해요.", translation: "I'm planning to take a day off next week." },
-    { word: "정신없다", meaning: "hectic, swamped, frazzled", example: "오늘 하루 종일 정신없었어요.", translation: "I was swamped all day today." },
-    { word: "해내다", meaning: "pull off, accomplish", example: "결국 혼자 다 해냈어요!", translation: "In the end, I pulled it all off by myself!" },
-    { word: "설마", meaning: "no way, surely not", example: "설마 벌써 다 먹었어요?", translation: "No way, you already ate it all?" },
-    { word: "하긴", meaning: "well, come to think of it", example: "하긴, 주말이니까 사람이 많겠네요.", translation: "Well, it's the weekend, so I guess it'll be crowded." },
-    { word: "차라리", meaning: "rather, might as well", example: "차라리 집에서 쉬는 게 낫겠어요.", translation: "I might as well just rest at home." },
-    { word: "일부러", meaning: "on purpose, deliberately", example: "일부러 그런 거 아니에요.", translation: "I didn't do it on purpose." },
-    { word: "그나저나", meaning: "by the way, anyway (changing topic)", example: "그나저나 저녁은 뭐 먹을까요?", translation: "By the way, what should we eat for dinner?" },
-    { word: "왠지", meaning: "somehow, for some reason", example: "왠지 오늘은 일이 잘될 것 같아요.", translation: "For some reason, I feel like things will go well today." },
-    { word: "오히려", meaning: "rather, on the contrary", example: "약을 먹었는데 오히려 더 아파요.", translation: "I took medicine, but it actually hurts more." },
-    { word: "하마터면", meaning: "almost, nearly (something bad)", example: "하마터면 버스를 놓칠 뻔했어요.", translation: "I almost missed the bus." },
-    { word: "깜빡하다", meaning: "forget (for a moment), slip one's mind", example: "미안해요, 완전히 깜빡했어요.", translation: "Sorry, it completely slipped my mind." },
-    { word: "신경 쓰다", meaning: "care about, pay attention to, worry about", example: "제 말은 신경 쓰지 마세요.", translation: "Don't worry about what I said." },
+    { word: "은근히", meaning: "kind of, more than you'd think", example: "이 일 은근히 힘들더라고요.", translation: "This job is surprisingly tough." },
+    { word: "속상하다", meaning: "upset, frustrated, hurt", example: "시험을 망쳐서 너무 속상해요.", translation: "I'm so upset because I bombed the test." },
+    { word: "몰리다", meaning: "flock, crowd (into a place)", example: "주말이라서 사람이 많이 몰렸어요.", translation: "Because it's the weekend, a lot of people flocked there." },
+    { word: "망설이다", meaning: "hesitate, waver", example: "살까 말까 계속 망설이고 있어요.", translation: "I keep going back and forth on whether to buy it." },
+    { word: "황당하다", meaning: "absurd, dumbfounding", example: "약속을 갑자기 취소해서 황당했어요.", translation: "They suddenly canceled on me, and I couldn't believe it." },
+    { word: "당연하다", meaning: "obvious, natural, of course", example: "제가 도와 드리는 건 당연하죠.", translation: "Of course I'll help you." },
+    { word: "그럴 리가요", meaning: "no way, that can't be", example: "그럴 리가요, 아까 분명히 봤어요.", translation: "That can't be, I definitely saw it earlier." },
+    { word: "글쎄요", meaning: "well, I'm not sure", example: "글쎄요, 저는 잘 모르겠어요.", translation: "Well, I'm not really sure." },
+    { word: "아무튼", meaning: "anyway, at any rate", example: "아무튼 오늘 정말 즐거웠어요.", translation: "Anyway, I had a really great time today." },
+    { word: "말도 안 되다", meaning: "ridiculous, it can't be", example: "벌써 11월이라니 말도 안 돼요.", translation: "I can't believe it's already November." },
+    { word: "별일", meaning: "anything unusual", example: "요즘 별일 없죠?", translation: "Nothing much going on lately, right?" },
+    { word: "마찬가지", meaning: "the same", example: "저도 마찬가지예요.", translation: "It's the same for me." },
   ],
 };
 const pinnedToday = pinnedWords.date === new Date().toLocaleDateString("en-CA");
@@ -196,9 +190,12 @@ const forgottenWords = [
   { word: "도전하다", meaning: "어려운 일을 해 보려고 하다", misses: 4 },
   { word: "화해하다", meaning: "싸운 뒤에 다시 사이가 좋아지다", misses: 4 },
   { word: "볼만하다", meaning: "볼 가치가 있다", misses: 4 },
+  { word: "역전하다", meaning: "지고 있다가 상황을 뒤집어 앞서다", misses: 4 },
   { word: "여유", meaning: "시간이나 마음에 남는 넉넉함", misses: 3 },
   { word: "막상", meaning: "실제로 그때가 되니까", misses: 3 },
   { word: "억울하다", meaning: "잘못이 없는데 피해를 받아서 속상하다", misses: 3 },
+  { word: "지치다", meaning: "힘을 많이 써서 기운이 없다", misses: 3 },
+  { word: "은근히", meaning: "생각보다 꽤", misses: 3 },
   { word: "실컷", meaning: "하고 싶은 만큼 마음껏", misses: 3 },
   { word: "체하다", meaning: "먹은 음식이 잘 내려가지 않고 속이 답답하다", misses: 3 },
   { word: "낭비하다", meaning: "시간이나 돈을 헛되이 쓰다", misses: 3 },
@@ -208,9 +205,6 @@ const forgottenWords = [
   { word: "몰입하다", meaning: "한 가지 일에 깊이 빠지다", misses: 3 },
   { word: "줄거리", meaning: "이야기의 중요한 내용", misses: 3 },
   { word: "교환하다", meaning: "산 물건을 다른 것으로 바꾸다", misses: 3 },
-  { word: "품절되다", meaning: "물건이 다 팔려서 없다", misses: 3 },
-  { word: "장바구니", meaning: "살 물건을 담는 바구니", misses: 3 },
-  { word: "속상하다", meaning: "일이 잘 안 돼서 마음이 아프고 답답하다", misses: 3 },
 ];
 
 // 많이 틀린 순서로 정렬해서 pageSize개씩 보여 준다. detail은 마우스를 올려야 보인다.
@@ -270,16 +264,16 @@ renderRankList({
 // 몇 개든 추가할 수 있다. 틀릴 때마다 misses를 1씩 올린다.
 // 많이 틀린 순서로 5개씩 보이고, « 이전 | 다음 » 으로 넘긴다.
 const misusedGrammar = [
-  { grammar: "시제 (과거/현재/미래)", wrong: "표가 매진되나 봐요 (앞으로 일어날 일)", right: "표가 곧 매진될 것 같아요", misses: 11 },
+  { grammar: "시제 (과거/현재/미래)", wrong: "표가 매진되나 봐요 (앞으로 일어날 일)", right: "표가 곧 매진될 것 같아요", misses: 12 },
   { grammar: "-아/어 보니까 (해 보고 알게 됨)", wrong: "웹사이트를 확인하자마자 다 품절됐어요", right: "웹사이트를 확인해 보니까 다 품절됐더라고요", misses: 4 },
   { grammar: "커피를 먹다 → 마시다", wrong: "커피를 많이 먹은 탓에", right: "커피를 많이 마신 탓에", misses: 3 },
+  { grammar: "-(으)ㄹ까 봐 (못 빠짐)", wrong: "마라톤을 끝낼까 봐 걱정이었어요", right: "마라톤을 못 끝낼까 봐 걱정이었어요", misses: 3 },
   { grammar: "-(으)ㄹ 뻔하다 + 감정 ✕", wrong: "보냈으면 창피할 뻔했어요", right: "보냈으면 창피했을 거예요", misses: 2 },
   { grammar: "-(으)ㄹ까 봐 (+서 ✕)", wrong: "멀미할까 봐서 약을 먹었어요", right: "멀미할까 봐 약을 먹었어요", misses: 2 },
-  { grammar: "-(으)ㄹ까 봐 (못 빠짐)", wrong: "표를 받을까 봐 걱정했어요", right: "표를 못 받을까 봐 걱정했어요", misses: 2 },
   { grammar: "N에 N (복합 명사)", wrong: "일본에 여행은 어땠어요?", right: "일본 여행은 어땠어요?", misses: 2 },
   { grammar: "-(으)나 마나 (어디에 붙나)", wrong: "커피를 줄이나 마나 와이프가 안 믿을 거예요", right: "말하나 마나 와이프는 안 믿을 거예요", misses: 2 },
   { grammar: "몸 + 을/를 다치다", wrong: "다리가 다칠 뻔했어요", right: "다리를 다칠 뻔했어요", misses: 2 },
-  { grammar: "N에 도전하다", wrong: "스카이다이빙을 도전하는 데 500달러가 들어요", right: "스카이다이빙에 도전하는 데 500달러가 들었어요", misses: 1 },
+  { grammar: "남은 N이 + N밖에 없다", wrong: "남은 식빵밖에 없었거든요", right: "남은 빵이 식빵밖에 없었거든요", misses: 2 },
 ];
 
 renderRankList({
