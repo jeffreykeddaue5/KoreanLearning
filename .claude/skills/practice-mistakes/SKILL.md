@@ -21,7 +21,7 @@ A 5–10 minute drill on the user's own mistakes, separate from `korean-mentor` 
 - **Change the situation.** Don't reuse the wrong sentence as written: keep the mistake but change the people, place or verb, so a memorized answer won't work. Don't say what's being tested until the user has answered.
 - For Lesson mistakes, grep the `Homework/` lesson named in the item and use the tutor's wording in the feedback.
 - Follow **Feedback** in `.claude/skills/korean-mentor/SKILL.md`, with a one-line ✔ or ✏️ for each answer.
-- Read each Korean prompt aloud as in `korean-mentor`, with `.claude/skills/korean-mentor/speak.sh "<Korean text>"` (Bash, `run_in_background: true`). Pass only the sentence to answer or fix. If the script fails, say so in one line and carry on without audio.
+- Read each Korean prompt aloud as in `korean-mentor`, with `.claude/skills/korean-mentor/speak.sh "<Korean text>"` (plain Bash, not `run_in_background`). Don't mention the audio unless it fails. Pass only the sentence to answer or fix. If the script fails, say so in one line and carry on without audio.
 - After the last item, ask the missed items again, each with a new situation. Only the first answer changes the counts.
 
 ## Ending
