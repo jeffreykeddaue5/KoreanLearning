@@ -56,29 +56,30 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 
 ## Recurring mistakes
 
-- Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에, 사고 싶은데) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past, 2026-10-20 warm-up: 늘 … 뒀어요 for a habit → 둬요, 2026-10-23: 사고 싶은데 → 싶었는데, 2026-10-25: 풀리기까지 2달이 걸려요 → 걸릴 거예요, 500달러가 들어요 → 들었어요, 2026-10-26: 매진되나 봐요 for the future → 매진될 것 같아요, 2026-10-29 warm-up: 풀리기까지 … 걸었어요 → 걸릴 거예요, 500달러가 들어요 → 들었어요)
+- Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에, 사고 싶은데) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past, 2026-10-20 warm-up: 늘 … 뒀어요 for a habit → 둬요, 2026-10-23: 사고 싶은데 → 싶었는데, 2026-10-25: 풀리기까지 2달이 걸려요 → 걸릴 거예요, 500달러가 들어요 → 들었어요, 2026-10-26: 매진되나 봐요 for the future → 매진될 것 같아요, 2026-10-29 warm-up: 풀리기까지 … 걸었어요 → 걸릴 거예요, 500달러가 들어요 → 들었어요, 2026-10-30 drill: 30만 원이 들어요 → 들었어요) · right 2026-10-30
 - -(으)ㄹ까 봐: adds -서 (걸릴까 봐서, L7; 멀미할까 봐서, 2026-10-17) and drops 못 (갈까 봐, L16; 받을까 봐, 2026-10-17) · right 2026-10-18
 - Discovery → -아/어 보니까: 확인하다 보니 (2026-10-17), 찾아볼 때 가다 보니 (2026-10-18), 확인해서 품절됐어요 (2026-10-23), 확인하자마자 품절됐어요 (2026-10-26 warm-up) → 확인해 보니까 품절됐더라고요 · right unprompted 2026-10-29
 - N에 N for a compound noun: 한국에 여행은 → 한국 여행은 (2026-10-17), 일본에 여행은 → 일본 여행은 (2026-10-20 warm-up)
 - -(으)나 마나 on the wrong action: 커피를 줄이나 마나 → 말하나 마나 와이프는 안 믿을 거예요 (2026-10-22, 2026-10-25 warm-up)
-- -(으)ㄹ 뻔하다 + feelings / past "if": 창피할 뻔했어요 → 보냈으면 창피했을 거예요; 사지 않으면 못 살 거예요 → 안 샀으면 못 살 뻔했어요 (2026-10-23, 2026-10-26 warm-up)
-- Body part takes 을/를 with 다치다: 다리가 다칠 뻔했어요 → 다리를 다칠 뻔했어요 (2026-10-23, 2026-10-29 warm-up)
+- -(으)ㄹ 뻔하다 + feelings / past "if": 창피할 뻔했어요 → 보냈으면 창피했을 거예요; 사지 않으면 못 살 거예요 → 안 샀으면 못 살 뻔했어요 (2026-10-23, 2026-10-26 warm-up) · right 2026-10-30
+- Body part takes 을/를 with 다치다: 다리가 다칠 뻔했어요 → 다리를 다칠 뻔했어요 (2026-10-23, 2026-10-29 warm-up) · right 2026-10-30
+- 남은 N이 + X밖에 없다: 맨 앞자리밖에 없었거든요 → 남은 자리가 맨 앞자리밖에 없었거든요 (L6); 남은 식빵밖에 없었거든요 → 남은 빵이 식빵밖에 없었거든요 (2026-10-30 drill)
 - 커피를 먹다 → 커피를 마시다 (2026-10-11, 2026-10-12 and earlier, 2026-10-22: 많이 먹은 탓에)
 
 ## Practice mistakes
 
 Mistakes corrected during mentor sessions. Each session starts with a quick fix-this-sentence warm-up from this list, and items are removed at 2/2.
 
-- 날씨가 풀리기까지 2달이 걸려요 → 두 달 정도 더 걸릴 거예요 (future → -(으)ㄹ 거예요; 걸리다 → 걸렸어요, not 걸었어요) (2026-10-25) · 0/2
 - 스카이다이빙을 도전하는 데 500달러가 들어요 → 스카이다이빙에 도전하는 데 500달러가 들었어요 (N에 도전하다 + past) (2026-10-25) · 0/2
-- 게임을 그만하는데 2시간이 걸려요 → 그만하는 데 2시간이 걸려요 (-는 데 + 걸리다, spaced) (2026-10-25) · 0/2
-- 표가 매진되나 봐요 → 곧 매진될 것 같아요 (-나 보다 isn't for the future) (2026-10-26) · 0/2
-- 계속 가다 보니까 구경이 좋아졌어요 → 구경하는 게 좋아졌어요 (2026-10-26) · 0/2
-- 친구가 슬프길래 핫초코를 사 줬어요 → 친구가 슬퍼 보이길래 (others' feelings → -아/어 보이다) (2026-10-26) · 0/2
+- 게임을 그만하는데 2시간이 걸려요 → 그만하는 데 2시간이 걸려요 (-는 데 + 걸리다, spaced) (2026-10-25) · 1/2
+- 표가 매진되나 봐요 → 곧 매진될 것 같아요 (-나 보다 isn't for the future) (2026-10-26) · 1/2
+- 계속 가다 보니까 구경이 좋아졌어요 → 구경하는 게 좋아졌어요 (2026-10-26) · 1/2
+- 친구가 슬프길래 핫초코를 사 줬어요 → 친구가 슬퍼 보이길래 (others' feelings → -아/어 보이다) (2026-10-26) · 1/2
 - 온라인에는 마스크를 사는 게 좋겠어요 → 온라인에서 사는 게 좋겠어요 (2026-10-26) · 0/2
 - 영화를 집중할 수 없었어요 → 영화에 집중할 수 없었어요 (N에 집중하다) (2026-10-29) · 0/2
 - 세일이 많은 만큼 어쩐지 주차하는 데 30분이 걸렸어요 → 어쩐지 주차하는 데 30분이나 걸리더라고요 (어쩐지 + result you now understand) (2026-10-29) · 0/2
 - 빵이 품절되는 걸 보니까 6시에 가야겠어요 → 9시면 빵이 다 팔리니까 6시에 가야겠어요 (-는 걸 보니까 → a guess, not a decision) (2026-10-29) · 0/2
+- 처음 봤을 야구에 신경이 안 썼는데 → 처음 봤을 때 야구에 관심이 없었는데 (관심이 없다 for "not interested") (2026-10-30) · 0/2
 
 ## Lesson mistakes
 
@@ -158,6 +159,8 @@ Nuance questions to check with a native speaker or teacher.
 - "공연을 봐 보니까 은근히 재미있더라고요": is 봐 보니까 OK, or just 보니까 / 막상 보니까?
 - "갑자기 사슴이 길을 건넜어요 … 어이없었어요": the mentor said 어이없다 is for people's absurd behavior and suggested 깜짝 놀랐어요. Right?
 - "9시에 빵이 품절돼요": the mentor suggested 빵이 다 팔려요 for a bakery (품절 sounds like store stock). Right?
+- L6 adds 남은 자리가 to 맨 앞자리밖에 없었거든요. How much does it matter when the context is clearly booking? And is 남은 식빵밖에 없었거든요 OK, or does it have to be 남은 빵이 식빵밖에 없었거든요?
+- "동료가 피곤한가 봐요. 그래서 커피를 사 줬어요" (about today): OK, or should it be 피곤해 보이길래 / 피곤했나 봐요?
 
 ## Heard in the wild
 
@@ -168,6 +171,7 @@ Real sentences from dramas, YouTube, or conversations that use a grammar point.
 
 ## Session log
 
+- 2026-10-30 · practice-mistakes · drill · strong: 싶었는데, 팔을 다칠, 부끄러웠을 거예요, 일어나는 데, 마감될 것 같아요, 좋아하게 됐어요 · fix: 남은 빵이 식빵밖에, 들었어요, 관심이 없었는데
 - 2026-10-29 · lesson mistakes (L6, L7, L15–L18) + review #7, #37 · drill · strong: 확인해 보니까 (unprompted), 자막 없이, 먹은 탓에, 막히는 모양이에요, 매진될까 봐, 가다 보니까, 줄거리 · fix: 어쩐지 + -더라고요, 걸 보니까 + decision → -니까, 영화에 집중, warm-up 다리를 / 걸릴 거예요 / -는 데
 - 2026-10-26 · -아/어 보니까, #2, #36 + review #29, #37 + pinned words (day 635) · drill · strong: 막상 가 보니까 (unprompted 막상), 걸어온 걸 보니까, 팔리는 걸 보니까, 은근히 재미있더라고요, 뒤끝이 없더라고요 · fix: 슬퍼 보이길래, 매진될 것 같아요 (future), 구경하는 게, 온라인에서, warm-up 뻔하다
 - 2026-10-25 · time expressions: -(으)ㄴ 지 되다, -는 데 걸리다/들다, 만에, 얼마 안 되다, -기까지, 이후로 + pinned words (day 634) · drill · strong: 화해한 지 2년, 배우는 데 3년이 걸렸어요, 5년 만에, 체한 이후로, 뿌듯하다, 수다를 떨다 · fix: 걸릴 거예요 / 들었어요 (tense), N에 도전하다, -는 데 spacing, 말하나 마나
@@ -182,4 +186,3 @@ Real sentences from dramas, YouTube, or conversations that use a grammar point.
 - 2026-10-10 · #36, 42–45 + review #7, #29 · drill · strong: 다면서요, 자마자, 길래, 나 봐요, 다던데 + suggestion · fix: 치고는 + 잘 치네요, 회사 근처에, 탓에 needs prompting
 - 2026-10-09 · #11, 36, 37, 38, 39 + review #7, #29 · conversation · strong: 기는 했지만, 다 보니, 서 그런지, 텐데, 려다가 · fix: 탓에 needs a bad result, tense, -나/이나 after vowels
 - 2026-10-08 · #29, 35, 37, 41, 45 + review #3, #11 · conversation · strong: 자마자, 더라고요, 나 봐요, 려다가, 걸 그랬어요 · fix: 기는 했지만 (past), 지났어요 spelling, -아서 vs -고
-- 2026-10-06 · #35–44 + review #7, #16, #29 · drill · strong: 길래, 다 보니, 텐데, 다면서요, 치고는 · fix: 더라고요 form, 나 보다 for self, 시험을 보다
