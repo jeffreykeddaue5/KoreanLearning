@@ -147,20 +147,16 @@ if (musicPrev) {
 // ===== 고정한 단어 =====
 // Anki에서 고정한 단어. 단어 카드(#/cards)에 쓰이고, 오늘 날짜일 때만 흐르는 글자에 나온다.
 const pinnedWords = {
-  date: "2026-10-31",
+  date: "2026-11-01",
   words: [
-    { word: "은근히", meaning: "kind of, more than you'd think", example: "이 일 은근히 힘들더라고요.", translation: "This job is surprisingly tough." },
-    { word: "속상하다", meaning: "upset, frustrated, hurt", example: "시험을 망쳐서 너무 속상해요.", translation: "I'm so upset because I bombed the test." },
-    { word: "몰리다", meaning: "flock, crowd (into a place)", example: "주말이라서 사람이 많이 몰렸어요.", translation: "Because it's the weekend, a lot of people flocked there." },
-    { word: "망설이다", meaning: "hesitate, waver", example: "살까 말까 계속 망설이고 있어요.", translation: "I keep going back and forth on whether to buy it." },
-    { word: "황당하다", meaning: "absurd, dumbfounding", example: "약속을 갑자기 취소해서 황당했어요.", translation: "They suddenly canceled on me, and I couldn't believe it." },
-    { word: "당연하다", meaning: "obvious, natural, of course", example: "제가 도와 드리는 건 당연하죠.", translation: "Of course I'll help you." },
-    { word: "그럴 리가요", meaning: "no way, that can't be", example: "그럴 리가요, 아까 분명히 봤어요.", translation: "That can't be, I definitely saw it earlier." },
-    { word: "글쎄요", meaning: "well, I'm not sure", example: "글쎄요, 저는 잘 모르겠어요.", translation: "Well, I'm not really sure." },
-    { word: "아무튼", meaning: "anyway, at any rate", example: "아무튼 오늘 정말 즐거웠어요.", translation: "Anyway, I had a really great time today." },
-    { word: "말도 안 되다", meaning: "ridiculous, it can't be", example: "벌써 11월이라니 말도 안 돼요.", translation: "I can't believe it's already November." },
-    { word: "별일", meaning: "anything unusual", example: "요즘 별일 없죠?", translation: "Nothing much going on lately, right?" },
-    { word: "마찬가지", meaning: "the same", example: "저도 마찬가지예요.", translation: "It's the same for me." },
+    { word: "하긴", meaning: "well, come to think of it", example: "하긴, 주말이니까 사람이 많겠네요.", translation: "Well, it's the weekend, so I guess it'll be crowded." },
+    { word: "왠지", meaning: "somehow, for some reason", example: "왠지 오늘은 일이 잘될 것 같아요.", translation: "For some reason, I feel like things will go well today." },
+    { word: "깜빡하다", meaning: "forget (for a moment), slip one's mind", example: "미안해요, 완전히 깜빡했어요.", translation: "Sorry, it completely slipped my mind." },
+    { word: "놀리다", meaning: "tease, make fun of", example: "친구들이 제 발음을 자꾸 놀려요.", translation: "My friends keep teasing me about my pronunciation." },
+    { word: "말리다", meaning: "stop, talk someone out of", example: "두 사람이 싸워서 제가 말렸어요.", translation: "The two of them were fighting, so I stepped in." },
+    { word: "배려하다", meaning: "be considerate of, look out for", example: "그 친구는 항상 남을 배려해요.", translation: "That friend always looks out for other people." },
+    { word: "털털하다", meaning: "easygoing, unfussy", example: "친구가 털털해서 같이 있으면 편해요.", translation: "My friend is easygoing, so it's comfortable being around them." },
+    { word: "소심하다", meaning: "timid, easily worried", example: "제가 좀 소심해서 말을 잘 못 해요.", translation: "I'm kind of timid, so I have a hard time speaking up." },
   ],
 };
 const pinnedToday = pinnedWords.date === new Date().toLocaleDateString("en-CA");
