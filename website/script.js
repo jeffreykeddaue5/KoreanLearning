@@ -147,16 +147,19 @@ if (musicPrev) {
 // ===== 고정한 단어 =====
 // Anki에서 고정한 단어. 단어 카드(#/cards)에 쓰이고, 오늘 날짜일 때만 흐르는 글자에 나온다.
 const pinnedWords = {
-  date: "2026-11-01",
+  date: "2026-11-04",
   words: [
-    { word: "하긴", meaning: "well, come to think of it", example: "하긴, 주말이니까 사람이 많겠네요.", translation: "Well, it's the weekend, so I guess it'll be crowded." },
-    { word: "왠지", meaning: "somehow, for some reason", example: "왠지 오늘은 일이 잘될 것 같아요.", translation: "For some reason, I feel like things will go well today." },
-    { word: "깜빡하다", meaning: "forget (for a moment), slip one's mind", example: "미안해요, 완전히 깜빡했어요.", translation: "Sorry, it completely slipped my mind." },
-    { word: "놀리다", meaning: "tease, make fun of", example: "친구들이 제 발음을 자꾸 놀려요.", translation: "My friends keep teasing me about my pronunciation." },
-    { word: "말리다", meaning: "stop, talk someone out of", example: "두 사람이 싸워서 제가 말렸어요.", translation: "The two of them were fighting, so I stepped in." },
-    { word: "배려하다", meaning: "be considerate of, look out for", example: "그 친구는 항상 남을 배려해요.", translation: "That friend always looks out for other people." },
-    { word: "털털하다", meaning: "easygoing, unfussy", example: "친구가 털털해서 같이 있으면 편해요.", translation: "My friend is easygoing, so it's comfortable being around them." },
-    { word: "소심하다", meaning: "timid, easily worried", example: "제가 좀 소심해서 말을 잘 못 해요.", translation: "I'm kind of timid, so I have a hard time speaking up." },
+    { word: "역전하다", meaning: "come from behind, turn the tables", example: "마지막 1분에 역전했어요!", translation: "They came from behind in the last minute!" },
+    { word: "처리하다", meaning: "handle, deal with", example: "오늘 안에 이 일을 처리해야 돼요.", translation: "I have to deal with this today." },
+    { word: "수정하다", meaning: "edit, revise", example: "자료를 조금만 수정해 주세요.", translation: "Please make a few small edits to the document." },
+    { word: "서두르다", meaning: "hurry, rush", example: "늦었으니까 서둘러야 돼요.", translation: "We're late, so we need to hurry." },
+    { word: "떠맡다", meaning: "get stuck with (a task)", example: "일을 혼자 떠맡게 됐어요.", translation: "I ended up getting stuck with the work by myself." },
+    { word: "벅차다", meaning: "too much to handle", example: "혼자 하기에는 좀 벅차요.", translation: "It's a bit much for me to do alone." },
+    { word: "업무", meaning: "work, duties", example: "요즘 업무가 너무 많아요.", translation: "I've had way too much work lately." },
+    { word: "경력", meaning: "work experience", example: "이 일은 경력이 필요해요.", translation: "This job requires experience." },
+    { word: "담당자", meaning: "person in charge", example: "담당자한테 먼저 물어보세요.", translation: "Please ask the person in charge first." },
+    { word: "슬슬", meaning: "about time to, slowly", example: "슬슬 일어날까요?", translation: "Should we start getting going?" },
+    { word: "진작", meaning: "earlier, sooner", example: "진작 말하지 그랬어요.", translation: "You should have told me sooner." },
   ],
 };
 const pinnedToday = pinnedWords.date === new Date().toLocaleDateString("en-CA");
@@ -184,9 +187,11 @@ const forgottenWords = [
   { word: "왕복", meaning: "갔다가 다시 돌아오는 것", misses: 4 },
   { word: "질리다", meaning: "너무 많이 해서 싫증이 나다", misses: 4 },
   { word: "도전하다", meaning: "어려운 일을 해 보려고 하다", misses: 4 },
+  { word: "솜씨", meaning: "손으로 무엇을 만드는 재주", misses: 4 },
   { word: "화해하다", meaning: "싸운 뒤에 다시 사이가 좋아지다", misses: 4 },
   { word: "볼만하다", meaning: "볼 가치가 있다", misses: 4 },
   { word: "역전하다", meaning: "지고 있다가 상황을 뒤집어 앞서다", misses: 4 },
+  { word: "당연하다", meaning: "그렇게 되는 것이 맞다", misses: 4 },
   { word: "여유", meaning: "시간이나 마음에 남는 넉넉함", misses: 3 },
   { word: "막상", meaning: "실제로 그때가 되니까", misses: 3 },
   { word: "억울하다", meaning: "잘못이 없는데 피해를 받아서 속상하다", misses: 3 },
@@ -196,11 +201,9 @@ const forgottenWords = [
   { word: "체하다", meaning: "먹은 음식이 잘 내려가지 않고 속이 답답하다", misses: 3 },
   { word: "낭비하다", meaning: "시간이나 돈을 헛되이 쓰다", misses: 3 },
   { word: "숙소", meaning: "여행할 때 머무는 곳", misses: 3 },
-  { word: "솜씨", meaning: "손으로 무엇을 만드는 재주", misses: 3 },
   { word: "꾸준히", meaning: "쉬지 않고 계속 조금씩", misses: 3 },
+  { word: "단풍", meaning: "가을에 빨갛고 노랗게 변한 나뭇잎", misses: 3 },
   { word: "몰입하다", meaning: "한 가지 일에 깊이 빠지다", misses: 3 },
-  { word: "줄거리", meaning: "이야기의 중요한 내용", misses: 3 },
-  { word: "교환하다", meaning: "산 물건을 다른 것으로 바꾸다", misses: 3 },
 ];
 
 // 많이 틀린 순서로 정렬해서 pageSize개씩 보여 준다. detail은 마우스를 올려야 보인다.
@@ -262,10 +265,10 @@ renderRankList({
 const misusedGrammar = [
   { grammar: "시제 (과거/현재/미래)", wrong: "표가 매진되나 봐요 (앞으로 일어날 일)", right: "표가 곧 매진될 것 같아요", misses: 12 },
   { grammar: "-아/어 보니까 (해 보고 알게 됨)", wrong: "웹사이트를 확인하자마자 다 품절됐어요", right: "웹사이트를 확인해 보니까 다 품절됐더라고요", misses: 4 },
+  { grammar: "-(으)ㄹ까 봐 (+서 ✕, 못 빠짐)", wrong: "마라톤을 끝낼까 봐서 걱정이었어요", right: "마라톤을 못 끝낼까 봐 걱정이었어요", misses: 5 },
   { grammar: "커피를 먹다 → 마시다", wrong: "커피를 많이 먹은 탓에", right: "커피를 많이 마신 탓에", misses: 3 },
-  { grammar: "-(으)ㄹ까 봐 (못 빠짐)", wrong: "마라톤을 끝낼까 봐 걱정이었어요", right: "마라톤을 못 끝낼까 봐 걱정이었어요", misses: 3 },
+  { grammar: "어쩐지 (이유는 먼저 따로)", wrong: "세일이 많아서 어쩐지 30분이 걸렸어요", right: "세일이 많더라고요. 어쩐지 30분이나 걸리더라고요", misses: 2 },
   { grammar: "-(으)ㄹ 뻔하다 + 감정 ✕", wrong: "보냈으면 창피할 뻔했어요", right: "보냈으면 창피했을 거예요", misses: 2 },
-  { grammar: "-(으)ㄹ까 봐 (+서 ✕)", wrong: "멀미할까 봐서 약을 먹었어요", right: "멀미할까 봐 약을 먹었어요", misses: 2 },
   { grammar: "N에 N (복합 명사)", wrong: "일본에 여행은 어땠어요?", right: "일본 여행은 어땠어요?", misses: 2 },
   { grammar: "-(으)나 마나 (어디에 붙나)", wrong: "커피를 줄이나 마나 와이프가 안 믿을 거예요", right: "말하나 마나 와이프는 안 믿을 거예요", misses: 2 },
   { grammar: "몸 + 을/를 다치다", wrong: "다리가 다칠 뻔했어요", right: "다리를 다칠 뻔했어요", misses: 2 },
