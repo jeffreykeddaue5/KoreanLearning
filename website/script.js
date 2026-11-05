@@ -147,19 +147,20 @@ if (musicPrev) {
 // ===== 고정한 단어 =====
 // Anki에서 고정한 단어. 단어 카드(#/cards)에 쓰이고, 오늘 날짜일 때만 흐르는 글자에 나온다.
 const pinnedWords = {
-  date: "2026-11-04",
+  date: "2026-11-05",
   words: [
-    { word: "역전하다", meaning: "come from behind, turn the tables", example: "마지막 1분에 역전했어요!", translation: "They came from behind in the last minute!" },
-    { word: "처리하다", meaning: "handle, deal with", example: "오늘 안에 이 일을 처리해야 돼요.", translation: "I have to deal with this today." },
-    { word: "수정하다", meaning: "edit, revise", example: "자료를 조금만 수정해 주세요.", translation: "Please make a few small edits to the document." },
-    { word: "서두르다", meaning: "hurry, rush", example: "늦었으니까 서둘러야 돼요.", translation: "We're late, so we need to hurry." },
-    { word: "떠맡다", meaning: "get stuck with (a task)", example: "일을 혼자 떠맡게 됐어요.", translation: "I ended up getting stuck with the work by myself." },
-    { word: "벅차다", meaning: "too much to handle", example: "혼자 하기에는 좀 벅차요.", translation: "It's a bit much for me to do alone." },
-    { word: "업무", meaning: "work, duties", example: "요즘 업무가 너무 많아요.", translation: "I've had way too much work lately." },
-    { word: "경력", meaning: "work experience", example: "이 일은 경력이 필요해요.", translation: "This job requires experience." },
-    { word: "담당자", meaning: "person in charge", example: "담당자한테 먼저 물어보세요.", translation: "Please ask the person in charge first." },
-    { word: "슬슬", meaning: "about time to, slowly", example: "슬슬 일어날까요?", translation: "Should we start getting going?" },
-    { word: "진작", meaning: "earlier, sooner", example: "진작 말하지 그랬어요.", translation: "You should have told me sooner." },
+    { word: "풀리다", meaning: "get warmer (weather), ease up", example: "이번 주부터 날씨가 풀린다던데요.", translation: "I heard it's going to warm up starting this week." },
+    { word: "그만두다", meaning: "quit (a job, school)", example: "회사를 그만둘까 해요.", translation: "I'm thinking about quitting my job." },
+    { word: "어지럽다", meaning: "dizzy", example: "아침부터 머리가 어지러워요.", translation: "I've been dizzy since this morning." },
+    { word: "가렵다", meaning: "itchy", example: "모기에 물려서 팔이 가려워요.", translation: "A mosquito bit me, so my arm is itchy." },
+    { word: "쑤시다", meaning: "ache, throb", example: "비가 오면 무릎이 쑤셔요.", translation: "My knees ache when it rains." },
+    { word: "회복하다", meaning: "recover", example: "푹 쉬고 빨리 회복하세요.", translation: "Get plenty of rest and recover soon." },
+    { word: "끊다", meaning: "quit, give up", example: "커피를 끊으려고 노력하고 있어요.", translation: "I'm trying to quit coffee." },
+    { word: "쓰러지다", meaning: "collapse, pass out", example: "너무 피곤해서 쓰러질 뻔했어요.", translation: "I was so tired that I nearly passed out." },
+    { word: "두통", meaning: "headache", example: "두통이 심해서 약을 먹었어요.", translation: "My headache was bad, so I took some medicine." },
+    { word: "부작용", meaning: "side effect", example: "이 약은 부작용이 없어요?", translation: "Does this medicine have any side effects?" },
+    { word: "영양제", meaning: "vitamin, supplement", example: "아침마다 영양제를 챙겨 먹어요.", translation: "I make sure to take my supplements every morning." },
+    { word: "식단", meaning: "meal plan, diet", example: "요즘 식단을 관리하고 있어요.", translation: "I've been watching my diet lately." },
   ],
 };
 const pinnedToday = pinnedWords.date === new Date().toLocaleDateString("en-CA");
