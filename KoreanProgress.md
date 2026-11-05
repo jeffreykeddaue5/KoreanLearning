@@ -12,7 +12,7 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 | 2 | -(으)ㄴ/는 걸 보니(까) | New | 2026-10-29 | Right with hint (빨간색인 걸 보니까); needs a guess after, not a decision (가야겠어요 ✗) |
 | 3 | -는 김에 | New | 2026-10-17 | Right with hint (숙소에 가는 김에) |
 | 4 | -(으)ㄴ/는 만큼 | New | 2026-10-29 | Form right with hint (많은 만큼); mixed with 어쩐지 in one clause |
-| 7 | -(으)ㄴ/는 탓에 | Shaky | 2026-10-29 | Right with hint (시끄럽게 먹은 탓에); 아쉽다 → -아서 ⚠ |
+| 7 | -(으)ㄴ/는 탓에 | Shaky | 2026-11-04 | Right with hint (파일을 삭제한 탓에); 아쉽다 → -아서 ⚠ |
 | 8 | -(으)ㄴ/는/(으)ㄹ 모양이다 | New | 2026-10-29 | Right with hint (막히는 모양이에요); link to advice with 모양이니까 |
 | 10 | -(으)ㄴ/는 줄 몰랐다 | New | 2026-10-11 | Used unprompted (이렇게 어려운 줄 몰랐어요) |
 | 9 | -(으)ㄴ/는/(으)ㄹ 셈이다 | New | 2026-10-22 | Used -는 셈 for a plan → -(으)ㄹ 셈; amounts to: 14잔 마시는 셈 |
@@ -28,14 +28,14 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 | 25 | -게 되다 | New | 2026-10-22 | Right unprompted (매일 커피를 마시게 됐어요) |
 | 23 | N밖에 없다 | New | 2026-10-29 | Right with hint (비싼 자리밖에 없더라고요); add the subject (남은 자리가, L6) |
 | 26 | -는 게 좋겠어요 | New | 2026-10-29 | Right with hint (지하철로 가는 게 좋겠어요) |
-| 29 | -나 보다 | Shaky | 2026-10-26 | Right with hint (차가 없나 봐요); not for future (매진되나 봐요 ✗) |
+| 29 | -나 보다 | Shaky | 2026-11-04 | Verbs → -나 (몰입한가 ✗ → 몰입했나 봐요); not for future (매진되나 봐요 ✗) |
 | 30 | -나요? | New | 2026-10-17 | Right with hint (외국인인가요?); softer: 처음 오셨나요? |
 | 31 | -(으)나 마나 | New | 2026-10-22 | Form right; put it on the pointless action (말하나 마나) + -(으)ㄹ 거예요 |
 | 32 | -(으)ㄹ지도 모르다 | New | 2026-10-20 | Form right with hint; meaning flipped (있을지도 → 없을지도 / 팔렸을지도) |
 | 33 | -(으)니만큼 | New | 2026-10-12 | Right with hint (맛있으니만큼 추천하려고 해요) |
-| 35 | -더라고요 | New | 2026-10-29 | Right unprompted (없더라고요, 단골이 많더라고요) |
+| 35 | -더라고요 | New | 2026-11-04 | Right unprompted (은근히 벅차더라고요) |
 | 36 | -길래 | Solid | 2026-10-26 | Form right with hint; others' feelings → 슬퍼 보이길래 |
-| 37 | -다 보니(까) | Shaky | 2026-10-29 | Right with hint again (매일 빵집에 가다 보니까) |
+| 37 | -다 보니(까) | Shaky | 2026-11-04 | Right with hint again (계속 보다 보니까) |
 | 38 | -아/어서 그런지 | New | 2026-10-12 | Right again (칠면조를 시켜서 그런지) |
 | 39 | -(으)ㄹ 텐데 | Solid | 2026-10-17 | Unprompted again (못 갈 텐데, 비가 많이 올 텐데) |
 | 40 | -(으)ㄹ걸 그랬다 | Solid | 2026-10-10 | Used unprompted again (일찍 잘걸 그랬어요) |
@@ -46,6 +46,8 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 | 45 | -자마자 | Solid | 2026-10-23 | Unprompted again (나오자마자 샀어요) |
 | 46 | -아/어 두다 | New | 2026-10-22 | Warm-up: 둬어요 ✗ → 둬요; forms: 둬요 / 뒀어요 / 두려고 |
 | 47 | -(으)ㄹ 뻔하다 | New | 2026-10-26 | Right every turn with hint + 하마터면; not for feelings (창피할 뻔 ✗) |
+| – | N(이)어도 / 여도 | New | 2026-11-04 | Right with hint (고등학생 나이여도, L18) |
+| – | V-(으)러 다니다 | New | 2026-11-04 | Place takes 에 (공원에서 ✗ → 공원에 산책하러 다니다) |
 | – | V-아/어 보니까 (discovery) | New | 2026-10-29 | Unprompted (확인해 보니까 … 없더라고요); 보다 → 보니까, not 봐 보니까 ⚠ |
 | – | V-(으)ㄴ 지 + 기간 + 되다/넘다 | New | 2026-10-25 | Right with hint (화해한 지 2년이 됐어요, 다툰 지 일주일이 넘었지만); 띄어 쓰기: 받은 지 |
 | – | V-는 데 + 시간/돈 + 걸리다/들다 | New | 2026-10-25 | Right with hint (배우는 데 3년이 걸렸어요); 들다 = cost; 그만하는 데 (not 는데) |
@@ -64,22 +66,23 @@ Intermediate. Comfortable with points 1–34, working on 35–44. Builds multi-c
 - -(으)ㄹ 뻔하다 + feelings / past "if": 창피할 뻔했어요 → 보냈으면 창피했을 거예요; 사지 않으면 못 살 거예요 → 안 샀으면 못 살 뻔했어요 (2026-10-23, 2026-10-26 warm-up) · right 2026-10-30
 - Body part takes 을/를 with 다치다: 다리가 다칠 뻔했어요 → 다리를 다칠 뻔했어요 (2026-10-23, 2026-10-29 warm-up) · right 2026-10-30
 - 남은 N이 + X밖에 없다: 맨 앞자리밖에 없었거든요 → 남은 자리가 맨 앞자리밖에 없었거든요 (L6); 남은 식빵밖에 없었거든요 → 남은 빵이 식빵밖에 없었거든요 (2026-10-30 drill)
+- 어쩐지 in the same clause as the reason: 세일이 많은 만큼/많아서 어쩐지 … 걸렸어요 → 세일이 많더라고요. 어쩐지 주차하는 데 30분이나 걸리더라고요 (2026-10-29, 2026-11-04 warm-up)
 - 커피를 먹다 → 커피를 마시다 (2026-10-11, 2026-10-12 and earlier, 2026-10-22: 많이 먹은 탓에)
 
 ## Practice mistakes
 
 Mistakes corrected during mentor sessions. Each session starts with a quick fix-this-sentence warm-up from this list, and items are removed at 2/2.
 
-- 계속 가다 보니까 구경이 좋아졌어요 → 구경하는 게 좋아졌어요 (2026-10-26) · 1/2
-- 친구가 슬프길래 핫초코를 사 줬어요 → 친구가 슬퍼 보이길래 (others' feelings → -아/어 보이다) (2026-10-26) · 1/2
-- 온라인에는 마스크를 사는 게 좋겠어요 → 온라인에서 사는 게 좋겠어요 (2026-10-26) · 0/2
-- 영화를 집중할 수 없었어요 → 영화에 집중할 수 없었어요 (N에 집중하다) (2026-10-29) · 0/2
-- 세일이 많은 만큼 어쩐지 주차하는 데 30분이 걸렸어요 → 어쩐지 주차하는 데 30분이나 걸리더라고요 (어쩐지 + result you now understand) (2026-10-29) · 0/2
+- 온라인에는 마스크를 사는 게 좋겠어요 → 온라인에서 사는 게 좋겠어요 (2026-10-26) · 1/2
+- 영화를 집중할 수 없었어요 → 영화에 집중할 수 없었어요 (N에 집중하다) (2026-10-29) · 1/2
 - 빵이 품절되는 걸 보니까 6시에 가야겠어요 → 9시면 빵이 다 팔리니까 6시에 가야겠어요 (-는 걸 보니까 → a guess, not a decision) (2026-10-29) · 0/2
 - 처음 봤을 야구에 신경이 안 썼는데 → 처음 봤을 때 야구에 관심이 없었는데 (관심이 없다 for "not interested") (2026-10-30) · 0/2
 - 늦어도 발표를 해냈어요 → 늦었지만 발표를 해냈어요 (-아/어도 = even if, not for something that already happened) (2026-10-31) · 0/2
 - 마라톤을 끝낼까 봐 걱정이었어요 → 마라톤을 못 끝낼까 봐 걱정이었어요 (worry about not doing it → 못, same as L16) (2026-10-31) · 0/2
 - 오늘에 뒤끝이 없는 것 같아요 → 오늘은 뒤끝이 없는 것 같아요 (오늘 doesn't take 에) (2026-10-31) · 0/2
+- 물입한가 봐요 → 몰입했나 봐요 (몰입하다 is a verb → -나 봐요; past → 했나) (2026-11-04) · 0/2
+- 공원에서 산책하러 다니고 싶어요 → 공원에 산책하러 다니고 싶어요 (-(으)러 가다/다니다 → place + 에) (2026-11-04) · 0/2
+- 업무를 살제한 탓에 → 파일을 삭제한 탓에 (삭제, delete a file) (2026-11-04) · 0/2
 
 ## Lesson mistakes
 
@@ -101,7 +104,7 @@ Mistakes the tutor corrected (from `Homework/`) that are being practiced. Each i
 - 공부하기 시작하게 됐어요 → 공부를 시작하게 됐어요 (don't stack -기 시작하다 + -게 되다) (L12) · 1/2
 - 걸릴까 봐서 → 걸릴까 봐 (no -서) (L7) · ✓ 2026-10-22
 - 축제 갈까 봐서 → 축제 못 갈까 봐 (worry about not getting it → 못) (L16) · 1/2
-- 자막이 없이 → 자막 없이 (L17) · 1/2
+- 자막이 없이 → 자막 없이 (L17) · ✓ 2026-11-04
 - 방해되다 (be disturbed) vs 방해하다 (disturb): 영화 보는 데 방해됐어요 (L18) · 0/2
 
 ## Hard words
@@ -110,7 +113,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 - 막상 — when it actually comes to it; 막상 V-(으)니까 (anki 2026-10-12 day1) · ✓ 2026-10-26
 - 어쩐지 — no wonder; goes first, + -더라고요 / -았/었구나 (anki 2026-10-12 day2) · 0/2
-- 은근히 — kind of, more than you'd think; often + -더라고요 (anki 2026-10-12 day4) · 0/2
+- 은근히 — kind of, more than you'd think; often + -더라고요 (anki 2026-10-12 day4) · 1/2
 - 실컷 — to your heart's content; 실컷 자다/먹다/놀다/울다 (anki 2026-10-12 day5) · 0/2
 - 꾸준히 — steadily, consistently; 꾸준히 운동하다/공부하다 (anki 2026-10-13 day2) · 0/2
 - 동호회 — club, hobby group; 동호회에 가입하다 (anki 2026-10-13 day2) · 0/2
@@ -171,6 +174,7 @@ Nuance questions to check with a native speaker or teacher.
 - "갑자기 사슴이 길을 건넜어요 … 어이없었어요": the mentor said 어이없다 is for people's absurd behavior and suggested 깜짝 놀랐어요. Right?
 - "9시에 빵이 품절돼요": the mentor suggested 빵이 다 팔려요 for a bakery (품절 sounds like store stock). Right?
 - L6 adds 남은 자리가 to 맨 앞자리밖에 없었거든요. How much does it matter when the context is clearly booking? And is 남은 식빵밖에 없었거든요 OK, or does it have to be 남은 빵이 식빵밖에 없었거든요?
+- "동료가 업무를 떠맡았는데 파일을 삭제한 탓에 회사에 돌아왔어요" (had to go back in to work): the mentor suggested 다시 회사에 나가야 했어요. Is 돌아왔어요 odd here?
 - "동료가 피곤한가 봐요. 그래서 커피를 사 줬어요" (about today): OK, or should it be 피곤해 보이길래 / 피곤했나 봐요?
 
 ## Heard in the wild
@@ -182,6 +186,7 @@ Real sentences from dramas, YouTube, or conversations that use a grammar point.
 
 ## Session log
 
+- 2026-11-04 · L17–L18 homework review + review #29, #37 + pinned words (day 644) · conversation (stopped at 6/7) · strong: 은근히 벅차더라고요 (unprompted 은근히), 고등학생 나이여도, 자막 없이, 떠맡았는데, 삭제한 탓에 · fix: 몰입했나 봐요, 공원에 산책하러, 어쩐지 + -더라고요 (warm-up)
 - 2026-10-30 · practice-mistakes · drill · strong: 싶었는데, 팔을 다칠, 부끄러웠을 거예요, 일어나는 데, 마감될 것 같아요, 좋아하게 됐어요 · fix: 남은 빵이 식빵밖에, 들었어요, 관심이 없었는데
 - 2026-10-29 · lesson mistakes (L6, L7, L15–L18) + review #7, #37 · drill · strong: 확인해 보니까 (unprompted), 자막 없이, 먹은 탓에, 막히는 모양이에요, 매진될까 봐, 가다 보니까, 줄거리 · fix: 어쩐지 + -더라고요, 걸 보니까 + decision → -니까, 영화에 집중, warm-up 다리를 / 걸릴 거예요 / -는 데
 - 2026-10-26 · -아/어 보니까, #2, #36 + review #29, #37 + pinned words (day 635) · drill · strong: 막상 가 보니까 (unprompted 막상), 걸어온 걸 보니까, 팔리는 걸 보니까, 은근히 재미있더라고요, 뒤끝이 없더라고요 · fix: 슬퍼 보이길래, 매진될 것 같아요 (future), 구경하는 게, 온라인에서, warm-up 뻔하다
@@ -196,4 +201,3 @@ Real sentences from dramas, YouTube, or conversations that use a grammar point.
 - 2026-10-11 · weakest: #7, 11, 19, 29, 39, 44 · conversation · strong: 치고는 + 잘 + 네요, 까 해요, 탓에 unprompted, 다 보니, 줄 몰랐다 · fix: 아침 일찍, 커피를 마시다, 남기다, tense of 2nd clause
 - 2026-10-10 · #36, 42–45 + review #7, #29 · drill · strong: 다면서요, 자마자, 길래, 나 봐요, 다던데 + suggestion · fix: 치고는 + 잘 치네요, 회사 근처에, 탓에 needs prompting
 - 2026-10-09 · #11, 36, 37, 38, 39 + review #7, #29 · conversation · strong: 기는 했지만, 다 보니, 서 그런지, 텐데, 려다가 · fix: 탓에 needs a bad result, tense, -나/이나 after vowels
-- 2026-10-08 · #29, 35, 37, 41, 45 + review #3, #11 · conversation · strong: 자마자, 더라고요, 나 봐요, 려다가, 걸 그랬어요 · fix: 기는 했지만 (past), 지났어요 spelling, -아서 vs -고
