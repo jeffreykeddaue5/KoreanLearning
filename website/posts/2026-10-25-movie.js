@@ -1,7 +1,7 @@
 post({
   title: "영화도 보고 드라마도 보고",
   date: "2026-10-25",
-  category: "daily",            // "projects" | "daily" | "media" | "talk" | "mistakes"
+  category: "daily",
   tags: ["영화", "일상", "드라마"],
   // summary: "목록에 보일 요약 (없으면 첫 문단이 쓰인다)",
   // cover:   "media/2026-10-25-movie/cover.jpg",   // 목록에 보일 작은 사진 (선택)

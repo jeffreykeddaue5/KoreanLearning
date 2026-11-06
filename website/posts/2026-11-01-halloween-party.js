@@ -1,7 +1,7 @@
 post({
   title: "유령 옷을 입고 간 핼러윈 모임",
   date: "2026-11-01",
-  category: "daily",            // "daily" | "talk" | "mistakes" | "homework"
+  category: "daily",
   tags: ["일상", "핼러윈", "친구"],
   // summary: "목록에 보일 요약 (없으면 첫 문단이 쓰인다)",
   // cover:   "media/2026-11-01-halloween-party/cover.jpg",   // 목록에 보일 작은 사진 (선택)

@@ -1,7 +1,7 @@
 post({
   title: "지난 수업 복습하다가 틀린 것들",
   date: "2026-11-04",
-  category: "mistakes",
+  category: "lesson",
   tags: ["한국어", "-나 보다"],
   content: [
     "오늘은 지난 수업 표현을 복습했다. 브배, 영화관 과자, 회사 일 얘기로. 🍿",

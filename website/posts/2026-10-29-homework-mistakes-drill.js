@@ -1,7 +1,7 @@
 post({
   title: "숙제 실수 다시 연습하다가 틀린 것들",
   date: "2026-10-29",
-  category: "mistakes",
+  category: "lesson",
   tags: ["한국어", "어쩐지"],
   content: [
     "오늘은 지난 숙제에서 틀린 걸 다시 연습했다. 영화관, 콘서트 표, 빵집 얘기로. 🍞",

@@ -1,7 +1,7 @@
 post({
   title: "커피 얘기하다가 틀린 것들",
   date: "2026-10-22",
-  category: "mistakes",
+  category: "weekly",
   tags: ["한국어", "-(으)ㄹ 셈이다"],
   content: [
     "오늘은 커피 전시회랑 미용실 얘기를 했다. 틀린 걸 다 모아 봤다. ㅋㅋ",

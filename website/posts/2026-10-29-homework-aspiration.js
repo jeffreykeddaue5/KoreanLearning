@@ -1,7 +1,7 @@
 post({
   title: "숙제 복습: 뻔했다, 치고는, ㅎ 발음",
   date: "2026-10-29",
-  category: "homework",
+  category: "lesson",
   tags: ["한국어", "숙제", "발음", "-다던데"],
   content: [
     "17번 숙제 3~5번에서 쓴 문법과 선생님이 알려 준 발음 규칙을 정리했다. ✏",

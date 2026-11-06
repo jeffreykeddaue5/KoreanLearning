@@ -1,9 +1,9 @@
 // ===== 블로그 설정 =====
 const CATEGORIES = {
   daily: { name: "일상" },
+  lesson: { name: "수업" },
+  weekly: { name: "주간 정리" },
   talk: { name: "대화" },
-  mistakes: { name: "실수" },
-  homework: { name: "숙제" },
 };
 const HOME_POSTS_PER_CATEGORY = 3;
 const SITE_TITLE = "일지";
@@ -144,9 +144,41 @@ function template(id) {
 }
 
 // ===== 화면 =====
+// 써먹을 표현 (data/today.js)
+function phraseBox() {
+  const p = (typeof TODAY !== "undefined" && TODAY.phrase) || null;
+  if (!p) return "";
+  return `
+    <div class="box notice">
+      <div class="box-title">▼ 써먹을 표현</div>
+      <div class="box-body">
+        <p class="phrase">「${p.text}」</p>
+        <p>${p.when}</p>
+        <p class="small">${p.fix}<br>${p.tip}</p>
+      </div>
+    </div>`;
+}
+
+// 홈 맨 위: 이번 주 요약
+function weekSummary() {
+  const w = S.week;
+  if (!w) return "";
+  const cd = lessonCountdown();
+  const nw = w.new.filter((g) => g.n);
+  return `
+    <div class="box">
+      <div class="box-title">▼ 이번 주 <a class="title-link" href="#/week">전체 보기 »</a></div>
+      <div class="box-body week-mini">
+        <p><b>${cd ? cd.label : ""}</b> 다음 수업 · <span class="bar">${bar(w.blocks.done, w.blocks.planned)}</span> ${w.blocks.done}/${w.blocks.planned}</p>
+        <p>${w.light ? "가벼운 주: 새 문법 없이 복습해요" :
+          "새 문법: " + nw.map((g) => `<a href="#/grammar/${g.n}">#${g.n} ${esc(g.form)}</a> <span class="small">${esc(g.meaning)}</span>`).join(" · ")}</p>
+      </div>
+    </div>`;
+}
+
 function viewHome() {
   const posts = visiblePosts();
-  let html = template("page-phrase");
+  let html = phraseBox() + weekSummary();
   for (const [key, cat] of Object.entries(CATEGORIES)) {
     const inCat = posts.filter((p) => p.category === key);
     const more = inCat.length > HOME_POSTS_PER_CATEGORY
@@ -300,6 +332,89 @@ function viewCards() {
   };
 }
 
+// ===== 이번 주 =====
+const BLOCK_ICON = { done: "☑", todo: "☐", skip: "–", note: "·" };
+const DAY_KO = { Mon: "월", Tue: "화", Wed: "수", Thu: "목", Fri: "금", Sat: "토", Sun: "일" };
+
+function viewWeek() {
+  const w = S.week;
+  if (!w) return { title: "이번 주", html: listBox("▣ 이번 주", []) };
+  const cd = lessonCountdown();
+  const today = ymd(new Date());
+  const rows = w.schedule.map((r) => `
+      <tr class="${r.date === today ? "today" : ""}${r.optional ? " optional" : ""}">
+        <th>${DAY_KO[r.day] || r.day}<br><span class="small">${r.date.slice(5).replace("-", ".")}</span></th>
+        <td>${r.blocks.map((b) => `<span class="blk ${b.state}">${BLOCK_ICON[b.state]} ${esc(b.text)}</span>`).join("")}</td>
+      </tr>`).join("");
+  const nw = w.new.filter((g) => g.n);
+  const listen = S.listening;
+  const box = (t, body) => `<div class="box"><div class="box-title">${t}</div><div class="box-body page">${body}</div></div>`;
+  let html = box(`▣ 이번 주 · ${normDate(w.start)} 수업 (${w.lesson}회) 다음 주`, `
+      <p class="week-head"><span class="dday">${cd ? cd.label : ""}</span> ${cd ? cd.when : ""}</p>
+      <p>진도 <span class="bar">${bar(w.blocks.done, w.blocks.planned, 20)}</span> ${w.blocks.done}/${w.blocks.planned}</p>
+      <h4>새 문법</h4>
+      ${w.light ? "<p>가벼운 주: 새 문법 없이 지난 3주 문법을 복습해요.</p>" :
+        `<ul>${nw.map((g) => `<li><a href="#/grammar/${g.n}">#${g.n} ${esc(g.form)}</a> — ${esc(g.meaning)}</li>`).join("")}</ul>`}
+      <h4>계획</h4>
+      <table class="sched">${rows}</table>`);
+  html += box("▣ 복습", `<p>${w.review}</p>`);
+  if (listen) {
+    html += box("▣ 이번 주 듣기", `
+      <p><a href="${esc(listen.url)}" target="_blank" rel="noopener">${esc(listen.title)}</a> <span class="small">${esc(listen.channel)} · ${esc(listen.section || "")}</span></p>
+      <p class="small">${esc(listen.progress || "")}${listen.result ? " · " + esc(listen.result) : ""}</p>`);
+  }
+  if (w.words.length) html += box(`▣ 수업 단어 (${w.lesson}회)`, `<ul>${w.words.map((x) => `<li>${x}</li>`).join("")}</ul>`);
+  if (w.questions.length) html += box("▣ 선생님께 물어볼 것", `<ol>${w.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ol>`);
+  if (w.report) html += box("▣ 주간 리포트", `<p>${w.report.replace(/\n/g, "<br>")}</p>`);
+  return { title: "이번 주", html };
+}
+
+// ===== 문법 =====
+function levelBar(l) {
+  return `<span class="lv lv${l}">${"▮".repeat(l)}${"▯".repeat(5 - l)}</span>`;
+}
+
+function viewGrammar(focus) {
+  const pts = S.grammar || [];
+  const today = ymd(new Date());
+  const counts = [0, 1, 2, 3, 4, 5].map((l) => pts.filter((p) => p.level === l).length);
+  const max = Math.max(1, ...counts);
+  const names = ["새로/틀림", "힌트 있으면", "힌트 없이", "주간 테스트 통과", "또 통과", "완벽"];
+  const chart = counts.map((n, l) => `
+      <tr><th>${levelBar(l)}</th><td><span class="bar">${"█".repeat(Math.round((n / max) * 20)) || "·"}</span> ${n}</td>
+      <td class="small">${names[l]}</td></tr>`).join("");
+  const newOnes = new Set(((S.week && S.week.new) || []).map((g) => g.n));
+  const rows = pts.map((p) => {
+    const days = Math.round((new Date(p.next) - new Date(today)) / 86400000);
+    const next = p.due ? '<span class="due">오늘</span>' : `D-${days}`;
+    return `
+      <tr id="g-${p.n}" class="${String(p.n) === focus ? "focus" : ""}">
+        <td>${p.n}</td>
+        <td>${esc(p.point)} ${newOnes.has(p.n) ? '<span class="badge">이번 주</span>' : ""}</td>
+        <td>${levelBar(p.level)}</td>
+        <td>${next}</td>
+      </tr>`;
+  }).join("");
+  const solid = pts.filter((p) => p.level >= 3).length;
+  return {
+    title: "문법",
+    html: `
+      <div class="box">
+        <div class="box-title">▣ 문법 ${pts.length}개 · 레벨 3 이상 ${solid}개</div>
+        <div class="box-body page">
+          <table class="levels">${chart}</table>
+          <p class="small">레벨은 복습할 때마다 올라가고 (틀리면 내려가요) 다음 복습 날짜가 정해져요: 1 · 3 · 7 · 14 · 30 · 60일.</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-title">▣ 전체 목록</div>
+        <div class="box-body">
+          <table class="gtable"><tr><th>#</th><th>문법</th><th>레벨</th><th>복습</th></tr>${rows}</table>
+        </div>
+      </div>`,
+  };
+}
+
 function viewNotFound() {
   return {
     title: "404",
@@ -307,7 +422,7 @@ function viewNotFound() {
       <div class="box">
         <div class="box-title">!! 404 !!</div>
         <div class="box-body">
-          <p>이 페이지는 와이어드 어디에도 없습니다.</p>
+          <p>페이지를 찾을 수 없어요.</p>
           <p><a href="#/">→ 홈으로 돌아가기</a></p>
         </div>
       </div>`,
@@ -329,15 +444,18 @@ function route() {
     links: () => ({ title: "링크", html: template("page-links") }),
     guestbook: viewGuestbook,
     cards: viewCards,
+    week: viewWeek,
+    grammar: () => viewGrammar(param),
   };
   const page = (views[view] || viewNotFound)();
 
   content.innerHTML = page.html;
   if (page.after) page.after();
-  document.title = page.title ? `${page.title} ::: ${SITE_TITLE}` : `::: ${SITE_TITLE} :::`;
+  document.title = page.title ? `${page.title} :: ${SITE_TITLE}` : `${SITE_TITLE} :: 한국어 공부 일지`;
 
   // 메뉴 강조: 글 화면에서는 그 글의 카테고리를 강조한다
   let current = view ? `#/${view}${arg ? "/" + arg : ""}` : "#/";
+  if (view === "grammar") current = "#/grammar";
   if (view === "post") {
     const p = allPosts.find((x) => x.id === param);
     if (p) current = `#/category/${p.category}`;
@@ -348,7 +466,10 @@ function route() {
 
   // 휴대폰에서는 본문이 왼쪽 메뉴 아래에 있어서, 카드는 바로 보이도록 본문까지 내려간다
   if (view === "cards") content.scrollIntoView();
-  else window.scrollTo(0, 0);
+  else if (view === "grammar" && param) {
+    const row = document.getElementById(`g-${param}`);
+    if (row) row.scrollIntoView({ block: "center" });
+  } else window.scrollTo(0, 0);
 }
 
 window.addEventListener("hashchange", route);

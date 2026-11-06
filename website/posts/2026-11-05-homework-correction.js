@@ -1,7 +1,7 @@
 post({
   title: "선생님이 고쳐 준 숙제",
   date: "2026-11-05",
-  category: "mistakes",
+  category: "lesson",
   tags: ["한국어", "-(으)ㄹ걸 그랬다"],
   content: [
     "선생님이 지난 숙제를 고쳐 주셨다. 브배, 치팅데이, 긴 영화 얘기로. 🎬",

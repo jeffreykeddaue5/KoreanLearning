@@ -1,7 +1,7 @@
 post({
   title: "계획을 새우다?",
   date: "2026-10-20",
-  category: "mistakes",
+  category: "weekly",
   tags: ["한국어", "부터 까지"],
   content: [
     "오늘 문법 연습을 하다가 몇 개 틀렸다. 제일 웃긴 건 새우였다.",

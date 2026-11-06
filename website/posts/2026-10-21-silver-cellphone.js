@@ -1,7 +1,7 @@
 post({
   title: "그럼, 이 은색 핸드폰이 좋겠군요.",
   date: "2026-10-21",
-  category: "talk",
+  category: "daily",
   tags: ["오늘의 회화"],
   content: [
     '출처: <a href="https://learn.dict.naver.com/conversation#/korean-en/20261021" target="_blank">네이버 오늘의 회화 (2026-10-21)</a>',

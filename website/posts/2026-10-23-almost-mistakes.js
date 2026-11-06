@@ -1,7 +1,7 @@
 post({
   title: "'뻔했다' 얘기하다가 틀린 것들",
   date: "2026-10-23",
-  category: "mistakes",
+  category: "weekly",
   tags: ["한국어", "-(으)ㄹ 뻔하다"],
   content: [
     "오늘은 '할 뻔했다'만 연습했다. 이메일, 사슴, 품절된 모자… 아찔한 얘기를 많이 했다. ㅋㅋ",

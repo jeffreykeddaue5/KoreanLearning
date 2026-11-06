@@ -1,286 +1,208 @@
-// ===== 부팅 화면 =====
-const bootLines = [
-  "코플랜드 OS 엔터프라이즈 v2.3",
-  "(c) 타치바나 종합 연구소",
-  "",
-  "메모리 확인 중 ........ 640K 확인",
-  "NAVI 하드웨어 초기화 중 ........ 완료",
-  "와이어드 프로토콜 7 로드 중 ........ 완료",
-  "사용자 인증 중 ........ 익명_01",
-  "",
-  "현재 날짜. 현재 시간.",
-  "와이어드에 연결되었습니다.",
-];
-
-const boot = document.getElementById("boot");
-const bootText = document.getElementById("boot-text");
-const bootEnter = document.getElementById("boot-enter");
-
-let line = 0;
-function typeBoot() {
-  if (line < bootLines.length) {
-    bootText.textContent += bootLines[line] + "\n";
-    line++;
-    setTimeout(typeBoot, 180 + Math.random() * 220);
-  } else {
-    bootEnter.style.display = "block";
-  }
-}
-
-// 한 번 본 뒤에는 이번 세션 동안 부팅 화면을 건너뛴다
-if (sessionStorage.getItem("booted")) {
-  boot.remove();
-} else {
-  typeBoot();
-  boot.addEventListener("click", () => {
-    sessionStorage.setItem("booted", "1");
-    boot.classList.add("done");
-    setTimeout(() => boot.remove(), 700);
-  });
-}
+// ===== 데이터 =====
+// data/study.js (STUDY) 는 website/build_data.py 가 만든다. data/today.js (TODAY) 는 날씨·기분·표현.
+const S = typeof STUDY !== "undefined" ? STUDY : {};
+const T = typeof TODAY !== "undefined" ? TODAY : {};
+const $ = (id) => document.getElementById(id);
+const pad = (n) => String(n).padStart(2, "0");
+const ymd = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+}[c]));
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ===== 시계 =====
-const clock = document.getElementById("clock");
 function tick() {
   const d = new Date();
-  const pad = (n) => String(n).padStart(2, "0");
-  clock.textContent =
-    `${d.getFullYear()}년 ${pad(d.getMonth() + 1)}월 ${pad(d.getDate())}일 ` +
-    `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  $("clock").textContent =
+    `${d.getFullYear()}년 ${pad(d.getMonth() + 1)}월 ${pad(d.getDate())}일 ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 tick();
-setInterval(tick, 1000);
+setInterval(tick, 15000);
 
-// ===== 방문자 카운터 (로컬용 가짜 카운터) =====
-const todayKey = "visits-" + new Date().toDateString();
-const today = Number(localStorage.getItem(todayKey) || 0) + 1;
-const total = Number(localStorage.getItem("visits-total") || 1337) + 1;
-localStorage.setItem(todayKey, today);
-localStorage.setItem("visits-total", total);
-// 방문자 박스가 없으면 (숨겼으면) 건너뛴다
-if (document.getElementById("today")) {
-  document.getElementById("today").textContent = String(today).padStart(4, "0");
-  document.getElementById("total").textContent = String(total).padStart(6, "0");
-}
-
-// ===== 제목 글리치 =====
+// ===== 제목 글리치: 처음 한 번 + 마우스를 올릴 때 =====
 const title = document.querySelector("h1.glitch");
 function glitch() {
   title.classList.add("active");
-  setTimeout(() => title.classList.remove("active"), 120 + Math.random() * 200);
-  setTimeout(glitch, 2000 + Math.random() * 5000);
+  setTimeout(() => title.classList.remove("active"), 180);
 }
-setTimeout(glitch, 2500);
+if (!reduceMotion) setTimeout(glitch, 600);
+title.addEventListener("mouseenter", glitch);
 
-// ===== 신호 세기 =====
-// 시스템 박스가 없으면 (숨겼으면) 건너뛴다
-const signal = document.getElementById("signal");
-if (signal) {
-  setInterval(() => {
-    const n = 2 + Math.floor(Math.random() * 5);
-    signal.textContent = "|".repeat(n) + ".".repeat(6 - n);
-  }, 800);
+// ===== 고정한 단어 (단어 카드 + 흐르는 글자) =====
+const pinnedWords = (S.anki && S.anki.pinned) || { date: "", words: [] };
+const pinnedToday = pinnedWords.date === ymd(new Date()) && pinnedWords.words.length > 0;
+
+// ===== 다음 수업 =====
+const nextLesson = S.week && S.week.next_lesson ? new Date(S.week.next_lesson) : null;
+function lessonCountdown() {
+  if (!nextLesson) return null;
+  const now = new Date();
+  const days = Math.round((new Date(ymd(nextLesson)) - new Date(ymd(now))) / 86400000);
+  const hours = Math.max(0, Math.round((nextLesson - now) / 3600000));
+  if (now > nextLesson) return { label: "수업 끝!", when: "수업 노트를 쓰고 다음 주 계획을 만들어요" };
+  if (days === 0) return { label: "D-DAY", when: `오늘 21:00 · ${hours}시간 남았어요` };
+  return { label: `D-${days}`, when: `${nextLesson.getMonth() + 1}월 ${nextLesson.getDate()}일 (수) 21:00` };
 }
 
-// ===== 이달의 음악 =====
-// 매달 새 항목을 맨 위에 추가하면 된다. plays는 1~5.
-const monthlyMusic = [
-  {
-    month: "2026.10",
-    note: "이번 달은 밤에 걷는 음악이 많았다.",
-    tracks: [
-      { title: "Duvet", artist: "bôa", plays: 5 },
-      { title: "Teardrop", artist: "Massive Attack", plays: 4 },
-      { title: "위잉위잉", artist: "혁오", plays: 4 },
-      { title: "Roygbiv", artist: "Boards of Canada", plays: 3 },
-      { title: "Glory Box", artist: "Portishead", plays: 2 },
-    ],
-  },
-  {
-    month: "2026.09",
-    note: "비가 많이 와서 조용한 노래만 들었다.",
-    tracks: [
-      { title: "Avril 14th", artist: "Aphex Twin", plays: 5 },
-      { title: "기다린 만큼, 더", artist: "검정치마", plays: 4 },
-      { title: "Heaven or Las Vegas", artist: "Cocteau Twins", plays: 3 },
-      { title: "Flora", artist: "吉村弘", plays: 3 },
-      { title: "Duvet", artist: "bôa", plays: 2 },
-    ],
-  },
-];
-
-let musicIndex = 0;
-const musicPrev = document.getElementById("music-prev");
-const musicNext = document.getElementById("music-next");
-
-function renderMusic() {
-  const m = monthlyMusic[musicIndex];
-  document.getElementById("music-month").textContent = m.month;
-  document.getElementById("music-note").textContent = `"${m.note}"`;
-  const list = document.getElementById("music-list");
-  list.innerHTML = "";
-  for (const t of m.tracks) {
-    const li = document.createElement("li");
-    li.innerHTML =
-      `${t.title} <span class="artist">— ${t.artist}</span>` +
-      `<span class="plays">${"▮".repeat(t.plays)}${"▯".repeat(5 - t.plays)}</span>`;
-    list.appendChild(li);
+// ===== 흐르는 글자 =====
+function renderTicker() {
+  const inner = $("ticker-inner");
+  const cd = lessonCountdown();
+  let html = "";
+  if (pinnedToday) {
+    html += "★ 오늘의 단어 ★ " + pinnedWords.words
+      .map((w) => `<a href="#/cards" title="${esc(w.meaning)}">${esc(w.word)}</a>`)
+      .join(" · ");
+  } else {
+    html += "★ 오늘은 고정한 단어가 없어요 ★ 단어 카드에서 지난 단어를 볼 수 있어요";
   }
-  // 배열의 뒤쪽이 더 옛날 달
-  musicPrev.classList.toggle("off", musicIndex >= monthlyMusic.length - 1);
-  musicNext.classList.toggle("off", musicIndex <= 0);
+  if (cd) html += ` ★ 다음 수업 ${cd.label}`;
+  if (S.week && S.week.new && S.week.new.length) {
+    html += " ★ 이번 주 문법: " + S.week.new.filter((g) => g.n).map((g) => `#${g.n} ${esc(g.form)}`).join(", ");
+  }
+  inner.innerHTML = html + " ★";
+  // 길이에 맞춰 천천히 (글자 수 × 0.28초, 최소 40초)
+  inner.style.animationDuration = `${Math.max(40, inner.textContent.length * 0.28)}s`;
+  if (reduceMotion) $("ticker").classList.add("static");
+}
+renderTicker();
+
+// ===== 왼쪽: 기분 · 날씨 · 프로필 =====
+if (T.mood) {
+  $("mood-face").textContent = T.mood.face;
+  $("mood-word").textContent = T.mood.word;
+  $("mood-sentence").textContent = T.mood.sentence;
+  $("mood-meaning").textContent = T.mood.meaning;
+}
+if (T.weather) {
+  $("weather-art").textContent = T.weather.art;
+  $("weather-label").textContent = T.weather.label;
+  $("weather-tip").textContent = T.weather.tip;
+  $("weather-phrase").textContent = `「${T.weather.phrase}」`;
+  $("weather-note").textContent = T.weather.note;
+  $("weather-meaning").textContent = T.weather.meaning;
+}
+$("lesson-count").textContent = S.lessons ?? "-";
+$("generated").textContent = S.generated || "-";
+if (S.listening && S.listening.url) {
+  const b = $("banner-clip");
+  b.href = S.listening.url;
+  b.target = "_blank";
+  b.rel = "noopener";
+  b.title = S.listening.title || "";
 }
 
-// 패널을 index.html에서 주석 처리하면 건너뛴다
-if (musicPrev) {
-  musicPrev.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (musicIndex < monthlyMusic.length - 1) { musicIndex++; renderMusic(); }
-  });
-  musicNext.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (musicIndex > 0) { musicIndex--; renderMusic(); }
-  });
-  renderMusic();
+// ===== 오른쪽: 수업 · 진도 · Anki =====
+// ASCII 막대: ███░░░
+function bar(done, total, width = 10) {
+  if (!total) return "░".repeat(width);
+  const n = Math.round((done / total) * width);
+  return "█".repeat(n) + "░".repeat(width - n);
 }
 
-// ===== 고정한 단어 =====
-// Anki에서 고정한 단어. 단어 카드(#/cards)에 쓰이고, 오늘 날짜일 때만 흐르는 글자에 나온다.
-const pinnedWords = {
-  date: "2026-11-05",
-  words: [
-    { word: "풀리다", meaning: "get warmer (weather), ease up", example: "이번 주부터 날씨가 풀린다던데요.", translation: "I heard it's going to warm up starting this week." },
-    { word: "그만두다", meaning: "quit (a job, school)", example: "회사를 그만둘까 해요.", translation: "I'm thinking about quitting my job." },
-    { word: "어지럽다", meaning: "dizzy", example: "아침부터 머리가 어지러워요.", translation: "I've been dizzy since this morning." },
-    { word: "가렵다", meaning: "itchy", example: "모기에 물려서 팔이 가려워요.", translation: "A mosquito bit me, so my arm is itchy." },
-    { word: "쑤시다", meaning: "ache, throb", example: "비가 오면 무릎이 쑤셔요.", translation: "My knees ache when it rains." },
-    { word: "회복하다", meaning: "recover", example: "푹 쉬고 빨리 회복하세요.", translation: "Get plenty of rest and recover soon." },
-    { word: "끊다", meaning: "quit, give up", example: "커피를 끊으려고 노력하고 있어요.", translation: "I'm trying to quit coffee." },
-    { word: "쓰러지다", meaning: "collapse, pass out", example: "너무 피곤해서 쓰러질 뻔했어요.", translation: "I was so tired that I nearly passed out." },
-    { word: "두통", meaning: "headache", example: "두통이 심해서 약을 먹었어요.", translation: "My headache was bad, so I took some medicine." },
-    { word: "부작용", meaning: "side effect", example: "이 약은 부작용이 없어요?", translation: "Does this medicine have any side effects?" },
-    { word: "영양제", meaning: "vitamin, supplement", example: "아침마다 영양제를 챙겨 먹어요.", translation: "I make sure to take my supplements every morning." },
-    { word: "식단", meaning: "meal plan, diet", example: "요즘 식단을 관리하고 있어요.", translation: "I've been watching my diet lately." },
-  ],
-};
-const pinnedToday = pinnedWords.date === new Date().toLocaleDateString("en-CA");
-
-// 오늘 고정한 단어를 흐르는 글자 맨 앞에 붙인다. 마우스를 올리면 멈추고 뜻이 보인다.
-if (pinnedToday) {
-  const marquee = document.querySelector("marquee");
-  const parts = ["★ 오늘의 단어 ★ "];
-  pinnedWords.words.forEach((w, i) => {
-    const a = document.createElement("a");
-    a.href = "#/cards";
-    a.title = w.meaning;
-    a.textContent = w.word;
-    parts.push(i ? " · " : "", a);
-  });
-  marquee.prepend(...parts, " ");
-  marquee.addEventListener("mouseenter", () => marquee.stop());
-  marquee.addEventListener("mouseleave", () => marquee.start());
+const cd = lessonCountdown();
+if (cd) {
+  $("dday").textContent = cd.label;
+  $("dday-when").textContent = cd.when;
+}
+if (S.week) {
+  const b = S.week.blocks;
+  $("week-bar").textContent = `${bar(b.done, b.planned)} ${b.done}/${b.planned}`;
+  const nw = S.week.new.filter((g) => g.n);
+  $("week-new").innerHTML = S.week.light
+    ? "가벼운 주: 새 문법 없음"
+    : "새 문법: " + nw.map((g) => `<a href="#/grammar/${g.n}">#${g.n} ${esc(g.form)}</a>`).join(", ");
+}
+if (S.grammar) {
+  const due = S.grammar.filter((p) => p.due).length;
+  $("week-due").textContent = `오늘 복습할 문법 ${due}개`;
+}
+if (S.anki && !S.anki.error) {
+  $("anki-streak").textContent = String(S.anki.streak).padStart(3, "0");
+  $("anki-today").textContent = `오늘 ${S.anki.reviewed_today}장 복습 · 카드 ${S.anki.notes}개`;
+} else {
+  $("anki-today").textContent = "Anki 정보를 불러오지 못했어요";
 }
 
-// ===== 자꾸 까먹는 단어 =====
-// 몇 개든 추가할 수 있다. 까먹을 때마다 misses를 1씩 올린다.
-// 많이 까먹은 순서로 10개씩 보이고, « 이전 | 다음 » 으로 넘긴다. 외웠으면 지우면 된다.
-const forgottenWords = [
-  { word: "왕복", meaning: "갔다가 다시 돌아오는 것", misses: 4 },
-  { word: "질리다", meaning: "너무 많이 해서 싫증이 나다", misses: 4 },
-  { word: "도전하다", meaning: "어려운 일을 해 보려고 하다", misses: 4 },
-  { word: "솜씨", meaning: "손으로 무엇을 만드는 재주", misses: 4 },
-  { word: "화해하다", meaning: "싸운 뒤에 다시 사이가 좋아지다", misses: 4 },
-  { word: "볼만하다", meaning: "볼 가치가 있다", misses: 4 },
-  { word: "역전하다", meaning: "지고 있다가 상황을 뒤집어 앞서다", misses: 4 },
-  { word: "당연하다", meaning: "그렇게 되는 것이 맞다", misses: 4 },
-  { word: "여유", meaning: "시간이나 마음에 남는 넉넉함", misses: 3 },
-  { word: "막상", meaning: "실제로 그때가 되니까", misses: 3 },
-  { word: "억울하다", meaning: "잘못이 없는데 피해를 받아서 속상하다", misses: 3 },
-  { word: "지치다", meaning: "힘을 많이 써서 기운이 없다", misses: 3 },
-  { word: "은근히", meaning: "생각보다 꽤", misses: 3 },
-  { word: "실컷", meaning: "하고 싶은 만큼 마음껏", misses: 3 },
-  { word: "체하다", meaning: "먹은 음식이 잘 내려가지 않고 속이 답답하다", misses: 3 },
-  { word: "낭비하다", meaning: "시간이나 돈을 헛되이 쓰다", misses: 3 },
-  { word: "숙소", meaning: "여행할 때 머무는 곳", misses: 3 },
-  { word: "꾸준히", meaning: "쉬지 않고 계속 조금씩", misses: 3 },
-  { word: "단풍", meaning: "가을에 빨갛고 노랗게 변한 나뭇잎", misses: 3 },
-  { word: "몰입하다", meaning: "한 가지 일에 깊이 빠지다", misses: 3 },
-];
-
-// 많이 틀린 순서로 정렬해서 pageSize개씩 보여 준다. detail은 마우스를 올려야 보인다.
-// navId가 있으면 « 이전 | 다음 » 으로 페이지를 넘길 수 있고, 없으면 첫 페이지만 보인다.
-function renderRankList({ id, navId, items, pageSize, label, detail }) {
-  const list = document.getElementById(id);
-  const sorted = items.slice().sort((a, b) => b.misses - a.misses);
-  const pages = Math.max(1, Math.ceil(sorted.length / pageSize));
+// ===== 순위 목록 (자꾸 까먹는 단어 · 자주 틀리는 문법) =====
+// 많이 틀린 순서로 pageSize개씩. detail은 마우스를 올리거나 눌러야 보인다.
+function renderRankList({ id, navId, items, pageSize, label, detail, count }) {
+  const list = $(id);
+  const pages = Math.max(1, Math.ceil(items.length / pageSize));
   let page = 0;
+  let prev, next, pageLabel;
 
   function render() {
     list.innerHTML = "";
-    // 번호가 페이지마다 이어지도록 (2페이지는 11번부터)
     list.style.counterReset = `rank ${page * pageSize}`;
-    sorted.slice(page * pageSize, (page + 1) * pageSize).forEach((item) => {
+    items.slice(page * pageSize, (page + 1) * pageSize).forEach((item) => {
       const li = document.createElement("li");
       li.innerHTML =
-        `<span class="word">${label(item)}</span><span class="misses">✕${item.misses}</span>` +
+        `<span class="word">${label(item)}</span><span class="misses">✕${count(item)}</span>` +
         `<span class="meaning">${detail(item)}</span>`;
       list.appendChild(li);
     });
-    if (navId) {
+    if (prev) {
       prev.classList.toggle("off", page <= 0);
       next.classList.toggle("off", page >= pages - 1);
       pageLabel.textContent = `${page + 1} / ${pages}`;
     }
   }
 
-  let prev, next, pageLabel;
-  if (navId) {
-    const nav = document.getElementById(navId);
+  if (navId && pages > 1) {
+    const nav = $(navId);
     nav.innerHTML = '<a href="#">« 이전</a> | <span></span> | <a href="#">다음 »</a>';
     [prev, next] = nav.querySelectorAll("a");
     pageLabel = nav.querySelector("span");
-    prev.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (page > 0) { page--; render(); }
-    });
-    next.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (page < pages - 1) { page++; render(); }
-    });
+    prev.addEventListener("click", (e) => { e.preventDefault(); if (page > 0) { page--; render(); } });
+    next.addEventListener("click", (e) => { e.preventDefault(); if (page < pages - 1) { page++; render(); } });
   }
   render();
 }
 
-renderRankList({
-  id: "forgot-list",
-  navId: "forgot-nav",
-  items: forgottenWords,
-  pageSize: 10,
-  label: (w) => w.word,
-  detail: (w) => w.meaning,
-});
+if (S.anki && S.anki.forgotten) {
+  renderRankList({
+    id: "forgot-list", navId: "forgot-nav", pageSize: 10,
+    items: S.anki.forgotten,
+    label: (w) => esc(w.word), detail: (w) => esc(w.meaning), count: (w) => w.misses,
+  });
+}
 
-// ===== 자주 틀리는 문법 =====
-// 몇 개든 추가할 수 있다. 틀릴 때마다 misses를 1씩 올린다.
-// 많이 틀린 순서로 5개씩 보이고, « 이전 | 다음 » 으로 넘긴다.
-const misusedGrammar = [
-  { grammar: "시제 (과거/현재/미래)", wrong: "표가 매진되나 봐요 (앞으로 일어날 일)", right: "표가 곧 매진될 것 같아요", misses: 12 },
-  { grammar: "-아/어 보니까 (해 보고 알게 됨)", wrong: "웹사이트를 확인하자마자 다 품절됐어요", right: "웹사이트를 확인해 보니까 다 품절됐더라고요", misses: 4 },
-  { grammar: "-(으)ㄹ까 봐 (+서 ✕, 못 빠짐)", wrong: "마라톤을 끝낼까 봐서 걱정이었어요", right: "마라톤을 못 끝낼까 봐 걱정이었어요", misses: 5 },
-  { grammar: "커피를 먹다 → 마시다", wrong: "커피를 많이 먹은 탓에", right: "커피를 많이 마신 탓에", misses: 3 },
-  { grammar: "어쩐지 (이유는 먼저 따로)", wrong: "세일이 많아서 어쩐지 30분이 걸렸어요", right: "세일이 많더라고요. 어쩐지 30분이나 걸리더라고요", misses: 2 },
-  { grammar: "-(으)ㄹ 뻔하다 + 감정 ✕", wrong: "보냈으면 창피할 뻔했어요", right: "보냈으면 창피했을 거예요", misses: 2 },
-  { grammar: "N에 N (복합 명사)", wrong: "일본에 여행은 어땠어요?", right: "일본 여행은 어땠어요?", misses: 2 },
-  { grammar: "-(으)나 마나 (어디에 붙나)", wrong: "커피를 줄이나 마나 와이프가 안 믿을 거예요", right: "말하나 마나 와이프는 안 믿을 거예요", misses: 2 },
-  { grammar: "몸 + 을/를 다치다", wrong: "다리가 다칠 뻔했어요", right: "다리를 다칠 뻔했어요", misses: 2 },
-  { grammar: "남은 N이 + N밖에 없다", wrong: "남은 식빵밖에 없었거든요", right: "남은 빵이 식빵밖에 없었거든요", misses: 2 },
-];
+const typeName = { 시제: "시제", 조사: "조사", 어휘: "어휘", 어순: "어순", 문법: "문법" };
+if (S.mistakes) {
+  const order = { recurring: 0, lesson: 1, practice: 2 };
+  const items = S.mistakes.items.filter((i) => i.clean)
+    .sort((a, b) => b.times - a.times || order[a.section] - order[b.section]);
+  renderRankList({
+    id: "grammar-list", navId: "grammar-nav", pageSize: 5, items,
+    label: (g) => `<span class="type">[${esc(g.type)}]</span> ${esc(g.right)}`,
+    detail: (g) => `<span class="wrong">✕ ${esc(g.wrong)}</span><br>○ ${esc(g.right)}`,
+    count: (g) => g.times,
+  });
 
-renderRankList({
-  id: "grammar-list",
-  navId: "grammar-nav",
-  items: misusedGrammar,
-  pageSize: 5,
-  label: (g) => g.grammar,
-  detail: (g) => `<span class="wrong">✕ ${g.wrong}</span><br>○ ${g.right}`,
+  // 실수 종류: 지금 열린 실수 수 + 지난주와 비교
+  const hist = S.history || [];
+  const prevWeek = hist.length > 1 ? hist[hist.length - 2].mistakes : null;
+  const byType = S.mistakes.by_type;
+  const max = Math.max(1, ...Object.values(byType));
+  $("type-list").innerHTML = Object.keys(typeName).map((t) => {
+    const n = byType[t] || 0;
+    let trend = "";
+    if (prevWeek) {
+      const d = n - (prevWeek[t] || 0);
+      trend = d < 0 ? `<span class="down">▼${-d}</span>` : d > 0 ? `<span class="up">▲${d}</span>` : "<span>－</span>";
+    }
+    return `<li><span class="tname">${t}</span><span class="tbar">${"▮".repeat(Math.round((n / max) * 8)) || "·"}</span>` +
+           `<span class="tnum">${n}</span>${trend}</li>`;
+  }).join("");
+  const english = S.mistakes.names || {};
+  $("type-note").textContent = prevWeek ? "▼ 줄었어요 ▲ 늘었어요 (지난주 대비)"
+    : Object.entries(english).map(([k, v]) => `${k} ${v}`).join(" · ");
+}
+
+// ===== 눌러서 보기 (휴대폰) =====
+// .meaning 은 흐리게 보이다가 마우스를 올리면 보인다. 휴대폰에서는 누르면 보인다.
+document.addEventListener("click", (e) => {
+  const el = e.target.closest(".hint, .rank-list li");
+  if (el) el.classList.toggle("open");
 });

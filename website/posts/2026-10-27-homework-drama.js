@@ -1,7 +1,7 @@
 post({
   title: "숙제하면서 틀린 것, 복습할 것",
   date: "2026-10-27",
-  category: "homework",
+  category: "lesson",
   tags: ["한국어", "숙제", "에 대한"],
   content: [
     "숙제를 하면서 틀린 것과 다시 복습할 것을 정리했다. ✏",

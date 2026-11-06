@@ -4,16 +4,21 @@
 
 | File | What it's for |
 |---|---|
-| `index.html` | Page layout, side panels, and the 써먹을 표현 panel / 자기소개 / 링크 pages (`<template>` blocks at the bottom) |
-| `style.css` | All styling |
-| `script.js` | Boot screen, clock, counter, 이달의 음악 |
-| `blog.js` | Blog engine: loads posts, menu, routing. Categories are set at the top (`CATEGORIES`) |
+| `index.html` | Page layout, side panels, menu, and the 자기소개 / 링크 pages (`<template>` blocks at the bottom) |
+| `style.css` | All styling (phone layout below 860px) |
+| `script.js` | Clock, ticker, side panels (D-n, 진도, Anki, 까먹는 단어, 틀리는 문법, 실수 종류) |
+| `blog.js` | Blog engine: posts, routing, and the 홈 / 이번 주 / 문법 / 단어 카드 pages. Categories at the top (`CATEGORIES`) |
+| `data/study.js` | **Generated** by `build_data.py` from `weeks/`, `progress/`, `Grammar/`, `Listening/` and Anki. Don't edit |
+| `data/today.js` | Hand-written daily bits: weather, mood, 써먹을 표현 (`/daily-update`, `/website-update`) |
+| `build_data.py` | `python3 -I website/build_data.py` from the repo root rebuilds `data/study.js` |
 | `posts/list.js` | **Which posts are live** |
 | `posts/*.js` | One file per post |
 | `posts/_template.js` | Copy this to start a new post |
 | `media/` | Images, GIFs, videos, audio (one folder per post) |
 
 To preview locally, just open `index.html` in a browser. No server needed.
+
+**Who updates what:** daily → `/daily-update` (weather, mood, rebuild) · Wed → `/lesson-intake` (수업 post, 이번 주) · Tue → `/weekly-check` (주간 정리 post, levels) · 일상 / 대화 posts → you.
 
 ---
 
@@ -49,7 +54,7 @@ Order in `list.js` doesn't matter. Posts are sorted by `date`.
 post({
   title: "글 제목",
   date: "2026-11-01",
-  category: "daily",            // "daily" | "talk" | "mistakes" | "homework"
+  category: "daily",            // "daily" | "lesson" | "weekly" | "talk"
   tags: ["한국어", "생각"],
   summary: "목록에 보일 요약",     // optional, otherwise the first paragraph is used
   cover: "media/my-post/cover.jpg", // optional thumbnail in lists
@@ -77,12 +82,9 @@ post({
 - YouTube won't play when opening the file locally. That's normal; it works once the site is online.
 
 ### Other things to update
-- **자꾸 까먹는 단어:** edit `forgottenWords` in `script.js`. Add as many as you want and bump `misses` each time you forget one. They're sorted by `misses` and shown 10 per page with « 이전 | 다음 ». Delete words once you've learned them.
-- **단어 카드 / 오늘의 단어:** `pinnedWords` in `script.js` feeds the flash cards at `#/cards`. The words also show in the marquee when `date` is today. `/daily-update` refreshes it from Anki.
-- **자주 틀리는 문법:** edit `misusedGrammar` in `script.js` (`grammar`, `wrong`, `right`, `misses`). Same idea, 5 per page.
-- **이달의 음악:** add a new month at the **top** of `monthlyMusic` in `script.js` (`plays` is 1–5).
-- **지금 / 오늘의 기분 / 오늘 날씨:** edit directly in `index.html`. In 오늘 날씨, change the weather, temperature and the 오늘의 표현 (expression + short meaning) each day. The English in `<p class="meaning">` stays blurred until you hover, so update it too.
-- **자기소개 / 링크 / 써먹을 표현:** the `<template>` blocks at the bottom of `index.html`.
+- **까먹는 단어 / 틀리는 문법 / 단어 카드 / D-n / 진도 / 문법 레벨:** all come from `data/study.js`. Change the source (Anki, `progress/`, `weeks/`) and rerun `build_data.py`.
+- **기분 / 날씨 / 써먹을 표현:** edit `data/today.js`. The English `meaning` stays blurred until hover (or tap on a phone).
+- **자기소개 / 링크:** the `<template>` blocks at the bottom of `index.html`.
 - **New category:** add it to `CATEGORIES` in `blog.js` and add a menu link in `index.html` (`#/category/키`).
 
 ---
@@ -91,9 +93,9 @@ post({
 
 ### One-time setup
 1. Create a new **public** repo on GitHub (e.g. `wired-diary`). Don't add a README.
-2. In the `lain-blog` folder:
+2. In the `website` folder:
    ```bash
-   cd ~/Documents/websites/lain-blog
+   cd ~/Documents/GrammarStudy/website
    git init
    git add .
    git commit -m "첫 커밋"

@@ -1,7 +1,7 @@
 post({
   title: "핼러윈 행사 얘기하다가 틀린 것들",
   date: "2026-10-26",
-  category: "mistakes",
+  category: "weekly",
   tags: ["한국어", "-아/어 보니까"],
   content: [
     "오늘은 '해 보니까', '-길래', '-는 걸 보니까'를 연습했다. 핼러윈 행사 얘기를 하면서. 🎃",
