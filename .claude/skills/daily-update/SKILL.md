@@ -1,6 +1,6 @@
 ---
 name: daily-update
-description: Updates the website's side panels for the day — 오늘 날씨 (Northern Virginia weather and a weather expression), 오늘의 기분, 자꾸 까먹는 단어 from the Anki database, and 자주 틀리는 문법 from KoreanProgress.md — plus today's pinned Anki words (marquee and flash cards). The panels run at most once per day; the pinned words refresh on every run. Use when the user runs /daily-update or asks to update the side panels or pinned words; website-update also runs it after a korean-mentor session.
+description: Updates the website's side panels for the day — 오늘 날씨 (Northern Virginia weather and a weather expression), 오늘의 기분, 자꾸 까먹는 단어 from the Anki database, and 자주 틀리는 문법 from progress/mistakes.md — plus today's pinned Anki words (marquee and flash cards). The panels run at most once per day; the pinned words refresh on every run. Use when the user runs /daily-update or asks to update the side panels or pinned words; website-update also runs it after a korean-mentor session.
 ---
 
 # Daily update
@@ -33,7 +33,7 @@ Update in that box:
 
 ## 2. 오늘의 기분 (`index.html`, the `▼ 오늘의 기분` box)
 
-Pick one feeling word (adjective or expression) the user hasn't studied. Check it isn't in the Anki deck (step 3), `forgottenWords` in `website/script.js`, or the `<!-- 지난 기분: … -->` comment in the box. Fit it to the day if you can, e.g. the weather or how the latest session in `KoreanProgress.md` went (뿌듯하다 after a strong session).
+Pick one feeling word (adjective or expression) the user hasn't studied. Check it isn't in the Anki deck (step 3), `forgottenWords` in `website/script.js`, or the `<!-- 지난 기분: … -->` comment in the box. Fit it to the day if you can, e.g. the weather or how the latest session in `progress/log.md` went (뿌듯하다 after a strong session).
 
 Update:
 - `class="face"`: a kaomoji that fits.
@@ -65,7 +65,7 @@ Replace the whole `forgottenWords` array with these words, most-missed first. `m
 
 ## 4. 자주 틀리는 문법 (`misusedGrammar` in `website/script.js`)
 
-Build it from `KoreanProgress.md`: **Recurring mistakes** first, then **Practice mistakes** and **Lesson mistakes** that aren't ✓. Up to 10 entries, each:
+Build it from `progress/mistakes.md`: **Recurring mistakes** first, then **Practice mistakes** and **Lesson mistakes**. Up to 10 entries, each:
 - `grammar`: the point in a few words, e.g. `-(으)ㄹ까 봐 (+서 ✕)`
 - `wrong` / `right`: one short example sentence pair, using the user's real sentence
 - `misses`: the number of dates the mistake shows up with (at least 1)

@@ -101,6 +101,24 @@
 ✔ Attaches directly to the noun: 중고차치고는 · with verbs: V-(으)ㄴ 것치고는
 ✔ N치고 (no 는) + negative = "every N / no N is an exception" (last example)
 
+### 48. N(이)어도 / N여도
+**Form:** N이어도 (after a consonant) · N여도 (after a vowel) · negative: N이/가 아니어도
+**Meaning:** even if it's N; even though it's N
+
+- 고등학생 나이여도 볼 수 있어요?
+  🔁 Can you watch it even at high-school age? (L18)
+- 주말이어도 일찍 일어나요.
+  🔁 Even on weekends, I get up early.
+- 학생이어도 할인이 안 돼요.
+  🔁 Even if you're a student, there's no discount.
+- 한국 사람이 아니어도 괜찮아요.
+  🔁 It's fine even if you're not Korean.
+
+❌ 늦어도 발표를 해냈어요 → ✅ 늦었지만 발표를 해냈어요 (-아/어도 = even if; for something that already happened, use -지만, 2026-10-31)
+
+✔ It's -아/어도 (even if) on 이다: 이다 → 이어도 / 여도
+✔ Compare N(이)라도 (#34): 커피라도 = "at least coffee" (a second-best choice); 학생이어도 = "even if you're a student"
+
 ---
 
 ## Compare
@@ -112,5 +130,6 @@
 | -(으)ㄴ들 (#28) | "even if you do X, it won't help" | 지금 간들 늦을 거예요 |
 | -(으)나 마나 (#31) | "doing X or not, same result" | 가나 마나 늦을 거예요 |
 | N치고(는) (#44) | "for an N, it's surprisingly…" | 초보치고는 잘해요 |
+| N(이)어도 (#48) | "even if it's N, the result stays the same" | 주말이어도 일찍 일어나요 |
 
 Your tutor's note (L1): -기는 하지만 is **concession** (admit, then but); -반면에 is **comparison** (A vs B).

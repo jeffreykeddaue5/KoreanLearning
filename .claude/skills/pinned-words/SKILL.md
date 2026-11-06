@@ -1,6 +1,6 @@
 ---
 name: pinned-words
-description: 20–25 minute Korean drill that takes the user's pinned Anki words from recognizing them to using them, covering about 15 words from the last 7 days ranked by how often they were pinned and missed in Anki, and tracks them in KoreanProgress.md. Use when the user runs /pinned-words or wants to practice this week's or today's pinned words (e.g. "/pinned-words", "/pinned-words today").
+description: 20–25 minute Korean drill that takes the user's pinned Anki words from recognizing them to using them, covering about 15 words from the last 7 days ranked by how often they were pinned and missed in Anki, and tracks them in progress/words.md. Use when the user runs /pinned-words or wants to practice this week's or today's pinned words (e.g. "/pinned-words", "/pinned-words today").
 ---
 
 # Pinned Words
@@ -41,7 +41,7 @@ EOF
 
 The output is already ranked: most pins, then most Again presses, then newest pin. If it's empty, say so and stop.
 
-Then read **Pinned drill** in `KoreanProgress.md` and pick the words:
+Then read **Pinned drill** in `progress/words.md` and pick the words:
 
 1. Leave out words marked `passed`, unless their `pinned` date in the output is later than the passed date.
 2. Move words marked `missed` to the top, keeping their order.
@@ -69,7 +69,7 @@ Rules for every step:
 
 ## Ending
 
-When the words are done or the user stops, recap in a few lines: the words that passed, and the words that were missed, each with a fixed sentence. Then update `KoreanProgress.md`.
+When the words are done or the user stops, recap in a few lines: the words that passed, and the words that were missed, each with a fixed sentence. Then update `progress/words.md` and `progress/mistakes.md`.
 
 **Results.** A word passes if the user's first Produce answer uses it correctly without a hint. Otherwise it's missed. Words that didn't reach Produce get no result.
 
@@ -80,11 +80,11 @@ When the words are done or the user stops, recap in a few lines: the words that 
 - Word already marked `missed`: remove the line and add the word to **Hard words**, following **Add** in `.claude/skills/hard-words/SKILL.md`.
 - Delete any line whose `pinned` date is more than 7 days ago.
 
-**New mistakes** in the user's own sentences, other than missing the word, go under **Practice mistakes** in the usual format, keeping at most 10 items and dropping the oldest.
+**New mistakes** in the user's own sentences, other than missing the word, go under **Practice mistakes** in `progress/mistakes.md` in the usual format (with a type tag), keeping at most 10 items and dropping the oldest.
 
-Don't update **Session log**: `practice-mistakes` treats any line dated today as a reason not to raise its counts. Don't update the Grammar points table, `sessions/` or the website.
+Don't update **Session log**: `practice-mistakes` treats any line dated today as a reason not to raise its counts. Don't update `progress/grammar.md`, `sessions/` or the website.
 
-Then commit only that file (`git add KoreanProgress.md`), with a message like the one below, and don't push:
+Then commit only that file (`git add progress/`), with a message like the one below, and don't push:
 
 ```
 Pinned words 2026-10-31

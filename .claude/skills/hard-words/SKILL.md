@@ -1,11 +1,11 @@
 ---
 name: hard-words
-description: Keeps a list of Anki words the user struggles to use, in the Hard words section of KoreanProgress.md, so korean-mentor can work them into sessions. Use when the user runs /hard-words, says they have trouble with certain Korean words, or wants to see or change that list (e.g. "/hard-words 막상 어쩐지", "/hard-words", "/hard-words remove 막상").
+description: Keeps a list of Anki words the user struggles to use, in the Hard words section of progress/words.md, so korean-mentor can work them into sessions. Use when the user runs /hard-words, says they have trouble with certain Korean words, or wants to see or change that list (e.g. "/hard-words 막상 어쩐지", "/hard-words", "/hard-words remove 막상").
 ---
 
 # Hard Words
 
-Manage the **Hard words** section of `KoreanProgress.md`. Create the section after **Lesson mistakes** if it's missing.
+Manage the **Hard words** section of `progress/words.md`. Finished (✓) words live in `progress/archive.md`.
 
 ## Add: `/hard-words 막상 어쩐지 …`
 

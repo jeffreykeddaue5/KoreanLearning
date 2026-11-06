@@ -13,7 +13,7 @@ Make one CSV of 70 new words for the week: 7 days × 10 words.
 2. **Known words. Never repeat these:**
    - the first field of every row in `anki/*.csv`
    - the 📚 vocabulary sections of `Homework/[0-9]*.md`
-3. **Level and topics.** Read `KoreanProgress.md` for the user's level (intermediate, aiming for TOPIK 4급). Skim the 2–3 most recent `Homework/` lessons to see which topics come up in their conversations.
+3. **Level and topics.** Read **Current level** in `progress/grammar.md` for the user's level (intermediate, aiming for TOPIK 4급). Skim the 2–3 most recent `Homework/` lessons to see which topics come up in their conversations.
 
 ## Choosing words
 

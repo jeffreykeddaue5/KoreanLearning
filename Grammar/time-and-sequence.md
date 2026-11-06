@@ -158,6 +158,22 @@
 ✔ Usually for things you didn't want to happen (spilling, falling, being late)
 ✔ Compare: -(으)려다가 = you *intended* A but didn't do it; -(으)ㄹ 뻔했다 = A *nearly happened* to you
 
+### 49. V-(으)러 다니다
+**Form:** V-(으)러 다니다 · place + 에
+**Meaning:** go around doing…; regularly go somewhere to do…
+
+- 포켓몬 잡으러 다니면 재미있을 것 같아요.
+  🔁 It'd be fun to go around catching Pokémon. (L18)
+- 주말마다 맛집을 찾으러 다녀요.
+  🔁 Every weekend I go around looking for good restaurants.
+- 공원에 산책하러 다니고 싶어요.
+  🔁 I want to go to the park for walks regularly.
+
+❌ 공원에서 산책하러 다니고 싶어요 → ✅ 공원에 산책하러 다니고 싶어요 (with 가다/오다/다니다 the place takes 에, 2026-11-04)
+
+✔ -(으)러 가다 = go (once) to do something; -(으)러 다니다 = go regularly, or go from place to place doing it
+✔ Only with movement verbs: 가다, 오다, 다니다
+
 ---
 
 ## Compare
@@ -173,3 +189,6 @@
 | -(으)ㄴ 채로 (#1) | doing B with A's state still in place | 옷을 입은 채로 잤어요 |
 | -아/어 두다 (#46) | doing A and leaving it that way, or doing it in advance | 불을 켜 뒀어요 |
 | -는 김에 (#3) | since you're doing A, you also do B | 나가는 김에 쓰레기도 버릴게요 |
+| -(으)러 다니다 (#49) | you go regularly (or around) to do A | 맛집을 찾으러 다녀요 |
+
+For how long / since when (-(으)ㄴ 지, -는 데 걸리다, 만에, -기까지, 이후로), see [time-expressions](time-expressions.md).

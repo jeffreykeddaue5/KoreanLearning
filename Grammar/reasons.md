@@ -105,6 +105,27 @@
 ✔ Common for feelings, physical conditions, and impressions
 ✔ Noun form: N-(이)라서 그런지
 
+
+### 58. V-느라(고)
+**Form:** V-느라(고) · verbs only, no past tense before it
+**Meaning:** because I was busy doing A (so I couldn't do B, or B happened)
+
+- 드라마를 보느라고 숙제를 못 했어요.
+  🔁 I was busy watching dramas, so I couldn't do my homework.
+- 이사하느라 정신이 없었어요.
+  🔁 I was so busy moving that I couldn't think straight.
+- 늦게까지 일하느라고 저녁을 못 먹었어요.
+  🔁 I was working late, so I couldn't eat dinner.
+- 늦어서 죄송해요. 길을 찾느라고 늦었어요.
+  🔁 Sorry I'm late. I was trying to find the way.
+
+❌ 드라마를 봤느라고 → ✅ 드라마를 보느라고 (no past tense before -느라고; the second part shows the time)
+❌ 바빴느라고 → ✅ 바빠서 (adjectives can't take -느라고 → use -아/어서)
+
+✔ The same person does both parts
+✔ The second part is usually something you couldn't do or a cost: 못 했어요, 늦었어요, 힘들었어요, 정신이 없었어요
+✔ No command or suggestion after it
+
 ---
 
 ## Compare
@@ -118,3 +139,4 @@
 | -탓에 (#7) | blaming the cause of a bad result | 비가 온 탓에 경기가 취소됐어요 |
 | -거든요 (#16) | telling the listener a reason they didn't know | 비가 오거든요 |
 | -(으)니만큼 (#33) | given this fact, so naturally… (formal) | 비가 오니만큼 조심하세요 |
+| -느라(고) (#58) | you were busy doing A, so you couldn't do B | 숙제하느라고 못 갔어요 |

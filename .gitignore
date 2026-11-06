@@ -1,1 +1,6 @@
 .claude/settings.local.json
+Listening/*/audio/
+Speaking/**/*.wav
+Speaking/**/*.mp3
+Speaking/**/*.m4a
+anki/pending.json

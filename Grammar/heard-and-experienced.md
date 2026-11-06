@@ -87,6 +87,43 @@
 ✔ Can lead into a question, suggestion, or contrasting comment
 ✔ Unlike -다면서요?, it doesn't ask for confirmation
 
+### 50. V-아/어 보니(까)
+**Form:** V-아/어 보니(까) · usually + -더라고요 or past tense
+**Meaning:** when I actually tried / did it, I found that…
+
+- 막상 가 보니까 볼거리가 많더라고요.
+  🔁 Once I actually went, there was a lot to see.
+- 확인해 보니까 다 품절됐더라고요.
+  🔁 When I checked, everything was sold out.
+- 먹어 보니까 생각보다 맛있었어요.
+  🔁 When I tried it, it was tastier than I expected.
+
+❌ 확인하다 보니 품절됐어요 → ✅ 확인해 보니까 품절됐더라고요 (one check that led to a discovery → -아/어 보니까; -다 보니 #37 is for doing something over and over)
+❌ 확인하자마자 품절됐어요 → ✅ 확인해 보니까 품절됐더라고요 (-자마자 = B right after A, not "found out")
+
+✔ The second half is what you found out, not something you decided
+✔ 막상 + -아/어 보니까 = "once I actually did it" (it was different from what I expected)
+✔ With 보다 (see/watch), just 보니까: 영화를 보니까 … (⚠ 봐 보니까 is on the To verify list)
+
+
+### 57. V-았/었더니
+**Form:** V-았/었더니 · usually about your own action
+**Meaning:** I did A, and then (I found / the result was) B
+
+- 창문을 열었더니 눈이 오고 있었어요.
+  🔁 I opened the window, and it was snowing. (discovery)
+- 아침에 커피를 두 잔 마셨더니 잠이 안 와요.
+  🔁 I had two coffees this morning, and now I can't sleep. (result)
+- 매일 운동했더니 몸이 가벼워졌어요.
+  🔁 I worked out every day, and my body feels lighter. (result)
+- 친구한테 전화했더니 안 받더라고요.
+  🔁 I called my friend, but they didn't pick up.
+
+❌ 제가 커피를 마시더니 잠이 안 와요 → ✅ 커피를 마셨더니 잠이 안 와요 (your own action → -았/었더니; -더니 without 았/었 is for what you saw someone else do)
+
+✔ The second part is what happened or what you found, not a plan, command or suggestion
+✔ Very close to -아/어 보니까 (#50) for discoveries, but -았/었더니 also covers results: 마셨더니 잠이 안 와요
+
 ---
 
 ## Compare
@@ -98,3 +135,7 @@
 | -다면서요? (#42) | someone told you — you check with the listener | 그 식당 맛있다면서요? |
 | -다던데(요) (#43) | someone told you — background for what you say next | 그 식당 맛있다던데 가 볼까요? |
 | -줄 몰랐다 (#10) | you just found out and are surprised | 그 식당이 이렇게 맛있는 줄 몰랐어요 |
+| -아/어 보니까 (#50) | you found out by trying or doing it once | 먹어 보니까 맛있더라고요 |
+| -았/었더니 (#57) | you did A, and found B or B was the result | 먹었더니 배가 아파요 |
+| -다 보니(까) (#37) | doing it over and over led to a change | 자주 먹다 보니까 좋아졌어요 |
+| -(으)ㄴ/는 걸 보니(까) (#2) | you're guessing from evidence | 줄이 긴 걸 보니까 맛있나 봐요 |

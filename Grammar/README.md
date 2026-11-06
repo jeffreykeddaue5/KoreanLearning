@@ -11,6 +11,7 @@ Each point has spoken examples, ❌ → ✅ lines for common mistakes (many from
 | [heard-and-experienced.md](heard-and-experienced.md) | Things you heard, saw, or didn't know |
 | [contrast.md](contrast.md) | Contrast, "even if", "for a…" |
 | [time-and-sequence.md](time-and-sequence.md) | Order of events, interruptions, change |
+| [time-expressions.md](time-expressions.md) | How long, since when, first time in… |
 | [plans-wishes-regrets.md](plans-wishes-regrets.md) | Plans, hopes, worries, advice, regret |
 | [endings.md](endings.md) | Sentence endings that add tone |
 | [degree-and-particles.md](degree-and-particles.md) | Amount, tendency, and particles |
@@ -66,7 +67,18 @@ Each point has spoken examples, ❌ → ✅ lines for common mistakes (many from
 | 45 | V-자마자 | [time-and-sequence](time-and-sequence.md) |
 | 46 | V-아/어 두다 | [time-and-sequence](time-and-sequence.md) |
 | 47 | V-(으)ㄹ 뻔하다 | [time-and-sequence](time-and-sequence.md) |
+| 48 | N(이)어도 / N여도 | [contrast](contrast.md) |
+| 49 | V-(으)러 다니다 | [time-and-sequence](time-and-sequence.md) |
+| 50 | V-아/어 보니(까) | [heard-and-experienced](heard-and-experienced.md) |
+| 51 | V-(으)ㄴ 지 + 기간 + 되다/넘다 | [time-expressions](time-expressions.md) |
+| 52 | V-는 데 + 시간/돈 + 걸리다/들다 | [time-expressions](time-expressions.md) |
+| 53 | N 만에 | [time-expressions](time-expressions.md) |
+| 54 | V-(으)ㄴ 지 얼마 안 되다 / 오래되다 | [time-expressions](time-expressions.md) |
+| 55 | V-기까지 + 기간 | [time-expressions](time-expressions.md) |
+| 56 | V-(으)ㄴ 이후로 / 후로 | [time-expressions](time-expressions.md) |
+| 57 | V-았/었더니 | [heard-and-experienced](heard-and-experienced.md) |
+| 58 | V-느라(고) | [reasons](reasons.md) |
 
 ## Adding a point
 
-Give it the next number, put it in the file that fits best (same format: Form, Meaning, examples, ❌ → ✅, ✔ notes), and add a row to the table above.
+New points come from your lessons first, then from [QUEUE.md](QUEUE.md) (2 a week, picked by lesson-intake). Give it the next number, put it in the file that fits best (same format: Form, Meaning, examples, ❌ → ✅, ✔ notes), and add a row to the table above.

@@ -32,7 +32,7 @@ post({
 
 ## 2. 써먹을 표현 (`index.html`, the `<template id="page-phrase">` block at the bottom)
 
-The top panel on the home page. Pick one natural Korean phrase that fixes or goes with a mistake from today's session (or a recurring mistake in `KoreanProgress.md`), something the user can actually say in conversation. Don't reuse a phrase from the `<!-- 지난 표현: … -->` comment.
+The top panel on the home page. Pick one natural Korean phrase that fixes or goes with a mistake from today's session (or a recurring mistake in `progress/mistakes.md`), something the user can actually say in conversation. Don't reuse a phrase from the `<!-- 지난 표현: … -->` comment.
 
 Update:
 - `<p class="phrase">`: the phrase in 「…」.

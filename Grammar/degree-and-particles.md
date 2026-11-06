@@ -66,7 +66,7 @@
 
 ✔ The intention meaning is common in conversation, often when questioning someone's plan
 ✔ Similar (intention): -(으)려고 하다
-✔ ⚠ Whether 셈이다 sounds natural for *your own* plan is on the To verify list in `KoreanProgress.md`
+✔ ⚠ Whether 셈이다 sounds natural for *your own* plan is on the To verify list in `progress/notes.md`
 
 ### 14. -는 편이다
 **Form:** V-는 편이다 · A-(으)ㄴ 편이다
