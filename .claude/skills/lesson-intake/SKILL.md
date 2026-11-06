@@ -93,7 +93,11 @@ Each skill ticks its own block (☐ → ☑). The weekly check counts them.
 - For a light week, **New grammar** says "Light week: no new points" and lists the last 3 weeks' new points to review instead; Sunday's speaking is a longer topic that uses them.
 - Use the new points' numbers in the grammar blocks. Keep every block even if its skill doesn't exist yet; each skill ticks its own block (`☐ grammar` → `☑ grammar`).
 
-## 6. Finish
+## 6. Website
+
+Write the 수업 post (format in `.claude/skills/website-update/SKILL.md`, step 2) from the lesson file, then run `python3 -I website/build_data.py` so the 이번 주 page shows the new plan. Don't stage `website/`.
+
+## 7. Finish
 
 Tell the user in a few lines: the 2 new points (one-line English meaning each), how many reviews are due this week, mistakes added, questions answered, and the light week if it is one.
 
@@ -105,3 +109,5 @@ git commit -m "Lesson intake L19 (2026-11-04): #57, #58"
 ```
 
 Give the short commit hash.
+
+When this runs as a block of `/korean-mentor`, skip the commit above: korean-mentor ticks the block and commits at the end of the run.

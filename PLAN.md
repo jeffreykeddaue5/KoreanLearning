@@ -101,9 +101,9 @@ Optional, April. Decide mid-January; if yes, weekend TOPIK block Feb–Apr.
 
 1. ✅ Data migration + spaced repetition (split progress file, number points, levels, queue) — done 2026-11-05
 2. ✅ lesson-intake + weekly plan — done 2026-11-05
-3. `/korean-mentor` as daily command (checklist, resume, English explanations, AnkiConnect words)
+3. ✅ `/korean-mentor` as daily command (checklist, resume, English explanations, AnkiConnect words) — done 2026-11-05 (live AnkiConnect test pending: open Anki)
 4. ✅ weekly-check — done 2026-11-05
-5. speaking (install whisper.cpp)
+5. ✅ speaking (faster-whisper small, local and free) — done 2026-11-05
 6. ✅ listening (`Listening/sources.md`, `yt-dlp`, sentence cards) — done 2026-11-05
-7. Website: look cleanup → JSON data → new pages/panels → categories
-8. Cleanup: shared Anki helper, remove old skills, `.gitignore` audio, rewrite README
+7. ✅ Website: look cleanup → JSON data → new pages/panels → categories — done 2026-11-05
+8. ✅ Cleanup: shared Anki helper, remove old skills, `.gitignore` audio, rewrite README — done 2026-11-05

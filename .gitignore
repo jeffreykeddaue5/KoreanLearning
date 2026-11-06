@@ -4,3 +4,4 @@ Speaking/**/*.wav
 Speaking/**/*.mp3
 Speaking/**/*.m4a
 anki/pending.json
+__pycache__/

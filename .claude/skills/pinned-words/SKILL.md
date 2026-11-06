@@ -9,34 +9,10 @@ A drill run 1–2 times a week, separate from `korean-mentor` sessions.
 
 ## Setup
 
-Read this week's pins from a fresh copy of the collection, and only read the copy. The last number is how many days to include: 7 for `/pinned-words`, 1 for `/pinned-words today`.
+Read this week's pins with the shared Anki helper. The number is how many days to include: 7 for `/pinned-words`, 1 for `/pinned-words today`.
 
 ```bash
-SCRATCH=<your scratchpad directory>
-cp ~/snap/anki-desktop/common/User\ 1/collection.anki2 "$SCRATCH/collection.anki2"
-python3 -I - "$SCRATCH/collection.anki2" 7 <<'EOF'
-import json, re, sqlite3, sys, time
-c = sqlite3.connect(sys.argv[1])
-crt = c.execute("select crt from col").fetchone()[0]
-today = int((time.time() - crt) // 86400)
-first = today - int(sys.argv[2]) + 1
-cut = (crt + first * 86400) * 1000
-def clean(s):
-    return re.sub(r"\[sound:[^]]*\]|<[^>]+>", "", s).strip()
-words = []
-for nid, tags, flds in c.execute("select id, tags, flds from notes where tags like '%review_pinned_day_%'").fetchall():
-    pins = {int(d) for d in re.findall(r"review_pinned_day_(\d+)", tags) if int(d) >= first}
-    if not pins:
-        continue
-    again = c.execute("select count(*) from revlog r join cards k on k.id = r.cid where k.nid = ? and r.ease = 1 and r.id >= ?", (nid, cut)).fetchone()[0]
-    f = [clean(x) for x in flds.split("\x1f")] + ["", "", "", ""]
-    w = dict(zip(("word", "meaning", "example", "translation"), f))
-    w.update(pins=len(pins), again=again, day=max(pins), pinned=time.strftime("%F", time.localtime(crt + max(pins) * 86400)))
-    words.append(w)
-words.sort(key=lambda w: (-w["pins"], -w["again"], -w["day"]))
-for w in words:
-    print(json.dumps(w, ensure_ascii=False))
-EOF
+python3 -I .claude/skills/_shared/anki.py pinned 7
 ```
 
 The output is already ranked: most pins, then most Again presses, then newest pin. If it's empty, say so and stop.
@@ -63,7 +39,7 @@ Rules for every step:
 - Show one prompt at a time, with `[n/total]` for its place in the step.
 - **Don't reuse the Anki example.** Change the situation so a memorized answer won't work.
 - Don't show what you're looking for until the user has answered.
-- Follow **Feedback** in `.claude/skills/korean-mentor/SKILL.md`, with a one-line ✔ or ✏️ for each answer.
+- Follow **Feedback** in `.claude/skills/korean-mentor/session.md` (explanations in English), with a one-line ✔ or ✏️ for each answer.
 - Read each Korean prompt aloud as in `korean-mentor`, with `.claude/skills/korean-mentor/speak.sh "<Korean text>"` (plain Bash, not `run_in_background`). Don't mention the audio unless it fails. Pass only the Korean sentence, and skip the Produce step, which has no Korean. If the script fails, say so in one line and carry on without audio.
 - After the last word in Recall, Use and Produce, ask the missed words again in a new sentence or situation. Only the first answer in Produce counts.
 
@@ -77,7 +53,7 @@ When the words are done or the user stops, recap in a few lines: the words that 
 
 - Passed: `- 역전하다 · pinned 2026-10-30 · passed 2026-10-31`, replacing any line for that word.
 - First miss: `- 역전하다 · pinned 2026-10-30 · missed 2026-10-31`
-- Word already marked `missed`: remove the line and add the word to **Hard words**, following **Add** in `.claude/skills/hard-words/SKILL.md`.
+- Word already marked `missed`: remove the line and mark it as a trouble word in Anki: `python3 -I .claude/skills/_shared/anki.py tag <word> trouble`.
 - Delete any line whose `pinned` date is more than 7 days ago.
 
 **New mistakes** in the user's own sentences, other than missing the word, go under **Practice mistakes** in `progress/mistakes.md` in the usual format (with a type tag), keeping at most 10 items and dropping the oldest.
@@ -93,3 +69,5 @@ passed: 역전하다, 연차 · missed: 뒤끝
 ```
 
 Finally, tell the user in one line that progress was saved and committed, with the short commit hash.
+
+When this runs as a block of `/korean-mentor`, skip the commit above: korean-mentor ticks the block and commits at the end of the run.

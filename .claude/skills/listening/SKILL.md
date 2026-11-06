@@ -35,14 +35,14 @@ At the start of every step, run `flush` in case cards are still queued.
 1. Read the week's plan in `weeks/` (new grammar, due review points, lesson topics) and the **Used** list in `Listening/sources.md`. Don't use the same channel as last week, and never reuse a video.
 2. List the latest 10 uploads from 2–3 channels in `sources.md` (`channel`). Prefer `ko subs`, Korean-only content, and topics close to the lesson (weekend, work, food, daily life). Members-only and English-language lesson videos are out.
 3. For the 2–3 best candidates, get the subtitles (`subs` into the scratchpad) and choose a 5–10 minute section that stands on its own (a topic start to a topic end).
-4. **Level check.** Copy the Anki collection to the scratchpad (`cp ~/snap/anki-desktop/common/User\ 1/collection.anki2 "$SCRATCH/collection.anki2"`), list known words with `words`, and compare with the section text plus the grammar list in `Grammar/README.md`. Estimate the share of words the user knows (assume common basic vocabulary is known). Aim for **90–95%**; skip anything under ~85% or over ~98%. Also note which grammar points appear, preferring sections that use this week's new or due points.
+4. **Level check.** List the words already in Anki with `python3 -I .claude/skills/_shared/anki.py words`, and compare with the section text plus the grammar list in `Grammar/README.md`. Estimate the share of words the user knows (assume common basic vocabulary is known). Aim for **90–95%**; skip anything under ~85% or over ~98%. Also note which grammar points appear, preferring sections that use this week's new or due points.
 5. Pick one. Fetch it into `Listening/YYYY-MM-DD-<short-korean-or-english-slug>/` (today's date). Add a line to **Used** in `sources.md`.
 
 Tell the user in 3–4 lines: title, channel, section and length, ~% known, and why (e.g. "uses #35 3 times, and #57"). Give the YouTube link with the start time (`&t=<seconds>`). They can watch it there **with subtitles off**, or you play the whole clip in the terminal (`play <folder> 1 <last line>`).
 
 **Listen.** The user listens once or twice with no transcript. Don't show any of the text.
 
-**Summary.** Ask for a 1-minute summary in Korean of what they understood. Until the speaking skill exists they type it; after that, they record it. Reply in English: what they got right, and the main point(s) they missed, without quoting the transcript. Don't correct their Korean here, except one major mistake at most.
+**Summary.** Ask for a 1-minute summary in Korean of what they understood. They record it with the speaking helper (`python3 -I .claude/skills/speaking/record.py start Listening/<folder>/summary.wav 90`, then `stop` and `transcribe`), or type it if they prefer. Reply in English: what they got right, and the main point(s) they missed, without quoting the transcript. Don't correct their Korean here, except one major mistake at most.
 
 **Rating.** Ask: "About what % did you understand?" Save it.
 
@@ -68,7 +68,7 @@ Progress: `2 ✔ (missed: 4 소리, 2 단어, 1 속도)`.
 1. Choose 6–8 lines: ones from **Missed**, plus lines with useful grammar.
 2. For each line: show it, play it at 0.8× (`play … 0.8`), the user repeats it aloud, then play it at normal speed and they repeat again. Point out one sound or rhythm thing per line in English if useful (linking, where the pitch rises at the end). Move on when the user says next.
 3. Then pick a ~1-minute passage (consecutive lines). Play it at normal speed 2–3 times while the user speaks along with it, showing the text the first two times and hiding it the last time.
-4. Once the speaking skill exists, the user can record the last round; compare its transcript with the original and point out words that came out differently.
+4. Optionally record the last round (`record.py start Listening/<folder>/shadow.wav 90`); transcribe it and compare with the original lines, pointing out words that came out differently (a hint about pronunciation, not a verdict).
 
 Progress: `3 ✔`.
 
@@ -116,3 +116,5 @@ Source: <channel>, <title> (<section>) · <YouTube link with &t=> · ~92% known 
 
 - If the newest `weeks/` plan has a Schedule row for today, tick the listening block (`☐ listening` → `☑ listening`).
 - Commit only what this step changed (`git add Listening/ progress/notes.md weeks/`), message like `Listening 2026-11-05: step 1, <slug>`. Don't push. Give the short hash in one line.
+
+When this runs as a block of `/korean-mentor`, skip the commit above: korean-mentor ticks the block and commits at the end of the run.

@@ -62,11 +62,15 @@ Last week's numbers are in **Weekly reports** in `progress/log.md`. Write a one-
 - **check** = items right out of 10. **(+n)** = change since last week's line; leave it out the first week.
 - In the plan, add 2–3 lines under the numbers: what improved, what to watch, and the focus for next week (in English).
 - **Too much planned?** If blocks done are under 70% of planned this week *and* last week, suggest a lighter plan in one line (e.g. drop Saturday and the Friday listening step), and ask before changing anything.
-- **Monthly recording:** if this is the last weekly check of the month, remind the user to record the monthly same-topic recording (speaking skill, once it exists).
+- **Monthly recording:** if this is the last weekly check of the month, remind the user to do the monthly recording (`/korean-mentor speaking monthly`) if `Speaking/monthly/` has nothing for this month.
 
 ## Questions for the tutor
 
 Update **Questions for the tutor** in the plan so it's ready for tomorrow: the existing 3, plus anything from today that the tutor should settle (a structure the user got wrong and doesn't understand, or a homework nuance). Keep it to 5 at most, worded so the user can ask them in Korean or English.
+
+## Website
+
+Write the 주간 정리 post (format in `.claude/skills/website-update/SKILL.md`, step 2) from the report, then run `python3 -I website/build_data.py` so the 이번 주 page and 문법 levels show the new numbers. Don't stage `website/`.
 
 ## Finish
 
@@ -80,3 +84,5 @@ git commit -m "Weekly check 2026-11-10: 7/10"
 ```
 
 Give the short hash.
+
+When this runs as a block of `/korean-mentor`, skip the commit above: korean-mentor ticks the block and commits at the end of the run.

@@ -10,16 +10,13 @@ Usage (run with python3 -I):
   listen.py play <dir> <from line> [to line] [speed]   play lines (speed 0.8 = slower), returns at once
   listen.py cut <dir> <from line> [to line] <out.mp3>  cut lines to an mp3 (for Anki cards)
   listen.py subs <video id/url> <dir>      subtitles only, whole video: <dir>/lines.tsv with real timestamps
-  listen.py words <collection copy>        words already in Anki (Front field), one per line
   listen.py card <dir> <from> <to> "<Korean>" "<English>" "<note>"
         adds a sentence card (audio = those lines) to Anki deck Conversation via AnkiConnect,
-        or queues it in anki/pending.json if Anki isn't open
+        or queues it in anki/pending.json if Anki isn't open (shared helper: .claude/skills/_shared/anki.py)
   listen.py flush                          send queued cards once Anki is open
 """
 import html
 import json
-import sqlite3
-import urllib.request
 import re
 import subprocess
 import sys
@@ -155,34 +152,12 @@ def cut(d, a, b, out):
     print(out if r.returncode == 0 else r.stderr)
 
 
-REPO = Path(__file__).resolve().parents[3]
-PENDING = REPO / "anki/pending.json"
-
-
-def anki(action, **params):
-    req = urllib.request.Request("http://127.0.0.1:8765", json.dumps(
-        {"action": action, "version": 6, "params": params}).encode())
-    with urllib.request.urlopen(req, timeout=5) as r:
-        res = json.load(r)
-    if res.get("error"):
-        raise RuntimeError(res["error"])
-    return res["result"]
-
-
-def anki_open():
-    try:
-        anki("version")
-        return True
-    except Exception:
-        return False
-
-
-def words(col):
-    c = sqlite3.connect(col)
-    for (flds,) in c.execute("select flds from notes"):
-        w = re.sub(r"\[sound:[^]]*\]|<[^>]+>|&nbsp;", " ", flds.split("\x1f")[0]).strip()
-        if w:
-            print(w)
+def shared_anki():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("anki", Path(__file__).resolve().parents[1] / "_shared/anki.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 def card(d, a, b, ko, en, note):
@@ -190,38 +165,7 @@ def card(d, a, b, ko, en, note):
     vid = json.loads((d / "info.json").read_text())["id"]
     out = d / "audio" / f"card_{vid}_{a}-{b}.mp3"
     cut(d, a, b, str(out))
-    n = {"deckName": "Conversation", "modelName": "Basic",
-         "fields": {"Front": ko, "Back": en, "Example": "", "Translation": "", "Note": note},
-         "tags": ["listening", "conversation"],
-         "options": {"allowDuplicate": False},
-         "audio": [{"path": str(out), "filename": out.name, "fields": ["Front"]}]}
-    queue = json.loads(PENDING.read_text()) if PENDING.exists() else []
-    queue.append(n)
-    PENDING.write_text(json.dumps(queue, ensure_ascii=False, indent=1))
-    flush()
-
-
-def flush():
-    if not PENDING.exists():
-        return print("nothing queued")
-    queue = json.loads(PENDING.read_text())
-    if not anki_open():
-        return print(f"Anki isn't open: {len(queue)} card(s) queued in anki/pending.json")
-    left = []
-    for n in queue:
-        try:
-            anki("addNote", note=n)
-            print("added:", n["fields"]["Front"])
-        except Exception as e:
-            if "duplicate" in str(e):
-                print("already in Anki:", n["fields"]["Front"])
-            else:
-                print("failed:", n["fields"]["Front"], e)
-                left.append(n)
-    if left:
-        PENDING.write_text(json.dumps(left, ensure_ascii=False, indent=1))
-    else:
-        PENDING.unlink()
+    shared_anki().add([ko, en, "", "", note, "--audio", str(out), "--tags", "listening"])
 
 
 if __name__ == "__main__":
@@ -240,12 +184,10 @@ if __name__ == "__main__":
         play(a[1], a[2], *(a[3:5]))
     elif cmd == "subs":
         subs_only(a[1], a[2])
-    elif cmd == "words":
-        words(a[1])
     elif cmd == "card":
         card(*a[1:7])
     elif cmd == "flush":
-        flush()
+        shared_anki().flush()
     elif cmd == "cut":
         cut(a[1], a[2], a[3] if len(a) > 4 else a[2], a[-1])
     else:

@@ -1,137 +1,99 @@
 ---
 name: korean-mentor
-description: Conversational Korean tutor that practices whichever grammar points (from Grammar/) the user picks (or this week's plan in weeks/), mixes in spaced-repetition review of older points, brings back mistakes the user's tutor corrected in Homework/, and tracks progress in progress/. Use when the user wants to practice Korean grammar, do a role-play, or runs /korean-mentor, with or without point numbers (e.g. "35-44" or "3 17 22").
+description: The user's one daily Korean study command. Shows today's checklist from the week's plan in weeks/ (Anki, grammar, listening, speaking, homework, weekly check, lesson prep, lesson intake), runs the next unfinished block, resumes where the user stopped, folds in missed days, and commits at the end. The grammar block is a conversational tutor session on the week's new points plus spaced-repetition review (session.md). Use when the user runs /korean-mentor (with or without arguments such as point numbers "35-44", "listening", "review", "mistakes"), or wants to study or practice Korean today.
 ---
 
-# Korean Mentor
+# Korean Mentor: the daily command
 
-You are a friendly Korean conversation partner helping the user practice the numbered grammar points in `Grammar/` (in this directory).
+The user studies every day around a **Wednesday 21:00 lesson** (1 hour: 30 min talking about the weekend, 30 min going over homework). One `/korean-mentor` runs the day: it shows what's planned, runs the next block, and keeps everything in sync. Korean for practice, **English for every explanation**. Keep screen text short.
 
-## Setup
+## 1. Start: today's state
 
-1. Read `progress/grammar.md` (level and the points table), `progress/mistakes.md`, `progress/words.md` and the top of `progress/log.md`. Use them to match your Korean to the user's level and to bring back their recurring mistakes during the session. If you see clear progress since last time, mention it briefly.
-2. **Warm-up first.** If **Practice mistakes** in `progress/mistakes.md` has items, start the session with 3–4 quick "fix this sentence" items from it before anything else. Use the user's wrong sentence or a close variant, one at a time, and don't say what's being tested. Pick items with the lowest count first, then the oldest. Give a one-line ✔ or ✏️ for each, then move on to the rest of setup. Skip it if the list is empty, the user says "no warm-up", or **Session log** in `progress/log.md` already has a `practice-mistakes` line dated today.
-3. Read `Grammar/README.md` to find which file has each point. Then read only the files that hold today's points and the review points. Each file ends with a **Compare** table of points that are easy to mix up; use it to test the difference. Each session focuses on whichever points the user picks, e.g. `35-44`, `12 20 38`, or names like `-길래`. If they didn't say, use **New grammar** from the newest plan in `weeks/` (the file named after the latest lesson date) and say so in one line; only ask if there's no plan.
-4. **Add 2–4 review points** from outside their pick: the **due** points in `progress/grammar.md` (Next review is today or earlier), lowest level first, then the oldest Next review. If fewer than 2 are due, take the ones due soonest. Name them in one line, e.g. `Review today: #7, #22 (3 more due)`. Skip this if the user says "no review".
-5. Ask: "Heard any of these in the wild lately?" If the user shares a sentence, check whether it uses the point the way they think, explain it briefly, and add it to **Heard in the wild** in `progress/notes.md`.
-6. **Pull tutor corrections from `Homework/`.** It has one file per lesson with a tutor (index in `Homework/README.md`). Mistakes are marked `(❌)`, and the fix comes after `➡️` or as a `(✅)` version, with explanations in `cf)` and `💡` lines. Gather about 5 of these:
-   - Read the 2 most recent lesson files in full.
-   - Grep the older files for today's target and review points, plus anything listed under **Lesson mistakes** in `progress/mistakes.md`.
-   - Prefer mistakes the user has made more than once and ones related to today's points.
-   - Skip finished mistakes (the ✓ list in `progress/archive.md`). At most one of those per session can come back as a quick review.
-
-   Name them in one line, e.g. `From lessons: 다가 vs 자마자 (L14), 시험을 시작했어요 → 시험이 시작됐어요 (L14)`.
-7. **Pick 2–3 hard words** from **Hard words** in `progress/words.md`, lowest count first, skipping ✓ items. Name them in one line, e.g. `Words today: 막상, 어쩐지`. Skip this if the list is empty.
-8. **Load today's pinned Anki words.** The user pins words in Anki to practice that day; they're tagged `review_pinned_day_<N>`, where N is Anki's day number. Copy the collection to the scratchpad first (Anki may have it open) and only read the copy:
-
-   ```bash
-   SCRATCH=<your scratchpad directory>
-   cp ~/snap/anki-desktop/common/User\ 1/collection.anki2 "$SCRATCH/collection.anki2"
-   python3 -I - "$SCRATCH/collection.anki2" <<'EOF'
-   import sqlite3, sys, time
-   c = sqlite3.connect(sys.argv[1])
-   crt = c.execute("select crt from col").fetchone()[0]
-   day = int((time.time() - crt) // 86400)
-   for (flds,) in c.execute("select flds from notes where ' ' || tags || ' ' like ?", (f"% review_pinned_day_{day} %",)):
-       f = flds.split("\x1f")
-       print(f[0], "|", f[1])
-   EOF
-   ```
-
-   Name them in one line, e.g. `Pinned today: 뻐근하다, 낭비하다, 마침`. If nothing is pinned today, say so and skip it.
-9. Ask in one line which mode they want, or start with **Conversation** if they don't care:
-   - **Conversation** – a natural chat on a real topic (weekend, work, travel, food)
-   - **Drill** – quick questions, one point at a time
-   - **Role-play** – a scene (café, office, catching up with a friend)
-
-## How to run a session
-
-- Speak mostly in Korean (polite 해요체), at the level in `progress/grammar.md`. Add a short English gloss when a sentence uses new vocabulary.
-- **Explanations are in English.** Prompts and conversation stay in Korean, but every correction, grammar explanation and nuance note is in English, so the user is sure they understood. When introducing a new point, give a short English explanation (meaning, form, when to use it) with 2 examples before the first prompt.
-- Each turn, ask a question or say a line that naturally invites one of the target points. Rotate through them, review points included. Don't repeat a point until the others have come up.
-- When useful, add a hint in brackets: `(try #39 -(으)ㄹ 텐데)`. Drop hints once the user is using the points without them.
-- **Work in the lesson mistakes.** Set up situations where the user would naturally make the same choice again, e.g. ask about the day an exam started late to bring back -자마자 vs -다가. In Drill mode, also give some "fix this sentence" items using the user's own wrong sentences from homework. Don't say which mistake you're testing until they answer.
-- **Work in today's hard words.** Set up situations that call for them, e.g. a reason found out later for 어쩐지, or an expectation that turned out wrong for 막상. Hint like a grammar point, `(try 막상)`, and drop the hint once they use it unprompted.
-- **Work in today's pinned words** the same way: set up situations that call for them and hint in brackets, `(try 마침)`. Hints can stack with grammar, `(try #47 -(으)ㄹ 뻔하다 + 마침)`. Aim to bring up each pinned word once; if there are more than turns allow, pick the ones that fit the conversation. Drop the hint once they use it unprompted.
-- Keep your turns short (1–3 sentences) so the user talks more than you.
-- **Read prompts aloud.** After showing each warm-up sentence and each practice prompt, play its Korean with `.claude/skills/korean-mentor/speak.sh "<Korean text>"` (plain Bash, not `run_in_background`; the script returns right away and plays on its own, so the user can read while it plays). Don't mention the audio unless it fails. Pass only the Korean sentence(s) to answer or fix: no `[n/total]`, hints in brackets, English glosses or emoji. Don't play corrections, feedback or setup lines. If the user asks to hear it again or slower, replay it (`RATE=-25%` for slower). If the script fails, say so in one line and carry on without audio. Only do this during a korean-mentor session.
-- **Ask for fuller answers.** Prompts should invite a few sentences (a story, a reason, an opinion), not a one-line reply, so the user can take their time and combine points. Respond to what they actually said before moving on.
-- **Show progress.** Sessions are 7 turns; say so when the session starts. Cover every target and review point once, and fit lesson mistakes and hard words into those same turns (one prompt can test a point and a word together, or two points at once). If they don't all fit, cover today's points first and leave the rest of the review for next time. Put `[n/total]` in front of each practice prompt. A turn counts only when the user answers a practice prompt; questions, side topics and hint requests don't count. At the last turn, ask whether to keep going or stop, and keep counting `[8]`, `[9]`… if they go on. The warm-up has its own `1/4` count.
-
-## Feedback
-
-After each user reply:
-- If it's correct, react naturally and continue. Occasionally give a ✔ when they use a target point well.
-- If there's a mistake, keep the flow: give a one-line correction with a short English reason first, then continue the conversation.
-  `✏️ 비가 오길래 우산을 가져가세요 → 비가 오니까 우산을 가져가세요 (-길래 can't be followed by a command or suggestion)`
-- If they repeat a mistake the tutor already corrected, say so: `✏️ … (same as Lesson 14 — 다가 means an interruption)`. Use the tutor's explanation and wording when there is one.
-- The tutor's corrections come first. If you think one of them is wrong or too strict, don't contradict it. Add it to **To verify** in `progress/notes.md` for the user to ask the tutor.
-- Only correct the target grammar and clear errors. Don't nitpick spacing or style.
-- If they answer in English, give them the Korean version and ask them to say it back.
-- **Be honest about uncertainty.** When a correction depends on subtle nuance (how natural something sounds, near-synonyms, regional or generational usage), say so: `(⚠ nuance — worth checking with a native speaker)`. Add those items to **To verify** in `progress/notes.md`. Never present a guess as a rule.
-
-## Ending
-
-When the user says stop (그만, done, etc.), give a short recap:
-- The points they used correctly
-- 1–3 corrections to review, each with the fixed sentence
-- Which lesson mistakes they got right this time and which ones still came up
-- Which hard words and pinned words they used well, with their sentence, and which still need work
-- One point to focus on next time
-
-Then update the files in `progress/`, and keep them short:
-- **Grammar (`progress/grammar.md`):** update the row for each point practiced, review points included, following **How levels work** in that file: in a session, right without a hint → +1 level (max 2) and +1 No-hint; with a hint → same level; wrong or struggled → −1. Set Last practiced to today and Next review to today + the interval for the new level. The note is a few words, e.g. "mixes up with -아서".
-- **Practice mistakes (`progress/mistakes.md`):** add each clear mistake you corrected this session (not nuance or style tips), with its type, as the wrong sentence → the fix, e.g. `[조사] 회사에 근처에 → 회사 근처에 (2026-10-10) · 0/2`. Update the count for each warm-up item: +1 if the user fixed it, reset to 0/2 if they got it wrong. Delete an item at 2/2. If the same mistake shows up again in a later session, move it to **Recurring mistakes**. Keep at most 10 items and drop the oldest when the list is full.
-- **Recurring mistakes:** add a mistake once it has happened in 2 or more sessions, and remove it once it stops happening.
-- **Same-day `practice-mistakes`:** if **Session log** has a `practice-mistakes` line dated today, Practice and Lesson counts can't go up in this session, but resets still apply.
-- **Lesson mistakes:** add each tutor mistake you practiced, with its type, e.g. `[문법] 다가 for "as soon as" → -자마자 (L14) · 1/2`. The number counts sessions where the user got it right without a hint. At 2/2, move the line to **Lesson mistakes (✓ done)** in `progress/archive.md` as `… (L14) · ✓ 2026-10-15`. If the user makes a mistake again after practicing it, including an archived one, add it to **Recurring mistakes** and bring it back with 0/2.
-- **Hard words (`progress/words.md`):** for each word practiced, add +1 if the user used it correctly without a hint. At 2/2, move it to **Hard words (✓ done)** in `progress/archive.md` with `· ✓ <date>`. Reset to 0/2 if they misuse it.
-- **To verify / Heard in the wild (`progress/notes.md`):** add new items. Remove a To verify item once the user says it's been checked.
-- **Current level (top of `progress/grammar.md`):** revise the summary only when the user's level has clearly changed.
-- **Session log (`progress/log.md`):** add one line at the top, e.g. `2026-10-07 · #35–44 + review #7, #22 · conversation · strong: 길래, 다 보니 · fix: 텐데 + command`. Keep the last 15 lines and move older ones to **Session log (older)** in `progress/archive.md`.
-- **Weekly plan:** if the newest `weeks/` plan has a Schedule row for today, tick its grammar block (`☐ grammar` → `☑ grammar`), and `☐ Anki` if today's Anki reviews are done.
-
-Then write the session notes to `sessions/YYYY-MM-DD.md` (add `-2`, `-3` if that date already has a file). These are the user's study notes, so keep them organized and easy to scan:
-
-```markdown
-# Session 2026-10-12
-
-**Points:** #29, #33, #36 · **Review:** #7, #38 · **Words:** 막상, 어쩐지 · **Mode:** conversation
-
-## Used well
-- 사람들이 다 칠면조를 먹길래 저도 칠면조를 시켰어요. (#36)
-
-## Corrections
-| You said | Better | Why |
-|---|---|---|
-| 사람이 많거든요 | 사람이 많았거든요 | past event → past tense |
-
-## Lesson mistakes & hard words
-- ✔ 아침 일찍 (L14): 아침 일찍 일어나려다가…
-- ✏️ 어쩐지: 어쩐지 비싸요 → 어쩐지 비싸더라고요
-
-## Grammar notes
-- 맛있다/재미있다 (-있다/-없다) take -나 봐요, not -(으)ㄴ가 봐요
-
-## New words
-- 셰프 — chef
-
-## Next time
-- -군요 vs -더라고요: heard from someone → -군요
+```bash
+python3 -I .claude/skills/korean-mentor/today.py
 ```
 
-Use the user's real sentences. Under **Corrections**, list every clear correction, including typos only when they changed the word (부뜨럽다 → 부드럽다). Put nuance tips under **Grammar notes** marked ⚠. Leave out empty sections.
+It prints today's blocks from the plan, unfinished blocks from earlier days (`missed_earlier`), days to the lesson, whether `intake_due`, this week's listening progress, how many grammar points are due, and Anki status (it also sends any queued Anki changes if Anki is open).
 
-Then commit the session. Stage only the files you changed (`git add progress/ sessions/<file>.md weeks/`, nothing else) and commit with a message like:
+- `intake_due` true (a lesson file is newer than the plan) → do **lesson-intake** first, then continue with the new plan.
+- No plan at all → say so and offer to run lesson-intake on the newest lesson file.
+
+## 2. Show the checklist
+
+One compact block, then say what's next:
 
 ```
-Session 2026-10-12: #29, #33, #36 + review #7, #38
-
-strong: 길래, 다 보니 · fix: 텐데 + command
+목요일 · week of 11-04 · 다음 수업 D-6 (Wed 21:00)
+☑ Anki (41 reviews, nothing due) · ☐ grammar: new #57, #58 · ☐ listening: step 1
+Missed: Fri speaking (skipped, speaking isn't built yet)
+Next: grammar (~30 min). Go?
 ```
 
-The first line names the date, today's points and review points; the second line matches the Session log entry. Don't push.
+- **Anki:** ☑ if reviews were done today and nothing is due (`reviewed_today` > 0, `due_left` 0); otherwise ☐ with the count due. If the user hasn't done Anki yet, remind them once; don't block other work. Mention queued changes only if there are any (`pending`): "Open Anki to apply N queued changes."
+- Show `missed_earlier` in one line, with what happens to it (see **Catching up**).
 
-Then update the website: follow `.claude/skills/website-update/SKILL.md` (a 실수 post from this session and 써먹을 표현; it runs daily-update for the side panels only if that hasn't run yet today).
+## 3. Pick what to run
 
-Finally, tell the user in one line that progress and notes were saved and committed, with the short commit hash, and in a few lines what changed on the website.
+**Arguments first:**
+
+| Argument | Runs |
+|---|---|
+| point numbers or names (`35-44`, `3 17`, `-길래`) | a grammar session on those points |
+| `review` | a review grammar session (due points only) |
+| `listening` | the listening skill's next step |
+| `check` / `weekly` | the weekly check |
+| `mistakes` | the practice-mistakes drill |
+| `pinned` | the pinned-words drill |
+| `speaking` (optionally a mode: `weekend`, `retell`, `qa`, `monthly`) | the speaking skill |
+| `intake` | lesson-intake |
+| `plan` | just show the checklist and stop |
+
+**No arguments:** the first unfinished (☐) block in today's row, in the order written. Blocks:
+
+| Block | What to do |
+|---|---|
+| **grammar** | Follow `.claude/skills/korean-mentor/session.md`. Kind: `new` for "new #…", `long` for "longer session", otherwise `review`. |
+| **listening** | Follow `.claude/skills/listening/SKILL.md` (it finds the right step). |
+| **speaking** | Follow `.claude/skills/speaking/SKILL.md`. Mode from the block text: "retell" → retell, "my weekend" → weekend 4/3/2, "Q&A" → qa; on the last Tuesday of the month, offer the monthly recording too. |
+| **homework sentences** (Mon) | Show the 5 **Homework** prompts from the plan (or ask what the tutor assigned). The user writes them in Korean; save them under `## My homework` in the plan. No corrections now: the weekly check reviews them Tuesday. |
+| **weekly check** (Tue) | Follow `.claude/skills/weekly-check/SKILL.md`. |
+| **mistakes drill** (Sat, optional) | Follow `.claude/skills/practice-mistakes/SKILL.md`. On Saturday, offer it or `pinned` and accept "no" happily. |
+| **lesson prep** (Wed, before 21:00) | ~20 min: (1) 2 quick no-hint prompts per new point this week; (2) **weekend rehearsal**: 3 questions about the user's weekend in Korean, as the tutor will ask (그 주말에 뭐 했어요? …), with light corrections in English; (3) go over **Questions for the tutor** and help phrase them in simple Korean. |
+| **lesson-intake** (Wed after the lesson) | If today's `Homework/` file exists (`lesson_file_today`), follow `.claude/skills/lesson-intake/SKILL.md`. If it's after 21:00 and there's no file yet, ask the user to write their lesson notes first. |
+
+Optional extras like "optional 일상 post" are only offered, never pushed.
+
+Sub-skills normally commit on their own. **When run from korean-mentor, they skip their commit**; this skill commits at the end of the run (step 5).
+
+## 4. Between blocks
+
+After a block ends:
+- Tick it in today's row of the plan: `☐ grammar` → `☑ grammar` (`☑ Anki` too once Anki is done). A skipped block becomes `– speaking`.
+- Show the updated one-line checklist and ask: `Next: listening step 1 (~30 min). Continue, or stop for today?`
+- **그만 / stop / done** ends the run (step 5). The next `/korean-mentor` picks up at the next ☐ block, today or the next day.
+
+## Catching up
+
+Missed blocks from earlier days (not optional ones) don't pile up:
+- **grammar** → today's grammar session adds 2 extra due points; no second session.
+- **listening** → the listening skill simply does the next step; skip a step only if the user asks.
+- **speaking** → skip it; only today's counts.
+- **homework sentences** → do them before the weekly check (Tue) or before lesson prep (Wed).
+- **weekly check** missed on Tuesday → run it Wednesday before lesson prep.
+
+Mark folded-in blocks `☑ (Tue)` on the day they were done, so the weekly check counts them.
+
+## 5. End of the run
+
+When the user stops or today's blocks are done:
+1. Recap the day in 2–4 lines: what was done, one highlight (a sentence they got right), one thing for next time.
+2. **Website:** run `.claude/skills/daily-update/SKILL.md` (it updates the side panels once a day and refreshes the pinned words every run). No per-session blog post.
+3. **Commit** everything this run changed, in one commit, and don't push:
+
+```bash
+git add progress/ sessions/ weeks/ Listening/ Grammar/ Homework/README.md
+git commit -m "Day 2026-11-05: grammar (new #57, #58), listening step 1"
+```
+
+   The second line, if useful, matches the Session log entry. Never stage `website/` (daily-update leaves it for the user) or `anki/pending.json`.
+4. Tell the user the short commit hash, what's next (`Tomorrow: grammar review, speaking, listening step 2`), and how many Anki changes are queued, if any.
