@@ -49,3 +49,5 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 - 주인공 — main character; 남자/여자 주인공 · 주인공을 맡다 (anki 2026-10-13 day5) · 0/2
 
 ## Session log (older)
+
+- 2026-10-09 · #11, 36, 37, 38, 39 + review #7, #29 · conversation · strong: 기는 했지만, 다 보니, 서 그런지, 텐데, 려다가 · fix: 탓에 needs a bad result, tense, -나/이나 after vowels

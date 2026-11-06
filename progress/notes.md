@@ -27,6 +27,7 @@ Nuance questions to check with a native speaker or teacher.
 - L6 adds 남은 자리가 to 맨 앞자리밖에 없었거든요. How much does it matter when the context is clearly booking? And is 남은 식빵밖에 없었거든요 OK, or does it have to be 남은 빵이 식빵밖에 없었거든요?
 - "동료가 업무를 떠맡았는데 파일을 삭제한 탓에 회사에 돌아왔어요" (had to go back in to work): the mentor suggested 다시 회사에 나가야 했어요. Is 돌아왔어요 odd here?
 - "동료가 피곤한가 봐요. 그래서 커피를 사 줬어요" (about today): OK, or should it be 피곤해 보이길래 / 피곤했나 봐요?
+- Can -느라고 give a future reason? "이번 주말에 일하느라고 산책을 못 할 것 같아요" vs 일해야 해서 (2026-11-06)
 
 ## Heard in the wild
 

@@ -31,7 +31,7 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 2 | -(으)ㄴ/는 걸 보니(까) | 1 | 2026-11-12 | 2026-10-29 | 0 | Right with hint (빨간색인 걸 보니까); needs a guess after, not a decision (가야겠어요 ✗) |
 | 3 | -는 김에 | 1 | 2026-11-09 | 2026-10-17 | 0 | Right with hint (숙소에 가는 김에) |
 | 4 | -(으)ㄴ/는 만큼 | 1 | 2026-11-13 | 2026-10-29 | 0 | Form right with hint (많은 만큼); mixed with 어쩐지 in one clause |
-| 5 | -(으)ㄴ/는 반면(에) | 0 | 2026-11-05 | — | 0 | Not practiced yet |
+| 5 | -(으)ㄴ/는 반면(에) | 0 | 2026-11-07 | 2026-11-06 | 0 | Structure right with hint; adjective form: 쉬운 반면에 (씌우는 ✗) |
 | 6 | -는 법이다 | 0 | 2026-11-06 | — | 0 | Not practiced yet |
 | 7 | -(으)ㄴ/는 탓에 | 1 | 2026-11-07 | 2026-11-04 | 1 | Right with hint (파일을 삭제한 탓에); 아쉽다 → -아서 ⚠ |
 | 8 | -(으)ㄴ/는/(으)ㄹ 모양이다 | 1 | 2026-11-13 | 2026-10-29 | 0 | Right with hint (막히는 모양이에요); link to advice with 모양이니까 |
@@ -47,7 +47,7 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 18 | -네요 | 2 | 2026-11-14 | 2026-10-12 | 1 | Right (늦게 왔네요); for what you see yourself |
 | 19 | -(으)ㄹ까 하다 | 1 | 2026-11-13 | 2026-10-29 | 0 | Right with hint (켤까 했는데); spelling 켤가 ✗ |
 | 20 | -(으)ㄹ까 봐 | 2 | 2026-11-15 | 2026-10-29 | 2 | Right again, no -서 (매진될까 봐 걱정이에요) |
-| 21 | N(이)나 | 0 | 2026-11-05 | 2026-10-29 | 0 | Missed on 30분이 → 30분이나; not after 많이 (많이나 ✗) |
+| 21 | N(이)나 | 0 | 2026-11-07 | 2026-11-06 | 0 | Right with hint (4시간이나 했더니); not after 많이 (많이나 ✗) |
 | 22 | -군요 | 1 | 2026-11-08 | 2026-10-12 | 0 | 유명하군요 ✔; verbs take -는군요 (가는군요); heard → -군요 not -더라고요 |
 | 23 | N밖에 없다 | 1 | 2026-11-14 | 2026-10-29 | 0 | Right with hint (비싼 자리밖에 없더라고요); add the subject (남은 자리가, L6) |
 | 24 | -지요 (-죠) | 0 | 2026-11-07 | — | 0 | Not practiced yet |
@@ -63,7 +63,7 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 34 | N(이)라도 | 0 | 2026-11-07 | — | 0 | Not practiced yet |
 | 35 | -더라고요 | 2 | 2026-11-11 | 2026-11-04 | 2 | Right unprompted (은근히 벅차더라고요) |
 | 36 | -길래 | 2 | 2026-11-15 | 2026-10-26 | 2 | Form right with hint; others' feelings → 슬퍼 보이길래 |
-| 37 | -다 보니(까) | 1 | 2026-11-07 | 2026-11-04 | 1 | Right with hint again (계속 보다 보니까) |
+| 37 | -다 보니(까) | 2 | 2026-11-13 | 2026-11-06 | 2 | Unprompted (게임을 하다 보니까 실력이 좋아졌어요) |
 | 38 | -아/어서 그런지 | 2 | 2026-11-15 | 2026-10-12 | 1 | Right again (칠면조를 시켜서 그런지) |
 | 39 | -(으)ㄹ 텐데 | 3 | 2026-11-17 | 2026-10-17 | 2 | Unprompted again (못 갈 텐데, 비가 많이 올 텐데) |
 | 40 | -(으)ㄹ걸 그랬다 | 3 | 2026-11-16 | 2026-10-10 | 2 | Used unprompted again (일찍 잘걸 그랬어요) |
@@ -81,7 +81,7 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 52 | -는 데 + 시간/돈 + 걸리다/들다 | 1 | 2026-11-11 | 2026-10-25 | 0 | Right with hint (배우는 데 3년이 걸렸어요); 들다 = cost; 그만하는 데 (not 는데) |
 | 53 | N 만에 | 1 | 2026-11-11 | 2026-10-25 | 0 | Right with hint (5년 만에 대학교 친구를 만났고) |
 | 54 | -(으)ㄴ 지 얼마 안 되다 / 오래되다 | 1 | 2026-11-12 | 2026-10-25 | 0 | Right with hint (뒷담화를 한 지 오래됐어요); only N → N밖에 안 됐어요 |
-| 55 | -기까지 + 기간 | 0 | 2026-11-05 | 2026-10-25 | 0 | Form right; future → 걸릴 거예요 |
+| 55 | -기까지 + 기간 | 0 | 2026-11-07 | 2026-11-06 | 0 | Right with hint (잘하게 되기까지 세 달이 걸렸어요); future → 걸릴 거예요 |
 | 56 | -(으)ㄴ 이후로 | 1 | 2026-11-12 | 2026-10-25 | 0 | Right twice with hint (체한 이후로, 결혼한 이후로) |
-| 57 | V-았/었더니 | 0 | 2026-11-05 | — | 0 | New (week of 2026-11-04) |
-| 58 | V-느라(고) | 0 | 2026-11-05 | — | 0 | New (week of 2026-11-04) |
+| 57 | V-았/었더니 | 1 | 2026-11-09 | 2026-11-06 | 1 | Unprompted (날씨 앱을 확인했더니 … 좋더라고요); 공부했더니 시험을 잘 봤어요 |
+| 58 | V-느라(고) | 0 | 2026-11-07 | 2026-11-06 | 0 | Form right (몰입하느라고, 일하느라고); misused with 방해되다 (not "busy doing"); future reason ⚠ |
