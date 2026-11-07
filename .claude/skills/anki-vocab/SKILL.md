@@ -41,7 +41,9 @@ word;meaning;Korean example;English translation;note;tags
 - **meaning:** short English glosses separated by commas.
 - **Korean example:** one natural spoken sentence in 해요체 that someone would actually say. Keep it under about 15 syllable blocks when possible. Use a grammar point from `Grammar/` in it when that fits naturally.
 - **English translation:** natural English for the example sentence.
-- **note:** conjugation help and usage, separated by `<br>`:
+- **note:** a Korean definition first, then conjugation help and usage, all separated by `<br>`:
+  - Every row starts with `뜻:` and a one-line definition in simple Korean, like a learner's dictionary: about 10–25 syllable blocks, using words easier than the word itself and never the word itself.
+    `뜻: 해야 할 일을 나중으로 넘기다`
   - Verbs and adjectives start with `Conj:` followed by the present (해요), past, future (-(으)ㄹ 거예요), modifier, and -아/어서 forms. Mark irregular verbs and adjectives, e.g. `(르 irregular)` or `(ㅂ irregular)`.
     `Conj: 미뤄요 · 미뤘어요 · 미룰 거예요 · 미루는 N · 미뤄서`
   - Add `Use:` only when a key grammar or usage point is needed to use the word correctly (an unexpected particle, a fixed collocation, a restriction like "only negative"). Skip it when the word is used the obvious way.
@@ -49,14 +51,14 @@ word;meaning;Korean example;English translation;note;tags
   - Add `cf)` only when a synonym or contrast prevents a likely mix-up (a near-synonym, a look-alike word, an easily confused English gloss). Skip it otherwise.
     `cf) 연기하다 = more formal (postpone an event)`
   - Nouns: give the related 하다 verb or a collocation only if it's needed. Expressions: say when to use them if that isn't obvious.
-  - Keep notes lean: many rows will have just `Conj:`, or an empty note for nouns.
+  - Keep notes lean: many rows will have just `뜻:` and `Conj:`, and nouns often just `뜻:`.
 - **tags:** `conversation YYYY-MM-DD dayN`, using the file's date and the day number 1–7.
 - Never put `;` or `"` inside a field. Write `<br>` for line breaks, never actual newlines.
 
 Example row:
 
 ```
-미루다;put off, postpone;숙제를 자꾸 미루다 보니 일이 많아졌어요.;I kept putting off my homework, and now I have a lot to do.;Conj: 미뤄요 · 미뤘어요 · 미룰 거예요 · 미루는 N · 미뤄서<br>Use: N을/를 미루다 · 약속을 미루다, 내일로 미루다<br>cf) 연기하다 = more formal;conversation 2026-10-12 day1
+미루다;put off, postpone;숙제를 자꾸 미루다 보니 일이 많아졌어요.;I kept putting off my homework, and now I have a lot to do.;뜻: 해야 할 일을 나중으로 넘기다<br>Conj: 미뤄요 · 미뤘어요 · 미룰 거예요 · 미루는 N · 미뤄서<br>Use: N을/를 미루다 · 약속을 미루다, 내일로 미루다<br>cf) 연기하다 = more formal;conversation 2026-10-12 day1
 ```
 
 ## Finish
