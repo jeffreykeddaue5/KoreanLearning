@@ -175,7 +175,7 @@ if (S.mistakes) {
     .sort((a, b) => b.times - a.times || order[a.section] - order[b.section]);
   renderRankList({
     id: "grammar-list", navId: "grammar-nav", pageSize: 5, items,
-    label: (g) => `<span class="type">[${esc(g.type)}]</span> ${esc(g.right)}`,
+    label: (g) => `<span class="type" data-type="${esc(g.type)}">[${esc(g.type)}]</span> ${esc(g.right)}`,
     detail: (g) => `<span class="wrong">✕ ${esc(g.wrong)}</span><br>○ ${esc(g.right)}`,
     count: (g) => g.times,
   });
@@ -192,7 +192,7 @@ if (S.mistakes) {
       const d = n - (prevWeek[t] || 0);
       trend = d < 0 ? `<span class="down">▼${-d}</span>` : d > 0 ? `<span class="up">▲${d}</span>` : "<span>－</span>";
     }
-    return `<li><span class="tname">${t}</span><span class="tbar">${"▮".repeat(Math.round((n / max) * 8)) || "·"}</span>` +
+    return `<li data-type="${t}"><span class="tname">${t}</span><span class="tbar">${"▮".repeat(Math.round((n / max) * 8)) || "·"}</span>` +
            `<span class="tnum">${n}</span>${trend}</li>`;
   }).join("");
   const english = S.mistakes.names || {};
@@ -206,3 +206,18 @@ document.addEventListener("click", (e) => {
   const el = e.target.closest(".hint, .rank-list li");
   if (el) el.classList.toggle("open");
 });
+
+// ===== 회색 모드 스위치 =====
+(function () {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const root = document.documentElement;
+  const label = () => { btn.textContent = root.getAttribute("data-theme") === "grey" ? "◑ 어두운 모드" : "◐ 회색 모드"; };
+  label();
+  btn.addEventListener("click", () => {
+    const grey = root.getAttribute("data-theme") !== "grey";
+    if (grey) root.setAttribute("data-theme", "grey"); else root.removeAttribute("data-theme");
+    try { localStorage.setItem("theme", grey ? "grey" : "dark"); } catch (e) {}
+    label();
+  });
+})();

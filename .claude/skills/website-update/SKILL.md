@@ -1,11 +1,11 @@
 ---
 name: website-update
-description: Updates the Korean blog in website/ — the 써먹을 표현 panel (website/data/today.js), the automatic posts (수업 after lesson-intake on Wednesday, 주간 정리 after weekly-check on Tuesday), and an 일상 or 대화 post when the user asks for one, then runs daily-update. Use when the user runs /website-update, asks to update the website or write a post; lesson-intake and weekly-check use its post formats.
+description: Updates the Korean blog in website/ — the 써먹을 표현 panel (website/data/today.js), the automatic posts (수업 after lesson-intake on Wednesday, 주간 정리 after weekly-check on Tuesday), and an 일상 post when the user asks for one (e.g. the weekly podcast write-up), then runs daily-update. Use when the user runs /website-update, asks to update the website or write a post; lesson-intake and weekly-check use its post formats.
 ---
 
 # Website update
 
-The site is in `website/` (see `website/notes.md`). Posts are one JS file each in `website/posts/`, listed in `website/posts/list.js`. Categories: `lesson` 수업 · `weekly` 주간 정리 · `daily` 일상 · `talk` 대화. There is **no** per-session post: a normal study day only changes the panels.
+The site is in `website/` (see `website/notes.md`). Posts are one JS file each in `website/posts/`, listed in `website/posts/list.js`. Categories: `lesson` 수업 · `weekly` 주간 정리 · `daily` 일상. (대화 was removed on 2026-11-06.) There is **no** per-session post: a normal study day only changes the panels.
 
 Keep everything short and simple: this is a personal blog, not study notes. Posts are in simple Korean, 반말 diary style like the existing ones.
 
@@ -68,9 +68,9 @@ content: [
 
 Numbers come from the report only; don't invent any.
 
-### 일상 / 대화 (`daily` / `talk`, only when the user asks)
+### 일상 (`daily`, only when the user asks)
 
-The user writes these. Help with the file: date, title, tags, their text as paragraphs. If they ask for corrections, add a short `{ heading: "고친 것" }` section at the end with ✕/○ pairs; never silently rewrite their sentences. 대화 = a conversation written out (e.g. from a lesson or speaking session), one line per speaker: `"<b>나:</b> …"`.
+The user writes these. Help with the file: date, title, tags, their text as paragraphs. If they ask for corrections, add a short `{ heading: "고친 것" }` section at the end with ✕/○ pairs; never silently rewrite their sentences. If it's the podcast write-up, keep any `(?)` marks the user added: those sentences go to the weekly check.
 
 ## 3. Panels
 

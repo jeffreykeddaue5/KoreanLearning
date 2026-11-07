@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>일지 :: 한국어 공부 일지</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    // 회색 모드: 저장된 선택 → 없으면 시스템 설정 (밝게 = 회색)
+    try {
+      var t = localStorage.getItem("theme");
+      if (!t && window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches) t = "grey";
+      if (t === "grey") document.documentElement.setAttribute("data-theme", "grey");
+    } catch (e) {}
+  </script>
 </head>
 <body>
 
@@ -19,14 +27,14 @@
       <svg class="wires" viewBox="0 0 800 160" preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#1a0006"/>
-            <stop offset="70%" stop-color="#5a0014"/>
-            <stop offset="100%" stop-color="#8f1530"/>
+            <stop offset="0%" class="sky1"/>
+            <stop offset="70%" class="sky2"/>
+            <stop offset="100%" class="sky3"/>
           </linearGradient>
         </defs>
         <rect width="800" height="160" fill="url(#sky)"/>
         <!-- 전봇대 -->
-        <g fill="#000">
+        <g class="wire-ink">
           <rect x="88" y="20" width="6" height="140"/>
           <rect x="66" y="34" width="50" height="4"/>
           <rect x="72" y="50" width="38" height="3"/>
@@ -37,7 +45,7 @@
           <rect x="698" y="54" width="32" height="3"/>
         </g>
         <!-- 전선 -->
-        <g stroke="#000" stroke-width="1.4" fill="none">
+        <g class="wire-ink" stroke-width="1.4" style="fill:none">
           <path d="M-10 60 Q 40 75 68 36"/>
           <path d="M-10 70 Q 40 82 74 51"/>
           <path d="M68 36 Q 260 80 442 28"/>
@@ -54,9 +62,11 @@
       <div class="header-text">
         <p class="present"><span id="clock">----년 --월 --일 --:--</span></p>
         <h1 class="glitch" data-text="일지">일지</h1>
-        <p class="sub">한국어 공부 일지 &nbsp;|&nbsp; 일상 · 수업 · 주간 정리 · 대화</p>
+        <p class="sub">한국어 공부 일지 &nbsp;|&nbsp; 일상 · 수업 · 주간 정리</p>
       </div>
+      <button class="theme-toggle" id="theme-toggle" type="button">◐ 회색 모드</button>
     </header>
+    <div class="stripe4"></div>
 
     <!-- 흐르는 글자: 오늘 고정한 단어 (마우스를 올리면 멈춘다) -->
     <div class="ticker" id="ticker"><div class="ticker-inner" id="ticker-inner"></div></div>
@@ -65,7 +75,7 @@
 
       <!-- 왼쪽 -->
       <aside class="col side left">
-        <div class="box profile-box">
+        <div class="box profile-box ac-red">
           <div class="box-title">▼ 프로필</div>
           <div class="box-body profile">
             <img class="pfp" src="media/pfp/pfp-pixel.png" alt="프로필 사진" width="128" height="128">
@@ -77,7 +87,7 @@
           </div>
         </div>
 
-        <div class="box menu-box">
+        <div class="box menu-box ac-red">
           <div class="box-title">▼ 메뉴</div>
           <ul class="box-body menu" id="menu">
             <li><a href="#/">» 홈</a></li>
@@ -87,14 +97,13 @@
             <li><a href="#/category/daily">» 일상</a></li>
             <li><a href="#/category/lesson">» 수업</a></li>
             <li><a href="#/category/weekly">» 주간 정리</a></li>
-            <li><a href="#/category/talk">» 대화</a></li>
             <li><a href="#/about">» 자기소개</a></li>
             <li><a href="#/guestbook">» 방명록</a></li>
             <li><a href="#/links">» 링크</a></li>
           </ul>
         </div>
 
-        <div class="box">
+        <div class="box ac-yellow">
           <div class="box-title">▼ 오늘의 기분</div>
           <div class="box-body mood">
             <p class="face" id="mood-face"></p>
@@ -107,7 +116,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box ac-yellow">
           <div class="box-title">▼ 오늘 날씨</div>
           <div class="box-body tonight">
             <pre class="rain" id="weather-art"></pre>
@@ -122,7 +131,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box ac-red">
           <div class="box-title">▼ 배너</div>
           <div class="box-body buttons">
             <a class="btn88 b1" href="https://apps.ankiweb.net" target="_blank" rel="noopener">ANKI<br>매일</a>
@@ -140,7 +149,7 @@
 
       <!-- 오른쪽 -->
       <aside class="col side right">
-        <div class="box">
+        <div class="box ac-blue">
           <div class="box-title">▼ 다음 수업</div>
           <div class="box-body countdown">
             <p class="dday" id="dday">D-?</p>
@@ -148,7 +157,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box ac-blue">
           <div class="box-title">▼ 이번 주 진도</div>
           <div class="box-body">
             <p class="bar" id="week-bar"></p>
@@ -158,7 +167,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box ac-green">
           <div class="box-title">▼ Anki</div>
           <div class="box-body">
             <p>연속 <span class="digits" id="anki-streak">000</span>일</p>
@@ -166,7 +175,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box ac-green">
           <div class="box-title">▼ 자꾸 까먹는 단어</div>
           <div class="box-body">
             <ol id="forgot-list" class="rank-list"></ol>
@@ -175,7 +184,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box ac-mistake">
           <div class="box-title">▼ 자주 틀리는 문법</div>
           <div class="box-body">
             <ol id="grammar-list" class="rank-list"></ol>
@@ -184,7 +193,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box ac-mistake">
           <div class="box-title">▼ 실수 종류</div>
           <div class="box-body">
             <ul class="type-list" id="type-list"></ul>
@@ -194,6 +203,7 @@
       </aside>
     </div>
 
+    <div class="stripe4"></div>
     <footer id="footer">
       <p>일지 · 한국어 공부 일지</p>
       <p class="small">© 2026 일지 · 마지막 업데이트 <span id="generated"></span></p>
@@ -202,7 +212,7 @@
 
   <!-- ===== 고정 페이지 (HTML로 직접 수정) ===== -->
   <template id="page-about">
-    <div class="box">
+    <div class="box ac-red">
       <div class="box-title">▣ 자기소개</div>
       <div class="box-body page">
         <p>안녕하세요! 저는 프로그래머이고 한국어를 공부하고 있어요.</p>
@@ -218,7 +228,7 @@
   </template>
 
   <template id="page-links">
-    <div class="box">
+    <div class="box ac-red">
       <div class="box-title">▣ 링크</div>
       <div class="box-body page">
         <p>제가 자주 가는 사이트들이에요.</p>

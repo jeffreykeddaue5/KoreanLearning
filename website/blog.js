@@ -1,10 +1,11 @@
 // ===== 블로그 설정 =====
 const CATEGORIES = {
-  daily: { name: "일상" },
-  lesson: { name: "수업" },
-  weekly: { name: "주간 정리" },
-  talk: { name: "대화" },
+  daily: { name: "일상", color: "yellow" },
+  lesson: { name: "수업", color: "blue" },
+  weekly: { name: "주간 정리", color: "green" },
 };
+// 카테고리 색 (style.css의 .ac-*)
+const acOf = (key) => (CATEGORIES[key] ? `ac-${CATEGORIES[key].color}` : "");
 const HOME_POSTS_PER_CATEGORY = 3;
 const SITE_TITLE = "일지";
 
@@ -104,13 +105,13 @@ function mediaBadges(p) {
 
 function tagLinks(p) {
   return p.tags
-    .map((t) => `<a class="tag" href="#/tag/${encodeURIComponent(t)}">#${t}</a>`)
+    .map((t) => `<a class="tag${/^[-~#0-9]/.test(t) ? " grammar" : ""}" href="#/tag/${encodeURIComponent(t)}">#${t}</a>`)
     .join(" ");
 }
 
 function postMeta(p) {
   const cat = CATEGORIES[p.category];
-  const catLink = cat ? `<a href="#/category/${p.category}">${cat.name}</a>` : "";
+  const catLink = cat ? `<a class="cat" href="#/category/${p.category}">${cat.name}</a>` : "";
   return `<p class="meta">[${normDate(p.date)}] ${catLink} ${tagLinks(p)}</p>`;
 }
 
@@ -119,7 +120,7 @@ function postItem(p) {
     ? `<a href="#/post/${p.id}"><img class="cover" src="${p.cover}" alt="" loading="lazy"></a>`
     : "";
   return `
-    <article class="post">
+    <article class="post ${acOf(p.category)}">
       ${cover}
       ${postMeta(p)}
       <h3><a href="#/post/${p.id}">${p.title}</a> ${mediaBadges(p)}</h3>
@@ -128,12 +129,12 @@ function postItem(p) {
     </article>`;
 }
 
-function listBox(title, posts, footer = "") {
+function listBox(title, posts, footer = "", cls = "") {
   const body = posts.length
     ? posts.map(postItem).join("")
     : '<p class="small">아직 글이 없습니다.</p>';
   return `
-    <section class="box">
+    <section class="box ${cls}">
       <div class="box-title">${title}</div>
       <div class="box-body">${body}${footer}</div>
     </section>`;
@@ -149,7 +150,7 @@ function phraseBox() {
   const p = (typeof TODAY !== "undefined" && TODAY.phrase) || null;
   if (!p) return "";
   return `
-    <div class="box notice">
+    <div class="box notice ac-yellow">
       <div class="box-title">▼ 써먹을 표현</div>
       <div class="box-body">
         <p class="phrase">「${p.text}」</p>
@@ -166,7 +167,7 @@ function weekSummary() {
   const cd = lessonCountdown();
   const nw = w.new.filter((g) => g.n);
   return `
-    <div class="box">
+    <div class="box ac-blue">
       <div class="box-title">▼ 이번 주 <a class="title-link" href="#/week">전체 보기 »</a></div>
       <div class="box-body week-mini">
         <p><b>${cd ? cd.label : ""}</b> 다음 수업 · <span class="bar">${bar(w.blocks.done, w.blocks.planned)}</span> ${w.blocks.done}/${w.blocks.planned}</p>
@@ -184,7 +185,7 @@ function viewHome() {
     const more = inCat.length > HOME_POSTS_PER_CATEGORY
       ? `<p class="all"><a href="#/category/${key}">→ 전체 보기 (${inCat.length})</a></p>`
       : "";
-    html += listBox(`▣ ${cat.name}`, inCat.slice(0, HOME_POSTS_PER_CATEGORY), more);
+    html += listBox(`▣ ${cat.name}`, inCat.slice(0, HOME_POSTS_PER_CATEGORY), more, acOf(key));
   }
   return { title: "", html };
 }
@@ -195,7 +196,7 @@ function viewCategory(key) {
   const posts = visiblePosts().filter((p) => p.category === key);
   return {
     title: cat.name,
-    html: listBox(`▣ ${cat.name} (${posts.length})`, posts),
+    html: listBox(`▣ ${cat.name} (${posts.length})`, posts, "", acOf(key)),
   };
 }
 
@@ -215,7 +216,7 @@ function viewPost(id) {
   return {
     title: p.title,
     html: `
-      <article class="box post-full">
+      <article class="box post-full ${acOf(p.category)}">
         <div class="box-title">▣ ${cat ? cat.name : "글"}</div>
         <div class="box-body">
           ${postMeta(p)}
@@ -244,7 +245,7 @@ function viewGuestbook() {
   return {
     title: "방명록",
     html: `
-      <div class="box">
+      <div class="box ac-red">
         <div class="box-title">▣ 방명록</div>
         <div class="box-body">
           <form id="gb-form" class="gb-form">
@@ -277,7 +278,7 @@ function viewCards() {
   return {
     title,
     html: `
-      <div class="box">
+      <div class="box ac-green">
         <div class="box-title">▣ ${title}</div>
         <div class="box-body">
           <p id="card-count" class="small"></p>
@@ -338,7 +339,7 @@ const DAY_KO = { Mon: "월", Tue: "화", Wed: "수", Thu: "목", Fri: "금", Sat
 
 function viewWeek() {
   const w = S.week;
-  if (!w) return { title: "이번 주", html: listBox("▣ 이번 주", []) };
+  if (!w) return { title: "이번 주", html: listBox("▣ 이번 주", [], "", "ac-blue") };
   const cd = lessonCountdown();
   const today = ymd(new Date());
   const rows = w.schedule.map((r) => `
@@ -348,7 +349,7 @@ function viewWeek() {
       </tr>`).join("");
   const nw = w.new.filter((g) => g.n);
   const listen = S.listening;
-  const box = (t, body) => `<div class="box"><div class="box-title">${t}</div><div class="box-body page">${body}</div></div>`;
+  const box = (t, body) => `<div class="box ac-blue"><div class="box-title">${t}</div><div class="box-body page">${body}</div></div>`;
   let html = box(`▣ 이번 주 · ${normDate(w.start)} 수업 (${w.lesson}회) 다음 주`, `
       <p class="week-head"><span class="dday">${cd ? cd.label : ""}</span> ${cd ? cd.when : ""}</p>
       <p>진도 <span class="bar">${bar(w.blocks.done, w.blocks.planned, 20)}</span> ${w.blocks.done}/${w.blocks.planned}</p>
@@ -399,14 +400,14 @@ function viewGrammar(focus) {
   return {
     title: "문법",
     html: `
-      <div class="box">
+      <div class="box ac-blue">
         <div class="box-title">▣ 문법 ${pts.length}개 · 레벨 3 이상 ${solid}개</div>
         <div class="box-body page">
           <table class="levels">${chart}</table>
           <p class="small">레벨은 복습할 때마다 올라가고 (틀리면 내려가요) 다음 복습 날짜가 정해져요: 1 · 3 · 7 · 14 · 30 · 60일.</p>
         </div>
       </div>
-      <div class="box">
+      <div class="box ac-blue">
         <div class="box-title">▣ 전체 목록</div>
         <div class="box-body">
           <table class="gtable"><tr><th>#</th><th>문법</th><th>레벨</th><th>복습</th></tr>${rows}</table>
@@ -419,7 +420,7 @@ function viewNotFound() {
   return {
     title: "404",
     html: `
-      <div class="box">
+      <div class="box ac-red">
         <div class="box-title">!! 404 !!</div>
         <div class="box-body">
           <p>페이지를 찾을 수 없어요.</p>

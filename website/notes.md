@@ -18,7 +18,7 @@
 
 To preview locally, just open `index.html` in a browser. No server needed.
 
-**Who updates what:** daily → `/daily-update` (weather, mood, rebuild) · Wed → `/lesson-intake` (수업 post, 이번 주) · Tue → `/weekly-check` (주간 정리 post, levels) · 일상 / 대화 posts → you.
+**Who updates what:** daily → `/daily-update` (weather, mood, rebuild) · Wed → `/lesson-intake` (수업 post, 이번 주) · Tue → `/weekly-check` (주간 정리 post, levels) · 일상 posts → you.
 
 ---
 
@@ -54,7 +54,7 @@ Order in `list.js` doesn't matter. Posts are sorted by `date`.
 post({
   title: "글 제목",
   date: "2026-11-01",
-  category: "daily",            // "daily" | "lesson" | "weekly" | "talk"
+  category: "daily",            // "daily" | "lesson" | "weekly"
   tags: ["한국어", "생각"],
   summary: "목록에 보일 요약",     // optional, otherwise the first paragraph is used
   cover: "media/my-post/cover.jpg", // optional thumbnail in lists
