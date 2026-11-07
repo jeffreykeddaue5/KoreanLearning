@@ -50,4 +50,5 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-10-10 · #36, 42–45 + review #7, #29 · drill · strong: 다면서요, 자마자, 길래, 나 봐요, 다던데 + suggestion · fix: 치고는 + 잘 치네요, 회사 근처에, 탓에 needs prompting
 - 2026-10-09 · #11, 36, 37, 38, 39 + review #7, #29 · conversation · strong: 기는 했지만, 다 보니, 서 그런지, 텐데, 려다가 · fix: 탓에 needs a bad result, tense, -나/이나 after vowels
