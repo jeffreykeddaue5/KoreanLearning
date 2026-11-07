@@ -98,7 +98,7 @@ Each skill ticks its own block (☐ → ☑). The weekly check counts them.
 
 ## 6. Website
 
-Write the 수업 post (format in `.claude/skills/website-update/SKILL.md`, step 2) from the lesson file, then run `python3 -I website/build_data.py` so the 이번 주 page shows the new plan. Don't stage `website/`.
+Write the 수업 post (format in `.claude/skills/website-update/SKILL.md`, step 2) from the lesson file, fill the 오늘 panel's list for Thursday through the next Wednesday from the new plan (same file, step 1), then run `python3 -I website/build_data.py` so the 이번 주 page shows the new plan. Don't stage `website/`.
 
 ## 7. Finish
 

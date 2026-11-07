@@ -15,6 +15,8 @@ Make one CSV of 70 new words for the week: 7 days × 10 words.
    - the 📚 vocabulary sections of `Homework/[0-9]*.md`
 3. **Level and topics.** Read **Current level** in `progress/grammar.md` for the user's level (intermediate, aiming for TOPIK 4급). Skim the 2–3 most recent `Homework/` lessons to see which topics come up in their conversations.
 
+4. **Mood words from the website.** Every `mood.word` in `website/data/today.js` (`TODAY.days`) dated up to the end of this new week that isn't already in `anki/*.csv` or in Anki (`python3 -I .claude/skills/_shared/anki.py words | grep -x <word>`) goes into this file. They count toward the 70: put them on a feelings day (or spread them if there are more than 10), and use the day's `mood.sentence` as the example if it's natural. Mention how many came from the site.
+
 ## Choosing words
 
 - **Conversation first.** Pick words people say in everyday speech:

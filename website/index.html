@@ -91,44 +91,15 @@
           <div class="box-title">▼ 메뉴</div>
           <ul class="box-body menu" id="menu">
             <li><a href="#/">» 홈</a></li>
+            <li><a href="#/today">» 오늘</a></li>
+            <li><a href="#/phrases">» 지난 표현</a></li>
             <li><a href="#/week">» 이번 주</a></li>
             <li><a href="#/grammar">» 문법</a></li>
             <li><a href="#/cards">» 단어 카드</a></li>
             <li><a href="#/category/daily">» 일상</a></li>
             <li><a href="#/category/lesson">» 수업</a></li>
             <li><a href="#/category/weekly">» 주간 정리</a></li>
-            <li><a href="#/about">» 자기소개</a></li>
-            <li><a href="#/guestbook">» 방명록</a></li>
-            <li><a href="#/links">» 링크</a></li>
           </ul>
-        </div>
-
-        <div class="box ac-yellow">
-          <div class="box-title">▼ 오늘의 기분</div>
-          <div class="box-body mood">
-            <p class="face" id="mood-face"></p>
-            <div class="hint">
-              <p id="mood-word"></p>
-              <p class="small" id="mood-sentence"></p>
-              <p class="meaning" id="mood-meaning"></p>
-            </div>
-            <p class="small hover-tip">마우스를 올리면 (눌러도) 영어 뜻이 보여요</p>
-          </div>
-        </div>
-
-        <div class="box ac-yellow">
-          <div class="box-title">▼ 오늘 날씨</div>
-          <div class="box-body tonight">
-            <pre class="rain" id="weather-art"></pre>
-            <p id="weather-label"></p>
-            <p class="small" id="weather-tip"></p>
-            <div class="weather-phrase hint">
-              <p class="small">오늘의 표현</p>
-              <p class="phrase" id="weather-phrase"></p>
-              <p class="small" id="weather-note"></p>
-              <p class="meaning" id="weather-meaning"></p>
-            </div>
-          </div>
         </div>
 
         <div class="box ac-red">
@@ -209,39 +180,6 @@
       <p class="small">© 2026 일지 · 마지막 업데이트 <span id="generated"></span></p>
     </footer>
   </div>
-
-  <!-- ===== 고정 페이지 (HTML로 직접 수정) ===== -->
-  <template id="page-about">
-    <div class="box ac-red">
-      <div class="box-title">▣ 자기소개</div>
-      <div class="box-body page">
-        <p>안녕하세요! 저는 프로그래머이고 한국어를 공부하고 있어요.</p>
-        <p>매주 수요일 밤에 선생님하고 수업을 하고, 매일 Anki로 단어를 외워요. 이 블로그에는 공부한 것과 매일의 생활을 한국어로 써요.</p>
-        <h4>좋아하는 것</h4>
-        <ul>
-          <li>오래된 컴퓨터와 CRT 모니터</li>
-          <li>비 오는 밤</li>
-          <li>드라마 정주행하기</li>
-        </ul>
-      </div>
-    </div>
-  </template>
-
-  <template id="page-links">
-    <div class="box ac-red">
-      <div class="box-title">▣ 링크</div>
-      <div class="box-body page">
-        <p>제가 자주 가는 사이트들이에요.</p>
-        <ul>
-          <li><a href="https://korean.dict.naver.com" target="_blank" rel="noopener">네이버 국어사전</a></li>
-          <li><a href="https://www.howtostudykorean.com" target="_blank" rel="noopener">How to Study Korean</a></li>
-          <li><a href="https://apps.ankiweb.net" target="_blank" rel="noopener">Anki</a></li>
-          <li><a href="https://www.topik.go.kr" target="_blank" rel="noopener">TOPIK</a></li>
-          <li><a href="https://neocities.org" target="_blank" rel="noopener">네오시티즈</a> — 개인 홈페이지 모음</li>
-        </ul>
-      </div>
-    </div>
-  </template>
 
   <script src="data/study.js"></script>
   <script src="data/today.js"></script>

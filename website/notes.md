@@ -4,12 +4,12 @@
 
 | File | What it's for |
 |---|---|
-| `index.html` | Page layout, side panels, menu, and the 자기소개 / 링크 pages (`<template>` blocks at the bottom) |
+| `index.html` | Page layout, side panels, menu |
 | `style.css` | All styling (phone layout below 860px) |
 | `script.js` | Clock, ticker, side panels (D-n, 진도, Anki, 까먹는 단어, 틀리는 문법, 실수 종류) |
-| `blog.js` | Blog engine: posts, routing, and the 홈 / 이번 주 / 문법 / 단어 카드 pages. Categories at the top (`CATEGORIES`) |
+| `blog.js` | Blog engine: posts, routing, the 오늘 page `#/today` (with live weather) and its one-line box on 홈, and the 홈 / 이번 주 / 문법 / 단어 카드 pages. Categories at the top (`CATEGORIES`) |
 | `data/study.js` | **Generated** by `build_data.py` from `weeks/`, `progress/`, `Grammar/`, `Listening/` and Anki. Don't edit |
-| `data/today.js` | Hand-written daily bits: weather, mood, 써먹을 표현 (`/daily-update`, `/website-update`) |
+| `data/today.js` | The 오늘 panel: a week of mood + 써먹을 표현 (with grammar point) by date, and weather phrases. Filled weekly by `/lesson-intake` → `/website-update`. Weather itself is fetched live |
 | `build_data.py` | `python3 -I website/build_data.py` from the repo root rebuilds `data/study.js` |
 | `posts/list.js` | **Which posts are live** |
 | `posts/*.js` | One file per post |
@@ -18,7 +18,7 @@
 
 To preview locally, just open `index.html` in a browser. No server needed.
 
-**Who updates what:** daily → `/daily-update` (weather, mood, rebuild) · Wed → `/lesson-intake` (수업 post, 이번 주) · Tue → `/weekly-check` (주간 정리 post, levels) · 일상 posts → you.
+**Who updates what:** daily → `/daily-update` (rebuild only; the 오늘 panel runs itself from the weekly list) · Wed → `/lesson-intake` (수업 post, 이번 주) · Tue → `/weekly-check` (주간 정리 post, levels) · 일상 posts → you.
 
 ---
 
@@ -83,8 +83,8 @@ post({
 
 ### Other things to update
 - **까먹는 단어 / 틀리는 문법 / 단어 카드 / D-n / 진도 / 문법 레벨:** all come from `data/study.js`. Change the source (Anki, `progress/`, `weeks/`) and rerun `build_data.py`.
-- **기분 / 날씨 / 써먹을 표현:** edit `data/today.js`. The English `meaning` stays blurred until hover (or tap on a phone).
-- **자기소개 / 링크:** the `<template>` blocks at the bottom of `index.html`.
+- **기분 / 날씨 / 써먹을 표현:** `data/today.js`, one entry per date in `days`. Every Korean line needs an `_en` line: it stays blurred until hover (or tap on a phone), or 영어 모두 보기.
+- **오늘 써 봤어요:** saved only in your browser (localStorage). Use 기록 복사 on the 오늘 page to paste it into the weekly check.
 - **New category:** add it to `CATEGORIES` in `blog.js` and add a menu link in `index.html` (`#/category/키`).
 
 ---
@@ -127,7 +127,6 @@ git revert <commit-id>     # undo a commit that's already pushed
 ### Limits & things to know
 - About 1 GB total site size, 100 MB max per file (GitHub warns above 50 MB).
 - **Everything in the repo is public**, including drafts (`draft: true` only hides a post from the page, not from GitHub) and this notes file.
-- The guestbook only saves to each visitor's own browser. Replace it with a hosted guestbook (e.g. Atabook) if you want real entries.
 - Custom domain: Settings → Pages → Custom domain.
 
 ---

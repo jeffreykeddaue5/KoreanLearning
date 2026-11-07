@@ -67,21 +67,7 @@ function renderTicker() {
 }
 renderTicker();
 
-// ===== 왼쪽: 기분 · 날씨 · 프로필 =====
-if (T.mood) {
-  $("mood-face").textContent = T.mood.face;
-  $("mood-word").textContent = T.mood.word;
-  $("mood-sentence").textContent = T.mood.sentence;
-  $("mood-meaning").textContent = T.mood.meaning;
-}
-if (T.weather) {
-  $("weather-art").textContent = T.weather.art;
-  $("weather-label").textContent = T.weather.label;
-  $("weather-tip").textContent = T.weather.tip;
-  $("weather-phrase").textContent = `「${T.weather.phrase}」`;
-  $("weather-note").textContent = T.weather.note;
-  $("weather-meaning").textContent = T.weather.meaning;
-}
+// ===== 왼쪽: 프로필 (기분 · 날씨 · 표현은 홈의 오늘 패널, blog.js) =====
 $("lesson-count").textContent = S.lessons ?? "-";
 $("generated").textContent = S.generated || "-";
 if (S.listening && S.listening.url) {

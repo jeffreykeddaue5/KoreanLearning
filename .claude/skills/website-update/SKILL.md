@@ -1,6 +1,6 @@
 ---
 name: website-update
-description: Updates the Korean blog in website/ — the 써먹을 표현 panel (website/data/today.js), the automatic posts (수업 after lesson-intake on Wednesday, 주간 정리 after weekly-check on Tuesday), and an 일상 post when the user asks for one (e.g. the weekly podcast write-up), then runs daily-update. Use when the user runs /website-update, asks to update the website or write a post; lesson-intake and weekly-check use its post formats.
+description: Updates the Korean blog in website/ — the weekly list for the 오늘 panel (website/data/today.js: a 써먹을 표현 tied to a grammar point, plus 오늘의 기분, for each day until the next lesson), the automatic posts (수업 after lesson-intake on Wednesday, 주간 정리 after weekly-check on Tuesday), and an 일상 post when the user asks for one (e.g. the weekly podcast write-up), then runs daily-update. Use when the user runs /website-update, asks to update the website or write a post; lesson-intake and weekly-check use its post formats.
 ---
 
 # Website update
@@ -9,19 +9,21 @@ The site is in `website/` (see `website/notes.md`). Posts are one JS file each i
 
 Keep everything short and simple: this is a personal blog, not study notes. Posts are in simple Korean, 반말 diary style like the existing ones.
 
-With no arguments, do step 1 and step 3. Do step 2 only when called for a post (by lesson-intake, weekly-check, or the user).
+With no arguments, do step 1 (only if the list has run out or the user asks) and step 3. Do step 2 only when called for a post (by lesson-intake, weekly-check, or the user).
 
-## 1. 써먹을 표현 (`TODAY.phrase` in `website/data/today.js`)
+## 1. 오늘 panel: the weekly list (`website/data/today.js`)
 
-The top panel on the home page. Pick one natural Korean phrase that fixes or goes with a mistake from today's session (or an open item in `progress/mistakes.md`), something the user can actually say in conversation. Not one in `phrase.past`.
+The 오늘 page (`#/today`: 써먹을 표현 + 오늘의 문법 · 오늘의 기분 · 오늘 날씨 · 이번 주 표현), linked from a one-line orange box at the top of the home page. Filled **once a week**: lesson-intake calls this on Wednesday for Thursday through the next Wednesday (7 days). Run it by hand any time the list has run out (no entry for today or later in `TODAY.days`).
 
-- `text`: the phrase (no 「」, the page adds them).
-- `when`: one or two simple Korean sentences on when to use it.
-- `fix`: one ✕ → ○ pair it helps with.
-- `tip`: a one-line reminder.
-- Append `text` to `past`.
+**Add** one entry per new date (`YYYY-MM-DD`) to `days` and set `week` to the new range. Never delete old dates: the 지난 표현 page (`#/phrases`) lists every past day. Every Korean line has an English `_en` line (shown plainly under the 써먹을 표현 explanations; blurred until tapped for the phrase itself, mood and weather), so the user never needs a dictionary.
 
-Skip this step if `past` already ends with a phrase picked today and nothing new came up.
+- `mood`: one feeling word the user hasn't studied: not in `past.mood`, and not in Anki (`python3 -I .claude/skills/_shared/anki.py words | grep -x <word>` prints nothing). Fit it to the day if you can (들뜨다 on lesson day). Fields: `face` (kaomoji), `word`, `meaning` (English), `sentence` (short, …요, nothing that claims something about the user's day that may not happen), `sentence_en`.
+- `phrase`: one natural phrase the user can say in conversation, built on that day's **grammar point** (`grammar`: the point number in `progress/grammar.md`, the page links it). Spread the week: the 2 new points first, then due review points (lowest level first), and tie each one to an open mistake in `progress/mistakes.md` when there is one. Not in `past.phrase`. Fields: `text`, `text_en`, `example` + `example_en` (a second short sentence with the same grammar, about the user's own life: work as a programmer, pickleball, dramas, games, the lesson, weekends; something they could say this week), `when` + `when_en` (one or two simple sentences), `fix` (one ✕ → ○ pair) + `fix_en` (why, one line), `tip` + `tip_en` (one-line reminder).
+- Append the new words and phrases to `past.mood` and `past.phrase`.
+- The page has a **오늘 써 봤어요** check with a box for the sentence the user actually used. It's saved only in the user's browser; weekly-check asks for it (기록 복사). Nothing to fill here.
+- `weather`: phrase bank by kind (`sun`, `cloud`, `rain`, `snow`, `fog`, `storm`, `cold`), each `{ phrase, en, note, meaning }`. The page picks one by the live weather, rotating daily. Leave it alone unless the season changes; then swap in a few fitting ones (e.g. 무더워요 in summer).
+
+No `「」` in any text, the page adds them. Use no Korean the user would have to look up without an English line next to it.
 
 ## 2. Posts
 
@@ -74,7 +76,7 @@ The user writes these. Help with the file: date, title, tags, their text as para
 
 ## 3. Panels
 
-Follow `.claude/skills/daily-update/SKILL.md` (weather and mood once a day, then the `study.js` rebuild).
+Follow `.claude/skills/daily-update/SKILL.md` (the `study.js` rebuild).
 
 ## Check
 

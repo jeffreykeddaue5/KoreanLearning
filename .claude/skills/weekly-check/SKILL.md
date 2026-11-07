@@ -31,6 +31,8 @@ A point counts as **right** only if it's used correctly and naturally with no hi
 
 ## Homework check
 
+First ask for the week's **오늘 써 봤어요** sentences: on the site's 오늘 page, the user presses **기록 복사** and pastes the text (lines like `2026-11-07 #58 「…」 → <sentence they used>`). They live only in the browser, so if the user has none or skips it, move on. For each sentence: ✔ if the point is used correctly and naturally, or ✏️ with the fix and a short English reason. A ✔ counts as a no-hint use of that point (+1 No-hint, and +1 level like a check item, still one change per point per day); a ✏️ goes to **Practice mistakes** like any other. Mention the count in the report line as `used n/7`.
+
 Then, if **Podcast** in the plan lists `Unsure:` sentences (from the user's podcast or blog post), check those the same way: ✔ or ✏️ with a short reason. If one is still a nuance question, add it to **To verify** and **Questions for the tutor**.
 
 After item 10, ask for the homework sentences (the 5 in the plan, or whatever the tutor assigned). If the user hasn't done them, skip this. For each sentence: ✔, or ✏️ with the fix and a short English reason. Keep it light: the tutor checks them tomorrow, and this is just to catch the easy mistakes first. Nuance questions go to **To verify**.
@@ -58,7 +60,7 @@ python3 -I .claude/skills/weekly-check/stats.py weeks/<plan>.md "$SCRATCH/collec
 Last week's numbers are in **Weekly reports** in `progress/log.md`. Write a one-line report at the top of that section, and a short version under **Weekly report** in the plan:
 
 ```
-2026-11-10 · week 1 · blocks 15/21 · check 7/10 · new: #57 L1, #58 L2 · level 3+: 8 (+2) · no-hint 34 (+6) · open mistakes 28 (−2), most: [조사] 6 · listening 60% → 85% · podcast 3:10 (self 4/3/4/3) · Anki 80-day streak, 6/7 days
+2026-11-10 · week 1 · blocks 15/21 · check 7/10 · new: #57 L1, #58 L2 · level 3+: 8 (+2) · no-hint 34 (+6) · open mistakes 28 (−2), most: [조사] 6 · listening 60% → 85% · podcast 3:10 (self 4/3/4/3) · used 3/7 · Anki 80-day streak, 6/7 days
 ```
 
 - **podcast** = the newest `Speaking/log.md` podcast line this week, or `podcast –` if there isn't one.

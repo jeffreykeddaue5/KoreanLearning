@@ -140,24 +140,340 @@ function listBox(title, posts, footer = "", cls = "") {
     </section>`;
 }
 
-function template(id) {
-  return document.getElementById(id).innerHTML;
+// ===== 화면 =====
+// ===== 오늘 패널: 써먹을 표현 + 오늘의 문법 · 기분 · 날씨 (data/today.js) =====
+// 접혀 있을 때는 제목 한 줄만 보이고, 누르면 펼쳐진다. 한국어 줄은 누르면 영어가 보인다.
+
+// 오늘 항목. 없으면 오늘 전의 마지막 항목 (목록이 밀려도 빈칸이 안 되게).
+function todayEntry() {
+  const days = (typeof TODAY !== "undefined" && TODAY.days) || {};
+  const today = ymd(new Date());
+  if (days[today]) return { ...days[today], date: today, stale: false };
+  const before = Object.keys(days).filter((d) => d < today).sort().pop();
+  return before ? { ...days[before], date: before, stale: true } : null;
 }
 
-// ===== 화면 =====
-// 써먹을 표현 (data/today.js)
-function phraseBox() {
-  const p = (typeof TODAY !== "undefined" && TODAY.phrase) || null;
-  if (!p) return "";
+// 한국어 한 줄 + 흐린 영어
+function ko(text, en, cls = "") {
+  if (!text) return "";
+  return `<p class="hint ${cls}">${esc(text)}${en ? `<span class="meaning">${esc(en)}</span>` : ""}</p>`;
+}
+
+// 날씨: Open-Meteo (키 필요 없음). 한 번만 가져온다.
+const WEATHER_URL = "https://api.open-meteo.com/v1/forecast?latitude=38.85&longitude=-77.30" +
+  "&current=temperature_2m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max" +
+  "&timezone=America%2FNew_York&forecast_days=1";
+let weatherPromise = null;
+function loadWeather() {
+  if (!weatherPromise) {
+    weatherPromise = fetch(WEATHER_URL)
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((j) => ({
+        now: Math.round(j.current.temperature_2m),
+        max: Math.round(j.daily.temperature_2m_max[0]),
+        min: Math.round(j.daily.temperature_2m_min[0]),
+        rain: j.daily.precipitation_probability_max[0] ?? 0,
+        code: j.daily.weather_code[0],
+      }))
+      .catch(() => null);
+  }
+  return weatherPromise;
+}
+
+const WEATHER_KIND = {
+  sun: { icon: "☼", art: "\\  |  /\n— ☼ —" },
+  cloud: { icon: "☁", art: "  .--.\n(    )." },
+  rain: { icon: "☂", art: "' , ' , '\n , ' , ' ," },
+  snow: { icon: "❄", art: "* . * . *\n . * . * ." },
+  fog: { icon: "≋", art: "≋≋≋≋≋≋≋\n ≋≋≋≋≋≋" },
+  storm: { icon: "ϟ", art: "  .--.\n(  ϟ  )." },
+};
+function weatherKind(w) {
+  const c = w.code;
+  if (c >= 95) return "storm";
+  if ((c >= 71 && c <= 77) || c === 85 || c === 86) return "snow";
+  if ((c >= 51 && c <= 67) || (c >= 80 && c <= 82)) return "rain";
+  if (c === 45 || c === 48) return "fog";
+  return c <= 1 ? "sun" : "cloud";
+}
+function weatherTip(w, kind) {
+  const base = [`낮엔 ${w.max}°, 밤엔 ${w.min}°예요.`, `High ${w.max}°, low ${w.min}°.`];
+  if (w.rain >= 50 && kind !== "snow") return [`${base[0]} 비가 올 수 있으니 우산을 챙기세요.`, `${base[1]} It may rain, so take an umbrella.`];
+  if (kind === "snow") return [`${base[0]} 길이 미끄러우니까 조심하세요.`, `${base[1]} The roads are slippery, so be careful.`];
+  if (w.min <= 3) return [`${base[0]} 따뜻하게 입으세요.`, `${base[1]} Dress warmly.`];
+  if (w.max - w.min >= 10) return [`${base[0]} 일교차가 크니까 겉옷을 챙기세요.`, `${base[1]} Big gap between day and night, so bring a jacket.`];
+  if (kind === "sun") return [`${base[0]} 햇볕이 좋아요.`, `${base[1]} Lovely sunshine.`];
+  return [`${base[0]} 좋은 하루 보내세요.`, `${base[1]} Have a good day.`];
+}
+// 날씨 종류에 맞는 표현을 날마다 돌아가면서 하나
+function weatherPhrase(w, kind) {
+  const bank = (typeof TODAY !== "undefined" && TODAY.weather) || {};
+  const list = (w.max <= 5 && (kind === "sun" || kind === "cloud") && bank.cold) || bank[kind] || bank.cloud || [];
+  if (!list.length) return null;
+  const day = Math.floor(new Date(ymd(new Date())) / 86400000);
+  return list[day % list.length];
+}
+
+// 한국어 한 줄 + 영어 (흐리지 않게, 설명용)
+function koPlain(text, en, cls = "") {
+  if (!text) return "";
+  return `<p class="${cls}">${esc(text)}${en ? `<span class="en">${esc(en)}</span>` : ""}</p>`;
+}
+
+function fillWeather() {
+  const peek = document.getElementById("peek-weather");
+  const body = document.getElementById("today-weather");
+  if (!body && !peek) return;
+  loadWeather().then((w) => {
+    if (!w) {
+      if (body) body.innerHTML = ko("날씨를 못 불러왔어요.", "Couldn't load the weather.", "small");
+      if (peek) peek.textContent = "";
+      return;
+    }
+    const kind = weatherKind(w);
+    const [tip, tipEn] = weatherTip(w, kind);
+    const p = weatherPhrase(w, kind);
+    if (peek) peek.textContent = `${WEATHER_KIND[kind].icon} ${w.now}°C`;
+    if (!body || !document.body.contains(body)) return;
+    body.innerHTML = `
+      <pre class="rain">${esc(WEATHER_KIND[kind].art)}</pre>
+      <p class="temp">${w.now}°C</p>
+      ${ko(tip, tipEn, "small")}
+      ${p ? `<div class="today-sub">
+        <p class="small">날씨 표현</p>
+        ${ko(`「${p.phrase}」`, p.en, "phrase")}
+        ${ko(p.note, p.meaning, "small")}
+      </div>` : ""}`;
+  });
+}
+
+function grammarOf(p) {
+  return p && p.grammar ? (S.grammar || []).find((x) => x.n === p.grammar) || { n: p.grammar, point: "" } : null;
+}
+
+// 홈: 오늘 페이지로 가는 한 줄
+function todayLink() {
+  const d = todayEntry();
+  const m = d && d.mood;
+  const p = d && d.phrase;
+  const peek = [
+    p ? `「${esc(p.text)}」` : "",
+    m ? `${esc(m.face)} ${esc(m.word)}` : "",
+    `<span id="peek-weather">…</span>`,
+  ].filter(Boolean).join(" · ");
   return `
-    <div class="box notice ac-yellow">
+    <a class="box today-link ac-orange" href="#/today">
+      <div class="box-title">▼ 오늘 <span class="title-link">표현 · 기분 · 날씨 »</span></div>
+      <div class="box-body"><p class="today-peek">${peek}</p></div>
+    </a>`;
+}
+
+// "오늘 써 봤어요" 기록: 이 브라우저에만 저장된다 ({ "YYYY-MM-DD": { sentence, at } }).
+// 주간 점검 때 "기록 복사"로 복사해서 세션에 붙여 넣는다.
+function usedLog() {
+  try { return JSON.parse(localStorage.getItem("used-phrases") || "{}"); } catch (e) { return {}; }
+}
+function saveUsedLog(log) {
+  try { localStorage.setItem("used-phrases", JSON.stringify(log)); return true; } catch (e) { return false; }
+}
+
+function dayLabel(date) {
+  const dt = new Date(date + "T00:00");
+  return `${dt.getMonth() + 1}/${dt.getDate()} (${"일월화수목금토"[dt.getDay()]})`;
+}
+function allDays() {
+  return (typeof TODAY !== "undefined" && TODAY.days) || {};
+}
+// 이번 주 날짜: TODAY.week ("2026-11-07 ~ 2026-11-11") 범위
+function weekDates() {
+  const [from, to] = ((typeof TODAY !== "undefined" && TODAY.week) || "").split("~").map((x) => x.trim());
+  return Object.keys(allDays()).sort().filter((x) => (!from || x >= from) && (!to || x <= to));
+}
+
+// 주간 점검에 붙여 넣을 글
+function usedExport() {
+  const log = usedLog();
+  const days = allDays();
+  const lines = Object.keys(log).sort().filter((date) => days[date]).map((date) => {
+    const x = days[date].phrase || {};
+    return `${date} #${x.grammar || "?"} 「${x.text}」 → ${log[date].sentence || "(문장 없음)"}`;
+  });
+  return lines.length ? "오늘 써 봤어요:\n" + lines.join("\n") : "";
+}
+
+// 오늘 페이지 (#/today)
+function viewToday() {
+  const d = todayEntry();
+  const m = d && d.mood;
+  const p = d && d.phrase;
+  const g = grammarOf(p);
+  const used = d ? usedLog()[d.date] : null;
+
+  const phraseHtml = p ? `
+    <div class="box ac-orange">
       <div class="box-title">▼ 써먹을 표현</div>
-      <div class="box-body">
-        <p class="phrase">「${p.text}」</p>
-        <p>${p.when}</p>
-        <p class="small">${p.fix}<br>${p.tip}</p>
+      <div class="box-body today-phrase">
+        ${ko(`「${p.text}」`, p.text_en, "big-phrase")}
+        ${g ? `<p class="gram-chip"><span>오늘의 문법</span> <a href="#/grammar/${g.n}">#${g.n} ${esc(g.point)}</a></p>` : ""}
+        ${p.example ? `<h4>이렇게 말해 봐요</h4>${koPlain(p.example, p.example_en, "example")}` : ""}
+        <h4>언제 써요?</h4>
+        ${koPlain(p.when, p.when_en)}
+        <h4>이렇게 고쳐요</h4>
+        ${koPlain(p.fix, p.fix_en, "fix")}
+        <h4>기억하기</h4>
+        ${koPlain(p.tip, p.tip_en)}
+        <div class="used-box">
+          <h4>오늘 써 봤어요</h4>
+          <label class="used-check"><input type="checkbox" id="used-check"${used ? " checked" : ""}> 대화나 글에서 이 문법을 써 봤어요</label>
+          <textarea id="used-text" rows="2" maxlength="300" placeholder="실제로 쓴 문장을 적어 주세요 (Write the sentence you actually used)">${esc(used ? used.sentence : "")}</textarea>
+          <p><button type="button" class="en-toggle" id="used-save">저장</button> <span class="small" id="used-status">${used ? "저장됐어요 ✔" : ""}</span></p>
+        </div>
       </div>
+    </div>` : "";
+
+  const moodHtml = m ? `
+    <div class="box ac-orange">
+      <div class="box-title">▼ 오늘의 기분</div>
+      <div class="box-body today-center">
+        <p class="face">${esc(m.face)}</p>
+        ${ko(m.word, m.meaning, "mood-word")}
+        ${ko(m.sentence, m.sentence_en, "small")}
+      </div>
+    </div>` : "";
+
+  const weatherHtml = `
+    <div class="box ac-orange">
+      <div class="box-title">▼ 오늘 날씨</div>
+      <div class="box-body today-center" id="today-weather"><p class="small">불러오는 중...</p></div>
     </div>`;
+
+  const days = allDays();
+  const log = usedLog();
+  const rows = weekDates().map((date) => {
+    const x = days[date].phrase || {};
+    const gx = grammarOf(x);
+    return `<tr class="${d && date === d.date ? "today" : ""}">
+      <th>${dayLabel(date)}</th>
+      <td>「${esc(x.text || "")}」</td>
+      <td class="small">${gx ? `<a href="#/grammar/${gx.n}">#${gx.n} ${esc(gx.point)}</a>` : ""}</td>
+      <td class="used-mark" title="${log[date] ? "써 봤어요" : ""}">${log[date] ? "✔" : ""}</td>
+    </tr>`;
+  }).join("");
+
+  return {
+    title: "오늘",
+    html: `
+      <div class="today-page" id="today-page">
+        ${!d ? `<div class="box ac-orange"><div class="box-body"><p>이번 주 목록이 아직 없어요.</p></div></div>` : ""}
+        ${d && d.stale ? `<p class="small today-stale">이번 주 목록이 끝났어요. 마지막 날 것을 보여 줘요.</p>` : ""}
+        ${phraseHtml}
+        <div class="today-pair">${moodHtml}${weatherHtml}</div>
+        ${rows ? `<div class="box ac-orange">
+          <div class="box-title">▼ 이번 주 표현 <a class="title-link" href="#/phrases">지난 표현 »</a></div>
+          <div class="box-body">
+            <table class="sched today-week">${rows}</table>
+            <p class="today-copy"><button type="button" class="en-toggle" id="used-copy">기록 복사</button>
+              <span class="small" id="copy-status">✔ 표시한 문장을 복사해서 주간 점검 때 붙여 넣어요</span></p>
+            <textarea id="copy-fallback" class="copy-fallback" rows="4" readonly hidden></textarea>
+          </div>
+        </div>` : ""}
+        <p class="today-foot small">
+          <button type="button" class="en-toggle" id="en-toggle">영어 모두 보기</button>
+          흐린 영어는 누르면 (마우스를 올려도) 보여요
+        </p>
+      </div>`,
+    after: () => {
+      const page = document.getElementById("today-page");
+      const btn = document.getElementById("en-toggle");
+      btn.addEventListener("click", () => {
+        const on = page.classList.toggle("show-en");
+        btn.textContent = on ? "영어 숨기기" : "영어 모두 보기";
+      });
+
+      const save = document.getElementById("used-save");
+      if (save && d) {
+        const check = document.getElementById("used-check");
+        const text = document.getElementById("used-text");
+        const status = document.getElementById("used-status");
+        text.addEventListener("input", () => { if (text.value.trim()) check.checked = true; });
+        save.addEventListener("click", () => {
+          const log = usedLog();
+          if (check.checked) log[d.date] = { sentence: text.value.trim(), at: new Date().toISOString() };
+          else delete log[d.date];
+          status.textContent = saveUsedLog(log)
+            ? (check.checked ? "저장됐어요 ✔" : "지웠어요")
+            : "이 브라우저에서는 저장할 수 없어요";
+          const mark = document.querySelector(".today-week tr.today .used-mark");
+          if (mark) mark.textContent = check.checked ? "✔" : "";
+        });
+      }
+
+      const copy = document.getElementById("used-copy");
+      if (copy) copy.addEventListener("click", () => {
+        const text = usedExport();
+        const status = document.getElementById("copy-status");
+        const fallback = document.getElementById("copy-fallback");
+        if (!text) { status.textContent = "아직 기록이 없어요"; return; }
+        const manual = () => {
+          fallback.hidden = false;
+          fallback.value = text;
+          fallback.select();
+          status.textContent = "아래 글을 복사해 주세요 (Ctrl+C)";
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => { status.textContent = "복사했어요 ✔"; }, manual);
+        } else manual();
+      });
+
+      fillWeather();
+    },
+  };
+}
+
+// 지난 표현 (#/phrases): 오늘 전 날짜의 표현을 최신 순으로. 누르면 펼쳐진다.
+function viewPhrases() {
+  const today = ymd(new Date());
+  const days = allDays();
+  const log = usedLog();
+  const dates = Object.keys(days).filter((x) => x < today).sort().reverse();
+  const items = dates.map((date) => {
+    const p = days[date].phrase || {};
+    const m = days[date].mood;
+    const g = grammarOf(p);
+    const u = log[date];
+    return `
+      <details class="past-item">
+        <summary><span class="past-date">${dayLabel(date)}</span> 「${esc(p.text || "")}」
+          ${g ? `<span class="small">#${g.n} ${esc(g.point)}</span>` : ""}${u ? ` <span class="used-mark">✔</span>` : ""}</summary>
+        <div class="past-body today-phrase">
+          ${ko(p.text, p.text_en, "small")}
+          ${g ? `<p class="small">문법: <a href="#/grammar/${g.n}">#${g.n} ${esc(g.point)}</a></p>` : ""}
+          ${p.example ? `<h4>이렇게 말해 봐요</h4>${koPlain(p.example, p.example_en, "example")}` : ""}
+          <h4>언제 써요?</h4>${koPlain(p.when, p.when_en)}
+          <h4>이렇게 고쳐요</h4>${koPlain(p.fix, p.fix_en, "fix")}
+          <h4>기억하기</h4>${koPlain(p.tip, p.tip_en)}
+          ${u ? `<h4>내가 쓴 문장</h4><p>${esc(u.sentence || "(문장 없음)")}</p>` : ""}
+          ${m ? `<h4>그날의 기분</h4>${koPlain(`${m.face} ${m.word}`, m.meaning)}` : ""}
+        </div>
+      </details>`;
+  }).join("");
+
+  const inDays = new Set(Object.values(days).map((x) => x.phrase && x.phrase.text));
+  const older = (((typeof TODAY !== "undefined" && TODAY.past) || {}).phrase || []).filter((t) => !inDays.has(t));
+
+  return {
+    title: "지난 표현",
+    html: `
+      <div class="today-page">
+        <div class="box ac-orange">
+          <div class="box-title">▼ 지난 표현 (${dates.length}) <a class="title-link" href="#/today">오늘 »</a></div>
+          <div class="box-body">
+            ${items || `<p class="small">아직 지난 표현이 없어요.</p>`}
+            ${older.length ? `<h4>예전 표현</h4><ul class="older">${older.map((t) => `<li>「${esc(t)}」</li>`).join("")}</ul>` : ""}
+          </div>
+        </div>
+      </div>`,
+  };
 }
 
 // 홈 맨 위: 이번 주 요약
@@ -179,7 +495,7 @@ function weekSummary() {
 
 function viewHome() {
   const posts = visiblePosts();
-  let html = phraseBox() + weekSummary();
+  let html = todayLink() + weekSummary();
   for (const [key, cat] of Object.entries(CATEGORIES)) {
     const inCat = posts.filter((p) => p.category === key);
     const more = inCat.length > HOME_POSTS_PER_CATEGORY
@@ -187,7 +503,7 @@ function viewHome() {
       : "";
     html += listBox(`▣ ${cat.name}`, inCat.slice(0, HOME_POSTS_PER_CATEGORY), more, acOf(key));
   }
-  return { title: "", html };
+  return { title: "", html, after: fillWeather };
 }
 
 function viewCategory(key) {
@@ -229,46 +545,6 @@ function viewPost(id) {
           <p class="back"><a href="${cat ? `#/category/${p.category}` : "#/"}">↑ 목록으로</a></p>
         </div>
       </article>`,
-  };
-}
-
-function viewGuestbook() {
-  // 로컬용: 이 브라우저에만 저장된다
-  const entries = JSON.parse(localStorage.getItem("guestbook") || "[]");
-  const list = entries.length
-    ? entries.map((e) => `
-        <div class="gb-entry">
-          <p class="meta"><b>${escapeHtml(e.name)}</b> · ${e.date}</p>
-          <p>${escapeHtml(e.msg).replace(/\n/g, "<br>")}</p>
-        </div>`).join("")
-    : '<p class="small">아직 아무도 글을 남기지 않았어요. 첫 번째가 되어 주세요!</p>';
-  return {
-    title: "방명록",
-    html: `
-      <div class="box ac-red">
-        <div class="box-title">▣ 방명록</div>
-        <div class="box-body">
-          <form id="gb-form" class="gb-form">
-            <input name="name" placeholder="이름" maxlength="20" required>
-            <textarea name="msg" placeholder="한마디 남겨 주세요..." rows="3" maxlength="500" required></textarea>
-            <button type="submit">글 남기기</button>
-          </form>
-          ${list}
-        </div>
-      </div>`,
-    after() {
-      document.getElementById("gb-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const f = e.target;
-        entries.unshift({
-          name: f.name.value.trim(),
-          msg: f.msg.value.trim(),
-          date: new Date().toLocaleString("ko-KR"),
-        });
-        localStorage.setItem("guestbook", JSON.stringify(entries));
-        route();
-      });
-    },
   };
 }
 
@@ -441,11 +717,10 @@ function route() {
     category: () => viewCategory(param),
     tag: () => viewTag(param),
     post: () => viewPost(param),
-    about: () => ({ title: "자기소개", html: template("page-about") }),
-    links: () => ({ title: "링크", html: template("page-links") }),
-    guestbook: viewGuestbook,
     cards: viewCards,
     week: viewWeek,
+    today: viewToday,
+    phrases: viewPhrases,
     grammar: () => viewGrammar(param),
   };
   const page = (views[view] || viewNotFound)();
