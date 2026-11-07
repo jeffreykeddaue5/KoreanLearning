@@ -33,7 +33,7 @@ Read the lesson file in full. Mistakes are marked `(❌)`, fixes come after `➡
 
 ## 3. Week type
 
-Count the files in `weeks/` including this one: that's the week number. Every 4th week (4, 8, 12…) is a **light week**: no points from the queue, and the plan is a review of the last 3 weeks' new points plus a longer speaking task. Lesson grammar is still added.
+Count the files in `weeks/` including this one: that's the week number. Every 4th week (4, 8, 12…) is a **light week**: no points from the queue, and the plan is a review of the last 3 weeks' new points plus a longer podcast (e.g. a recap of the month). Lesson grammar is still added.
 
 ## 4. New points (2 a week)
 
@@ -78,19 +78,22 @@ Each skill ticks its own block (☐ → ☑). The weekly check counts them.
 
 | Day | Blocks |
 |---|---|
-| Thu 11-12 | ☐ Anki · ☐ grammar: new #57, #58 · ☐ listening: step 1 (pick clip, no transcript + summary) |
-| Fri 11-13 | ☐ Anki · ☐ grammar: review · ☐ speaking: retell the clip · ☐ listening: step 2 (transcript + why I missed it) |
+| Thu 11-12 | ☐ Anki · ☐ grammar: new #57, #58 · ☐ listening: step 1 (pick Didi clip, listen with no transcript, %) |
+| Fri 11-13 | ☐ Anki · ☐ grammar: review · ☐ listening: step 2 (transcript + why I missed it) |
 | Sat 11-14 | Optional: ☐ Anki · ☐ mistakes drill |
-| Sun 11-15 | ☐ Anki · ☐ grammar: longer session on #57, #58 · ☐ speaking: my weekend, 4/3/2 · optional 일상 post |
-| Mon 11-16 | ☐ Anki · ☐ grammar: mixed review · ☐ homework sentences · ☐ listening: step 3 (shadowing) |
-| Tue 11-17 | ☐ Anki · ☐ weekly check (+ homework check) · ☐ listening: step 4 (dictation + final rating) · ☐ speaking: Q&A |
+| Sun 11-15 | ☐ Anki · ☐ grammar: longer session on #57, #58 · ☐ listening: step 3 (speech patterns to borrow) |
+| Mon 11-16 | ☐ Anki · ☐ grammar: mixed review · ☐ homework sentences · ☐ listening: step 4 (shadowing + final %) · ☐ podcast: my weekend, on my own + 일상 post |
+| Tue 11-17 | ☐ Anki · ☐ weekly check (+ homework + podcast unsure sentences) |
 | Wed 11-18 | ☐ Anki · ☐ lesson prep (questions above) · lesson 21:00 · ☐ lesson-intake |
+
+## Podcast
+(filled in by listening step 3 and the speaking skill: patterns to borrow, topic, length, unsure sentences)
 
 ## Weekly report
 (filled in by the weekly check on Tuesday)
 ```
 
-- For a light week, **New grammar** says "Light week: no new points" and lists the last 3 weeks' new points to review instead; Sunday's speaking is a longer topic that uses them.
+- For a light week, **New grammar** says "Light week: no new points" and lists the last 3 weeks' new points to review instead; Monday's podcast is a longer topic that uses them.
 - Use the new points' numbers in the grammar blocks. Keep every block even if its skill doesn't exist yet; each skill ticks its own block (`☐ grammar` → `☑ grammar`).
 
 ## 6. Website

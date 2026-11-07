@@ -1,6 +1,6 @@
 ---
 name: korean-mentor
-description: The user's one daily Korean study command. Shows today's checklist from the week's plan in weeks/ (Anki, grammar, listening, speaking, homework, weekly check, lesson prep, lesson intake), runs the next unfinished block, resumes where the user stopped, folds in missed days, and commits at the end. The grammar block is a conversational tutor session on the week's new points plus spaced-repetition review (session.md). Use when the user runs /korean-mentor (with or without arguments such as point numbers "35-44", "listening", "review", "mistakes"), or wants to study or practice Korean today.
+description: The user's one daily Korean study command. Shows today's checklist from the week's plan in weeks/ (Anki, grammar, listening, podcast, homework, weekly check, lesson prep, lesson intake), runs the next unfinished block, resumes where the user stopped, folds in missed days, and commits at the end. The grammar block is a conversational tutor session on the week's new points plus spaced-repetition review (session.md). Use when the user runs /korean-mentor (with or without arguments such as point numbers "35-44", "listening", "review", "mistakes"), or wants to study or practice Korean today.
 ---
 
 # Korean Mentor: the daily command
@@ -25,7 +25,7 @@ One compact block, then say what's next:
 ```
 목요일 · week of 11-04 · 다음 수업 D-6 (Wed 21:00)
 ☑ Anki (41 reviews, nothing due) · ☐ grammar: new #57, #58 · ☐ listening: step 1
-Missed: Fri speaking (skipped, speaking isn't built yet)
+Missed: Thu listening step 1 (do it next)
 Next: grammar (~30 min). Go?
 ```
 
@@ -44,7 +44,7 @@ Next: grammar (~30 min). Go?
 | `check` / `weekly` | the weekly check |
 | `mistakes` | the practice-mistakes drill |
 | `pinned` | the pinned-words drill |
-| `speaking` (optionally a mode: `weekend`, `retell`, `qa`, `monthly`) | the speaking skill |
+| `podcast` / `speaking` | the podcast setup or log (speaking skill) |
 | `intake` | lesson-intake |
 | `plan` | just show the checklist and stop |
 
@@ -53,8 +53,8 @@ Next: grammar (~30 min). Go?
 | Block | What to do |
 |---|---|
 | **grammar** | Follow `.claude/skills/korean-mentor/session.md`. Kind: `new` for "new #…", `long` for "longer session", otherwise `review`. |
-| **listening** | Follow `.claude/skills/listening/SKILL.md` (it finds the right step). |
-| **speaking** | Follow `.claude/skills/speaking/SKILL.md`. Mode from the block text: "retell" → retell, "my weekend" → weekend 4/3/2, "Q&A" → qa; on the last Tuesday of the month, offer the monthly recording too. |
+| **listening** | Follow `.claude/skills/listening/SKILL.md` (it finds the right step). These are for listening and analysis only: no speaking blocks on the same day. |
+| **podcast** (Mon, after listening step 4) | Follow `.claude/skills/speaking/SKILL.md`: show the topic, length and self-check list. The user records on their own, so the block stays ☐ until they say it's done; then log it. Old plans' `speaking` blocks count as this. |
 | **homework sentences** (Mon) | Show the 5 **Homework** prompts from the plan (or ask what the tutor assigned). The user writes them in Korean; save them under `## My homework` in the plan. No corrections now: the weekly check reviews them Tuesday. |
 | **weekly check** (Tue) | Follow `.claude/skills/weekly-check/SKILL.md`. |
 | **mistakes drill** (Sat, optional) | Follow `.claude/skills/practice-mistakes/SKILL.md`. On Saturday, offer it or `pinned` and accept "no" happily. |
@@ -68,7 +68,7 @@ Sub-skills normally commit on their own. **When run from korean-mentor, they ski
 ## 4. Between blocks
 
 After a block ends:
-- Tick it in today's row of the plan: `☐ grammar` → `☑ grammar` (`☑ Anki` too once Anki is done). A skipped block becomes `– speaking`.
+- Tick it in today's row of the plan: `☐ grammar` → `☑ grammar` (`☑ Anki` too once Anki is done). A skipped block becomes `– podcast`.
 - Show the updated one-line checklist and ask: `Next: listening step 1 (~30 min). Continue, or stop for today?`
 - **그만 / stop / done** ends the run (step 5). The next `/korean-mentor` picks up at the next ☐ block, today or the next day.
 
@@ -77,7 +77,7 @@ After a block ends:
 Missed blocks from earlier days (not optional ones) don't pile up:
 - **grammar** → today's grammar session adds 2 extra due points; no second session.
 - **listening** → the listening skill simply does the next step; skip a step only if the user asks.
-- **speaking** → skip it; only today's counts.
+- **podcast** → it moves to the next day, until Wednesday's lesson prep; after that it's skipped (`– podcast`).
 - **homework sentences** → do them before the weekly check (Tue) or before lesson prep (Wed).
 - **weekly check** missed on Tuesday → run it Wednesday before lesson prep.
 
@@ -96,4 +96,4 @@ git commit -m "Day 2026-11-05: grammar (new #57, #58), listening step 1"
 ```
 
    The second line, if useful, matches the Session log entry. Never stage `website/` (daily-update leaves it for the user) or `anki/pending.json`.
-4. Tell the user the short commit hash, what's next (`Tomorrow: grammar review, speaking, listening step 2`), and how many Anki changes are queued, if any.
+4. Tell the user the short commit hash, what's next (`Tomorrow: grammar review, listening step 2`), and how many Anki changes are queued, if any.

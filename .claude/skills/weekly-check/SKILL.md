@@ -1,6 +1,6 @@
 ---
 name: weekly-check
-description: Tuesday no-hint test before the Wednesday lesson — 10 items on the week's new grammar, older points and the user's worst mistake type, plus a check of the homework sentences — then levels points up or down (the only way to reach levels 3–5), writes the weekly report (blocks done vs planned, levels, no-hint uses, open mistakes by type, listening result, Anki streak) and the questions for the tutor. Use when the user runs /weekly-check, on Tuesday, or when korean-mentor reaches the weekly check block.
+description: Tuesday no-hint test before the Wednesday lesson — 10 items on the week's new grammar, older points and the user's worst mistake type, plus a check of the homework sentences and the podcast's unsure sentences — then levels points up or down (the only way to reach levels 3–5), writes the weekly report (blocks done vs planned, levels, no-hint uses, open mistakes by type, listening result, Anki streak) and the questions for the tutor. Use when the user runs /weekly-check, on Tuesday, or when korean-mentor reaches the weekly check block.
 ---
 
 # Weekly check
@@ -31,6 +31,8 @@ A point counts as **right** only if it's used correctly and naturally with no hi
 
 ## Homework check
 
+Then, if **Podcast** in the plan lists `Unsure:` sentences (from the user's podcast or blog post), check those the same way: ✔ or ✏️ with a short reason. If one is still a nuance question, add it to **To verify** and **Questions for the tutor**.
+
 After item 10, ask for the homework sentences (the 5 in the plan, or whatever the tutor assigned). If the user hasn't done them, skip this. For each sentence: ✔, or ✏️ with the fix and a short English reason. Keep it light: the tutor checks them tomorrow, and this is just to catch the easy mistakes first. Nuance questions go to **To verify**.
 
 ## Update progress
@@ -56,13 +58,14 @@ python3 -I .claude/skills/weekly-check/stats.py weeks/<plan>.md "$SCRATCH/collec
 Last week's numbers are in **Weekly reports** in `progress/log.md`. Write a one-line report at the top of that section, and a short version under **Weekly report** in the plan:
 
 ```
-2026-11-10 · week 1 · blocks 15/21 · check 7/10 · new: #57 L1, #58 L2 · level 3+: 8 (+2) · no-hint 34 (+6) · open mistakes 28 (−2), most: [조사] 6 · listening 60% → 85% · Anki 80-day streak, 6/7 days
+2026-11-10 · week 1 · blocks 15/21 · check 7/10 · new: #57 L1, #58 L2 · level 3+: 8 (+2) · no-hint 34 (+6) · open mistakes 28 (−2), most: [조사] 6 · listening 60% → 85% · podcast 3:10 (self 4/3/4/3) · Anki 80-day streak, 6/7 days
 ```
+
+- **podcast** = the newest `Speaking/log.md` podcast line this week, or `podcast –` if there isn't one.
 
 - **check** = items right out of 10. **(+n)** = change since last week's line; leave it out the first week.
 - In the plan, add 2–3 lines under the numbers: what improved, what to watch, and the focus for next week (in English).
 - **Too much planned?** If blocks done are under 70% of planned this week *and* last week, suggest a lighter plan in one line (e.g. drop Saturday and the Friday listening step), and ask before changing anything.
-- **Monthly recording:** if this is the last weekly check of the month, remind the user to do the monthly recording (`/korean-mentor speaking monthly`) if `Speaking/monthly/` has nothing for this month.
 
 ## Questions for the tutor
 
