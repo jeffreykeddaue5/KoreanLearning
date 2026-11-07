@@ -8,6 +8,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-07 · feelings words (extra) · drill · strong: 당황 vs 황당, 억울, 서운, 속상, 부담, 긴장 · fix: 어이없다 (speechless), 어지럽다 = messy room, 못 만나서
 - 2026-11-07 · practice-mistakes · drill · strong: 남은 음료가 콜라밖에, 청소하느라 못 했어요, 잤나 봐요, 쉬운 반면에, 어쩐지 as new sentence · fix: 바다에 수영하러 (place + 에 with -러 가다)
 - 2026-11-06 · new #57, #58 + review #5, #21, #55 (catch-up for Thu) · conversation · strong: 확인했더니 (unprompted), 일하느라고, 4시간이나, 하다 보니까 (unprompted), 방해되다 (L18) · fix: 게임에 몰입하다, 쉬운 반면에, -느라고 = busy doing, tense (쑤셔요, 바쁘다고, 좋을 거래요)
 - 2026-11-04 · L17–L18 homework review + review #29, #37 + pinned words (day 644) · conversation (stopped at 6/7) · strong: 은근히 벅차더라고요 (unprompted 은근히), 고등학생 나이여도, 자막 없이, 떠맡았는데, 삭제한 탓에 · fix: 몰입했나 봐요, 공원에 산책하러, 어쩐지 + -더라고요 (warm-up)
@@ -22,4 +23,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-10-17 · #4, 7, 20, 29, 46 + review #3, #30 · conversation · strong: 아/어 두다, 까 봐 unprompted, 큰 만큼, 막상, 아침 일찍 · fix: 까 봐서 / 못 갈까 봐, tense (잃어버렸나 봐요), 걸 보니까 vs 테니까
 - 2026-10-13 · #35, 39, 43, 44 + review #7, #29, #30 · conversation (stopped at 5/15) · strong: 나 봐요 unprompted, 치고는, 다던데 + suggestion, 텐데 · fix: ㅂ irregular (쉬웠어요, 부드러웠어요), 요즘 → -고 있다
 - 2026-10-12 · #16, 18, 22, 29, 33, 35, 36 + review #7, #26, #38 · conversation · strong: 길래, 서 그런지, 텐데 unprompted, 려다가, 아침 일찍 · fix: tense (많았거든요, 걸린 탓에), -는군요, 군요 vs 더라고요, 막상 V-(으)니까
-- 2026-10-11 · weakest: #7, 11, 19, 29, 39, 44 · conversation · strong: 치고는 + 잘 + 네요, 까 해요, 탓에 unprompted, 다 보니, 줄 몰랐다 · fix: 아침 일찍, 커피를 마시다, 남기다, tense of 2nd clause
