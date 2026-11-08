@@ -11,4 +11,4 @@ Clips come only from Didi's channel (changed 2026-11-06): one clear speaker with
 The skill adds one line per clip, so channels rotate and videos aren't reused.
 
 - 2026-10-27 · Didi의 한국문화 Podcast · 한국의 전세 시스템 (0:00–8:55) · `Listening/2026-10-27-전세`
-- 2026-11-07 · Didi의 한국문화 Podcast · 한국에서 인생 첫 차를 샀어요! (0:00–4:30) · `Listening/2026-11-07-첫차`
+- 2026-11-07 · Didi의 한국문화 Podcast · 한국에서 인생 첫 차를 샀어요! (0:00–4:30) · `Listening/2026-11-12-첫차` (fetched 11-07, not started; carried to week of 11-11)
