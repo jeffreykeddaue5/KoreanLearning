@@ -12,6 +12,7 @@ Finished items, kept for reference. Skills can grep here (e.g. to notice a ✓ m
 - 좋아해졌어요 → 좋아하게 됐어요 / 좋아졌어요 (L15) · ✓ 2026-10-18
 - 걸릴까 봐서 → 걸릴까 봐 (no -서) (L7) · ✓ 2026-10-22
 - 자막이 없이 → 자막 없이 (L17) · ✓ 2026-11-04
+- [어휘] 방해되다 (be disturbed) vs 방해하다 (disturb): 영화 보는 데 방해됐어요 (L18) · ✓ 2026-11-08
 
 ## Hard words (✓ done)
 
@@ -49,6 +50,8 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 - 주인공 — main character; 남자/여자 주인공 · 주인공을 맡다 (anki 2026-10-13 day5) · 0/2
 
 ## Session log (older)
+
+- 2026-10-12 · #16, 18, 22, 29, 33, 35, 36 + review #7, #26, #38 · conversation · strong: 길래, 서 그런지, 텐데 unprompted, 려다가, 아침 일찍 · fix: tense (많았거든요, 걸린 탓에), -는군요, 군요 vs 더라고요, 막상 V-(으)니까
 
 - 2026-10-11 · weakest: #7, 11, 19, 29, 39, 44 · conversation · strong: 치고는 + 잘 + 네요, 까 해요, 탓에 unprompted, 다 보니, 줄 몰랐다 · fix: 아침 일찍, 커피를 마시다, 남기다, tense of 2nd clause
 - 2026-10-10 · #36, 42–45 + review #7, #29 · drill · strong: 다면서요, 자마자, 길래, 나 봐요, 다던데 + suggestion · fix: 치고는 + 잘 치네요, 회사 근처에, 탓에 needs prompting
