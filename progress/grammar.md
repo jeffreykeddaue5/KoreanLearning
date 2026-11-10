@@ -39,7 +39,7 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 10 | -(으)ㄴ/는 줄 몰랐다 | 2 | 2026-11-14 | 2026-10-11 | 1 | Used unprompted (이렇게 어려운 줄 몰랐어요) |
 | 11 | -기는 하지만 | 1 | 2026-11-09 | 2026-10-18 | 0 | Past form right again with hint (모르기는 했지만) |
 | 12 | -는지 모르겠어요 | 0 | 2026-11-09 | 2026-11-08 | 0 | Right with hint (왜 통화하는지 모르겠어요); 하 dropped (통화는지) |
-| 13 | -(으)면 좋겠어요 | 0 | 2026-11-06 | — | 0 | Not practiced yet |
+| 13 | -(으)면 좋겠어요 | 0 | 2026-11-10 | 2026-11-09 | 0 | Right with hint (친구를 만났으면 좋겠어요) |
 | 14 | -는 편이다 | 3 | 2026-11-22 | 2026-11-08 | 3 | Unprompted again (뒤끝이 없는 편이에요) |
 | 15 | N끼리 | 0 | 2026-11-09 | 2026-11-08 | 0 | Right with hint (친구끼리 떠든 적이 있어요) |
 | 16 | -거든요 | 1 | 2026-11-13 | 2026-10-29 | 0 | Right with hint (거의 매진됐거든요) |
@@ -53,14 +53,14 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 24 | -지요 (-죠) | 0 | 2026-11-09 | 2026-11-08 | 0 | 공부하죠 sounded like a suggestion (⚠ to verify) |
 | 25 | -게 되다 | 2 | 2026-11-15 | 2026-10-22 | 2 | Right unprompted (매일 커피를 마시게 됐어요) |
 | 26 | -는 게 좋겠어요 | 2 | 2026-11-15 | 2026-11-08 | 1 | Unprompted (밖에서 통화하는 게 좋겠어요) |
-| 27 | -는걸(요) | 0 | 2026-11-07 | — | 0 | Not practiced yet |
-| 28 | -(으)ㄴ들 | 0 | 2026-11-07 | — | 0 | Not practiced yet |
-| 29 | -나 보다 | 1 | 2026-11-07 | 2026-11-04 | 1 | Verbs → -나 (몰입한가 ✗ → 몰입했나 봐요); not for future (매진되나 봐요 ✗) |
+| 27 | -는걸(요) | 0 | 2026-11-10 | 2026-11-09 | 0 | Form right with hint (쉬운걸요); 일은 for contrast |
+| 28 | -(으)ㄴ들 | 0 | 2026-11-10 | 2026-11-09 | 0 | Right with hint (말한들); then 결국 … 해야 할 거예요 |
+| 29 | -나 보다 | 2 | 2026-11-16 | 2026-11-09 | 2 | Unprompted (벅찬가 봐요); to the person → 벅차겠네요 ⚠ |
 | 30 | -나요? | 1 | 2026-11-09 | 2026-10-17 | 0 | Right with hint (외국인인가요?); softer: 처음 오셨나요? |
 | 31 | -(으)나 마나 | 1 | 2026-11-10 | 2026-10-22 | 0 | Form right; put it on the pointless action (말하나 마나) + -(으)ㄹ 거예요 |
 | 32 | -(으)ㄹ지도 모르다 | 0 | 2026-11-09 | 2026-11-08 | 0 | Meaning right with hint; tense: 서운할지도 몰랐지만 → 모르지만 |
 | 33 | -(으)니만큼 | 1 | 2026-11-08 | 2026-10-12 | 0 | Right with hint (맛있으니만큼 추천하려고 해요) |
-| 34 | N(이)라도 | 0 | 2026-11-07 | — | 0 | Not practiced yet |
+| 34 | N(이)라도 | 0 | 2026-11-10 | 2026-11-09 | 0 | Form right with hint; time noun keeps 에 (휴일에라도); better 커피라도 |
 | 35 | -더라고요 | 2 | 2026-11-15 | 2026-11-08 | 3 | Unprompted (은근히 방해되더라고요) |
 | 36 | -길래 | 2 | 2026-11-15 | 2026-10-26 | 2 | Form right with hint; others' feelings → 슬퍼 보이길래 |
 | 37 | -다 보니(까) | 2 | 2026-11-15 | 2026-11-08 | 3 | Unprompted (계속 가다 보니까 단골이 됐거든요) |
@@ -81,7 +81,7 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 52 | -는 데 + 시간/돈 + 걸리다/들다 | 1 | 2026-11-11 | 2026-10-25 | 0 | Right with hint (배우는 데 3년이 걸렸어요); 들다 = cost; 그만하는 데 (not 는데) |
 | 53 | N 만에 | 1 | 2026-11-11 | 2026-10-25 | 0 | Right with hint (5년 만에 대학교 친구를 만났고) |
 | 54 | -(으)ㄴ 지 얼마 안 되다 / 오래되다 | 1 | 2026-11-12 | 2026-10-25 | 0 | Right with hint (뒷담화를 한 지 오래됐어요); only N → N밖에 안 됐어요 |
-| 55 | -기까지 + 기간 | 0 | 2026-11-07 | 2026-11-06 | 0 | Right with hint (잘하게 되기까지 세 달이 걸렸어요); future → 걸릴 거예요 |
+| 55 | -기까지 + 기간 | 0 | 2026-11-10 | 2026-11-09 | 0 | Right with hint (질리기까지 1달밖에 안 걸렸어요) |
 | 56 | -(으)ㄴ 이후로 | 1 | 2026-11-12 | 2026-10-25 | 0 | Right twice with hint (체한 이후로, 결혼한 이후로) |
-| 57 | V-았/었더니 | 2 | 2026-11-15 | 2026-11-08 | 2 | Unprompted (실컷 먹었더니 배가 아팠어요); missed chance: 자리를 옮겼더니 |
-| 58 | V-느라(고) | 1 | 2026-11-11 | 2026-11-08 | 1 | Right twice no hint (데이트하느라고, 일하느라고); 사귀다 ✗; 하 dropped (일느라고) |
+| 57 | V-았/었더니 | 2 | 2026-11-16 | 2026-11-09 | 2 | Right with hint (연락해 봤더니); missed chance first try |
+| 58 | V-느라(고) | 2 | 2026-11-16 | 2026-11-09 | 2 | Right no hint again (데이트하느라고 친구를 못 만났어요) |

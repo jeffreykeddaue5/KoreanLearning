@@ -8,6 +8,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-09 · review #57, #58 + #13, #27, #28, #34, #55 · conversation · strong: 데이트하느라고 (no hint), 말한들, 질리기까지 1달밖에 안 걸렸어요, 벅찬가 봐요 (unprompted) · fix: 휴일에라도, 이직 → 결국 + 해야 할 거예요, 일은 쉬운걸요, 안 걸렸어요
 - 2026-11-08 · long #57, #58 + review #5, #6, #12, #15, #21, #32, #49 · conversation · strong: 실컷 먹었더니 (unprompted), 데이트하느라고, 진작 … 보낼걸 그랬어요, 활발한 반면에, 카페에 마시러 다녀요, 은근히 방해되더라고요 · fix: 사귀다 vs 데이트하다, 모르지만 (tense), 1달밖에 안 걸렸어요, 하 dropped (통화하는지, 일하느라고)
 - 2026-11-07 · feelings words (extra) · drill · strong: 당황 vs 황당, 억울, 서운, 속상, 부담, 긴장 · fix: 어이없다 (speechless), 어지럽다 = messy room, 못 만나서
 - 2026-11-07 · practice-mistakes · drill · strong: 남은 음료가 콜라밖에, 청소하느라 못 했어요, 잤나 봐요, 쉬운 반면에, 어쩐지 as new sentence · fix: 바다에 수영하러 (place + 에 with -러 가다)
@@ -22,4 +23,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-10-20 · #5, 8, 17, 25, 32 + review #29, #37 · drill (stopped at 4/10) · strong: 는 모양이에요, 잖아요, ㄹ지도 몰라요 form, 테니까/텐데 + plan · fix: 어젯밤부터, 일본 여행은, 세우다, 걸 보니까 needs a known fact, 없을지도
 - 2026-10-18 · #7, 16, 20, 29, 37 + review #2, #11 · drill · strong: 까 봐 (no 서, 못), 했나 봐요, 좋아하게 됐어요, 모르기는 했지만, 실컷 · fix: 다 보니 vs 아/어 보니까, 오는 모양, 지하철을 타다, 은근히 + negative
 - 2026-10-17 · #4, 7, 20, 29, 46 + review #3, #30 · conversation · strong: 아/어 두다, 까 봐 unprompted, 큰 만큼, 막상, 아침 일찍 · fix: 까 봐서 / 못 갈까 봐, tense (잃어버렸나 봐요), 걸 보니까 vs 테니까
-- 2026-10-13 · #35, 39, 43, 44 + review #7, #29, #30 · conversation (stopped at 5/15) · strong: 나 봐요 unprompted, 치고는, 다던데 + suggestion, 텐데 · fix: ㅂ irregular (쉬웠어요, 부드러웠어요), 요즘 → -고 있다

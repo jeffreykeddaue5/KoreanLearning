@@ -51,6 +51,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-10-13 · #35, 39, 43, 44 + review #7, #29, #30 · conversation (stopped at 5/15) · strong: 나 봐요 unprompted, 치고는, 다던데 + suggestion, 텐데 · fix: ㅂ irregular (쉬웠어요, 부드러웠어요), 요즘 → -고 있다
 - 2026-10-12 · #16, 18, 22, 29, 33, 35, 36 + review #7, #26, #38 · conversation · strong: 길래, 서 그런지, 텐데 unprompted, 려다가, 아침 일찍 · fix: tense (많았거든요, 걸린 탓에), -는군요, 군요 vs 더라고요, 막상 V-(으)니까
 
 - 2026-10-11 · weakest: #7, 11, 19, 29, 39, 44 · conversation · strong: 치고는 + 잘 + 네요, 까 해요, 탓에 unprompted, 다 보니, 줄 몰랐다 · fix: 아침 일찍, 커피를 마시다, 남기다, tense of 2nd clause
