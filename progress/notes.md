@@ -8,6 +8,7 @@ Nuance questions to check with a native speaker or teacher.
 - Does "집에 가서 잘 셈이에요" (-(으)ㄹ 셈이다 for your own plan) sound odd? The mentor suggested -(으)려고요 / -기로 했어요 instead.
 - "친구들하고 점심을 먹은 김에 피클볼을 쳤어요": is 먹은 김에 natural here, or does 친구들을 만난 김에 sound better?
 - "6시간이 지나게 됐어요": does -게 되다 sound odd for time passing? The mentor suggested 지나 버렸어요 / 훌쩍 지났어요.
+- -았/었더니 vs -아/어 보니까 vs -더라고요 for "I did X and found Y": when is -았/었더니 the natural choice? (냉장고를 열었더니 우유가 없었어요)
 - "한 시간이나 줄을 서 있을 텐데" vs "줄을 서야 할 텐데": is the first one natural?
 - Replying to a friend's excuse: "너무 벅찬가 봐요" said to the friend directly — odd? The mentor suggested 많이 벅차겠네요.
 - "배고프지 않나 봐요": fine in speech, or should it be 배가 안 고픈가 봐요 (A-(으)ㄴ가 보다)?

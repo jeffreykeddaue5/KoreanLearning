@@ -13,6 +13,7 @@ Finished items, kept for reference. Skills can grep here (e.g. to notice a ✓ m
 - 걸릴까 봐서 → 걸릴까 봐 (no -서) (L7) · ✓ 2026-10-22
 - 자막이 없이 → 자막 없이 (L17) · ✓ 2026-11-04
 - [어휘] 방해되다 (be disturbed) vs 방해하다 (disturb): 영화 보는 데 방해됐어요 (L18) · ✓ 2026-11-08
+- [문법] 축제 갈까 봐서 → 축제 못 갈까 봐 (worry about not getting it → 못) (L16) · ✓ 2026-11-10
 
 ## Hard words (✓ done)
 
