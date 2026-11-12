@@ -10,6 +10,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-11 · lesson prep (#57, #58 + weekend rehearsal + tutor questions) · conversation · strong: 사진을 봤더니 감동을 받았어요, 저녁 식사를 하느라고, 가 봤더니 은근히 맛있더라고요, 계획을 안 세웠어요 · fix: 먹었더니 (3rd person) → 먹더니, 잊어버린 탓에, 양이 많아서, 한 게 재미있었어요, 잘하게 되기까지, 갈지도 몰라요
 - 2026-11-10 · weekly check 3/10 + homework · test · strong: 못 살까 봐 걱정이에요, 많을 텐데 예약해 두는 게 좋겠어요, 막상 먹어 보니까 · fix: -느라(고) one subject, 입양했다면서요, 좋길래 … 갔어요, 오자마자 (not 왔더니), #57 not produced ×3, 커피를 마시다, 익숙해지기까지
 - 2026-11-09 · review #57, #58 + #13, #27, #28, #34, #55 · conversation · strong: 데이트하느라고 (no hint), 말한들, 질리기까지 1달밖에 안 걸렸어요, 벅찬가 봐요 (unprompted) · fix: 휴일에라도, 이직 → 결국 + 해야 할 거예요, 일은 쉬운걸요, 안 걸렸어요
 - 2026-11-08 · long #57, #58 + review #5, #6, #12, #15, #21, #32, #49 · conversation · strong: 실컷 먹었더니 (unprompted), 데이트하느라고, 진작 … 보낼걸 그랬어요, 활발한 반면에, 카페에 마시러 다녀요, 은근히 방해되더라고요 · fix: 사귀다 vs 데이트하다, 모르지만 (tense), 1달밖에 안 걸렸어요, 하 dropped (통화하는지, 일하느라고)
@@ -24,5 +25,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-10-23 · #47 only + pinned words (day 631) · conversation · strong: 하마터면 … 뻔했어요, 큰일 날 뻔했어요, 탓에, 자마자, 뻐근하다, 낭비하다 · fix: 뻔하다 + feelings, 안 샀으면, 확인해 보니까, 다리를 다치다, 매진
 - 2026-10-22 · #1, 9, 23, 31, 47 + review #7, #37 · conversation · strong: 쏟을 뻔했어요, 켜진 채로, 커피밖에 없다고, 마시다 보니, 늦을까 봐 · fix: 커피를 마시다, 마실 셈, 말하나 마나 + 거예요, 예약하면, 전문점인 만큼
 - 2026-10-20 · #5, 8, 17, 25, 32 + review #29, #37 · drill (stopped at 4/10) · strong: 는 모양이에요, 잖아요, ㄹ지도 몰라요 form, 테니까/텐데 + plan · fix: 어젯밤부터, 일본 여행은, 세우다, 걸 보니까 needs a known fact, 없을지도
-- 2026-10-18 · #7, 16, 20, 29, 37 + review #2, #11 · drill · strong: 까 봐 (no 서, 못), 했나 봐요, 좋아하게 됐어요, 모르기는 했지만, 실컷 · fix: 다 보니 vs 아/어 보니까, 오는 모양, 지하철을 타다, 은근히 + negative
-- 2026-10-17 · #4, 7, 20, 29, 46 + review #3, #30 · conversation · strong: 아/어 두다, 까 봐 unprompted, 큰 만큼, 막상, 아침 일찍 · fix: 까 봐서 / 못 갈까 봐, tense (잃어버렸나 봐요), 걸 보니까 vs 테니까
