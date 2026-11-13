@@ -31,6 +31,7 @@ Nuance questions to check with a native speaker or teacher.
 - "동료가 피곤한가 봐요. 그래서 커피를 사 줬어요" (about today): OK, or should it be 피곤해 보이길래 / 피곤했나 봐요?
 - Can -느라고 give a future reason? "이번 주말에 일하느라고 산책을 못 할 것 같아요" vs 일해야 해서 (2026-11-06)
 - "요즘은 차라리 우리 집에서 공부하죠": does -죠 here sound like a suggestion (let's study at my place)? The mentor suggested 차라리 집에서 공부하는 게 나아요.
+- "핸드폰을 잊어버리는 바람에" (left my phone at home): natural, or should it be 핸드폰을 깜빡하고 두고 오는 바람에? (잊어버리다 for objects) (2026-11-12)
 
 ## Heard in the wild
 

@@ -52,6 +52,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-10-23 · #47 only + pinned words (day 631) · conversation · strong: 하마터면 … 뻔했어요, 큰일 날 뻔했어요, 탓에, 자마자, 뻐근하다, 낭비하다 · fix: 뻔하다 + feelings, 안 샀으면, 확인해 보니까, 다리를 다치다, 매진
 - 2026-10-18 · #7, 16, 20, 29, 37 + review #2, #11 · drill · strong: 까 봐 (no 서, 못), 했나 봐요, 좋아하게 됐어요, 모르기는 했지만, 실컷 · fix: 다 보니 vs 아/어 보니까, 오는 모양, 지하철을 타다, 은근히 + negative
 - 2026-10-17 · #4, 7, 20, 29, 46 + review #3, #30 · conversation · strong: 아/어 두다, 까 봐 unprompted, 큰 만큼, 막상, 아침 일찍 · fix: 까 봐서 / 못 갈까 봐, tense (잃어버렸나 봐요), 걸 보니까 vs 테니까
 - 2026-10-13 · #35, 39, 43, 44 + review #7, #29, #30 · conversation (stopped at 5/15) · strong: 나 봐요 unprompted, 치고는, 다던데 + suggestion, 텐데 · fix: ㅂ irregular (쉬웠어요, 부드러웠어요), 요즘 → -고 있다

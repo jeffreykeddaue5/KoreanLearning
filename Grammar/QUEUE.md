@@ -6,8 +6,6 @@ Order: everyday conversation → common in media → TOPIK. Reorder or veto free
 
 ## 1. Everyday conversation
 
-- -는 바람에 — because of something unexpected (bad result) · vs #7 -는 탓에
-- -아/어 버리다 — ended up / completely (relief or regret)
 - -기로 하다 — decide to; agree to
 - -(으)ㄹ 만하다 — worth doing; good enough (볼만하다, 먹을 만하다)
 - -는데도 — even though · vs #48 N(이)어도, -아/어도

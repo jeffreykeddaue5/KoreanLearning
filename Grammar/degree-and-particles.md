@@ -140,7 +140,7 @@
 ✔ -(으)ㄹ 수밖에 없다 = have no choice but to
 
 ### 34. N(이)라도
-**Meaning:** at least…; …if nothing else
+**Meaning:** (1) at least…; …if nothing else · (2) even if it's N; even though it's N (L20)
 
 - 시간이 없으면 커피라도 마셔요.
   🔁 If you don't have time, at least have a coffee.
@@ -150,8 +150,14 @@
   🔁 Shall we at least go for a walk this weekend?
 - 늦었지만 지금이라도 시작해요.
   🔁 It's late, but let's at least start now.
+- 어른이라도 삼각김밥 뜯기 어려운걸요!
+  🔁 Even as an adult, it's still hard to open a triangle kimbap! (meaning 2, L20)
 
-✔ Not the best option, but the most acceptable one available
+❌ 어른이아도 → ✅ 어른이라도 (nouns take (이)라도, not -아도, L20)
+
+✔ Not the best option, but the most acceptable one available (meaning 1)
+✔ Meaning 2 (tutor, L20): A/V-아/어도 and N(이)라도 = "even if": the condition doesn't change the result. Compare #28 -(으)ㄴ들 (casual, skeptical: "what good would it do?")
+✔ 최소한 = at least (최소한 친구라도 있어요, L20)
 
 ---
 

@@ -126,6 +126,26 @@
 ✔ The second part is usually something you couldn't do or a cost: 못 했어요, 늦었어요, 힘들었어요, 정신이 없었어요
 ✔ No command or suggestion after it
 
+### 59. V-는 바람에
+**Form:** V-는 바람에 · verbs only, always -는 (even for the past; the end of the sentence shows the time)
+**Meaning:** because of something unexpected (and usually a bad or unplanned result)
+
+- 알람이 안 울리는 바람에 늦잠을 잤어요.
+  🔁 My alarm didn't go off, so I overslept.
+- 갑자기 비가 오는 바람에 옷이 다 젖었어요.
+  🔁 It suddenly rained, so my clothes got soaked.
+- 버스를 잘못 타는 바람에 30분이나 늦었어요.
+  🔁 I took the wrong bus, so I was a whole 30 minutes late.
+- 동료가 파일을 삭제하는 바람에 다시 회사에 나가야 했어요.
+  🔁 A coworker deleted a file, so I had to go back in to work.
+
+❌ 비가 온 바람에 → ✅ 비가 오는 바람에 (always -는, never -(으)ㄴ)
+❌ 비가 오는 바람에 우산을 가져가세요. → ✅ 비가 오니까 우산을 가져가세요. (the result is something that already happened: no commands, suggestions or future)
+
+✔ The cause is sudden or unexpected; the result is past: -았/었어요
+✔ vs -탓에 (#7): -탓에 blames the cause; -는 바람에 just says it happened suddenly
+✔ Adjectives can't take it: 추운 바람에 ✗ → 추워서
+
 ---
 
 ## Compare
@@ -140,3 +160,4 @@
 | -거든요 (#16) | telling the listener a reason they didn't know | 비가 오거든요 |
 | -(으)니만큼 (#33) | given this fact, so naturally… (formal) | 비가 오니만큼 조심하세요 |
 | -느라(고) (#58) | you were busy doing A, so you couldn't do B | 숙제하느라고 못 갔어요 |
+| -는 바람에 (#59) | something unexpected happened, so B (already happened) | 비가 오는 바람에 경기가 취소됐어요 |

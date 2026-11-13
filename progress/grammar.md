@@ -2,7 +2,7 @@
 
 ## Current level
 
-Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-clause sentences well; small slips with particles (을/에, 로/으로) and verb choice (커피를 마시다).
+Intermediate. Comfortable with points 1–34, working on 35–60. Builds multi-clause sentences well; small slips with particles (을/에, 로/으로) and verb choice (커피를 마시다).
 
 ## How levels work
 
@@ -60,7 +60,7 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 31 | -(으)나 마나 | 1 | 2026-11-10 | 2026-10-22 | 0 | Form right; put it on the pointless action (말하나 마나) + -(으)ㄹ 거예요 |
 | 32 | -(으)ㄹ지도 모르다 | 0 | 2026-11-09 | 2026-11-08 | 0 | Meaning right with hint; tense: 서운할지도 몰랐지만 → 모르지만 |
 | 33 | -(으)니만큼 | 1 | 2026-11-08 | 2026-10-12 | 0 | Right with hint (맛있으니만큼 추천하려고 해요) |
-| 34 | N(이)라도 | 0 | 2026-11-10 | 2026-11-09 | 0 | Form right with hint; time noun keeps 에 (휴일에라도); better 커피라도 |
+| 34 | N(이)라도 | 1 | 2026-11-15 | 2026-11-12 | 1 | Unprompted meaning 2 (지금 어른이라도, L20); time noun keeps 에 (휴일에라도) |
 | 35 | -더라고요 | 2 | 2026-11-15 | 2026-11-08 | 3 | Unprompted (은근히 방해되더라고요) |
 | 36 | -길래 | 1 | 2026-11-13 | 2026-11-10 | 2 | Check: 좋길래 공원에 가요 → 갔어요 (past reaction); no commands |
 | 37 | -다 보니(까) | 2 | 2026-11-15 | 2026-11-08 | 3 | Unprompted (계속 가다 보니까 단골이 됐거든요) |
@@ -85,3 +85,5 @@ Intermediate. Comfortable with points 1–34, working on 35–58. Builds multi-c
 | 56 | -(으)ㄴ 이후로 | 1 | 2026-11-12 | 2026-10-25 | 0 | Right twice with hint (체한 이후로, 결혼한 이후로) |
 | 57 | V-았/었더니 | 1 | 2026-11-13 | 2026-11-10 | 2 | Check: not produced ×3 (-더라고요 / -(으)ㄴ 지 / -아 보니까 instead) |
 | 58 | V-느라(고) | 2 | 2026-11-17 | 2026-11-10 | 3 | Check: ✔ 저녁을 하느라고; ✗ two subjects (제가 청소하느라고 남편이…) |
+| 59 | -는 바람에 | 1 | 2026-11-15 | 2026-11-12 | 2 | No hint ×2 (비가 오는 바람에, 잊어버리는 바람에); 계획이 바뀌는 (not 바꾸는) |
+| 60 | -아/어 버리다 | 0 | 2026-11-13 | 2026-11-12 | 0 | Right with hint (먹어 버렸어요, 해 버렸어요); overused for a plain past (그려 버렸는데 → 그렸는데) |

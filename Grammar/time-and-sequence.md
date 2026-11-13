@@ -174,6 +174,25 @@
 ✔ -(으)러 가다 = go (once) to do something; -(으)러 다니다 = go regularly, or go from place to place doing it
 ✔ Only with movement verbs: 가다, 오다, 다니다
 
+### 60. V-아/어 버리다
+**Form:** V-아/어 버리다 · past: -아/어 버렸어요 · casual: -아/어 버렸다
+**Meaning:** do something completely; it ended up happening (with regret, or with relief)
+
+- 너무 배고파서 피자를 다 먹어 버렸어요.
+  🔁 I was so hungry that I ate the whole pizza.
+- 드라마를 보다가 6시간이 지나 버렸어요.
+  🔁 I was watching dramas and six hours just went by.
+- 버스가 벌써 떠나 버렸어요.
+  🔁 The bus already left (and I missed it).
+- 숙제를 다 끝내 버렸어요!
+  🔁 I got all my homework done! (relief)
+
+❌ 먹어 버려었어요 → ✅ 먹어 버렸어요 (버리다 + 었어요 = 버렸어요)
+
+✔ Regret: 잊어버렸어요, 잃어버렸어요 (these are written as one word)
+✔ Relief: something you wanted gone is finished (다 끝내 버렸어요)
+✔ vs -게 되다 (#25): -게 되다 = it came about through circumstances, neutral; -아/어 버리다 adds a feeling (oops, or finally)
+
 ---
 
 ## Compare
@@ -190,5 +209,6 @@
 | -아/어 두다 (#46) | doing A and leaving it that way, or doing it in advance | 불을 켜 뒀어요 |
 | -는 김에 (#3) | since you're doing A, you also do B | 나가는 김에 쓰레기도 버릴게요 |
 | -(으)러 다니다 (#49) | you go regularly (or around) to do A | 맛집을 찾으러 다녀요 |
+| -아/어 버리다 (#60) | A happened completely, with regret or relief | 다 먹어 버렸어요 |
 
 For how long / since when (-(으)ㄴ 지, -는 데 걸리다, 만에, -기까지, 이후로), see [time-expressions](time-expressions.md).

@@ -78,6 +78,8 @@ Each point has spoken examples, ❌ → ✅ lines for common mistakes (many from
 | 56 | V-(으)ㄴ 이후로 / 후로 | [time-expressions](time-expressions.md) |
 | 57 | V-았/었더니 | [heard-and-experienced](heard-and-experienced.md) |
 | 58 | V-느라(고) | [reasons](reasons.md) |
+| 59 | V-는 바람에 | [reasons](reasons.md) |
+| 60 | V-아/어 버리다 | [time-and-sequence](time-and-sequence.md) |
 
 ## Adding a point
 

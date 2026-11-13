@@ -58,11 +58,13 @@
   🔁 Even if I start working out now, am I going to lose weight right away?
 - 아무리 맛있는 음식인들 매일 먹으면 질려요.
   🔁 No matter how delicious the food is, you get sick of it if you eat it every day.
+- 지금 후회한들 어쩔 수 없어요. (= 지금 후회해도 어쩔 수 없어요.)
+  🔁 Even if I regret it now, it's no use. (L20)
 
 ❌ 출발하는들 → ✅ 출발한들 (stem + (으)ㄴ들 — no 는, L7)
 
 ✔ Often followed by a rhetorical question
-✔ Literary or formal tone
+✔ Tutor (L20): a strong, skeptical concession ("what good would it do?"); the plain "even if" is A/V-아/어도 / N(이)라도 (#34, #48)
 
 ### 31. V-(으)나 마나
 **Meaning:** whether you do it or not, the result is the same
@@ -131,5 +133,6 @@
 | -(으)나 마나 (#31) | "doing X or not, same result" | 가나 마나 늦을 거예요 |
 | N치고(는) (#44) | "for an N, it's surprisingly…" | 초보치고는 잘해요 |
 | N(이)어도 (#48) | "even if it's N, the result stays the same" | 주말이어도 일찍 일어나요 |
+| N(이)라도 (#34) | "even if it's N" (also "at least N") | 어른이라도 어려워요 |
 
 Your tutor's note (L1): -기는 하지만 is **concession** (admit, then but); -반면에 is **comparison** (A vs B).
