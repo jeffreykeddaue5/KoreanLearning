@@ -39,3 +39,7 @@ Real sentences from listening clips, dramas or conversations that use a grammar 
 
 | Date | Sentence | # | Source |
 | --- | --- | --- | --- |
+| 2026-11-13 | 약간은 충동적으로 구매를 해 버렸습니다 | #60 | Didi's Korean Culture Podcast, 한국에서 인생 첫 차를 샀어요! |
+| 2026-11-13 | 제가 인생 첫 차가 생기게 됐어요 | #25 | Didi's Korean Culture Podcast, 한국에서 인생 첫 차를 샀어요! |
+| 2026-11-13 | 대중교통이 잘 되어 있긴 해요 | #11 | Didi's Korean Culture Podcast, 한국에서 인생 첫 차를 샀어요! |
+| 2026-11-13 | 항상 노트북 들고 다니죠 | #24 | Didi's Korean Culture Podcast, 한국에서 인생 첫 차를 샀어요! |
