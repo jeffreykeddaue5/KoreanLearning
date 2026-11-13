@@ -1,0 +1,7 @@
+# 단어 카드 focus words (website). Used only when the first line is today's date; otherwise picked automatically.
+2026-11-13
+지겹다
+배포하다
+멀미하다
+떠맡다
+밤을 새우다
