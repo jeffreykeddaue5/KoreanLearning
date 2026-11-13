@@ -175,7 +175,43 @@ def anki():
     forgot = [{"word": w["word"], "meaning": w["meaning"], "misses": w["again"]} for w in A.missed(20)]
     trouble = [w["word"] for w in A.tagged(A.T1)]
     return {"streak": streak, "reviewed_today": reviewed, "notes": db.execute("select count(*) from notes").fetchone()[0],
-            "pinned": {"date": date.today().isoformat(), "words": pins}, "forgotten": forgot, "trouble": trouble}
+            "pinned": {"date": date.today().isoformat(), "words": pins}, "forgotten": forgot, "trouble": trouble,
+            "focus": focus(A)}
+
+
+# ---------- 단어 카드: 오늘 집중할 단어 (최대 FOCUS_N개) ----------
+FOCUS_N = 5
+FOCUS_FILE = ROOT / "progress/focus-words.txt"   # optional: first line YYYY-MM-DD, then one word per line
+
+
+def focus(A):
+    """Today's focus words. Hand-picked list (if dated today) wins; otherwise today's pins
+    ranked by misses today, trouble tag, pin count, all-time misses; with no pins, this week's most missed."""
+    def card(w, src):
+        cf = re.search(r"cf\)\s*(.+)$", w.get("note", ""))
+        return {"word": w["word"], "meaning": w["meaning"], "example": w["example"],
+                "translation": w["translation"], "cf": cf.group(1).strip() if cf else "",
+                "again": w.get("again", 0), "pins": w.get("pins", 0),
+                "trouble": A.T1 in w.get("tags", []), "source": src}
+
+    if FOCUS_FILE.exists():
+        lines = [x.strip() for x in FOCUS_FILE.read_text().splitlines() if x.strip() and not x.startswith("#")]
+        if lines and lines[0] == date.today().isoformat():
+            pins = {w["word"]: w for w in A.pinned(1)}
+            out = []
+            for word in lines[1:FOCUS_N + 1]:
+                w = pins.get(word) or A.find(word)
+                if w:
+                    out.append(card(w, "picked"))
+            if out:
+                return {"date": lines[0], "words": out}
+
+    alltime = {w["id"]: w["again"] for w in A.missed(500)}
+    pins = A.pinned(1)
+    if pins:
+        pins.sort(key=lambda w: (-w["again"], A.T1 not in w["tags"], -w["pins"], -alltime.get(w["id"], 0)))
+        return {"date": date.today().isoformat(), "words": [card(w, "pinned") for w in pins[:FOCUS_N]]}
+    return {"date": date.today().isoformat(), "words": [card(w, "missed") for w in A.missed(FOCUS_N, 7)]}
 
 
 # ---------- weekly snapshots ----------

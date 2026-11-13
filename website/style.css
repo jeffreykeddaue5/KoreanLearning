@@ -574,6 +574,48 @@ a.today-link:hover .box-title { filter: brightness(1.08); }
 #card-again { background: var(--red); }
 #card-know { background: var(--blue); }
 .card-grade button:active { border-bottom-width: 1px; transform: translateY(2px); }
+.card-grade kbd { font-size: 11px; opacity: 0.7; font-family: inherit; }
+
+/* 단어 카드: 방향 · 표시 · 입력 · 예문 */
+.card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.card-mode { display: flex; gap: 4px; }
+.card-mode button {
+  font-family: var(--font-ko); font-size: 14px;
+  min-height: 36px; padding: 0 12px;
+  color: var(--text); background: var(--deep);
+  border: 1px solid var(--line); border-radius: 999px; cursor: pointer;
+}
+.card-mode button[aria-pressed="true"] { color: #fff; background: var(--green); border-color: var(--green); }
+.card:focus-visible { outline: 2px dashed var(--blue-text); outline-offset: 2px; }
+.card-meaning.big { font-size: 22px; }
+.card-badges { display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; }
+.badge.bad { color: var(--red-text); border-color: var(--red); }
+.badge.warn { color: var(--orange-text); border-color: var(--orange); }
+.card-ex { font-size: 17px; }
+.card-ex b { font-size: inherit; color: var(--yellow-text); }
+.card-cf { font-size: 13px; color: var(--blue-text); max-width: 32em; }
+.card-check { font-size: 15px; font-weight: bold; }
+.card-check.ok { color: var(--green-text); }
+.card-check.no { color: var(--red-text); text-decoration: line-through; }
+.card-speak {
+  font-size: 16px; min-width: 36px; min-height: 36px;
+  background: transparent; border: 1px solid var(--line); border-radius: 999px; cursor: pointer;
+}
+.card-type { display: flex; gap: 6px; margin: 0 0 8px; min-width: 0; }
+.card-type[hidden] { display: none; }
+.card-type input {
+  flex: 1; min-width: 0; min-height: 44px; padding: 0 10px;
+  font-family: var(--font-ko); font-size: 18px;
+  color: var(--text); background: var(--deep);
+  border: 1px solid var(--line); border-radius: 4px;
+}
+.card-type button {
+  min-height: 44px; padding: 0 14px;
+  font-family: var(--font-ko); font-weight: bold; color: #fff;
+  background: var(--green); border: 0; border-radius: 4px; cursor: pointer;
+}
+.card-keys { text-align: center; margin-top: 6px; }
+@media (hover: none) { .card-keys, .card-grade kbd { display: none; } }
 
 /* ===== 오늘 써 봤어요 · 지난 표현 ===== */
 .used-box { margin-top: 18px; padding-top: 4px; border-top: 1px dashed var(--line); }

@@ -83,6 +83,7 @@ post({
 
 ### Other things to update
 - **까먹는 단어 / 틀리는 문법 / 단어 카드 / D-n / 진도 / 문법 레벨:** all come from `data/study.js`. Change the source (Anki, `progress/`, `weeks/`) and rerun `build_data.py`.
+- **단어 카드** shows up to 5 focus words: today's pins ranked by misses today → trouble → pin count (no pins → this week's most missed). To hand-pick them, write `progress/focus-words.txt` (first line today's date, then one word per line). The page has 한→영 / 영→한 (typed check), 🔊 (browser TTS), cf) pairs, Space/1/2 keys, and remembers "알아요" for the day in this browser.
 - **기분 / 날씨 / 써먹을 표현:** `data/today.js`, one entry per date in `days`. Every Korean line needs an `_en` line: it stays blurred until hover (or tap on a phone), or 영어 모두 보기.
 - **오늘 써 봤어요:** saved only in your browser (localStorage). Use 기록 복사 on the 오늘 page to paste it into the weekly check.
 - **New category:** add it to `CATEGORIES` in `blog.js` and add a menu link in `index.html` (`#/category/키`).

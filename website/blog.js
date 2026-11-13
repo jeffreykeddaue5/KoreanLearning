@@ -548,63 +548,207 @@ function viewPost(id) {
   };
 }
 
-// 단어 카드: 누르면 뒤집힌다. "알아요"는 빼고, "다시"는 맨 뒤로 보낸다.
+// ===== 단어 카드 =====
+// 오늘 집중할 단어 (S.anki.focus, 최대 5개, 많이 틀린 순서). 누르면 뒤집힌다.
+// 한→영: 단어를 보고 뜻을 떠올린다. 영→한: 뜻을 보고 한국어를 써 본다 (입력하면 맞는지 확인).
+// "알아요"는 빼고 (오늘 하루 이 브라우저에 기억), "다시"는 맨 뒤로 보낸다.
+// 단축키: Space 뒤집기 · 1 다시 · 2 알아요 · 입력칸에서 Enter = 확인
+
+// 예문에서 단어를 굵게: 기본형에서 "다"를 떼고, 맞는 앞부분이 나올 때까지 줄여서 찾는다 (지겹다 → 지겨워요).
+// 받침이 바뀌는 불규칙 (지겹 → 지겨워, 듣 → 들어)은 끝 글자의 받침을 뗀 형태로도 찾아본다.
+function dropBatchim(s) {
+  const c = s.charCodeAt(s.length - 1) - 0xac00;
+  if (c < 0 || c > 11171 || c % 28 === 0) return null;
+  return s.slice(0, -1) + String.fromCharCode(0xac00 + c - (c % 28));
+}
+
+function boldWord(sentence, word) {
+  const stem = word.replace(/다$/, "");
+  // 한 글자만 남으면 어절 첫 글자일 때만 인정한다 (데우다 → "데워"는 OK, "그런데"는 아님)
+  const find = (p, short) => {
+    let i = sentence.indexOf(p);
+    while (short && i > 0 && !/\s/.test(sentence[i - 1])) i = sentence.indexOf(p, i + 1);
+    return i;
+  };
+  for (let n = stem.length; n >= 1; n--) {
+    const part = stem.slice(0, n), short = n === 1;
+    let i = find(part, short);
+    if (i < 0 && dropBatchim(part)) i = find(dropBatchim(part), short);
+    if (i < 0) continue;
+    let j = i + n;
+    while (j < sentence.length && !/[\s.,!?~]/.test(sentence[j])) j++;
+    return escapeHtml(sentence.slice(0, i)) + `<b>${escapeHtml(sentence.slice(i, j))}</b>` + escapeHtml(sentence.slice(j));
+  }
+  return escapeHtml(sentence);
+}
+
+// 띄어쓰기 여러 칸·앞뒤 공백·마침표는 무시하고, 띄어쓰기 자체는 그대로 비교한다.
+const normAnswer = (s) => s.normalize("NFC").trim().replace(/\s+/g, " ").replace(/[.!?~]+$/, "");
+
+const cardStore = {
+  get(key, fallback) {
+    try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch (e) { return fallback; }
+  },
+  set(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* 저장 안 돼도 카드는 된다 */ }
+  },
+};
+
+function speakKo(text) {
+  if (!("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "ko-KR";
+  u.rate = 0.9;
+  const voice = speechSynthesis.getVoices().find((v) => v.lang && v.lang.replace("_", "-").startsWith("ko"));
+  if (voice) u.voice = voice;
+  speechSynthesis.speak(u);
+}
+
 function viewCards() {
-  const title = pinnedToday ? "오늘의 단어" : `${normDate(pinnedWords.date)} 단어`;
+  const fallback = { date: pinnedWords.date, words: pinnedWords.words };
+  const focus = (S.anki && S.anki.focus && S.anki.focus.words.length) ? S.anki.focus : fallback;
+  const isToday = focus.date === ymd(new Date());
+  const title = isToday ? "오늘의 단어" : `${normDate(focus.date)} 단어`;
   return {
     title,
     html: `
       <div class="box ac-green">
-        <div class="box-title">▣ ${title}</div>
+        <div class="box-title">▣ ${title} · 집중 ${focus.words.length}개</div>
         <div class="box-body">
-          <p id="card-count" class="small"></p>
-          <button id="card" class="card" type="button"></button>
-          <div id="card-grade" class="card-grade">
-            <button id="card-again" type="button">✕ 다시</button>
-            <button id="card-know" type="button">○ 알아요</button>
+          <div class="card-top">
+            <div class="card-mode" role="group" aria-label="방향">
+              <button type="button" data-mode="ko">한 → 영</button>
+              <button type="button" data-mode="en">영 → 한</button>
+            </div>
+            <span id="card-count" class="small"></span>
           </div>
+          <div id="card" class="card" role="button" tabindex="0" aria-live="polite"></div>
+          <form id="card-type" class="card-type">
+            <input id="card-input" type="text" size="1" lang="ko" autocomplete="off" autocapitalize="off" spellcheck="false"
+                   placeholder="한국어로 써 보세요 (Enter)">
+            <button type="submit">확인</button>
+          </form>
+          <div id="card-grade" class="card-grade">
+            <button id="card-again" type="button">✕ 다시 <kbd>1</kbd></button>
+            <button id="card-know" type="button">○ 알아요 <kbd>2</kbd></button>
+          </div>
+          <p class="small card-keys">Space 뒤집기 · 1 다시 · 2 알아요</p>
         </div>
       </div>`,
     after() {
-      const card = document.getElementById("card");
-      const count = document.getElementById("card-count");
-      const grade = document.getElementById("card-grade");
-      const total = pinnedWords.words.length;
-      let queue, flipped;
+      const $c = (id) => document.getElementById(id);
+      const card = $c("card"), count = $c("card-count"), grade = $c("card-grade");
+      const typeForm = $c("card-type"), input = $c("card-input");
+      const total = focus.words.length;
+      const knownKey = "cards-known";
+      let mode = cardStore.get("cards-mode", "ko");
+      let queue, flipped, typed;
+
+      const known = () => {
+        const k = cardStore.get(knownKey, {});
+        return k.date === focus.date ? k.words || [] : [];
+      };
+      const markKnown = (word) => cardStore.set(knownKey, { date: focus.date, words: [...new Set([...known(), word])] });
+
+      function badges(w) {
+        const b = [];
+        if (w.again) b.push(`<span class="badge bad">✕${w.again} 오늘 틀림</span>`);
+        if (w.trouble) b.push(`<span class="badge warn">trouble</span>`);
+        if (w.pins > 1) b.push(`<span class="badge">📌${w.pins}</span>`);
+        return b.length ? `<span class="card-badges">${b.join("")}</span>` : "";
+      }
+
+      function front(w) {
+        return mode === "ko"
+          ? `${badges(w)}<b>${escapeHtml(w.word)}</b>`
+          : `${badges(w)}<span class="card-meaning big">${escapeHtml(w.meaning)}</span><small>한국어로?</small>`;
+      }
+
+      function back(w) {
+        let check = "";
+        if (mode === "en" && typed !== null) {
+          check = normAnswer(typed) === normAnswer(w.word)
+            ? `<span class="card-check ok">✔ ${escapeHtml(typed)}</span>`
+            : `<span class="card-check no">✕ ${escapeHtml(typed || "(빈칸)")}</span>`;
+        }
+        const speak = "speechSynthesis" in window && w.example
+          ? `<button type="button" class="card-speak" aria-label="예문 듣기">🔊</button>` : "";
+        return `${check}<b>${escapeHtml(w.word)}</b>` +
+          `<span class="card-meaning">${escapeHtml(w.meaning)}</span>` +
+          (w.example ? `<span class="card-ex">${boldWord(w.example, w.word)} ${speak}</span>` : "") +
+          (w.translation ? `<small>${escapeHtml(w.translation)}</small>` : "") +
+          (w.cf ? `<span class="card-cf">cf) ${escapeHtml(w.cf)}</span>` : "");
+      }
 
       function show() {
         flipped = false;
+        typed = null;
         grade.classList.remove("on");
         count.textContent = `남은 카드 ${queue.length} / ${total}`;
+        typeForm.hidden = !(mode === "en" && queue.length);
+        input.value = "";
         card.innerHTML = queue.length
-          ? `<b>${escapeHtml(queue[0].word)}</b>`
+          ? front(queue[0])
           : "<b>끝!</b><small>누르면 처음부터 다시 해요</small>";
+        if (!typeForm.hidden && matchMedia("(hover: hover)").matches) input.focus();
       }
 
-      function restart() {
-        queue = pinnedWords.words.slice().sort(() => Math.random() - 0.5);
-        show();
-      }
-
-      card.addEventListener("click", () => {
-        if (!queue.length) return restart();
+      function flip() {
+        if (!queue.length) return restart(true);
         flipped = !flipped;
         grade.classList.toggle("on", flipped);
-        const w = queue[0];
-        card.innerHTML = `<b>${escapeHtml(w.word)}</b>` + (flipped
-          ? `<span class="card-meaning">${escapeHtml(w.meaning)}</span>` +
-            `<span>${escapeHtml(w.example)}</span><small>${escapeHtml(w.translation)}</small>`
-          : "");
-      });
-      document.getElementById("card-again").addEventListener("click", () => {
-        queue.push(queue.shift());
+        typeForm.hidden = flipped || mode !== "en";
+        card.innerHTML = flipped ? back(queue[0]) : front(queue[0]);
+        if (flipped) card.focus();
+      }
+
+      function restart(clear) {
+        if (clear) cardStore.set(knownKey, {});
+        const skip = known();
+        queue = focus.words.filter((w) => !skip.includes(w.word));   // 많이 틀린 순서 그대로
         show();
+      }
+
+      function again() { if (flipped) { queue.push(queue.shift()); show(); } }
+      function know() { if (flipped) { markKnown(queue[0].word); queue.shift(); show(); } }
+
+      function setMode(m) {
+        mode = m;
+        cardStore.set("cards-mode", m);
+        document.querySelectorAll(".card-mode button").forEach((b) =>
+          b.setAttribute("aria-pressed", String(b.dataset.mode === m)));
+        if (queue) show();
+      }
+
+      card.addEventListener("click", (e) => {
+        const sp = e.target.closest(".card-speak");
+        if (sp) { e.stopPropagation(); return speakKo(queue[0].example); }
+        flip();
       });
-      document.getElementById("card-know").addEventListener("click", () => {
-        queue.shift();
-        show();
+      typeForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        typed = input.value;   // back()이 이 값으로 맞는지 보여 준다
+        if (!flipped) flip();
+        typed = null;          // 다음 뒤집기에는 다시 비교하지 않는다
       });
-      restart();
+      $c("card-again").addEventListener("click", again);
+      $c("card-know").addEventListener("click", know);
+      document.querySelectorAll(".card-mode button").forEach((b) =>
+        b.addEventListener("click", () => setMode(b.dataset.mode)));
+
+      // 단축키 (다른 화면으로 가면 스스로 빠진다)
+      function onKey(e) {
+        if (!document.getElementById("card")) return document.removeEventListener("keydown", onKey);
+        if (e.target === input || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (e.key === " " || (e.key === "Enter" && e.target === card)) { e.preventDefault(); flip(); }
+        else if (e.key === "1") again();
+        else if (e.key === "2") know();
+      }
+      document.addEventListener("keydown", onKey);
+
+      setMode(mode === "en" ? "en" : "ko");
+      restart(false);
     },
   };
 }
