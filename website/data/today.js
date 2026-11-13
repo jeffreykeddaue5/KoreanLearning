@@ -4,7 +4,7 @@
 // 날씨는 페이지가 Open-Meteo 에서 바로 가져오고, 표현은 아래 weather 모음에서 날씨에 맞게 고른다.
 // 한국어 줄마다 *_en 이 있어야 한다 (흐리게 보이다가 누르면 보인다).
 const TODAY = {
-  week: "2026-11-07 ~ 2026-11-11",
+  week: "2026-11-12 ~ 2026-11-18",
   days: {
     "2026-11-07": {
       mood: {
@@ -116,6 +116,160 @@ const TODAY = {
         tip_en: "-기까지 + time + took (past) / will take (future).",
       },
     },
+    "2026-11-12": {
+      mood: {
+        face: "(´ρ`)",
+        word: "출출하다",
+        meaning: "a little hungry, peckish (wanting a snack)",
+        sentence: "저녁 먹은 지 좀 돼서 출출해요",
+        sentence_en: "It's been a while since dinner, so I'm a bit peckish",
+      },
+      phrase: {
+        grammar: 59,
+        text: "알람이 안 울리는 바람에 늦잠을 잤어요",
+        text_en: "My alarm didn't go off, so I overslept",
+        example: "갑자기 회의가 잡히는 바람에 점심을 못 먹었어요",
+        example_en: "A meeting suddenly got scheduled, so I couldn't eat lunch",
+        when: "갑자기 생긴 일 때문에 (보통 안 좋은) 결과가 생겼을 때 써요.",
+        when_en: "Use it when something sudden or unexpected caused a (usually bad) result.",
+        fix: "✕ 비가 온 바람에 → ○ 비가 오는 바람에",
+        fix_en: "It's always -는 바람에, even for the past; the end of the sentence shows the time.",
+        tip: "-는 바람에 뒤에는 이미 일어난 일이 와요 (-았/었어요).",
+        tip_en: "After -는 바람에 comes something that already happened (-았/었어요).",
+      },
+    },
+    "2026-11-13": {
+      mood: {
+        face: "(ᴗ˳ᴗ)",
+        word: "노곤하다",
+        meaning: "pleasantly tired and drowsy (after a long week, a warm bath)",
+        sentence: "한 주가 끝나서 몸이 노곤해요",
+        sentence_en: "The week is over, so I feel tired and drowsy",
+      },
+      phrase: {
+        grammar: 60,
+        text: "벌써 다 먹어 버렸어요",
+        text_en: "I already ate it all",
+        example: "게임하다가 주말이 다 지나 버렸어요",
+        example_en: "I was playing games and the whole weekend just went by",
+        when: "어떤 일이 완전히 끝났을 때, 아쉽거나 후련한 느낌으로 써요.",
+        when_en: "Use it when something happened completely, with a feeling of regret (oops) or relief (finally).",
+        fix: "✕ 먹어 버려었어요 → ○ 먹어 버렸어요",
+        fix_en: "버리다 + 었어요 = 버렸어요.",
+        tip: "잊어버리다, 잃어버리다는 붙여 써요.",
+        tip_en: "잊어버리다 (forget) and 잃어버리다 (lose) are written as one word.",
+      },
+    },
+    "2026-11-14": {
+      mood: {
+        face: "(-_-;)",
+        word: "찌뿌둥하다",
+        meaning: "stiff and heavy, not feeling right (body after sleeping badly, or gloomy weather)",
+        sentence: "어제 피클볼을 쳐서 그런지 몸이 찌뿌둥해요",
+        sentence_en: "Maybe because I played pickleball yesterday, my body feels stiff",
+      },
+      phrase: {
+        grammar: 34,
+        text: "어른이라도 어려운 건 어려워요",
+        text_en: "Even for an adult, hard things are hard",
+        example: "프로그래머라도 컴퓨터 고치는 건 잘 몰라요",
+        example_en: "Even as a programmer, I don't really know how to fix computers",
+        when: "N이어도 결과가 달라지지 않을 때 써요. (적어도 N이라는 뜻도 있어요.)",
+        when_en: "Use it for 'even if it's N, the result doesn't change'. (It can also mean 'at least N'.)",
+        fix: "✕ 어른이아도 → ○ 어른이라도",
+        fix_en: "Nouns take (이)라도, not -아도 (from lesson 20).",
+        tip: "받침 있으면 이라도, 없으면 라도: 어른이라도, 프로그래머라도.",
+        tip_en: "After a consonant 이라도, after a vowel 라도.",
+      },
+    },
+    "2026-11-15": {
+      mood: {
+        face: "(・・ ) ?",
+        word: "싱숭생숭하다",
+        meaning: "restless and unsettled, can't focus (mixed feelings, often on a Sunday evening)",
+        sentence: "주말이 끝나 가니까 마음이 싱숭생숭해요",
+        sentence_en: "The weekend is ending, so I feel restless",
+      },
+      phrase: {
+        grammar: 28,
+        text: "지금 후회한들 소용없어요",
+        text_en: "Even if I regret it now, it's no use",
+        example: "지금 연습한들 내일 경기까지 실력이 늘겠어요?",
+        example_en: "Even if I practice now, will I get better by tomorrow's game?",
+        when: "해 봤자 결과가 안 바뀐다고 강하게 말할 때 써요.",
+        when_en: "Use it to say strongly that doing it won't change anything.",
+        fix: "✕ 후회하는들 → ○ 후회한들",
+        fix_en: "Stem + (으)ㄴ들, with no 는.",
+        tip: "그냥 '-아/어도'보다 더 강하고 회의적인 느낌이에요.",
+        tip_en: "It sounds stronger and more skeptical than a plain -아/어도 (tutor, lesson 20).",
+      },
+    },
+    "2026-11-16": {
+      mood: {
+        face: "(｡•̀ᴗ-)",
+        word: "시원섭섭하다",
+        meaning: "bittersweet: relieved and a little sad at the same time (finishing something)",
+        sentence: "드라마를 다 봐서 시원섭섭해요",
+        sentence_en: "I finished the drama, so I feel relieved and a bit sad",
+      },
+      phrase: {
+        grammar: 21,
+        text: "피클볼을 세 시간이나 쳤어요",
+        text_en: "I played pickleball for a whole three hours",
+        example: "버그 하나 고치는 데 하루나 걸렸어요",
+        example_en: "Fixing one bug took a whole day",
+        when: "생각보다 많을 때 숫자 뒤에 써요.",
+        when_en: "Use it after a number when it's more than you expected.",
+        fix: "✕ 1달이나 걸렸어요 (짧을 때) → ○ 1달밖에 안 걸렸어요",
+        fix_en: "(이)나 means 'a lot'; for 'only', use 밖에 + a negative.",
+        tip: "많다 → (이)나, 적다 → 밖에 + 안/없다.",
+        tip_en: "A lot → (이)나; only a little → 밖에 + 안/없다.",
+      },
+    },
+    "2026-11-17": {
+      mood: {
+        face: "(°ー°〃)",
+        word: "조마조마하다",
+        meaning: "nervous, on edge (waiting for a result, watching something risky)",
+        sentence: "시험 결과가 나올 때까지 조마조마해요",
+        sentence_en: "I'm on edge until the test results come out",
+      },
+      phrase: {
+        grammar: 57,
+        text: "일찍 잤더니 컨디션이 좋아요",
+        text_en: "I went to bed early, and now I feel great",
+        example: "코드를 다시 실행했더니 에러가 사라졌어요",
+        example_en: "I ran the code again, and the error was gone",
+        when: "내가 어떤 행동을 했는데, 그래서 알게 된 것이나 결과를 말할 때 써요.",
+        when_en: "Use it for something you did, and what you found or what happened because of it.",
+        fix: "✕ 집에 왔더니 바로 잠들었어요 → ○ 집에 오자마자 잠들었어요",
+        fix_en: "-았/었더니 is 'I did A and found B', not just 'then'.",
+        tip: "내 행동 + 발견한 것: 문을 열었더니, 확인했더니.",
+        tip_en: "My action + what I found: I opened the door and…, I checked and…",
+      },
+    },
+    "2026-11-18": {
+      mood: {
+        face: "(〃▽〃)",
+        word: "두근거리다",
+        meaning: "heart pounding, fluttering (excitement or nerves)",
+        sentence: "수업 전에는 늘 가슴이 두근거려요",
+        sentence_en: "My heart always pounds before a lesson",
+      },
+      phrase: {
+        grammar: 12,
+        text: "이게 맞는지 모르겠어요",
+        text_en: "I'm not sure if this is right",
+        example: "제 문장이 자연스러운지 모르겠어요",
+        example_en: "I'm not sure if my sentence sounds natural",
+        when: "확실하지 않을 때, 특히 질문할 때 써요.",
+        when_en: "Use it when you're not sure, especially when asking a question.",
+        fix: "✕ 왜 통화는지 모르겠어요 → ○ 왜 통화하는지 모르겠어요",
+        fix_en: "Keep 하: 통화하다 → 통화하는지.",
+        tip: "동사는 -는지, 형용사는 -(으)ㄴ지: 맞는지, 자연스러운지.",
+        tip_en: "Verbs take -는지, adjectives -(으)ㄴ지.",
+      },
+    },
   },
 
   // 날씨 표현 모음: 날씨 종류마다 몇 개. 날마다 돌아가면서 하나를 보여 준다.
@@ -154,7 +308,7 @@ const TODAY = {
 
   // 이미 쓴 것 (다시 쓰지 않는다). days 가 생기기 전 표현은 여기에만 있다.
   past: {
-    mood: ["상쾌하다", "후련하다", "흐뭇하다", "보람차다", "든든하다", "느긋하다", "산뜻하다", "홀가분하다", "차분하다", "나른하다", "흡족하다", "아리송하다", "대견하다", "개운하다", "포근하다", "막막하다", "짜릿하다", "들뜨다"],
-    phrase: ["하마터면 큰일 날 뻔했어요", "한번 도전해 볼게요", "막상 해 보니까 괜찮더라고요", "어쩐지 사람이 많더라고요", "영화에 푹 몰입했나 봐요", "진작 할걸 그랬어요", "일하느라 정신이 없었어요", "오랜만에 푹 쉬었더니 살 것 같아요", "벌써 세 시간이나 지났어요", "가격은 비싼 반면에 맛은 최고예요", "익숙해지기까지 시간이 좀 걸릴 거예요"],
+    mood: ["상쾌하다", "후련하다", "흐뭇하다", "보람차다", "든든하다", "느긋하다", "산뜻하다", "홀가분하다", "차분하다", "나른하다", "흡족하다", "아리송하다", "대견하다", "개운하다", "포근하다", "막막하다", "짜릿하다", "들뜨다", "출출하다", "노곤하다", "찌뿌둥하다", "싱숭생숭하다", "시원섭섭하다", "조마조마하다", "두근거리다"],
+    phrase: ["하마터면 큰일 날 뻔했어요", "한번 도전해 볼게요", "막상 해 보니까 괜찮더라고요", "어쩐지 사람이 많더라고요", "영화에 푹 몰입했나 봐요", "진작 할걸 그랬어요", "일하느라 정신이 없었어요", "오랜만에 푹 쉬었더니 살 것 같아요", "벌써 세 시간이나 지났어요", "가격은 비싼 반면에 맛은 최고예요", "익숙해지기까지 시간이 좀 걸릴 거예요", "알람이 안 울리는 바람에 늦잠을 잤어요", "벌써 다 먹어 버렸어요", "어른이라도 어려운 건 어려워요", "지금 후회한들 소용없어요", "피클볼을 세 시간이나 쳤어요", "일찍 잤더니 컨디션이 좋아요", "이게 맞는지 모르겠어요"],
   },
 };
