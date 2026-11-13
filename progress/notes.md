@@ -19,7 +19,7 @@ Nuance questions to check with a native speaker or teacher.
 - "어쩐지 가수 목소리가 쉬었군요" (about a concert you attended): the mentor suggested 쉬었더라고요 / 이상하다 했어요. Is -군요 wrong here?
 - "한국 드라마 보는 걸 시작하게 됐어요": natural, or just 보게 됐어요 / 보기 시작했어요?
 - "은근히 굿즈가 비싸지 않았어요": can 은근히 go with a negative? The mentor suggested 굿즈가 은근히 싸더라고요. (came up again 2026-10-22: 은근히 비싸지 않더라고요)
-- "웬만하면 그냥 아침 일찍 출발하면 돼요": natural, or should 웬만하면 go with -(으)려고 해요 (웬만하면 아침 일찍 출발하려고 해요)?
+- "웬만하면 그냥 아침 일찍 출발하면 돼요": natural, or should 웬만하면 go with -(으)려고 해요 (웬만하면 아침 일찍 출발하려고 해요)? Again 2026-11-13: "웬만하면 혼자 운동하는 편이에요" (+ -는 편이다 OK?)
 - "르네상스에 못 간 탓에 아쉬웠어요": is -(으)ㄴ 탓에 OK before 아쉽다, or is 못 가서 아쉬웠어요 better?
 - "그 식당에서 체한 이후로 다시 안 돌아갔어요": the mentor suggested 다시 안 갔어요 (돌아가다 = go back home/where you belong). Right?
 - "결혼한 이후로 뒷담화를 안 해 봤어요": the mentor suggested 안 했어요, since -아/어 보다 sounds like "never tried". Right?

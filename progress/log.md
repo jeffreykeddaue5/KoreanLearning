@@ -10,6 +10,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-13 · review #59, #60 + #5, #12, #21, #24, #32 (+ #19) · conversation · strong: 매진되는 바람에 (no hint), 친구가 계획을 바꾸는 바람에, 실컷 먹어 버렸어요, 컴퓨터에 빠졌는데, 꾸준히 공부하다 보니까, 만나려다가 · fix: 좋아하다 + 을/를 ×2, 가는 대신에, 돈을 다 써 버렸어요, 치고 싶은지 모르겠어요, self-talk -나?
 - 2026-11-12 · new #59, #60 (+ #34 L20) · conversation · strong: 비가 오는 바람에 (no hint), 잊어버리는 바람에 길을 잃어버렸어요, 지금 어른이라도 (no hint, L20), 실컷 해 버렸어요 · fix: 계획이 바뀌는, 그려 버렸는데 → 그렸는데, 그림을 못 그려요, 실컷 + no count, warm-up 해야 할 거예요
 - 2026-11-11 · lesson prep (#57, #58 + weekend rehearsal + tutor questions) · conversation · strong: 사진을 봤더니 감동을 받았어요, 저녁 식사를 하느라고, 가 봤더니 은근히 맛있더라고요, 계획을 안 세웠어요 · fix: 먹었더니 (3rd person) → 먹더니, 잊어버린 탓에, 양이 많아서, 한 게 재미있었어요, 잘하게 되기까지, 갈지도 몰라요
 - 2026-11-10 · weekly check 3/10 + homework · test · strong: 못 살까 봐 걱정이에요, 많을 텐데 예약해 두는 게 좋겠어요, 막상 먹어 보니까 · fix: -느라(고) one subject, 입양했다면서요, 좋길래 … 갔어요, 오자마자 (not 왔더니), #57 not produced ×3, 커피를 마시다, 익숙해지기까지
@@ -24,4 +25,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-10-26 · -아/어 보니까, #2, #36 + review #29, #37 + pinned words (day 635) · drill · strong: 막상 가 보니까 (unprompted 막상), 걸어온 걸 보니까, 팔리는 걸 보니까, 은근히 재미있더라고요, 뒤끝이 없더라고요 · fix: 슬퍼 보이길래, 매진될 것 같아요 (future), 구경하는 게, 온라인에서, warm-up 뻔하다
 - 2026-10-25 · time expressions: -(으)ㄴ 지 되다, -는 데 걸리다/들다, 만에, 얼마 안 되다, -기까지, 이후로 + pinned words (day 634) · drill · strong: 화해한 지 2년, 배우는 데 3년이 걸렸어요, 5년 만에, 체한 이후로, 뿌듯하다, 수다를 떨다 · fix: 걸릴 거예요 / 들었어요 (tense), N에 도전하다, -는 데 spacing, 말하나 마나
 - 2026-10-22 · #1, 9, 23, 31, 47 + review #7, #37 · conversation · strong: 쏟을 뻔했어요, 켜진 채로, 커피밖에 없다고, 마시다 보니, 늦을까 봐 · fix: 커피를 마시다, 마실 셈, 말하나 마나 + 거예요, 예약하면, 전문점인 만큼
-- 2026-10-20 · #5, 8, 17, 25, 32 + review #29, #37 · drill (stopped at 4/10) · strong: 는 모양이에요, 잖아요, ㄹ지도 몰라요 form, 테니까/텐데 + plan · fix: 어젯밤부터, 일본 여행은, 세우다, 걸 보니까 needs a known fact, 없을지도
