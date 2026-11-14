@@ -52,6 +52,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-10-22 · #1, 9, 23, 31, 47 + review #7, #37 · conversation · strong: 쏟을 뻔했어요, 켜진 채로, 커피밖에 없다고, 마시다 보니, 늦을까 봐 · fix: 커피를 마시다, 마실 셈, 말하나 마나 + 거예요, 예약하면, 전문점인 만큼
 - 2026-10-23 · #47 only + pinned words (day 631) · conversation · strong: 하마터면 … 뻔했어요, 큰일 날 뻔했어요, 탓에, 자마자, 뻐근하다, 낭비하다 · fix: 뻔하다 + feelings, 안 샀으면, 확인해 보니까, 다리를 다치다, 매진
 - 2026-10-20 · #5, 8, 17, 25, 32 + review #29, #37 · drill (stopped at 4/10) · strong: 는 모양이에요, 잖아요, ㄹ지도 몰라요 form, 테니까/텐데 + plan · fix: 어젯밤부터, 일본 여행은, 세우다, 걸 보니까 needs a known fact, 없을지도
 - 2026-10-18 · #7, 16, 20, 29, 37 + review #2, #11 · drill · strong: 까 봐 (no 서, 못), 했나 봐요, 좋아하게 됐어요, 모르기는 했지만, 실컷 · fix: 다 보니 vs 아/어 보니까, 오는 모양, 지하철을 타다, 은근히 + negative
