@@ -495,7 +495,7 @@ function weekSummary() {
 
 function viewHome() {
   const posts = visiblePosts();
-  let html = todayLink() + weekSummary();
+  let html = todayLink() + listenLink() + weekSummary();
   for (const [key, cat] of Object.entries(CATEGORIES)) {
     const inCat = posts.filter((p) => p.category === key);
     const more = inCat.length > HOME_POSTS_PER_CATEGORY
@@ -782,12 +782,234 @@ function viewWeek() {
   if (listen) {
     html += box("▣ 이번 주 듣기", `
       <p><a href="${esc(listen.url)}" target="_blank" rel="noopener">${esc(listen.title)}</a> <span class="small">${esc(listen.channel)} · ${esc(listen.section || "")}</span></p>
-      <p class="small">${esc(listen.progress || "")}${listen.result ? " · " + esc(listen.result) : ""}</p>`);
+      <p class="small">${esc(listen.progress || "")}${listen.result ? " · " + esc(listen.result) : ""}</p>
+      <p><a href="#/listening">→ 듣기 페이지 (구간 재생 · 스크립트 · 한 줄 반복)</a></p>`);
   }
   if (w.words.length) html += box(`▣ 수업 단어 (${w.lesson}회)`, `<ul>${w.words.map((x) => `<li>${x}</li>`).join("")}</ul>`);
   if (w.questions.length) html += box("▣ 선생님께 물어볼 것", `<ol>${w.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ol>`);
   if (w.report) html += box("▣ 주간 리포트", `<p>${w.report.replace(/\n/g, "<br>")}</p>`);
   return { title: "이번 주", html };
+}
+
+// ===== 듣기 (#/listening, #/listening/<folder>) =====
+// 이번 주 디디 클립을 YouTube에서 그 구간만 재생한다 (mp3는 공개 사이트에 올리지 않는다).
+// 스크립트는 1단계(스크립트 없이 듣기)가 끝나기 전에는 숨기고, 그 뒤에는 눌러서 보기.
+const STEP_NAMES = ["스크립트 없이 듣기", "스크립트로 확인", "말투 패턴", "따라 말하기"];
+const STEP_TIPS = [
+  "자막 없이 끝까지 들어요. 몇 % 알아들었는지 생각해 보세요.",
+  "스크립트를 눌러서 보면서, 놓친 부분이 왜 안 들렸는지 확인해요.",
+  "디디가 이야기를 시작하고, 잇고, 끝내는 말투를 찾아요.",
+  "한 줄씩 🔁 반복: 0.75×로 따라 말하고, 1×로 한 번 더.",
+];
+const fmtTime = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+const shortTitle = (c) => String(c.title || c.folder).split("|")[0].trim();
+const allClips = () => S.clips || [];
+
+function currentClip() {
+  const cur = S.listening && allClips().find((c) => c.folder === S.listening.folder);
+  return cur || allClips()[0] || null;
+}
+
+function stepIndex(c) {
+  const i = (c.steps || []).indexOf(false);
+  return i < 0 ? 4 : i;   // 0..3 = next step, 4 = all done
+}
+
+// 홈: 이번 주 듣기로 가는 한 줄
+function listenLink() {
+  const c = currentClip();
+  if (!c) return "";
+  const next = stepIndex(c);
+  const state = next >= 4 ? "4단계 모두 완료 ✔" : `다음: ${next + 1}단계 ${STEP_NAMES[next]}`;
+  return `
+    <a class="box today-link ac-blue" href="#/listening">
+      <div class="box-title">▼ 이번 주 듣기 <span class="title-link">${(c.steps || []).filter(Boolean).length}/4 단계 »</span></div>
+      <div class="box-body"><p class="today-peek">🎧 ${esc(shortTitle(c))} <span class="small">(${esc(c.section)}) · ${state}</span></p></div>
+    </a>`;
+}
+
+function viewListening(folder) {
+  const c = folder ? allClips().find((x) => x.folder === folder) : currentClip();
+  if (!c) {
+    return { title: "듣기", html: `<div class="box ac-blue"><div class="box-title">▣ 듣기</div><div class="box-body"><p>아직 클립이 없어요.</p></div></div>` };
+  }
+  const next = stepIndex(c);
+  const isCurrent = S.listening && S.listening.folder === c.folder;
+  const ytLink = `${esc(c.url)}&t=${Math.floor(c.start)}s`;
+
+  // 놓친 부분 → 그 시간에 시작하는 줄에 표시
+  const why = {};
+  const missedLine = new Set();
+  for (const [a, b, , reason] of c.missed || []) {
+    let first = -1;
+    c.lines.forEach(([st], i) => {
+      if (st >= a - 1.5 && st <= Math.max(a, b) + 1.5) {
+        missedLine.add(i);
+        if (first < 0) first = i;
+      }
+    });
+    if (first < 0) {
+      first = c.lines.findIndex(([st]) => st >= a - 1.5);
+      if (first >= 0) missedLine.add(first);
+    }
+    if (first >= 0 && reason) why[first] = (why[first] ? why[first] + " / " : "") + reason;
+  }
+  const showMissed = c.steps[1];
+  const lines = c.lines.map(([st, , text], i) => `
+      <li class="ln${showMissed && missedLine.has(i) ? " missed" : ""}" data-i="${i}">
+        <button type="button" class="ln-time" data-seek="${i}">${fmtTime(st)}</button>
+        <span class="ln-text">${esc(text)}${showMissed && why[i] ? `<span class="ln-why">${esc(why[i])}</span>` : ""}</span>
+        <button type="button" class="ln-loop" data-loop="${i}" title="이 줄 반복">🔁</button>
+      </li>`).join("");
+
+  const chips = STEP_NAMES.map((name, i) => `<span class="step ${c.steps[i] ? "done" : i === next ? "next" : ""}">${c.steps[i] ? "✔" : i + 1} ${name}</span>`).join("");
+  const scriptHidden = !c.steps[0];
+  const box = (t, body, cls = "ac-blue") => `<div class="box ${cls}"><div class="box-title">${t}</div><div class="box-body page">${body}</div></div>`;
+
+  let html = box(`▣ ${isCurrent ? "이번 주 듣기" : "지난 클립"} · ${esc(c.section)}`, `
+      <p class="listen-title">🎧 <a href="${ytLink}" target="_blank" rel="noopener">${esc(shortTitle(c))}</a></p>
+      <p class="small">${esc(c.channel || "")}${c.result ? ` · 알아들은 정도 ${esc(c.result)}` : ""}</p>
+      <div class="steps">${chips}</div>
+      ${next < 4 ? `<p class="step-tip"><b>${next + 1}단계</b> ${STEP_TIPS[next]}</p>` : `<p class="step-tip">4단계 모두 끝났어요. 처음부터 다시 들어 보세요.</p>`}
+      <div class="player-wrap"><div id="yt-player"></div></div>
+      <div class="player-bar">
+        <button type="button" class="en-toggle" id="pl-play">▶ 재생</button>
+        <button type="button" class="en-toggle" id="pl-back">↺ 5초</button>
+        <span class="speeds">${[0.75, 1, 1.25].map((r) => `<button type="button" class="en-toggle speed${r === 1 ? " on" : ""}" data-rate="${r}">${r}×</button>`).join("")}</span>
+        <span class="small" id="pl-status"></span>
+      </div>
+      <p class="small">재생이 안 되면 <a href="${ytLink}" target="_blank" rel="noopener">YouTube에서 열기</a> (${esc(c.section)} 구간)</p>`);
+
+  html += box(`▣ 스크립트 (${c.lines.length}줄)`, `
+      <p class="small">시간을 누르면 그 줄로 가요 · 🔁 그 줄만 반복 · 문장을 누르면 보여요${showMissed ? " · <span class=\"missed-key\">빨간 줄</span> = 놓친 부분" : ""}</p>
+      ${scriptHidden ? `<p class="script-gate"><button type="button" class="en-toggle" id="script-show">그래도 스크립트 보기</button> <span class="small">1단계는 스크립트 없이 들어요</span></p>` : ""}
+      <p class="script-tools"${scriptHidden ? " hidden" : ""}><button type="button" class="en-toggle" id="script-all">모두 보기</button></p>
+      <ol class="lines blur"${scriptHidden ? " hidden" : ""} id="lines">${lines}</ol>`);
+
+  if (c.patterns && c.patterns.length) {
+    html += box("▣ 말투 패턴 (팟캐스트에 써 보기)", `<table class="gtable"><tr><th>종류</th><th>패턴</th><th>디디의 문장</th></tr>${c.patterns.map((x) => `
+        <tr><td class="small">${esc(x.kind)}</td><td>${esc(x.pattern)}</td><td>${esc(x.sentence)}<br><span class="small">${esc(x.does)}</span></td></tr>`).join("")}</table>`);
+  }
+  if (c.sentences.length) {
+    html += box("▣ 문장", c.sentences.map((x) => ko(`${x.ko}${/^#/.test(x.n) ? "  " + x.n : ""}`, x.why)).join(""));
+  }
+  if (c.words.length) {
+    html += box(`▣ 단어 (${c.words.length})`, c.words.map((w) => ko(`${w.word} · ${w.example}`, w.meaning)).join("") +
+      `<p class="small hover-tip">눌러서 뜻 보기</p>`, "ac-green");
+  }
+  const others = allClips().filter((x) => x.folder !== c.folder);
+  if (others.length || !isCurrent) {
+    html += box("▣ 다른 클립", `<ul>${allClips().map((x) => `<li>${x.folder === c.folder ? "▶ " : ""}<a href="#/listening/${encodeURIComponent(x.folder)}">${esc(x.folder.slice(0, 10))} · ${esc(shortTitle(x))}</a> <span class="small">${esc(x.section)}${x.result ? " · " + esc(x.result) : ""}</span></li>`).join("")}</ul>`);
+  }
+  return { title: "듣기", html, after: () => setupListening(c) };
+}
+
+// YouTube IFrame API는 듣기 페이지를 열 때 한 번만 불러온다.
+let ytPromise = null;
+function loadYouTube() {
+  if (!ytPromise) {
+    ytPromise = new Promise((resolve) => {
+      if (window.YT && window.YT.Player) return resolve(window.YT);
+      window.onYouTubeIframeAPIReady = () => resolve(window.YT);
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      tag.onerror = () => resolve(null);
+      document.head.appendChild(tag);
+    });
+  }
+  return ytPromise;
+}
+
+let listenTimer = null;
+function setupListening(c) {
+  clearInterval(listenTimer);
+  const list = document.getElementById("lines");
+  const status = document.getElementById("pl-status");
+  const playBtn = document.getElementById("pl-play");
+  let player = null;
+  let loop = null;      // 반복 중인 줄 번호
+  let nowLine = -1;
+
+  const showScript = () => {
+    list.hidden = false;
+    document.querySelector(".script-tools").hidden = false;
+    const gate = document.querySelector(".script-gate");
+    if (gate) gate.remove();
+  };
+  const gateBtn = document.getElementById("script-show");
+  if (gateBtn) gateBtn.addEventListener("click", showScript);
+  document.getElementById("script-all").addEventListener("click", (e) => {
+    const blurred = list.classList.toggle("blur");
+    e.target.textContent = blurred ? "모두 보기" : "다시 가리기";
+  });
+
+  const setLoop = (i) => {
+    loop = loop === i ? null : i;
+    list.querySelectorAll(".ln").forEach((li) => li.classList.toggle("looping", Number(li.dataset.i) === loop));
+    status.textContent = loop === null ? "" : `🔁 ${loop + 1}번 줄 반복 중 (🔁 다시 누르면 끝)`;
+    if (loop !== null) seekLine(loop);
+  };
+  const seekLine = (i) => {
+    if (!player) return;
+    player.seekTo(c.start + c.lines[i][0], true);
+    player.playVideo();
+  };
+
+  list.addEventListener("click", (e) => {
+    const seek = e.target.closest("[data-seek]");
+    const lp = e.target.closest("[data-loop]");
+    if (seek) return seekLine(Number(seek.dataset.seek));
+    if (lp) return setLoop(Number(lp.dataset.loop));
+    const li = e.target.closest(".ln");
+    if (li) li.classList.toggle("open");
+  });
+
+  playBtn.addEventListener("click", () => {
+    if (!player) return;
+    if (player.getPlayerState() === 1) player.pauseVideo();
+    else player.playVideo();
+  });
+  document.getElementById("pl-back").addEventListener("click", () => {
+    if (player) player.seekTo(Math.max(c.start, player.getCurrentTime() - 5), true);
+  });
+  document.querySelectorAll(".speed").forEach((b) => b.addEventListener("click", () => {
+    if (!player) return;
+    player.setPlaybackRate(Number(b.dataset.rate));
+    document.querySelectorAll(".speed").forEach((x) => x.classList.toggle("on", x === b));
+  }));
+
+  loadYouTube().then((YT) => {
+    if (!YT || !document.getElementById("yt-player")) {
+      status.textContent = "플레이어를 불러올 수 없어요. YouTube에서 열어 주세요.";
+      return;
+    }
+    player = new YT.Player("yt-player", {
+      host: "https://www.youtube-nocookie.com",
+      videoId: c.id,
+      playerVars: { start: Math.floor(c.start), end: Math.ceil(c.end), playsinline: 1, rel: 0, cc_load_policy: 0, iv_load_policy: 3 },
+      events: {
+        onStateChange: (e) => { playBtn.textContent = e.data === 1 ? "❚❚ 멈춤" : "▶ 재생"; },
+        onError: () => { status.textContent = "재생이 안 돼요. 아래 YouTube 링크로 열어 주세요."; },
+      },
+    });
+    listenTimer = setInterval(() => {
+      if (!document.getElementById("lines")) return clearInterval(listenTimer);   // 다른 페이지로 갔다
+      if (!player || !player.getCurrentTime) return;
+      const rel = player.getCurrentTime() - c.start;
+      if (loop !== null) {
+        const [st, en] = c.lines[loop];
+        if (rel > en + 0.25 || rel < st - 1) player.seekTo(c.start + st, true);
+      }
+      let i = -1;
+      for (let k = 0; k < c.lines.length && c.lines[k][0] <= rel + 0.1; k++) i = k;
+      if (i !== nowLine) {
+        nowLine = i;
+        list.querySelectorAll(".ln.now").forEach((li) => li.classList.remove("now"));
+        const li = list.querySelector(`.ln[data-i="${i}"]`);
+        if (li) li.classList.add("now");
+      }
+    }, 200);
+  });
 }
 
 // ===== 문법 =====
@@ -866,6 +1088,7 @@ function route() {
     today: viewToday,
     phrases: viewPhrases,
     grammar: () => viewGrammar(param),
+    listening: () => viewListening(param),
   };
   const page = (views[view] || viewNotFound)();
 
@@ -876,6 +1099,7 @@ function route() {
   // 메뉴 강조: 글 화면에서는 그 글의 카테고리를 강조한다
   let current = view ? `#/${view}${arg ? "/" + arg : ""}` : "#/";
   if (view === "grammar") current = "#/grammar";
+  if (view === "listening") current = "#/listening";
   if (view === "post") {
     const p = allPosts.find((x) => x.id === param);
     if (p) current = `#/category/${p.category}`;

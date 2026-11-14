@@ -134,20 +134,73 @@ def mistakes():
 
 
 # ---------- listening / speaking ----------
+def _secs(t):
+    """'4:30' or '1:02:03' -> seconds."""
+    total = 0
+    for part in t.strip().split(":"):
+        total = total * 60 + float(part)
+    return total
+
+
+def _table(txt, heading):
+    """Rows (lists of cells) of the markdown table under '## heading', header row skipped."""
+    m = re.search(rf"^## {re.escape(heading)}[^\n]*\n(.*?)(?=^## |\Z)", txt, re.M | re.S)
+    if not m:
+        return []
+    rows = [l.strip().strip("|").split("|") for l in m.group(1).splitlines() if l.startswith("|")]
+    rows = [[c.strip() for c in r] for r in rows if not set("".join(r)) <= set("-: ")]
+    return rows[1:]
+
+
+def clip(folder):
+    """Everything the 듣기 page needs for one Listening/<folder>: player times, lines, notes."""
+    d = ROOT / "Listening" / folder
+    txt = (d / "notes.md").read_text() if (d / "notes.md").exists() else ""
+    meta = json.loads((d / "info.json").read_text()) if (d / "info.json").exists() else {}
+    get = lambda k: (re.search(rf"\*\*{k}:\*\*\s*(.*)", txt) or [None, None])[1]
+    progress = get("Progress") or ""
+    steps = {int(n): mark == "✔" for n, mark in re.findall(r"([1-4])\s*([✔☐])", progress)}
+    section = meta.get("section") or ""
+    start, end = 0.0, float(meta.get("duration") or 0)
+    if "-" in section:
+        a, b = section.replace("–", "-").split("-", 1)
+        start, end = _secs(a), _secs(b)
+    lines = []
+    tsv = d / "lines.tsv"
+    if tsv.exists():
+        for row in tsv.read_text().splitlines():
+            parts = row.split("\t")
+            if len(parts) >= 4:   # times in lines.tsv are relative to the clip start
+                lines.append([round(float(parts[1]), 2), round(float(parts[2]), 2), parts[3]])
+    missed = []
+    for r in _table(txt, "Missed"):
+        times = re.findall(r"\d+:\d\d", r[0]) if r else []
+        if times:
+            missed.append([_secs(times[0]), _secs(times[-1]), r[1] if len(r) > 1 else "", r[2] if len(r) > 2 else ""])
+    return {
+        "folder": folder, "title": meta.get("title"), "channel": meta.get("channel"),
+        "url": meta.get("webpage_url"), "id": meta.get("id"), "section": section,
+        "start": start, "end": end, "progress": progress, "result": get("Listening"),
+        "steps": [steps.get(n, False) for n in (1, 2, 3, 4)],
+        "lines": lines, "missed": missed,
+        "sentences": [{"n": r[0], "ko": r[1], "why": r[2] if len(r) > 2 else ""} for r in _table(txt, "문장") if len(r) > 1],
+        "words": [{"word": r[0], "meaning": r[1], "example": r[2] if len(r) > 2 else ""} for r in _table(txt, "단어") if len(r) > 1],
+        "patterns": [{"kind": r[0], "pattern": r[1], "sentence": r[2] if len(r) > 2 else "", "does": r[3] if len(r) > 3 else ""}
+                     for r in _table(txt, "Speech patterns") if len(r) > 1],
+    }
+
+
+def clips():
+    """Every clip, newest first (the 듣기 page and its archive)."""
+    return [clip(n.parent.name) for n in sorted((ROOT / "Listening").glob("*/notes.md"), reverse=True)]
+
+
 def listening(start):
     for n in sorted((ROOT / "Listening").glob("*/notes.md"), reverse=True):
-        try:
-            if n.parent.name[:10] < start:
-                continue
-        except ValueError:
+        if n.parent.name[:10] < start:
             continue
-        txt = n.read_text()
-        info = n.parent / "info.json"
-        meta = json.loads(info.read_text()) if info.exists() else {}
-        get = lambda k: (re.search(rf"\*\*{k}:\*\*\s*(.*)", txt) or [None, None])[1]
-        return {"folder": n.parent.name, "title": meta.get("title"), "channel": meta.get("channel"),
-                "url": meta.get("webpage_url"), "section": meta.get("section"),
-                "progress": get("Progress"), "result": get("Listening")}
+        c = clip(n.parent.name)
+        return {k: c[k] for k in ("folder", "title", "channel", "url", "section", "progress", "result")}
     return None
 
 
@@ -245,6 +298,7 @@ def main():
         "mistakes": {"items": items, "by_type": by_type, "names": TYPES},
         "history": snapshot(wk, pts, by_type),
         "listening": listening(wk["start"]) if wk else None,
+        "clips": clips(),
         "speaking": speaking(),
         "anki": ak,
         "lessons": len(list((ROOT / "Homework").glob("[0-9][0-9]-*.md"))),

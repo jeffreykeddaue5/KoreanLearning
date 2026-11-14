@@ -7,7 +7,7 @@
 | `index.html` | Page layout, side panels, menu |
 | `style.css` | All styling (phone layout below 860px) |
 | `script.js` | Clock, ticker, side panels (D-n, 진도, Anki, 까먹는 단어, 틀리는 문법, 실수 종류) |
-| `blog.js` | Blog engine: posts, routing, the 오늘 page `#/today` (with live weather) and its one-line box on 홈, and the 홈 / 이번 주 / 문법 / 단어 카드 pages. Categories at the top (`CATEGORIES`) |
+| `blog.js` | Blog engine: posts, routing, the 오늘 page `#/today` (with live weather) and its one-line box on 홈, the 듣기 page `#/listening` (this week's Didi section played from YouTube, transcript with tap-to-reveal and 🔁 line loop, 문장/단어; past clips at `#/listening/<folder>`) and its box on 홈, and the 홈 / 이번 주 / 문법 / 단어 카드 pages. Categories at the top (`CATEGORIES`) |
 | `data/study.js` | **Generated** by `build_data.py` from `weeks/`, `progress/`, `Grammar/`, `Listening/` and Anki. Don't edit |
 | `data/today.js` | The 오늘 panel: a week of mood + 써먹을 표현 (with grammar point) by date, and weather phrases. Filled weekly by `/lesson-intake` → `/website-update`. Weather itself is fetched live |
 | `build_data.py` | `python3 -I website/build_data.py` from the repo root rebuilds `data/study.js` |
@@ -15,6 +15,8 @@
 | `posts/*.js` | One file per post |
 | `posts/_template.js` | Copy this to start a new post |
 | `media/` | Images, GIFs, videos, audio (one folder per post) |
+
+> 듣기 audio comes from the YouTube embed, never from `Listening/*/audio/` (gitignored). The site is public, and the clip is Didi's. The YouTube player needs the site served over http(s). GitHub Pages works, but opening `index.html` from disk may show a player error, so use the YouTube link there.
 
 To preview locally, just open `index.html` in a browser. No server needed.
 
