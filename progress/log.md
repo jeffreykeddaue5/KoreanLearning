@@ -10,6 +10,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-15 · long #59, #60 + review #5, #6, #13, #15, #21, #28, #49, #55 · conversation (holidays) · strong: 바꾸시는 바람에, 깜빡하는 바람에 (no hint), 먹어 버렸어요, 준비하기까지 5시간이나, 말려 보는 반면에 (unprompted), 결국 다투는 법이에요 · fix: 조카들하고 (not 끼리), 아이들은 (contrast), 쉬러 다녀요 / 찜질방에, 좋아하는 것 같아요
 - 2026-11-14 · practice-mistakes · drill · strong: 못 들은 탓에, 편해지기까지, 양이 적어서, 사진을 못 찍어서, 하는 것을 좋아해요, 가는 대신에, 봐 버렸는데 일을 못 했어요 · fix: 문이 닫혀서, 실컷 + no count (15개나)
 - 2026-11-13 · review #59, #60 + #5, #12, #21, #24, #32 (+ #19) · conversation · strong: 매진되는 바람에 (no hint), 친구가 계획을 바꾸는 바람에, 실컷 먹어 버렸어요, 컴퓨터에 빠졌는데, 꾸준히 공부하다 보니까, 만나려다가 · fix: 좋아하다 + 을/를 ×2, 가는 대신에, 돈을 다 써 버렸어요, 치고 싶은지 모르겠어요, self-talk -나?
 - 2026-11-12 · new #59, #60 (+ #34 L20) · conversation · strong: 비가 오는 바람에 (no hint), 잊어버리는 바람에 길을 잃어버렸어요, 지금 어른이라도 (no hint, L20), 실컷 해 버렸어요 · fix: 계획이 바뀌는, 그려 버렸는데 → 그렸는데, 그림을 못 그려요, 실컷 + no count, warm-up 해야 할 거예요
@@ -24,4 +25,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-10-30 · practice-mistakes · drill · strong: 싶었는데, 팔을 다칠, 부끄러웠을 거예요, 일어나는 데, 마감될 것 같아요, 좋아하게 됐어요 · fix: 남은 빵이 식빵밖에, 들었어요, 관심이 없었는데
 - 2026-10-29 · lesson mistakes (L6, L7, L15–L18) + review #7, #37 · drill · strong: 확인해 보니까 (unprompted), 자막 없이, 먹은 탓에, 막히는 모양이에요, 매진될까 봐, 가다 보니까, 줄거리 · fix: 어쩐지 + -더라고요, 걸 보니까 + decision → -니까, 영화에 집중, warm-up 다리를 / 걸릴 거예요 / -는 데
 - 2026-10-26 · -아/어 보니까, #2, #36 + review #29, #37 + pinned words (day 635) · drill · strong: 막상 가 보니까 (unprompted 막상), 걸어온 걸 보니까, 팔리는 걸 보니까, 은근히 재미있더라고요, 뒤끝이 없더라고요 · fix: 슬퍼 보이길래, 매진될 것 같아요 (future), 구경하는 게, 온라인에서, warm-up 뻔하다
-- 2026-10-25 · time expressions: -(으)ㄴ 지 되다, -는 데 걸리다/들다, 만에, 얼마 안 되다, -기까지, 이후로 + pinned words (day 634) · drill · strong: 화해한 지 2년, 배우는 데 3년이 걸렸어요, 5년 만에, 체한 이후로, 뿌듯하다, 수다를 떨다 · fix: 걸릴 거예요 / 들었어요 (tense), N에 도전하다, -는 데 spacing, 말하나 마나

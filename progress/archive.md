@@ -52,6 +52,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-10-25 · time expressions: -(으)ㄴ 지 되다, -는 데 걸리다/들다, 만에, 얼마 안 되다, -기까지, 이후로 + pinned words (day 634) · drill · strong: 화해한 지 2년, 배우는 데 3년이 걸렸어요, 5년 만에, 체한 이후로, 뿌듯하다, 수다를 떨다 · fix: 걸릴 거예요 / 들었어요 (tense), N에 도전하다, -는 데 spacing, 말하나 마나
 - 2026-10-22 · #1, 9, 23, 31, 47 + review #7, #37 · conversation · strong: 쏟을 뻔했어요, 켜진 채로, 커피밖에 없다고, 마시다 보니, 늦을까 봐 · fix: 커피를 마시다, 마실 셈, 말하나 마나 + 거예요, 예약하면, 전문점인 만큼
 - 2026-10-23 · #47 only + pinned words (day 631) · conversation · strong: 하마터면 … 뻔했어요, 큰일 날 뻔했어요, 탓에, 자마자, 뻐근하다, 낭비하다 · fix: 뻔하다 + feelings, 안 샀으면, 확인해 보니까, 다리를 다치다, 매진
 - 2026-10-20 · #5, 8, 17, 25, 32 + review #29, #37 · drill (stopped at 4/10) · strong: 는 모양이에요, 잖아요, ㄹ지도 몰라요 form, 테니까/텐데 + plan · fix: 어젯밤부터, 일본 여행은, 세우다, 걸 보니까 needs a known fact, 없을지도
