@@ -1,6 +1,6 @@
 # 첫차 — 문장 & 패턴
 
-**Progress:** 1 ✔ (30%) · 2 ✔ (missed: 10 단어, 4 문법, 2 소리, 1 속도) · 3 ☐ · 4 ☐
+**Progress:** 1 ✔ (30%) · 2 ✔ (missed: 10 단어, 4 문법, 2 소리, 1 속도) · 3 ✔ (7 patterns) · 4 ☐
 **Listening:** 30% → (final)
 Source: Didi의 한국문화 Podcast, 한국에서 인생 첫 차를 샀어요! (0:00–4:30) · https://www.youtube.com/watch?v=MnAk-innWcc&t=0 · ~90–93% known · Full text: [transcript.md](transcript.md)
 
@@ -71,8 +71,28 @@ Step 1 gist (user): bought a car; before that carried camera, batteries, keyboar
 ## Speech patterns (step 3)
 | Kind | Pattern | Her sentence | What it does |
 |---|---|---|---|
+| Opener | ~는데요, 왜냐면… | 저는 굉장히 잘 지냈는데요, 왜냐면… (0:09) | builds suspense, then gives the reason |
+| Opener | 그 ~가 뭐냐! 바로! N입니다 | 그 가장 큰 소비가 뭐냐! 바로! 차입니다 (0:30) | dramatic reveal |
+| Opener | 그럼 먼저 ~부터 이야기를 해 보려고 해요 | 왜 샀는지부터 이야기를 해 보려고 해요 (2:08) | introduces the first topic |
+| Connector | ~긴 한데 / ~긴 해요 (#11) | 말씀드린 적이 있긴 한데… (0:44) | admit a point, then "but…" |
+| Connector | 그런데도 ~ 이유는 | 그런데도 차를 산 이유는… (2:21) | "even so, the reason I…" |
+| Connector | ~다가 갑자기 딱 | 이렇게 보다가 갑자기 딱 마음에 드는 차를 (1:02) | interrupted action → sudden event |
+| Ending | ~거든요 (#16) | 그렇게 사게 됐었거든요 (2:00) | background / reason |
+| Ending | ~는 거예요 | 어느 날 갑자기 현타가 오는 거예요 (3:45) | vivid narration of the key moment |
+| Ending | ~하는 생각이 들다 | 차가 있으면 참 편하겠다 하는 생각이 들었었고 (4:25) | quotes a thought |
+| Ending | ~지 않을까 생각이 듭니다 | 재밌지 않을까 생각이 듭니다 (1:41) | soft guess |
+| Filler | 막 · 이렇게 · 뭔가 · 이제 | 막 새벽 3, 4시까지 일하다가 (0:55) | buys time, keeps flow |
+| Aside | '…지? …나?' + 이런 생각이 드는 거예요 | 더 나은 방법은 없나? (4:01) | acts out self-talk |
+| Closer | 한번 열심히 얘기해 보도록 하겠습니다 | (2:05) | ends intro, starts the story |
 
 ## Patterns to borrow
+- ~는데요, 왜냐면… (opener) — 저는 이번 주말에 정말 잘 먹었는데요, 왜냐면…
+- 그 ~가 뭐냐! 바로! N입니다 (reveal) — 그 메뉴가 뭐냐! 바로! 소곱창입니다.
+- ~거든요 #16 (background) — 요즘 여자친구가 학교 때문에 많이 힘들었거든요.
+- '…지? …나?' + 이런 생각이 드는 거예요 (self-talk) — '어떻게 하면 기분이 좀 나아질까?' 이런 생각이 드는 거예요.
+- ~하는 생각이 들다 (thought) — 맛있는 거 사 주면 좀 괜찮아지겠다 하는 생각이 들었어요.
+- ~다가 갑자기 딱 (sudden event) — 여자친구가 과제를 하다가 갑자기 딱 "곱창 먹고 싶다" 그러는 거예요.
+- ~는 거예요 (key moment) — 첫 입 먹자마자 여자친구 얼굴이 확 밝아지는 거예요.
 
 ## Anki cards
 - 약간은 충동적으로 구매를 해 버렸습니다. (added)
