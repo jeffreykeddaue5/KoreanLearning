@@ -1,6 +1,6 @@
 ---
 name: speaking
-description: Sets up the user's weekly self-recorded Korean podcast — a 3-minute-and-up monologue the user records on their own (Mon, after listening step 4), by default about their weekend so it doubles as rehearsal for the Wednesday lesson, using 5–8 speech patterns borrowed from the week's Didi clip plus the week's new grammar. Suggests the topic (only if the user wants one), the length and a self-check list; the user rates themselves and writes a blog post on the same topic, marking 1–2 sentences they're unsure about for the weekly check. No recording or transcription here. Use when the user runs /speaking, asks for a podcast topic, or korean-mentor reaches a podcast/speaking block.
+description: Sets up the user's weekly self-recorded Korean podcast — a 3-minute-and-up monologue the user records on their own, improved over three days (v1 Mon after listening step 4, v2 Tue after the weekly test, v3 Wed told with no notes before the lesson), by default about their weekend so it doubles as rehearsal for the Wednesday lesson, using 5–8 speech patterns borrowed from the week's Didi clip plus the week's new grammar. Suggests the topic (only if the user wants one), the length and a self-check list; the user rates themselves and writes a blog post on the same topic, marking 1–2 sentences they're unsure about for the weekly check. No recording or transcription here. Use when the user runs /speaking, asks for a podcast topic, or korean-mentor reaches a podcast/speaking block.
 ---
 
 # Podcast (speaking)
@@ -9,7 +9,7 @@ The user speaks **on their own time**: they record themselves podcast-style, rat
 
 Don't record, transcribe or correct the recording, and don't ask the user to speak here.
 
-## 1. Prepare (when the block comes up, usually Mon after listening step 4)
+## 1. Prepare v1 (Mon, after listening step 4)
 
 Read the newest plan in `weeks/` (new grammar, the **Podcast** section with the patterns from listening step 3), `Speaking/log.md` (last lengths), `progress/mistakes.md` (Recurring), and `python3 -I .claude/skills/_shared/anki.py trouble`.
 
@@ -49,9 +49,22 @@ Ask in one line: `Length? Self-rating 1–5 (flow / patterns / grammar / comfort
 
 If the blog post is written in the same run, follow `.claude/skills/website-update/SKILL.md` for the 일상 post.
 
+## 4. v2 (Tue, after the weekly test)
+
+Same story, better. The weekly test has just checked the `Unsure:` lines. Show in one block:
+- **Fix:** each unsure line with its ✔ or corrected version.
+- **Add:** 2 patterns from **Patterns to borrow** (or the week's grammar) that v1 didn't use, each as a ready line for this story.
+- **Watch:** the one mistake from the test most likely to show up in the story.
+
+The user re-records on their own. Log it like v1 with `podcast v2` in the line; no new unsure lines needed.
+
+## 5. v3 (Wed, before the lesson)
+
+The weekend rehearsal for the tutor. The user tells the story with no notes (typed here, or said aloud and summarized). Give light ✏️ fixes in English on the 2–3 main mistakes only, and say what sounded good. Log it as `podcast v3` (no rating needed). Then korean-mentor runs the **lesson review** block.
+
 ## Finish
 
-- Tick `☐ podcast` → `☑ podcast` in the plan's Schedule row for today (or the day it was planned, marked `☑ (Tue)` if done later).
+- Tick the version's block (`☐ podcast v1` → `☑ podcast v1`) in the plan's Schedule row for today (or the day it was planned, marked `☑ (Tue)` if done later).
 - Commit (`git add Speaking/ weeks/`), message like `Podcast 2026-11-09: 내 주말, 3:10`. Don't push.
 
 When this runs as a block of `/korean-mentor`, skip the commit: korean-mentor ticks the block and commits at the end of the run.

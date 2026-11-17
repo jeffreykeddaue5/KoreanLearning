@@ -25,16 +25,16 @@ Mistakes that happened in 2 or more sessions. No count; being right adds `· rig
 
 Mistakes corrected in sessions. Each session's warm-up picks from here (lowest count, then oldest). +1 when fixed, reset to 0/2 when wrong, delete at 2/2. Same mistake again in a later session → move to Recurring. Max 10 items, drop the oldest.
 
-- [문법] 새 게임을 하기 제일 재미있었어요 → 새 게임을 한 게 ("doing X was the most fun" → -(으)ㄴ 게) (2026-11-11 prep) · 1/2
 - [문법] 그림을 많이 그려 버렸는데 → 그렸는데 (-아/어 버리다 needs 'completely + regret/relief', not a plain past fact) (2026-11-12) · 1/2
 - [어휘] 그림을 잘 못해요 → 그림을 잘 못 그려요 (keep 그리다; no 그림을 하다) (2026-11-12) · 1/2
 - [어휘] 햄버거 4개를 실것 먹어 버렸어요 → 햄버거를 실컷 먹었어요 / 4개나 먹어 버렸어요 (실컷 = as much as I wanted, no exact count; 2026-11-14 drill: 15개이나 실컷 → 15개나 / 실컷, retry ✔) (2026-11-12) · 1/2
 - [조사] 혼자 운동하는 것은 제일 좋아하거든요 / 문화랑 언어에 좋아하게 됐어요 → 것을 / 언어를 (좋아하다 takes 을/를) (2026-11-13) · 1/2
 - [문법] 콘서트에 가기 대신에 → 콘서트에 가는 대신에 (V-는 대신에) (2026-11-13) · 1/2
 - [어휘] 컴퓨터가 비싸서 돈을 내 버렸어요 → 돈을 다 써 버렸어요 (spend money = 쓰다; 내다 = pay a bill) (2026-11-13) · 1/2
-- [조사] 조카끼리하고 예능을 봐요 → 조카들하고 (끼리 = only among themselves, not "with") (2026-11-15) · 0/2
-- [조사] 어른들은 말리는 반면에 아이들이 → 아이들은 (contrast → 은/는) (2026-11-15) · 0/2
-- [문법] 찜질방에 가러 다녀요 → 쉬러 다녀요 / 찜질방에 다녀요 (-러 + a purpose verb, not 가다) (2026-11-15) · 0/2
+- [조사] 조카끼리하고 예능을 봐요 → 조카들하고 (끼리 = only among themselves, not "with") (2026-11-15) · 1/2
+- [조사] 어른들은 말리는 반면에 아이들이 → 아이들은 (contrast → 은/는) (2026-11-15) · 1/2
+- [문법] 찜질방에 가러 다녀요 → 쉬러 다녀요 / 찜질방에 다녀요 (-러 + a purpose verb, not 가다) (2026-11-15) · 1/2
+- [어휘] 웬만하면 밤에는 안 먹어요 → 웬만하면 밤에는 안 먹으려고 해요 (웬만하면 + -(으)려고 해요) (2026-11-16) · 0/2
 
 ## Lesson mistakes
 

@@ -1,6 +1,6 @@
 ---
 name: weekly-check
-description: Tuesday no-hint test before the Wednesday lesson — 10 items on the week's new grammar, older points and the user's worst mistake type, plus a check of the homework sentences and the podcast's unsure sentences — then levels points up or down (the only way to reach levels 3–5), writes the weekly report (blocks done vs planned, levels, no-hint uses, open mistakes by type, listening result, Anki streak) and the questions for the tutor. Use when the user runs /weekly-check, on Tuesday, or when korean-mentor reaches the weekly check block.
+description: Tuesday no-hint test before the Wednesday lesson — 10 items on the week's new grammar, older points and the user's worst mistake type, plus a check of the podcast v1's unsure sentences (homework is a separate block) — then levels points up or down (the only way to reach levels 3–5), writes the weekly report (blocks done vs planned, levels, no-hint uses, open mistakes by type, listening result, Anki streak) and the questions for the tutor. Use when the user runs /weekly-check, on Tuesday, or when korean-mentor reaches the weekly check block.
 ---
 
 # Weekly check
@@ -35,7 +35,7 @@ First ask for the week's **오늘 써 봤어요** sentences: on the site's 오�
 
 Then, if **Podcast** in the plan lists `Unsure:` sentences (from the user's podcast or blog post), check those the same way: ✔ or ✏️ with a short reason. If one is still a nuance question, add it to **To verify** and **Questions for the tutor**.
 
-After item 10, ask for the homework sentences (the 5 in the plan, or whatever the tutor assigned). If the user hasn't done them, skip this. For each sentence: ✔, or ✏️ with the fix and a short English reason. Keep it light: the tutor checks them tomorrow, and this is just to catch the easy mistakes first. Nuance questions go to **To verify**.
+The 5 homework sentences are no longer checked here: they're their own **homework** block right after this test (korean-mentor), with feedback right away.
 
 ## Update progress
 
@@ -45,7 +45,7 @@ After item 10, ask for the homework sentences (the 5 in the plan, or whatever th
   - one change per point per day
   - Last practiced = today, Next review = today + interval
 - **`progress/mistakes.md`:**
-  - New clear mistakes from the items and the homework → **Practice mistakes** with a type tag, `(YYYY-MM-DD weekly)` · 0/2.
+  - New clear mistakes from the items → **Practice mistakes** with a type tag, `(YYYY-MM-DD weekly)` · 0/2.
   - The worst-type item: if right, add `· right <date>` to the matching **Recurring** item if there is one; if wrong, add the date and sentence to it.
 - **`progress/notes.md`:** nuance questions → **To verify**.
 

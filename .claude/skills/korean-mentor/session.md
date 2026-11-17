@@ -9,7 +9,7 @@ The day's Schedule row in the plan says which kind; arguments override it (`/kor
 | Kind | When | Targets | Turns |
 |---|---|---|---|
 | **new** | Thu (first session of the week) | the week's 2 new points, introduced first | 7 |
-| **review** | Fri, Mon (and catch-up days) | the week's new points once each + 4–5 due points | 7 |
+| **review** | Fri (and catch-up days) | the week's new points once each + 4–5 due points | 7 |
 | **long** | Sun | all of the week's new points + due points, mixed in stories | 10–12 |
 
 **Introducing a new point** (kind new, or a new point the user hasn't seen): before the first prompt, explain in English in 4–6 lines: meaning, form (with one irregular example if relevant), when to use it, and how it differs from the closest point they know (use the file's **Compare** table). Give 2 examples with translations. Then ask one easy prompt with a hint before moving on.
@@ -40,11 +40,14 @@ Keep setup to a few lines on screen; don't show the files you read.
 
 - Polite 해요체, short turns (1–3 sentences) so the user talks more than you. Add a short English gloss for new vocabulary.
 - Each turn asks for something that naturally calls for a target point. Rotate through targets and review points; don't repeat one until the others have come up. One prompt can test two points, or a point and a word.
+- **Give the situation; never make the user invent one.** Each prompt states the facts (who, what happened, why) in 1–2 short lines **in simple Korean** (plain facts the user rewrites with the target point, never already using it), or asks about something real the user already told you (their weekend, girlfriend, pickleball, work, the plan's podcast topic). The user only turns it into Korean. No "have you ever…?" or "what happened when…?" questions that need a made-up story.
+  - **Write the situation the way a Korean friend would actually say it**: casual-polite spoken style with 잖아요, 근데, 결국, 다 ~아/어 놨는데, ~는데 말이에요, and vivid words (비가 쏟아지다, 코트를 잡다), not stiff textbook lines. Under the prompt, add one small line glossing the 2–3 harder bits. Example: `상황: 토요일에 피클볼 치기로 했잖아요. 근데 갑자기 비가 쏟아져서 경기가 결국 취소됐어요. 코트까지 다 잡아 놨는데 말이에요.`
 - **Ask for fuller answers**: a story, a reason or an opinion in a few sentences. Respond to what they said before moving on.
-- **Hints** in brackets when useful: `(try #39 -(으)ㄹ 텐데)`, `(try 마침)`, stacked if needed: `(try #47 + 마침)`. Drop hints for anything the user is already using unprompted. Track which answers had a hint: that decides levels.
+- **Every practice prompt recommends one Anki word** (from the step-6 list: pinned first, then trouble words, ones that fit the prompt) in brackets, with a short gloss: `(word: 웬만하면 — if possible)`. Always, every turn, no exceptions, even when there's no grammar hint; don't repeat a word until the others have come up. The user has asked for this many times.
+- **Grammar hints** in brackets when useful: `(try #39 -(으)ㄹ 텐데)`, stacked with the word: `(try #47 + word: 마침 — just then)`. Drop grammar hints for anything the user is already using unprompted. Track which answers had a hint: that decides levels.
 - **Lesson mistakes:** set up situations where the user would make the same choice again; in drill mode, also use their own wrong sentences as "fix this" items. Don't say what's tested until they answer.
 - **Progress counter:** `[n/total]` before each practice prompt. A turn counts only when the user answers a practice prompt. At the last turn, ask whether to keep going (`[8]`, `[9]`…) or stop. The warm-up has its own `1/4` count.
-- **Read prompts aloud:** after showing each warm-up sentence and practice prompt, run `.claude/skills/korean-mentor/speak.sh "<Korean>"` (plain Bash, not `run_in_background`; it returns at once). Pass only the Korean to answer or fix: no counter, hints, glosses or emoji. Don't play feedback. Replay on request (`RATE=-25%` for slower). If it fails, say so once and carry on.
+- **Read prompts aloud:** write the full prompt (Korean, hint, gloss) as text first, and make speak.sh the **last** call in the message, after all the text, so the user sees the lines before the audio starts. Never call it before or in the middle of the prompt text. For each warm-up sentence and practice prompt, run `.claude/skills/korean-mentor/speak.sh "<Korean>"` (plain Bash, not `run_in_background`; it returns at once). Pass only the Korean to answer or fix: no counter, hints, glosses or emoji. Don't play feedback. Replay on request (`RATE=-25%` for slower). If it fails, say so once and carry on.
 
 ## Feedback
 

@@ -68,7 +68,7 @@ Write `weeks/YYYY-MM-DD.md`:
 ## Questions for the tutor
 1. … (the 3 oldest items in To verify, worded so they can be asked in Korean or English)
 
-## Homework (Mon)
+## Homework (Tue)
 If the tutor gave homework, do that and use this week's points where they fit. Otherwise:
 1. (English sentence to translate, using a new point + a due review point, in the tutor's homework style)
 … 5 in total
@@ -82,9 +82,9 @@ Each skill ticks its own block (☐ → ☑). The weekly check counts them.
 | Fri 11-13 | ☐ Anki · ☐ grammar: review · ☐ listening: step 2 (transcript + why I missed it) |
 | Sat 11-14 | Optional: ☐ Anki · ☐ mistakes drill |
 | Sun 11-15 | ☐ Anki · ☐ grammar: longer session on #57, #58 · ☐ listening: step 3 (speech patterns to borrow) |
-| Mon 11-16 | ☐ Anki · ☐ grammar: mixed review · ☐ homework sentences · ☐ listening: step 4 (shadowing + final %) · ☐ podcast: my weekend, on my own + 일상 post |
-| Tue 11-17 | ☐ Anki · ☐ weekly check (+ homework + podcast unsure sentences) |
-| Wed 11-18 | ☐ Anki · ☐ lesson prep (questions above) · lesson 21:00 · ☐ lesson-intake |
+| Mon 11-16 | ☐ Anki · ☐ listening: step 4 (shadowing + final %) · ☐ podcast v1: record my weekend story, mark 1–2 unsure lines |
+| Tue 11-17 | ☐ Anki · ☐ weekly test (10 questions, no hints) · ☐ homework: write the 5 sentences, feedback right away · ☐ podcast v2: fix the unsure lines, add 2 patterns, re-record |
+| Wed 11-18 | ☐ Anki · ☐ podcast v3: tell it with no notes (weekend rehearsal) · ☐ lesson review: quiz on last lesson's words + tutor corrections · lesson 21:00 · ☐ lesson-intake |
 
 ## Podcast
 (filled in by listening step 3 and the speaking skill: patterns to borrow, topic, length, unsure sentences)
@@ -93,7 +93,7 @@ Each skill ticks its own block (☐ → ☑). The weekly check counts them.
 (filled in by the weekly check on Tuesday)
 ```
 
-- For a light week, **New grammar** says "Light week: no new points" and lists the last 3 weeks' new points to review instead; Monday's podcast is a longer topic that uses them.
+- For a light week, **New grammar** says "Light week: no new points" and lists the last 3 weeks' new points to review instead; the Mon–Wed podcast is a longer topic that uses them.
 - Use the new points' numbers in the grammar blocks. Keep every block even if its skill doesn't exist yet; each skill ticks its own block (`☐ grammar` → `☑ grammar`).
 
 ## 6. Website
