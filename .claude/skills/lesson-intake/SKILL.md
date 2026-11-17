@@ -78,7 +78,7 @@ Each skill ticks its own block (☐ → ☑). The weekly check counts them.
 
 | Day | Blocks |
 |---|---|
-| Thu 11-12 | ☐ Anki · ☐ grammar: new #57, #58 · ☐ listening: step 1 (pick Didi clip, listen with no transcript, %) |
+| Thu 11-12 | ☐ Anki · ☐ grammar: new #57, #58 · ☐ listening: step 1 (pick TTMIK clip, listen with no transcript, %) |
 | Fri 11-13 | ☐ Anki · ☐ grammar: review · ☐ listening: step 2 (transcript + why I missed it) |
 | Sat 11-14 | Optional: ☐ Anki · ☐ mistakes drill |
 | Sun 11-15 | ☐ Anki · ☐ grammar: longer session on #57, #58 · ☐ listening: step 3 (speech patterns to borrow) |

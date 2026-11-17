@@ -7,7 +7,7 @@
 | Day | Time | Blocks |
 |---|---|---|
 | **Wed** | ~2 h + lesson | Anki · lesson prep (review, 3 questions for tutor) · **Lesson 9pm** (30 min weekend talk, 30 min homework) · intake after `Homework/NN` exists |
-| **Thu** | 2–2.5 h | Anki · **2 new points** · listening: new Didi clip, no transcript + % |
+| **Thu** | 2–2.5 h | Anki · **2 new points** · listening: new TTMIK clip, no transcript + % |
 | **Fri** | 1.5–2 h | Anki · grammar · listening: transcript + why I missed it |
 | **Sat** | 0–1 h | Optional buffer: Anki + mistakes drill or free watching |
 | **Sun** | 2 h | Anki · longer session on the week's points · listening: speech patterns to borrow |
@@ -32,8 +32,8 @@ Steps it runs (kept as files under `.claude/skills/`, still callable by name):
 |---|---|
 | **lesson-intake** | Homework file → new grammar into `Grammar/` (#48+), tutor ❌ into lesson mistakes, writes `weeks/YYYY-Www.md` (2 new points, due reviews, words, 3 tutor questions → `🧐질문`) |
 | **grammar** | New points / review from the weekly plan and spaced repetition |
-| **listening** | Picks a 5–10 min section of a Didi의 한국문화 Podcast video, analyzes her speech patterns for the podcast, gets Korean subs with `yt-dlp`, cleans transcript + notes. Logs grammar heard; 2–3 sentence cards with audio go to Anki (see §2a) |
-| **speaking** | Weekly podcast setup: topic (default: my weekend), length (3 min+), Didi patterns + grammar to use. I record and rate myself on my own; unsure sentences go to the weekly check (see §2b) |
+| **listening** | Picks a 5–10 min section of a Talk To Me In 100% Korean video, analyzes the speakers' patterns for the podcast, gets Korean subs with `yt-dlp`, cleans transcript + notes. Logs grammar heard; nothing from the clip goes to Anki |
+| **speaking** | Weekly podcast setup: topic (default: my weekend), length (3 min+), clip patterns + grammar to use. I record and rate myself on my own; unsure sentences go to the weekly check (see §2b) |
 | **weekly-check** | 10 items, no hints (week's points + random old + worst mistake type), homework check, weekly report |
 | **practice-mistakes** | Short mistakes drill (Sat or as filler) |
 
@@ -54,7 +54,7 @@ Steps it runs (kept as files under `.claude/skills/`, still callable by name):
 
 - **One podcast a week, on my own time** (Mon, after listening step 4): a podcast-style monologue, by default about my weekend, so it rehearses the first half of the Wednesday lesson.
 - **Starts at 3 minutes**; +30 s after 3 comfortable weeks, up to 6.
-- **Uses 5–8 patterns borrowed from the week's Didi clip** (listening step 3), plus the week's 2 new points.
+- **Uses 5–8 patterns borrowed from the week's listening clip** (listening step 3), plus the week's 2 new points.
 - **Self-rated** (flow / patterns / grammar / comfort, 1–5), logged in `Speaking/log.md`. No transcription or corrections from Claude.
 - **Then a blog post** on the same topic. 1–2 sentences I'm unsure about go to the weekly check, and then to the tutor if needed.
 - Why: listening to a clip and speaking on the same day was too much, and it's more useful to study one clip deeply and reuse its patterns.
@@ -64,7 +64,7 @@ Removed: `/voice-prep` (ChatGPT), `/hard-words`, `/pinned-words` (folded in), pe
 ## 3. Words = Anki
 
 - AnkiConnect (installed, add-on 2055492159) is the word source: today's pins, most-missed cards, words added in the last 1–2 weeks.
-- Misused words get tagged `use_trouble` in Anki; listening sentence cards are added directly.
+- Misused words get tagged `use_trouble` in Anki; nothing from listening clips is added to Anki.
 - Anki closed → read a copy; writes wait in `anki/pending.json`.
 - Current Hard words list gets tagged in Anki once, then deleted.
 

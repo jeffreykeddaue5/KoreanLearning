@@ -95,6 +95,4 @@ Step 1 gist (user): bought a car; before that carried camera, batteries, keyboar
 - ~는 거예요 (key moment) — 첫 입 먹자마자 여자친구 얼굴이 확 밝아지는 거예요.
 
 ## Anki cards
-- 약간은 충동적으로 구매를 해 버렸습니다. (added)
-- 저도 이 차에 대해서 아예 모르는 사람이었어요. (added)
-- 항상 노트북 들고 다니죠. (added)
+Removed 2026-11-17 (listening no longer adds Anki cards); replaced by 위로하다, 달래다, 굳이 in `anki/2026-11-17-replacements.csv`.

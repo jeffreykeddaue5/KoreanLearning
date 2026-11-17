@@ -13,6 +13,8 @@ Make one CSV of 70 new words for the week: 7 days × 10 words.
 2. **Known words. Never repeat these:**
    - the first field of every row in `anki/*.csv`
    - the 📚 vocabulary sections of `Homework/[0-9]*.md`
+
+   **Never take words or phrases from the listening clips** (`Listening/`: transcripts, notes, 단어 tables). Choose words independently of the listening clips.
 3. **Level and topics.** Read **Current level** in `progress/grammar.md` for the user's level (intermediate, aiming for TOPIK 4급). Skim the 2–3 most recent `Homework/` lessons to see which topics come up in their conversations.
 
 4. **Mood words from the website.** Every `mood.word` in `website/data/today.js` (`TODAY.days`) dated up to the end of this new week that isn't already in `anki/*.csv` or in Anki (`python3 -I .claude/skills/_shared/anki.py words | grep -x <word>`) goes into this file. They count toward the 70: put them on a feelings day (or spread them if there are more than 10), and use the day's `mood.sentence` as the example if it's natural. Mention how many came from the site.
@@ -28,6 +30,7 @@ Make one CSV of 70 new words for the week: 7 days × 10 words.
 - Mix of roughly 50% verbs and adjectives, 35% nouns, and 15% adverbs and expressions.
 - **Each day is a small theme**, e.g. making plans, feelings and reactions, at home, work, going out, health, money. If the user gave a theme, build the week around it.
 - Count the rows yourself: exactly 70, 10 per day, with no duplicates.
+- **Words and short phrases only.** The word field is a single word or a short set phrase (e.g. 약속을 잡다, 그러게요), never a full sentence. Sentences belong only in the example field.
 
 ## Row format
 

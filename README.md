@@ -19,7 +19,7 @@ Say **그만** to stop; the next run picks up at the next block. Prompts are in 
 | Day | Blocks |
 |---|---|
 | Wed | Anki · lesson prep · **lesson** · intake (`Homework/NN` → next week's plan) |
-| Thu | Anki · 2 new grammar points · listening 1 (Didi clip, no transcript) |
+| Thu | Anki · 2 new grammar points · listening 1 (TTMIK clip, no transcript) |
 | Fri | Anki · review · listening 2 (transcript) |
 | Sat | optional: mistakes or pinned-words drill |
 | Sun | Anki · long session · listening 3 (speech patterns) |
@@ -49,8 +49,8 @@ Every 4th week is light: no new grammar. Grammar points have levels 0–5 with s
 | --- | --- |
 | `korean-mentor` | The daily command: checklist, resume, runs the blocks below. `session.md` = the grammar session, `today.py` = today's state, `speak.sh` = reads prompts aloud |
 | `lesson-intake` | Wed: lesson file → new grammar, tutor mistakes, the week's plan, 수업 post |
-| `listening` | Weekly Didi clip at ~90–95% known words, 4 steps: listen, transcript, speech patterns to borrow, shadowing; sentence cards to Anki |
-| `speaking` | Weekly podcast setup: topic (default: my weekend), length, Didi patterns + grammar to use; I record and rate myself, then log it |
+| `listening` | Weekly Talk To Me In 100% Korean clip at ~90–95% known words, 4 steps: listen, transcript, speech patterns to borrow, shadowing (no Anki cards) |
+| `speaking` | Weekly podcast setup: topic (default: my weekend), length, clip patterns + grammar to use; I record and rate myself, then log it |
 | `weekly-check` | Tue: 10 items with no hints, homework check, levels, weekly report, 주간 정리 post |
 | `practice-mistakes` | Short drill on open mistakes |
 | `pinned-words` | Drill on the week's pinned Anki words |
