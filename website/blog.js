@@ -268,15 +268,6 @@ function todayLink() {
     </a>`;
 }
 
-// "오늘 써 봤어요" 기록: 이 브라우저에만 저장된다 ({ "YYYY-MM-DD": { sentence, at } }).
-// 주간 점검 때 "기록 복사"로 복사해서 세션에 붙여 넣는다.
-function usedLog() {
-  try { return JSON.parse(localStorage.getItem("used-phrases") || "{}"); } catch (e) { return {}; }
-}
-function saveUsedLog(log) {
-  try { localStorage.setItem("used-phrases", JSON.stringify(log)); return true; } catch (e) { return false; }
-}
-
 function dayLabel(date) {
   const dt = new Date(date + "T00:00");
   return `${dt.getMonth() + 1}/${dt.getDate()} (${"일월화수목금토"[dt.getDay()]})`;
@@ -290,24 +281,12 @@ function weekDates() {
   return Object.keys(allDays()).sort().filter((x) => (!from || x >= from) && (!to || x <= to));
 }
 
-// 주간 점검에 붙여 넣을 글
-function usedExport() {
-  const log = usedLog();
-  const days = allDays();
-  const lines = Object.keys(log).sort().filter((date) => days[date]).map((date) => {
-    const x = days[date].phrase || {};
-    return `${date} #${x.grammar || "?"} 「${x.text}」 → ${log[date].sentence || "(문장 없음)"}`;
-  });
-  return lines.length ? "오늘 써 봤어요:\n" + lines.join("\n") : "";
-}
-
 // 오늘 페이지 (#/today)
 function viewToday() {
   const d = todayEntry();
   const m = d && d.mood;
   const p = d && d.phrase;
   const g = grammarOf(p);
-  const used = d ? usedLog()[d.date] : null;
 
   const phraseHtml = p ? `
     <div class="box ac-orange">
@@ -322,12 +301,6 @@ function viewToday() {
         ${koPlain(p.fix, p.fix_en, "fix")}
         <h4>기억하기</h4>
         ${koPlain(p.tip, p.tip_en)}
-        <div class="used-box">
-          <h4>오늘 써 봤어요</h4>
-          <label class="used-check"><input type="checkbox" id="used-check"${used ? " checked" : ""}> 대화나 글에서 이 문법을 써 봤어요</label>
-          <textarea id="used-text" rows="2" maxlength="300" placeholder="실제로 쓴 문장을 적어 주세요 (Write the sentence you actually used)">${esc(used ? used.sentence : "")}</textarea>
-          <p><button type="button" class="en-toggle" id="used-save">저장</button> <span class="small" id="used-status">${used ? "저장됐어요 ✔" : ""}</span></p>
-        </div>
       </div>
     </div>` : "";
 
@@ -348,7 +321,6 @@ function viewToday() {
     </div>`;
 
   const days = allDays();
-  const log = usedLog();
   const rows = weekDates().map((date) => {
     const x = days[date].phrase || {};
     const gx = grammarOf(x);
@@ -356,7 +328,6 @@ function viewToday() {
       <th>${dayLabel(date)}</th>
       <td>「${esc(x.text || "")}」</td>
       <td class="small">${gx ? `<a href="#/grammar/${gx.n}">#${gx.n} ${esc(gx.point)}</a>` : ""}</td>
-      <td class="used-mark" title="${log[date] ? "써 봤어요" : ""}">${log[date] ? "✔" : ""}</td>
     </tr>`;
   }).join("");
 
@@ -372,9 +343,6 @@ function viewToday() {
           <div class="box-title">▼ 이번 주 표현 <a class="title-link" href="#/phrases">지난 표현 »</a></div>
           <div class="box-body">
             <table class="sched today-week">${rows}</table>
-            <p class="today-copy"><button type="button" class="en-toggle" id="used-copy">기록 복사</button>
-              <span class="small" id="copy-status">✔ 표시한 문장을 복사해서 주간 점검 때 붙여 넣어요</span></p>
-            <textarea id="copy-fallback" class="copy-fallback" rows="4" readonly hidden></textarea>
           </div>
         </div>` : ""}
         <p class="today-foot small">
@@ -390,41 +358,6 @@ function viewToday() {
         btn.textContent = on ? "영어 숨기기" : "영어 모두 보기";
       });
 
-      const save = document.getElementById("used-save");
-      if (save && d) {
-        const check = document.getElementById("used-check");
-        const text = document.getElementById("used-text");
-        const status = document.getElementById("used-status");
-        text.addEventListener("input", () => { if (text.value.trim()) check.checked = true; });
-        save.addEventListener("click", () => {
-          const log = usedLog();
-          if (check.checked) log[d.date] = { sentence: text.value.trim(), at: new Date().toISOString() };
-          else delete log[d.date];
-          status.textContent = saveUsedLog(log)
-            ? (check.checked ? "저장됐어요 ✔" : "지웠어요")
-            : "이 브라우저에서는 저장할 수 없어요";
-          const mark = document.querySelector(".today-week tr.today .used-mark");
-          if (mark) mark.textContent = check.checked ? "✔" : "";
-        });
-      }
-
-      const copy = document.getElementById("used-copy");
-      if (copy) copy.addEventListener("click", () => {
-        const text = usedExport();
-        const status = document.getElementById("copy-status");
-        const fallback = document.getElementById("copy-fallback");
-        if (!text) { status.textContent = "아직 기록이 없어요"; return; }
-        const manual = () => {
-          fallback.hidden = false;
-          fallback.value = text;
-          fallback.select();
-          status.textContent = "아래 글을 복사해 주세요 (Ctrl+C)";
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(() => { status.textContent = "복사했어요 ✔"; }, manual);
-        } else manual();
-      });
-
       fillWeather();
     },
   };
@@ -434,17 +367,15 @@ function viewToday() {
 function viewPhrases() {
   const today = ymd(new Date());
   const days = allDays();
-  const log = usedLog();
   const dates = Object.keys(days).filter((x) => x < today).sort().reverse();
   const items = dates.map((date) => {
     const p = days[date].phrase || {};
     const m = days[date].mood;
     const g = grammarOf(p);
-    const u = log[date];
     return `
       <details class="past-item">
         <summary><span class="past-date">${dayLabel(date)}</span> 「${esc(p.text || "")}」
-          ${g ? `<span class="small">#${g.n} ${esc(g.point)}</span>` : ""}${u ? ` <span class="used-mark">✔</span>` : ""}</summary>
+          ${g ? `<span class="small">#${g.n} ${esc(g.point)}</span>` : ""}</summary>
         <div class="past-body today-phrase">
           ${ko(p.text, p.text_en, "small")}
           ${g ? `<p class="small">문법: <a href="#/grammar/${g.n}">#${g.n} ${esc(g.point)}</a></p>` : ""}
@@ -452,7 +383,6 @@ function viewPhrases() {
           <h4>언제 써요?</h4>${koPlain(p.when, p.when_en)}
           <h4>이렇게 고쳐요</h4>${koPlain(p.fix, p.fix_en, "fix")}
           <h4>기억하기</h4>${koPlain(p.tip, p.tip_en)}
-          ${u ? `<h4>내가 쓴 문장</h4><p>${esc(u.sentence || "(문장 없음)")}</p>` : ""}
           ${m ? `<h4>그날의 기분</h4>${koPlain(`${m.face} ${m.word}`, m.meaning)}` : ""}
         </div>
       </details>`;

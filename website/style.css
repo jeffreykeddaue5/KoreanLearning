@@ -617,16 +617,7 @@ a.today-link:hover .box-title { filter: brightness(1.08); }
 .card-keys { text-align: center; margin-top: 6px; }
 @media (hover: none) { .card-keys, .card-grade kbd { display: none; } }
 
-/* ===== 오늘 써 봤어요 · 지난 표현 ===== */
-.used-box { margin-top: 18px; padding-top: 4px; border-top: 1px dashed var(--line); }
-.used-check { display: block; margin: 4px 0 6px; cursor: pointer; }
-.used-check input { accent-color: var(--orange); margin-right: 4px; }
-.used-box textarea, .copy-fallback {
-  width: 100%; font-family: var(--font-ko); font-size: 15px; resize: vertical;
-  background: var(--deep); color: var(--text); border: 1px inset var(--line); padding: 6px;
-}
-.used-mark { color: var(--green-text); font-weight: bold; text-align: center; }
-.today-copy { margin-top: 10px !important; }
+/* ===== 지난 표현 ===== */
 .today-phrase .example { color: var(--strong); }
 .past-item { border-bottom: 1px dotted var(--line-soft); padding: 6px 0; }
 .past-item summary { cursor: pointer; }
