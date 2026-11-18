@@ -17,6 +17,7 @@ A 5–10 minute drill on the user's own mistakes, separate from `korean-mentor` 
 ## How to run it
 
 - Show one item at a time, with `[n/total]` in front.
+- Every item recommends one Anki word in brackets with a short gloss, `(word: 소심하다 — timid)`: pinned first (`python3 -I .claude/skills/korean-mentor/today.py` → `pinned_today`), then `use_trouble` words. Rotate. No exceptions.
 - Items 1–8 are "fix this sentence". The last 2 give only a situation in English or simple Korean, and the user writes the sentence.
 - **Change the situation.** Don't reuse the wrong sentence as written: keep the mistake but change the people, place or verb, so a memorized answer won't work. Don't say what's being tested until the user has answered.
 - For Lesson mistakes, grep the `Homework/` lesson named in the item and use the tutor's wording in the feedback.

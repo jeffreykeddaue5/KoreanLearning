@@ -5,7 +5,7 @@ description: Tuesday no-hint test before the Wednesday lesson — 10 items on th
 
 # Weekly check
 
-Runs the night before the lesson, so what goes wrong becomes Wednesday's questions. Prompts are in Korean, feedback in English. **No hints of any kind**: don't name the grammar point, don't put it in brackets, don't give the first word.
+Runs the night before the lesson, so what goes wrong becomes Wednesday's questions. Prompts are in Korean, feedback in English. **No hints of any kind**: don't name the grammar point, don't put it in brackets, don't give the first word. The one exception: every item still recommends one Anki word (pinned first, then `use_trouble`) as `(word: 굳이 — bother to)`. It's vocabulary, not a grammar hint.
 
 ## Setup
 
@@ -31,9 +31,7 @@ A point counts as **right** only if it's used correctly and naturally with no hi
 
 ## Homework check
 
-First ask for the week's **오늘 써 봤어요** sentences: on the site's 오늘 page, the user presses **기록 복사** and pastes the text (lines like `2026-11-07 #58 「…」 → <sentence they used>`). They live only in the browser, so if the user has none or skips it, move on. For each sentence: ✔ if the point is used correctly and naturally, or ✏️ with the fix and a short English reason. A ✔ counts as a no-hint use of that point (+1 No-hint, and +1 level like a check item, still one change per point per day); a ✏️ goes to **Practice mistakes** like any other. Mention the count in the report line as `used n/7`.
-
-Then, if **Podcast** in the plan lists `Unsure:` sentences (from the user's podcast or blog post), check those the same way: ✔ or ✏️ with a short reason. If one is still a nuance question, add it to **To verify** and **Questions for the tutor**.
+If **Podcast** in the plan lists `Unsure:` sentences (from the user's podcast or blog post), check those the same way: ✔ or ✏️ with a short reason. If one is still a nuance question, add it to **To verify** and **Questions for the tutor**.
 
 The 5 homework sentences are no longer checked here: they're their own **homework** block right after this test (korean-mentor), with feedback right away.
 
@@ -60,7 +58,7 @@ python3 -I .claude/skills/weekly-check/stats.py weeks/<plan>.md "$SCRATCH/collec
 Last week's numbers are in **Weekly reports** in `progress/log.md`. Write a one-line report at the top of that section, and a short version under **Weekly report** in the plan:
 
 ```
-2026-11-10 · week 1 · blocks 15/21 · check 7/10 · new: #57 L1, #58 L2 · level 3+: 8 (+2) · no-hint 34 (+6) · open mistakes 28 (−2), most: [조사] 6 · listening 60% → 85% · podcast 3:10 (self 4/3/4/3) · used 3/7 · Anki 80-day streak, 6/7 days
+2026-11-10 · week 1 · blocks 15/21 · check 7/10 · new: #57 L1, #58 L2 · level 3+: 8 (+2) · no-hint 34 (+6) · open mistakes 28 (−2), most: [조사] 6 · listening 60% → 85% · podcast 3:10 (self 4/3/4/3) · Anki 80-day streak, 6/7 days
 ```
 
 - **podcast** = the newest `Speaking/log.md` podcast line this week, or `podcast –` if there isn't one.

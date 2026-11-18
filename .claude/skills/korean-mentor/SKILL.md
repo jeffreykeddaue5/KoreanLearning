@@ -7,6 +7,8 @@ description: The user's one daily Korean study command. Shows today's checklist 
 
 The user studies every day around a **Wednesday 21:00 lesson** (1 hour: 30 min talking about the weekend, 30 min going over homework). One `/korean-mentor` runs the day: it shows what's planned, runs the next block, and keeps everything in sync. Korean for practice, **English for every explanation**. Keep screen text short.
 
+**Anki word in every prompt:** every practice prompt in every block (grammar, weekly test, homework, mistakes drill, lesson review, podcast fixes) recommends one Anki word in brackets with a short gloss, e.g. `(word: 웬만하면 — if possible)`. Pinned first (`pinned_today` from today.py), then `use_trouble` words; rotate, one that fits the prompt. It's not a grammar hint, so it goes in no-hint items too. No exceptions.
+
 ## 1. Start: today's state
 
 ```bash

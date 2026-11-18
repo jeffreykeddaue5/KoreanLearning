@@ -4,6 +4,7 @@ Finished items, kept for reference. Skills can grep here (e.g. to notice a ✓ m
 
 ## Lesson mistakes (✓ done)
 
+- [문법] 어른이아도 → 어른이라도 ("even as an adult": nouns take (이)라도, not -아도) (L20) · ✓ 2026-11-17
 - 다가 for "as soon as" → -자마자 · 시험을 시작했어요 → 시험이 시작됐어요 (L14) · ✓ 2026-10-10
 - 갔는 김에 / 먹었는 김에 → 간 김에 / 먹은 김에 (L7) · ✓ 2026-10-10
 - 좋아하나 봐서 → 좋아하나 봐요. 그래서 (L7) · ✓ 2026-10-10

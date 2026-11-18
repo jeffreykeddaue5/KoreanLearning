@@ -17,7 +17,7 @@ Mistakes that happened in 2 or more sessions. No count; being right adds `· rig
 - [어순] 어쩐지 in the same clause as the reason: 세일이 많은 만큼/많아서 어쩐지 … 걸렸어요 → 세일이 많더라고요. 어쩐지 주차하는 데 30분이나 걸리더라고요 (2026-10-29, 2026-11-04 warm-up) · right 2026-11-07
 - [조사] N에 집중하다 / 몰입하다: 영화를 집중할 수 없었어요 → 영화에 (2026-10-29), 게임을 몰입하느라고 → 게임에 (2026-11-06) · right 2026-11-07 · right 2026-11-08
 - [조사] -(으)러 가다/다니다 → place + 에, not 에서: 공원에서 산책하러 → 공원에 (2026-11-04), 바다에서 수영하러 가고 싶어요 → 바다에 (2026-11-07 drill) · right 2026-11-08 · 2026-11-15: 찜질방에서 목욕하러 다녀요 → 찜질방에
-- [문법] 이/가 + transitive verb → intransitive/passive: 표를 다 파는 → 표가 다 팔리는 (L6), 계획이 바꾸는 바람에 → 계획이 바뀌는 바람에 (2026-11-12), 2026-11-14 drill: 문이 닫아서 → 문이 닫혀서 (answered 문을 닫아서; retry 컵이 깨졌어요 ✔) · right 2026-11-13
+- [문법] 이/가 + transitive verb → intransitive/passive: 표를 다 파는 → 표가 다 팔리는 (L6), 계획이 바꾸는 바람에 → 계획이 바뀌는 바람에 (2026-11-12), 2026-11-14 drill: 문이 닫아서 → 문이 닫혀서 (answered 문을 닫아서; retry 컵이 깨졌어요 ✔) · right 2026-11-13 · 2026-11-17 weekly: 새 카페가 열었나 봐요 → 생겼나 봐요 · right 2026-11-17 weekly (빵이 품절된 것 같아요)
 - [어휘] 커피를 먹다 → 커피를 마시다 (2026-10-11, 2026-10-12 and earlier, 2026-10-22: 많이 먹은 탓에, 2026-11-10 homework: 커피를 먹었더니 → 마셨더니)
 - [문법] State → change before -기까지 ("until I got ___" → -아/어지다 / -게 되다): 익숙하기까지 → 익숙해지기까지 (2026-11-10 homework), 잘 하기까지 → 잘하게 되기까지 (2026-11-11 prep) · right 2026-11-14
 
@@ -25,16 +25,16 @@ Mistakes that happened in 2 or more sessions. No count; being right adds `· rig
 
 Mistakes corrected in sessions. Each session's warm-up picks from here (lowest count, then oldest). +1 when fixed, reset to 0/2 when wrong, delete at 2/2. Same mistake again in a later session → move to Recurring. Max 10 items, drop the oldest.
 
-- [문법] 그림을 많이 그려 버렸는데 → 그렸는데 (-아/어 버리다 needs 'completely + regret/relief', not a plain past fact) (2026-11-12) · 1/2
-- [어휘] 그림을 잘 못해요 → 그림을 잘 못 그려요 (keep 그리다; no 그림을 하다) (2026-11-12) · 1/2
-- [어휘] 햄버거 4개를 실것 먹어 버렸어요 → 햄버거를 실컷 먹었어요 / 4개나 먹어 버렸어요 (실컷 = as much as I wanted, no exact count; 2026-11-14 drill: 15개이나 실컷 → 15개나 / 실컷, retry ✔) (2026-11-12) · 1/2
-- [조사] 혼자 운동하는 것은 제일 좋아하거든요 / 문화랑 언어에 좋아하게 됐어요 → 것을 / 언어를 (좋아하다 takes 을/를) (2026-11-13) · 1/2
-- [문법] 콘서트에 가기 대신에 → 콘서트에 가는 대신에 (V-는 대신에) (2026-11-13) · 1/2
 - [어휘] 컴퓨터가 비싸서 돈을 내 버렸어요 → 돈을 다 써 버렸어요 (spend money = 쓰다; 내다 = pay a bill) (2026-11-13) · 1/2
 - [조사] 조카끼리하고 예능을 봐요 → 조카들하고 (끼리 = only among themselves, not "with") (2026-11-15) · 1/2
 - [조사] 어른들은 말리는 반면에 아이들이 → 아이들은 (contrast → 은/는) (2026-11-15) · 1/2
 - [문법] 찜질방에 가러 다녀요 → 쉬러 다녀요 / 찜질방에 다녀요 (-러 + a purpose verb, not 가다) (2026-11-15) · 1/2
 - [어휘] 웬만하면 밤에는 안 먹어요 → 웬만하면 밤에는 안 먹으려고 해요 (웬만하면 + -(으)려고 해요) (2026-11-16) · 0/2
+- [어휘] 휴대폰 배터리가 되는 바람에 → 배터리가 다 되는 / 나가는 바람에 (battery dies = 다 되다 / 나가다) (2026-11-17 weekly) · 0/2
+- [어휘] 카페에 아무것도 없더라고요 (no people) → 아무도 없더라고요 (people = 아무도) (2026-11-17 weekly) · 0/2
+- [문법] 배가 아프는 바람에 → 배탈이 나는 바람에 / 배가 아파서 (-는 바람에 = verbs only) (2026-11-17 weekly) · 0/2
+- [어휘] 알람이 안 돼서 → 알람이 안 울려서 (an alarm goes off = 울리다) (2026-11-17 homework) · 0/2
+- [어휘] 양꼬치가 너무 좋아서 → 너무 맛있어서 (food = 맛있다) (2026-11-17 homework) · 0/2
 
 ## Lesson mistakes
 
@@ -48,4 +48,3 @@ Mistakes the tutor corrected (from `Homework/`). +1 for each session where it's 
 - [문법] 막힐 모양이라서 + -는 게 좋겠어요 → 모양이니까 (reason before advice = -(으)니까) (L7) · 1/2
 - [문법] 크니 만큼 → 큰 만큼 (A-(으)ㄴ 만큼) (L15) · 1/2
 - [문법] 공부하기 시작하게 됐어요 → 공부를 시작하게 됐어요 (don't stack -기 시작하다 + -게 되다) (L12) · 1/2
-- [문법] 어른이아도 → 어른이라도 ("even as an adult": nouns take (이)라도, not -아도) (L20) · 1/2
