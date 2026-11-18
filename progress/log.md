@@ -4,7 +4,7 @@
 
 One line per week, newest first, written by the weekly check.
 
-2026-11-17 · week 2 · blocks 14/21 · check 8/10 (+5) · new: #59 L3, #60 L3 · level 3+: 11 (+6) · no-hint 73 (+30) · open mistakes 33 (+3), most: [문법] 16 · listening 30% → – (step 4 skipped, clip too hard) · podcast – · Anki 86-day streak, 8/8 days
+2026-11-17 · week 2 · blocks 14/21 · check 8/10 (+5) · new: #59 L3, #60 L3 · level 3+: 11 (+6) · no-hint 73 (+30) · open mistakes 33 (+3), most: [문법] 16 · listening 30% → – (step 4 skipped, clip too hard) · podcast (self 2) · Anki 86-day streak, 8/8 days
 2026-11-10 · week 1 · blocks 13/15 · check 3/10 · new: #57 L1, #58 L2 · level 3+: 5 · no-hint 43 · open mistakes 30, most: [문법] 15 · listening – (skipped, clip carried) · podcast – (blog post, no recording) · used –/7 · Anki 78-day streak, 7/7 days
 
 ## Session log
