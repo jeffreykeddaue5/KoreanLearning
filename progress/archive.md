@@ -53,6 +53,8 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-10-30 · practice-mistakes · drill · strong: 싶었는데, 팔을 다칠, 부끄러웠을 거예요, 일어나는 데, 마감될 것 같아요, 좋아하게 됐어요 · fix: 남은 빵이 식빵밖에, 들었어요, 관심이 없었는데
+- 2026-10-29 · lesson mistakes (L6, L7, L15–L18) + review #7, #37 · drill · strong: 확인해 보니까 (unprompted), 자막 없이, 먹은 탓에, 막히는 모양이에요, 매진될까 봐, 가다 보니까, 줄거리 · fix: 어쩐지 + -더라고요, 걸 보니까 + decision → -니까, 영화에 집중, warm-up 다리를 / 걸릴 거예요 / -는 데
 - 2026-10-26 · -아/어 보니까, #2, #36 + review #29, #37 + pinned words (day 635) · drill · strong: 막상 가 보니까 (unprompted 막상), 걸어온 걸 보니까, 팔리는 걸 보니까, 은근히 재미있더라고요, 뒤끝이 없더라고요 · fix: 슬퍼 보이길래, 매진될 것 같아요 (future), 구경하는 게, 온라인에서, warm-up 뻔하다
 - 2026-10-25 · time expressions: -(으)ㄴ 지 되다, -는 데 걸리다/들다, 만에, 얼마 안 되다, -기까지, 이후로 + pinned words (day 634) · drill · strong: 화해한 지 2년, 배우는 데 3년이 걸렸어요, 5년 만에, 체한 이후로, 뿌듯하다, 수다를 떨다 · fix: 걸릴 거예요 / 들었어요 (tense), N에 도전하다, -는 데 spacing, 말하나 마나
 - 2026-10-22 · #1, 9, 23, 31, 47 + review #7, #37 · conversation · strong: 쏟을 뻔했어요, 켜진 채로, 커피밖에 없다고, 마시다 보니, 늦을까 봐 · fix: 커피를 마시다, 마실 셈, 말하나 마나 + 거예요, 예약하면, 전문점인 만큼

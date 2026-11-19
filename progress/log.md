@@ -11,6 +11,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-19 · new #61, #62 (+ #36) · week set Q1–Q7 (first time) · warm-up: ask · avg 1:02 (warm-ups 0:48) · strong: 보기로 했어요, 완전 볼만해요 in 0:25, 3D 모델링에 도전하기로 했어요, 맛있어 보이길래 (L21 fix) · fix: -다면서요 to the teller, food = 맛있다 (실력), 빠졌어요, 2000년대 초반
 - 2026-11-18 · lesson review L20 3/8 (ended early; rest of the time went to redesigning the weekly loop: questions → podcast → test, say-then-type timer) · strong: 전분을 넣으세요, 재킷이라도 껴입으세요 · fix: 차라리 + -ㄹ걸, 녹이다
 - 2026-11-16 · review #59, #60 (stopped at 2/7; Mon review dropped, schedule reworked) · conversation · strong: 결항되는 바람에 숙소를 취소해야 했어요, 치킨 한 마리를 먹어 버렸어요, warm-up 4/4 · fix: 버렸어요 (spelling), 웬만하면 … 안 먹으려고 해요, 한 게 (past) 
 - 2026-11-15 · long #59, #60 + review #5, #6, #13, #15, #21, #28, #49, #55 · conversation (holidays) · strong: 바꾸시는 바람에, 깜빡하는 바람에 (no hint), 먹어 버렸어요, 준비하기까지 5시간이나, 말려 보는 반면에 (unprompted), 결국 다투는 법이에요 · fix: 조카들하고 (not 끼리), 아이들은 (contrast), 쉬러 다녀요 / 찜질방에, 좋아하는 것 같아요
@@ -25,5 +26,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-11-07 · practice-mistakes · drill · strong: 남은 음료가 콜라밖에, 청소하느라 못 했어요, 잤나 봐요, 쉬운 반면에, 어쩐지 as new sentence · fix: 바다에 수영하러 (place + 에 with -러 가다)
 - 2026-11-06 · new #57, #58 + review #5, #21, #55 (catch-up for Thu) · conversation · strong: 확인했더니 (unprompted), 일하느라고, 4시간이나, 하다 보니까 (unprompted), 방해되다 (L18) · fix: 게임에 몰입하다, 쉬운 반면에, -느라고 = busy doing, tense (쑤셔요, 바쁘다고, 좋을 거래요)
 - 2026-11-04 · L17–L18 homework review + review #29, #37 + pinned words (day 644) · conversation (stopped at 6/7) · strong: 은근히 벅차더라고요 (unprompted 은근히), 고등학생 나이여도, 자막 없이, 떠맡았는데, 삭제한 탓에 · fix: 몰입했나 봐요, 공원에 산책하러, 어쩐지 + -더라고요 (warm-up)
-- 2026-10-30 · practice-mistakes · drill · strong: 싶었는데, 팔을 다칠, 부끄러웠을 거예요, 일어나는 데, 마감될 것 같아요, 좋아하게 됐어요 · fix: 남은 빵이 식빵밖에, 들었어요, 관심이 없었는데
-- 2026-10-29 · lesson mistakes (L6, L7, L15–L18) + review #7, #37 · drill · strong: 확인해 보니까 (unprompted), 자막 없이, 먹은 탓에, 막히는 모양이에요, 매진될까 봐, 가다 보니까, 줄거리 · fix: 어쩐지 + -더라고요, 걸 보니까 + decision → -니까, 영화에 집중, warm-up 다리를 / 걸릴 거예요 / -는 데

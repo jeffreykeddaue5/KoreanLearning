@@ -1,7 +1,7 @@
 # 회식 — 문장 & 패턴
 
-**Progress:** 1 ☐ · 2 ☐ · 3 ☐ · 4 ☐
-**Listening:** (step 1) → (final)
+**Progress:** 1 ✔ (~35%) · 2 ☐ · 3 ☐ · 4 ☐
+**Listening:** ~35% (followed to ~3:00; knows the words and grammar, but processing them at speed is hard) → (final)
 Source: Talk To Me In 100% Korean, 티티믹의 회식 문화 (0:00–8:52, whole episode) · https://www.youtube.com/watch?v=jb-b_H3FkUw&t=0 · ~92% known · Full text: [transcript.md](transcript.md) (step 2)
 
 Grammar in the clip: #16 -거든요 (×7), -는 거예요 (×2), #17 -잖아요 (×5), #18 -네요 (×5), #22 -군요/-구나, #29 -나 보다 (싫은가 보다), #35 -더라고요, #37 -다 보니, #11 -긴 하다 (변해 오긴 했는데, 재미있긴 했거든요), #23 -밖에 못, -(으)ㄹ까 말까, -는 건 아닌데 (= 오늘의 회화 -는 건 아니고), -에 따라(서), -기 시작하다, -아/어 가지고.

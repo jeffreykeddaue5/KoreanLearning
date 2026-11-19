@@ -89,8 +89,9 @@ Skip if the user says "no warm-up" or it already ran today.
 - **Real life, no inventing:** questions are about the user's real life (weekend, girlfriend, pickleball, work, the plan's podcast topic). If they have no real answer, any simple answer is fine; never make them build a scenario.
 - **Grammar hints** only the first time a question is asked in a week, and only for a new point: `(try #59)`. Repeats are no-hint.
 - **Timer:** first make the Bash call `.claude/skills/korean-mentor/speak.sh "<Korean prompt>"; python3 -I .claude/skills/korean-mentor/timer.py start` (Korean only: no counter, hints or glosses), **then** write the prompt as the last text of the message. The user only sees text that comes after the tool call (text written before it got lost, 2026-11-18).
+- **Break between questions (2026-11-19):** feedback and the next prompt never share a message, so the user can read the fix before the clock runs. The feedback message ends with `Ready? Send anything for Q3.` (no tool call, no timer). When the user replies (any text), that turn's speak.sh + timer call comes first, then the prompt card. If the reply is a question about the feedback, answer it first and ask `Ready?` again.
 - **Say it, then type it:** when `.` arrives, the **first** call is `python3 -I .claude/skills/korean-mentor/timer.py stop`; reply with only the time and `Now type what you said.` (no feedback yet, no new prompt), then give feedback on the typed answer. If the user types an answer straight away instead of `.`, stop the timer, mark the time `(typed)`, and give feedback as usual. If speak.sh fails, say so once and just start the timer.
-- **Prompt layout:** feedback on the last answer goes above a `---` line. Under the line, the prompt card, always the same:
+- **Prompt layout:** the feedback message (see **Break between questions**) is separate. The prompt message is the card alone (a one-line Korean reaction to the last answer can go inside the quoted prompt), always the same:
 
   ```
   ---
