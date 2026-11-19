@@ -1,8 +1,9 @@
 // ===== 블로그 설정 =====
 const CATEGORIES = {
-  daily: { name: "일상", color: "yellow" },
+  // daily: { name: "일상", color: "yellow" },  // 일상 숨김 (2026-11-18)
   lesson: { name: "수업", color: "blue" },
-  weekly: { name: "주간 정리", color: "green" },
+  article: { name: "기사", color: "orange" },  // 매일 기사 (daily-article 스킬, 2026-11-18)
+  // weekly: { name: "주간 정리", color: "green" },  // 주간 정리 숨김 → 오늘의 실수 (2026-11-18)
 };
 // 카테고리 색 (style.css의 .ac-*)
 const acOf = (key) => (CATEGORIES[key] ? `ac-${CATEGORIES[key].color}` : "");
@@ -38,6 +39,7 @@ function loadPosts() {
 function visiblePosts() {
   return allPosts
     .filter((p) => !p.draft)
+    .filter((p) => p.category in CATEGORIES) // 숨긴 카테고리(일상, 주간 정리)의 글은 안 보인다 (2026-11-18)
     .sort((a, b) => normDate(b.date).localeCompare(normDate(a.date)));
 }
 
@@ -196,15 +198,6 @@ function weatherKind(w) {
   if (c === 45 || c === 48) return "fog";
   return c <= 1 ? "sun" : "cloud";
 }
-function weatherTip(w, kind) {
-  const base = [`낮엔 ${w.max}°, 밤엔 ${w.min}°예요.`, `High ${w.max}°, low ${w.min}°.`];
-  if (w.rain >= 50 && kind !== "snow") return [`${base[0]} 비가 올 수 있으니 우산을 챙기세요.`, `${base[1]} It may rain, so take an umbrella.`];
-  if (kind === "snow") return [`${base[0]} 길이 미끄러우니까 조심하세요.`, `${base[1]} The roads are slippery, so be careful.`];
-  if (w.min <= 3) return [`${base[0]} 따뜻하게 입으세요.`, `${base[1]} Dress warmly.`];
-  if (w.max - w.min >= 10) return [`${base[0]} 일교차가 크니까 겉옷을 챙기세요.`, `${base[1]} Big gap between day and night, so bring a jacket.`];
-  if (kind === "sun") return [`${base[0]} 햇볕이 좋아요.`, `${base[1]} Lovely sunshine.`];
-  return [`${base[0]} 좋은 하루 보내세요.`, `${base[1]} Have a good day.`];
-}
 // 날씨 종류에 맞는 표현을 날마다 돌아가면서 하나
 function weatherPhrase(w, kind) {
   const bank = (typeof TODAY !== "undefined" && TODAY.weather) || {};
@@ -231,14 +224,11 @@ function fillWeather() {
       return;
     }
     const kind = weatherKind(w);
-    const [tip, tipEn] = weatherTip(w, kind);
     const p = weatherPhrase(w, kind);
     if (peek) peek.textContent = `${WEATHER_KIND[kind].icon} ${w.now}°C`;
     if (!body || !document.body.contains(body)) return;
     body.innerHTML = `
       <pre class="rain">${esc(WEATHER_KIND[kind].art)}</pre>
-      <p class="temp">${w.now}°C</p>
-      ${ko(tip, tipEn, "small")}
       ${p ? `<div class="today-sub">
         <p class="small">날씨 표현</p>
         ${ko(`「${p.phrase}」`, p.en, "phrase")}
@@ -423,17 +413,142 @@ function weekSummary() {
     </div>`;
 }
 
+// 홈: 위는 "오늘" (매일 바뀌는 것), 아래는 "이번 주" (매주 바뀌는 것), 맨 아래는 지난 글
+function sectionHead(title, note) {
+  return `<h2 class="home-section">${title} <span class="small">${note}</span></h2>`;
+}
+
 function viewHome() {
   const posts = visiblePosts();
-  let html = todayLink() + listenLink() + weekSummary();
+  const today = ymd(new Date());
+  let html = sectionHead(`오늘 · ${dayLabel(today)}`, "매일 바뀌어요");
+  html += `<div class="home-grid">${todayTodo()}${pinnedBox()}</div>`;
+  html += mistakesBox(5) + todayArticle(posts) + todayLink();
+
+  html += sectionHead("이번 주", "수요일 수업 후 바뀌어요");
+  html += weekSummary() + listenLink();
+  const lesson = posts.find((p) => p.category === "lesson");
+  if (lesson) html += listBox("▣ 이번 수업", [lesson], `<p class="all"><a href="#/category/lesson">→ 지난 수업 전체 보기</a></p>`, acOf("lesson"));
+
+  html += sectionHead("지난 글", "");
   for (const [key, cat] of Object.entries(CATEGORIES)) {
-    const inCat = posts.filter((p) => p.category === key);
-    const more = inCat.length > HOME_POSTS_PER_CATEGORY
-      ? `<p class="all"><a href="#/category/${key}">→ 전체 보기 (${inCat.length})</a></p>`
-      : "";
+    const inCat = posts.filter((p) => p.category === key && p !== lesson && !(key === "article" && p.date === today));
+    const more = `<p class="all"><a href="#/category/${key}">→ 전체 보기 (${posts.filter((p) => p.category === key).length})</a></p>`;
     html += listBox(`▣ ${cat.name}`, inCat.slice(0, HOME_POSTS_PER_CATEGORY), more, acOf(key));
   }
   return { title: "", html, after: fillWeather };
+}
+
+// 오늘 할 일: 이번 주 계획의 오늘 줄 (☑ 끝 · ☐ 남음 · – 건너뜀)
+function todayTodo() {
+  const w = S.week;
+  const today = ymd(new Date());
+  const row = w && (w.schedule || []).find((d) => d.date === today);
+  const icon = { done: "☑", todo: "☐", skip: "–", note: "🕘" };
+  // "grammar: new #59, #60" → "grammar · new #59, #60", 긴 설명은 뺀다
+  const name = (t) => {
+    const [head, ...rest] = t.replace(/\s*\(.*?\)/g, "").split(": ");
+    const more = rest.join(": ").trim();
+    return more && more.length <= 24 ? `${head} · ${more}` : head;
+  };
+  const items = row ? row.blocks.map((b) => `<li class="todo-${b.state}">${icon[b.state] || "·"} ${esc(name(b.text))}</li>`).join("") : "";
+  const left = row ? row.blocks.filter((b) => b.state === "todo").length : 0;
+  return `
+    <section class="box ac-blue">
+      <div class="box-title">▣ 오늘 할 일 ${row ? `<span class="small">· ${left ? `${left}개 남음` : "다 했어요 ✔"}</span>` : ""}</div>
+      <div class="box-body">${items ? `<ul class="todo-list">${items}</ul>` : '<p class="small">오늘 계획이 없어요.</p>'}</div>
+    </section>`;
+}
+
+// 오늘 고정한 Anki 단어 + 오늘 복습 수
+function pinnedBox() {
+  const a = S.anki || {};
+  const words = ((a.pinned || {}).date === ymd(new Date()) && a.pinned.words) || [];
+  return `
+    <section class="box ac-green">
+      <div class="box-title">▣ 오늘의 단어 <span class="small">· Anki ${a.reviewed_today || 0}장 복습</span> <a class="title-link" href="#/cards">카드 »</a></div>
+      <div class="box-body">${words.length
+        ? `<ul class="pin-list">${words.map((w) => `<li title="${esc(w.example || "")}"><b>${esc(w.word)}</b> <span class="small">${esc(w.meaning)}</span></li>`).join("")}</ul>`
+        : '<p class="small">오늘 고정한 단어가 없어요.</p>'}</div>
+    </section>`;
+}
+
+// 오늘의 기사 (없으면 가장 최근 기사)
+function todayArticle(posts) {
+  const p = posts.find((x) => x.category === "article");
+  if (!p) return "";
+  const isToday = normDate(p.date) === normDate(ymd(new Date()));
+  return `
+    <a class="box today-link ${acOf("article")}" href="#/post/${p.id}">
+      <div class="box-title">▼ ${isToday ? "오늘의 기사" : "최근 기사"} <span class="title-link">${esc((p.tags || [])[0] || "")} · 읽기 »</span></div>
+      <div class="box-body"><p class="today-peek"><b>${p.title}</b></p><p class="small">${esc(p.summary || "")}</p></div>
+    </a>`;
+}
+
+// ===== 오늘의 실수 (data/study.js의 daily_mistakes, progress/daily/*.md에서) =====
+// ✏️ 틀린 문장 → 고친 문장 (종류 · 어디서), 💡 맞지만 더 자연스러운 말
+const MISTAKE_TYPES = ["시제", "조사", "어휘", "어순", "문법", "맞춤법", "존댓말"];
+
+function mistakeRow(r, mark) {
+  return `
+    <li class="dm-row">
+      <span class="dm-meta">${r.type ? `<span class="badge bad">${esc(r.type)}</span>` : ""}<span class="small">${esc(r.block || "")}</span></span>
+      <span class="dm-said">${mark} ${r.said}</span>
+      <span class="dm-better">→ ${r.better}</span>
+      ${r.why ? `<span class="dm-why small">${r.why}</span>` : ""}
+    </li>`;
+}
+
+// 종류별 개수: 시제 3 · 조사 2 …
+function mistakeSummary(day) {
+  const n = {};
+  day.mistakes.forEach((r) => { if (r.type) n[r.type] = (n[r.type] || 0) + 1; });
+  const keys = Object.keys(n).sort((a, b) => n[b] - n[a] || MISTAKE_TYPES.indexOf(a) - MISTAKE_TYPES.indexOf(b));
+  return keys.length ? `<p class="dm-summary">${keys.map((k) => `<span class="badge bad">${esc(k)} ${n[k]}</span>`).join(" ")}</p>` : "";
+}
+
+function mistakeRows(day, full = day) {
+  return `
+    ${mistakeSummary(full)}
+    ${day.mistakes.length ? `<h4>✏️ 고쳤어요 (${day.mistakes.length})</h4><ul class="dm-list">${day.mistakes.map((r) => mistakeRow(r, "✏️")).join("")}</ul>` : ""}
+    ${day.natural.length ? `<h4>💡 더 자연스러워요 (${day.natural.length})</h4><ul class="dm-list">${day.natural.map((r) => mistakeRow(r, "💡")).join("")}</ul>` : ""}`;
+}
+
+function mistakeDays() {
+  return (S.daily_mistakes || []);
+}
+
+// 홈: 오늘(없으면 가장 최근 날)의 실수
+function mistakesBox(limit = 0) {
+  const day0 = mistakeDays()[0];
+  const day = day0 && limit ? { ...day0, mistakes: day0.mistakes.slice(0, limit), natural: day0.natural.slice(0, Math.max(2, limit - day0.mistakes.length)) } : day0;
+  const today = ymd(new Date());
+  const head = day ? (day.date === today ? "오늘" : dayLabel(day.date)) : "";
+  return `
+    <section class="box ac-mistake">
+      <div class="box-title">▣ 오늘의 실수 ${day ? `<span class="small">· ${head}</span>` : ""} <a class="title-link" href="#/mistakes">전체 보기 »</a></div>
+      <div class="box-body">${day ? mistakeRows(day, day0) : '<p class="small">아직 없어요.</p>'}
+        ${day0 && limit && (day0.mistakes.length + day0.natural.length > day.mistakes.length + day.natural.length)
+          ? `<p class="all"><a href="#/mistakes">→ 나머지 ${day0.mistakes.length + day0.natural.length - day.mistakes.length - day.natural.length}개 더 보기</a></p>` : ""}</div>
+    </section>`;
+}
+
+// #/mistakes: 최근 2주, 날짜별로 접힌다 (가장 최근 날은 펼친 채로)
+function viewMistakes() {
+  const days = mistakeDays();
+  const items = days.map((d, i) => `
+    <details class="past-item" ${i === 0 ? "open" : ""}>
+      <summary><span class="past-date">${dayLabel(d.date)}</span> ✏️ ${d.mistakes.length} · 💡 ${d.natural.length}</summary>
+      <div class="past-body">${mistakeRows(d)}</div>
+    </details>`).join("");
+  return {
+    title: "오늘의 실수",
+    html: `
+      <div class="box ac-mistake">
+        <div class="box-title">▼ 오늘의 실수 · 최근 2주</div>
+        <div class="box-body">${items || '<p class="small">아직 없어요.</p>'}</div>
+      </div>`,
+  };
 }
 
 function viewCategory(key) {
@@ -1017,12 +1132,15 @@ function route() {
     week: viewWeek,
     today: viewToday,
     phrases: viewPhrases,
+    mistakes: viewMistakes,
     grammar: () => viewGrammar(param),
     listening: () => viewListening(param),
   };
   const page = (views[view] || viewNotFound)();
 
   content.innerHTML = page.html;
+  // 오른쪽 칸 (다음 수업, Anki, 자꾸 까먹는 단어 …)은 홈에서만 보인다
+  document.getElementById("layout").classList.toggle("no-right", view !== "");
   if (page.after) page.after();
   document.title = page.title ? `${page.title} :: ${SITE_TITLE}` : `${SITE_TITLE} :: 한국어 공부 일지`;
 

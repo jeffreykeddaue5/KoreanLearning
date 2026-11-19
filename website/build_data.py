@@ -283,6 +283,36 @@ def snapshot(wk, pts, by_type):
     return [{"week": k, **v} for k, v in sorted(hist.items())]
 
 
+# ---------- daily mistakes (sessions/*.md) ----------
+def daily_mistakes(days=14):
+    """Per day, newest first: ✏️ corrections and 💡 more-natural suggestions.
+    Main source: progress/daily/YYYY-MM-DD.md (every block logs there, see .claude/skills/_shared/daily-mistakes.md).
+    Days without that file fall back to the '## Corrections' tables in sessions/*.md."""
+    out = {}
+    for p in sorted((ROOT / "progress/daily").glob("20??-??-??.md")):
+        txt = p.read_text()
+        out[p.stem] = {
+            "date": p.stem,
+            "mistakes": [{"block": r[0], "type": r[1], "said": md_inline(r[2]), "better": md_inline(r[3]),
+                          "why": md_inline(r[4]) if len(r) > 4 else ""}
+                         for r in _table(txt, "✏️ 고쳤어요") if len(r) > 3],
+            "natural": [{"block": r[0], "said": md_inline(r[1]), "better": md_inline(r[2]),
+                         "why": md_inline(r[3]) if len(r) > 3 else ""}
+                        for r in _table(txt, "💡 더 자연스러워요") if len(r) > 2],
+        }
+    logged = set(out)
+    for p in sorted((ROOT / "sessions").glob("20??-??-??*.md")):
+        d = p.stem[:10]
+        if d in logged:
+            continue
+        rows = [{"block": "session", "type": "", "said": md_inline(r[0]), "better": md_inline(r[1]),
+                 "why": md_inline(r[2]) if len(r) > 2 else ""} for r in _table(p.read_text(), "Corrections") if len(r) > 1]
+        day = out.setdefault(d, {"date": d, "mistakes": [], "natural": []})
+        day["mistakes"] += rows
+    filled = [v for v in out.values() if v["mistakes"] or v["natural"]]
+    return sorted(filled, key=lambda v: v["date"], reverse=True)[:days]
+
+
 def main():
     wk = week()
     pts = grammar()
@@ -300,6 +330,7 @@ def main():
         "listening": listening(wk["start"]) if wk else None,
         "clips": clips(),
         "speaking": speaking(),
+        "daily_mistakes": daily_mistakes(),
         "anki": ak,
         "lessons": len(list((ROOT / "Homework").glob("[0-9][0-9]-*.md"))),
     }

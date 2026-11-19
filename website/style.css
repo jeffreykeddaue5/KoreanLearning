@@ -126,6 +126,9 @@ a:focus-visible, button:focus-visible { outline: 1px dashed var(--blue-text); ou
   gap: 8px;
   padding: 8px;
 }
+/* 홈이 아닌 화면: 오른쪽 칸 숨김, 본문을 넓게 */
+#layout.no-right { grid-template-columns: 220px minmax(0, 1fr); }
+#layout.no-right > .side.right { display: none; }
 
 /* 네 가지 버튼 색 줄 (헤더 · 푸터) */
 .stripe4 {
@@ -660,7 +663,7 @@ a.today-link:hover .box-title { filter: brightness(1.08); }
 /* ===== 휴대폰 ===== */
 @media (max-width: 860px) {
   #wrap { margin: 0; border-left: 0; border-right: 0; }
-  #layout { grid-template-columns: 1fr; }
+  #layout, #layout.no-right { grid-template-columns: 1fr; }
   #header { height: 130px; }
   h1.glitch { font-size: 32px; }
   .menu { display: flex; flex-wrap: wrap; gap: 0 4px; }
@@ -675,3 +678,25 @@ a.today-link:hover .box-title { filter: brightness(1.08); }
   .ticker-inner { animation: none; padding-left: 0; }
   .rank-list .meaning, .hint .meaning { transition: none; }
 }
+
+/* 오늘의 실수 */
+.dm-list { list-style: none; margin: 4px 0 10px; padding: 0; }
+.dm-row { display: flex; flex-direction: column; gap: 1px; padding: 5px 0; border-bottom: 1px dotted var(--line-soft); font-family: var(--font-ko); }
+.dm-row:last-child { border-bottom: 0; }
+.dm-said { color: var(--red-text); }
+.dm-better { color: var(--green-text); font-weight: bold; }
+.dm-why { font-family: inherit; }
+.dm-meta { display: flex; gap: 6px; align-items: center; }
+.dm-summary { margin: 2px 0 8px; display: flex; flex-wrap: wrap; gap: 4px; }
+
+/* 홈: 오늘 / 이번 주 / 지난 글 */
+.home-section { font-size: 1.05rem; margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--line-soft); }
+.home-section:first-child { margin-top: 0; }
+.home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+.home-grid > .box { min-width: 0; }
+@media (max-width: 700px) { .home-grid { grid-template-columns: 1fr; } }
+.todo-list, .pin-list { list-style: none; margin: 0; padding: 0; }
+.todo-list li, .pin-list li { padding: 2px 0; }
+.todo-done { color: var(--dim); text-decoration: line-through; }
+.todo-skip { color: var(--dim); }
+.pin-list li { font-family: var(--font-ko); }

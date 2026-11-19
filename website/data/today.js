@@ -251,10 +251,10 @@ const TODAY = {
     "2026-11-18": {
       mood: {
         face: "(〃▽〃)",
-        word: "두근거리다",
-        meaning: "heart pounding, fluttering (excitement or nerves)",
-        sentence: "수업 전에는 늘 가슴이 두근거려요",
-        sentence_en: "My heart always pounds before a lesson",
+        word: "기대되다",
+        meaning: "to look forward to, can't wait",
+        sentence: "오늘 수업이 기대돼요",
+        sentence_en: "I'm looking forward to today's lesson",
       },
       phrase: {
         grammar: 12,
@@ -274,41 +274,44 @@ const TODAY = {
 
   // 날씨 표현 모음: 날씨 종류마다 몇 개. 날마다 돌아가면서 하나를 보여 준다.
   weather: {
+    // Anki 단어 + 기본 단어만 (2026-11-18). note = 어떤 Anki 단어를 쓰는지.
     sun: [
-      { phrase: "하늘이 쨍해요", en: "The sky is bright and clear", note: "쨍하다: 햇빛이 아주 밝다", meaning: "dazzlingly bright (sunlight)" },
-      { phrase: "구름 한 점 없어요", en: "There isn't a single cloud", note: "한 점: 아주 조금", meaning: "a single speck of" },
-      { phrase: "햇살이 따사로워요", en: "The sunlight is pleasantly warm", note: "따사롭다: 따뜻하고 부드럽다", meaning: "gently warm" },
+      { phrase: "하늘이 맑아서 기분이 좋아요", en: "The sky is clear, so I'm in a good mood", note: "맑다: 구름이 없다", meaning: "clear (sky)" },
+      { phrase: "날씨가 선선해요", en: "The weather is cool and pleasant", note: "선선하다 (Anki)", meaning: "cool, pleasantly fresh" },
+      { phrase: "날씨가 많이 풀렸어요", en: "The weather has warmed up a lot", note: "풀리다 (Anki): 추운 날씨가 따뜻해지다", meaning: "(weather) to ease, warm up" },
+      { phrase: "일교차가 크니까 옷을 챙기세요", en: "Big difference between day and night, so bring a layer", note: "일교차, 챙기다 (Anki)", meaning: "daily temperature range · bring along" },
     ],
     cloud: [
-      { phrase: "하늘이 잔뜩 흐려요", en: "The sky is completely overcast", note: "잔뜩: 아주 많이, 가득", meaning: "heavily, fully" },
-      { phrase: "날씨가 꾸물꾸물해요", en: "The weather is gloomy, like it might rain", note: "꾸물꾸물하다: 곧 비가 올 것처럼 흐리다", meaning: "gloomy and heavy (weather)" },
-      { phrase: "구름이 껴서 쌀쌀해요", en: "It's cloudy, so it's chilly", note: "구름이 끼다: 구름이 생기다", meaning: "clouds gather" },
+      { phrase: "하늘이 좀 흐려요", en: "The sky is a bit cloudy", note: "흐리다 (Anki)", meaning: "cloudy, overcast" },
+      { phrase: "날씨가 습해서 답답해요", en: "It's humid, so it feels stuffy", note: "습하다, 답답하다 (Anki)", meaning: "humid · stuffy, frustrating" },
+      { phrase: "흐리고 쌀쌀해요", en: "It's cloudy and chilly", note: "흐리다, 쌀쌀하다 (Anki)", meaning: "cloudy · chilly" },
     ],
     rain: [
-      { phrase: "비가 추적추적 내려요", en: "The rain keeps drizzling down", note: "추적추적: 비가 조용히 계속 오는 모양", meaning: "steady, dreary drizzle" },
-      { phrase: "소나기가 한바탕 쏟아졌어요", en: "There was a big burst of showers", note: "한바탕: 한 번 크게, 세게", meaning: "a (big) bout of" },
-      { phrase: "비가 오락가락해요", en: "The rain keeps starting and stopping", note: "오락가락하다: 왔다 갔다 하다", meaning: "on and off" },
+      { phrase: "비가 쏟아져요", en: "It's pouring", note: "쏟아지다 (Anki)", meaning: "to pour down" },
+      { phrase: "비가 곧 그쳤으면 좋겠어요", en: "I hope the rain stops soon", note: "그치다 (Anki)", meaning: "(rain) to stop" },
+      { phrase: "비 때문에 길이 미끄러워요", en: "The roads are slippery because of the rain", note: "미끄럽다 (Anki)", meaning: "slippery" },
     ],
     snow: [
-      { phrase: "눈이 펑펑 와요", en: "It's snowing heavily", note: "펑펑: 눈이 많이 오는 모양", meaning: "heavily (snow)" },
-      { phrase: "길이 꽁꽁 얼었어요", en: "The roads are frozen solid", note: "꽁꽁: 아주 단단하게 언 모양", meaning: "frozen solid" },
+      { phrase: "길이 얼어서 미끄러워요", en: "The roads are frozen and slippery", note: "얼다, 미끄럽다 (Anki)", meaning: "to freeze · slippery" },
+      { phrase: "눈이 오니까 옷을 껴입으세요", en: "It's snowing, so wear extra layers", note: "껴입다 (Anki)", meaning: "to bundle up, wear layers" },
     ],
     fog: [
-      { phrase: "안개가 자욱해요", en: "The fog is thick", note: "자욱하다: 안개나 연기가 가득하다", meaning: "thick, dense (fog, smoke)" },
+      { phrase: "하늘이 흐려서 앞이 잘 안 보여요", en: "It's so hazy I can't see well ahead", note: "흐리다 (Anki)", meaning: "cloudy, hazy" },
     ],
     storm: [
-      { phrase: "천둥이 치고 번개가 쳐요", en: "There's thunder and lightning", note: "치다: 천둥, 번개가 생기다", meaning: "to strike (thunder, lightning)" },
+      { phrase: "비가 쏟아지고 바람이 많이 불어요", en: "It's pouring and very windy", note: "쏟아지다 (Anki)", meaning: "to pour down" },
     ],
     cold: [
-      { phrase: "날씨가 쌀쌀해요", en: "The weather is chilly", note: "쌀쌀하다: 조금 춥다", meaning: "chilly" },
-      { phrase: "손이 꽁꽁 얼 것 같아요", en: "My hands feel like they'll freeze", note: "꽁꽁: 아주 단단하게 언 모양", meaning: "frozen solid" },
-      { phrase: "바람이 매서워요", en: "The wind is biting", note: "매섭다: 아주 차고 세다", meaning: "fierce, biting (cold)" },
+      { phrase: "날씨가 쌀쌀해요", en: "The weather is chilly", note: "쌀쌀하다 (Anki)", meaning: "chilly" },
+      { phrase: "기온이 많이 떨어졌어요", en: "The temperature has dropped a lot", note: "기온, 떨어지다 (Anki)", meaning: "temperature · to drop" },
+      { phrase: "추우니까 따뜻하게 껴입으세요", en: "It's cold, so bundle up warmly", note: "껴입다 (Anki)", meaning: "to bundle up, wear layers" },
+      { phrase: "너무 추워서 난방을 틀었어요", en: "It was so cold I turned on the heating", note: "난방 (Anki)", meaning: "heating" },
     ],
   },
 
   // 이미 쓴 것 (다시 쓰지 않는다). days 가 생기기 전 표현은 여기에만 있다.
   past: {
-    mood: ["상쾌하다", "후련하다", "흐뭇하다", "보람차다", "든든하다", "느긋하다", "산뜻하다", "홀가분하다", "차분하다", "나른하다", "흡족하다", "아리송하다", "대견하다", "개운하다", "포근하다", "막막하다", "짜릿하다", "들뜨다", "출출하다", "노곤하다", "찌뿌둥하다", "싱숭생숭하다", "시원섭섭하다", "조마조마하다", "두근거리다"],
+    mood: ["상쾌하다", "후련하다", "흐뭇하다", "보람차다", "든든하다", "느긋하다", "산뜻하다", "홀가분하다", "차분하다", "나른하다", "흡족하다", "아리송하다", "대견하다", "개운하다", "포근하다", "막막하다", "짜릿하다", "들뜨다", "출출하다", "노곤하다", "찌뿌둥하다", "싱숭생숭하다", "시원섭섭하다", "조마조마하다", "두근거리다", "기대되다"],
     phrase: ["하마터면 큰일 날 뻔했어요", "한번 도전해 볼게요", "막상 해 보니까 괜찮더라고요", "어쩐지 사람이 많더라고요", "영화에 푹 몰입했나 봐요", "진작 할걸 그랬어요", "일하느라 정신이 없었어요", "오랜만에 푹 쉬었더니 살 것 같아요", "벌써 세 시간이나 지났어요", "가격은 비싼 반면에 맛은 최고예요", "익숙해지기까지 시간이 좀 걸릴 거예요", "알람이 안 울리는 바람에 늦잠을 잤어요", "벌써 다 먹어 버렸어요", "어른이라도 어려운 건 어려워요", "지금 후회한들 소용없어요", "피클볼을 세 시간이나 쳤어요", "일찍 잤더니 컨디션이 좋아요", "이게 맞는지 모르겠어요"],
   },
 };
