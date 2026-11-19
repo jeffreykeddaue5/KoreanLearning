@@ -86,6 +86,7 @@ function bar(done, total, width = 10) {
   return "█".repeat(n) + "░".repeat(width - n);
 }
 
+/* 잠시 숨김 (2026-11-18, index.html 오른쪽 상자와 함께)
 const cd = lessonCountdown();
 if (cd) {
   $("dday").textContent = cd.label;
@@ -109,6 +110,7 @@ if (S.anki && !S.anki.error) {
 } else {
   $("anki-today").textContent = "Anki 정보를 불러오지 못했어요";
 }
+*/
 
 // ===== 순위 목록 (자꾸 까먹는 단어 · 자주 틀리는 문법) =====
 // 많이 틀린 순서로 pageSize개씩. detail은 마우스를 올리거나 눌러야 보인다.
@@ -146,6 +148,7 @@ function renderRankList({ id, navId, items, pageSize, label, detail, count }) {
   render();
 }
 
+/* 잠시 숨김 (2026-11-18, index.html 오른쪽 상자와 함께)
 if (S.anki && S.anki.forgotten) {
   renderRankList({
     id: "forgot-list", navId: "forgot-nav", pageSize: 10,
@@ -185,6 +188,7 @@ if (S.mistakes) {
   $("type-note").textContent = prevWeek ? "▼ 줄었어요 ▲ 늘었어요 (지난주 대비)"
     : Object.entries(english).map(([k, v]) => `${k} ${v}`).join(" · ");
 }
+*/
 
 // ===== 눌러서 보기 (휴대폰) =====
 // .meaning 은 흐리게 보이다가 마우스를 올리면 보인다. 휴대폰에서는 누르면 보인다.

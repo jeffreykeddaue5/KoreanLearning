@@ -413,7 +413,7 @@ function weekSummary() {
     </div>`;
 }
 
-// 홈: 위는 "오늘" (매일 바뀌는 것), 아래는 "이번 주" (매주 바뀌는 것), 맨 아래는 지난 글
+// 홈: 오늘 → 오늘 기사 → 오늘의 실수 (할 일 · 단어는 오른쪽), 아래는 "이번 주" (매주 바뀌는 것), 맨 아래는 지난 글
 function sectionHead(title, note) {
   return `<h2 class="home-section">${title} <span class="small">${note}</span></h2>`;
 }
@@ -422,8 +422,7 @@ function viewHome() {
   const posts = visiblePosts();
   const today = ymd(new Date());
   let html = sectionHead(`오늘 · ${dayLabel(today)}`, "매일 바뀌어요");
-  html += `<div class="home-grid">${todayTodo()}${pinnedBox()}</div>`;
-  html += mistakesBox(5) + todayArticle(posts) + todayLink();
+  html += todayLink() + todayArticle(posts) + mistakesBox(5);
 
   html += sectionHead("이번 주", "수요일 수업 후 바뀌어요");
   html += weekSummary() + listenLink();
@@ -468,7 +467,7 @@ function pinnedBox() {
     <section class="box ac-green">
       <div class="box-title">▣ 오늘의 단어 <span class="small">· Anki ${a.reviewed_today || 0}장 복습</span> <a class="title-link" href="#/cards">카드 »</a></div>
       <div class="box-body">${words.length
-        ? `<ul class="pin-list">${words.map((w) => `<li title="${esc(w.example || "")}"><b>${esc(w.word)}</b> <span class="small">${esc(w.meaning)}</span></li>`).join("")}</ul>`
+        ? `<ul class="pin-list">${words.map((w) => `<li class="hint" title="${esc(w.example || "")}"><b>${esc(w.word)}</b> <span class="meaning">${esc(w.meaning)}</span></li>`).join("")}</ul>`
         : '<p class="small">오늘 고정한 단어가 없어요.</p>'}</div>
     </section>`;
 }
@@ -1165,4 +1164,7 @@ function route() {
 }
 
 window.addEventListener("hashchange", route);
+// 오른쪽: 오늘 할 일 + 오늘의 단어
+const rightToday = document.getElementById("right-today");
+if (rightToday) rightToday.innerHTML = todayTodo() + pinnedBox();
 loadPosts().then(route);
