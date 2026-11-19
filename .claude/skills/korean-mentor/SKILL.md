@@ -90,6 +90,7 @@ Mark folded-in blocks `☑ (Tue)` on the day they were done, so the weekly check
 When the user stops or today's blocks are done:
 1. Recap the day in 2–4 lines: what was done, one highlight (a sentence they got right), one thing for next time.
 2. **Website:** run `.claude/skills/daily-update/SKILL.md` (it rebuilds the side panels and pinned words; the 오늘 panel runs itself from the weekly list). No per-session blog post.
+   Then, if today's article doesn't exist yet, run `.claude/skills/daily-article/SKILL.md` (one news article for the 기사 section).
 3. **Commit** everything this run changed, in one commit, and don't push:
 
 ```bash
