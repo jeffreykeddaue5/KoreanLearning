@@ -11,6 +11,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-18 · lesson review L20 3/8 (ended early; rest of the time went to redesigning the weekly loop: questions → podcast → test, say-then-type timer) · strong: 전분을 넣으세요, 재킷이라도 껴입으세요 · fix: 차라리 + -ㄹ걸, 녹이다
 - 2026-11-16 · review #59, #60 (stopped at 2/7; Mon review dropped, schedule reworked) · conversation · strong: 결항되는 바람에 숙소를 취소해야 했어요, 치킨 한 마리를 먹어 버렸어요, warm-up 4/4 · fix: 버렸어요 (spelling), 웬만하면 … 안 먹으려고 해요, 한 게 (past) 
 - 2026-11-15 · long #59, #60 + review #5, #6, #13, #15, #21, #28, #49, #55 · conversation (holidays) · strong: 바꾸시는 바람에, 깜빡하는 바람에 (no hint), 먹어 버렸어요, 준비하기까지 5시간이나, 말려 보는 반면에 (unprompted), 결국 다투는 법이에요 · fix: 조카들하고 (not 끼리), 아이들은 (contrast), 쉬러 다녀요 / 찜질방에, 좋아하는 것 같아요
 - 2026-11-14 · practice-mistakes · drill · strong: 못 들은 탓에, 편해지기까지, 양이 적어서, 사진을 못 찍어서, 하는 것을 좋아해요, 가는 대신에, 봐 버렸는데 일을 못 했어요 · fix: 문이 닫혀서, 실컷 + no count (15개나)

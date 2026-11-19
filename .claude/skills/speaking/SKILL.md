@@ -1,6 +1,6 @@
 ---
 name: speaking
-description: Sets up the user's weekly self-recorded Korean podcast — a 3-minute-and-up monologue the user records on their own, improved over three days (v1 Mon after listening step 4, v2 Tue after the weekly test, v3 Wed told with no notes before the lesson), by default about their weekend so it doubles as rehearsal for the Wednesday lesson, using 5–8 speech patterns borrowed from the week's TTMIK listening clip plus the week's new grammar. Suggests the topic (only if the user wants one), the length and a self-check list; the user rates themselves and writes a blog post on the same topic, marking 1–2 sentences they're unsure about for the weekly check. No recording or transcription here. Use when the user runs /speaking, asks for a podcast topic, or korean-mentor reaches a podcast/speaking block.
+description: Sets up the user's weekly self-recorded Korean podcast — a 3-minute-and-up monologue the user records on their own, improved over three days (v1 Mon after listening step 4, v2 Tue after the weekly test, v3 Wed told with no notes before the lesson), by default about their weekend so it doubles as rehearsal for the Wednesday lesson, built from the user's own answers to the week's weekend questions in progress/questions.md, using 5–8 speech patterns borrowed from the week's TTMIK listening clip plus the week's new grammar. Suggests the topic (only if the user wants one), the length and a self-check list; the user rates themselves and writes a blog post on the same topic, marking 1–2 sentences they're unsure about for the weekly check. No recording or transcription here. Use when the user runs /speaking, asks for a podcast topic, or korean-mentor reaches a podcast/speaking block.
 ---
 
 # Podcast (speaking)
@@ -11,13 +11,20 @@ Don't record, transcribe or correct the recording, and don't ask the user to spe
 
 ## 1. Prepare v1 (Mon, after listening step 4)
 
-Read the newest plan in `weeks/` (new grammar, the **Podcast** section with the patterns from listening step 3), `Speaking/log.md` (last lengths), `progress/mistakes.md` (Recurring), and `python3 -I .claude/skills/_shared/anki.py trouble`.
+Read the newest plan in `weeks/` (new grammar, the **Podcast** section with the patterns from listening step 3), `progress/questions.md` (this week's set), `Speaking/log.md` (last lengths), `progress/mistakes.md` (Recurring), and `python3 -I .claude/skills/_shared/anki.py trouble`.
+
+**Built from the user's answers (2026-11-18):** the podcast isn't a fresh story. Take the user's latest (fixed) answers to this week's weekend questions, in their past version from Sunday's session, plus any other set answers that fit the story, and put them in story order as the **Outline**: one keyword line per part, each with the user's own best sentence. The user has already said these 2–3 times; v1 links them into one story and adds the borrowed patterns as glue. If the weekend questions weren't answered (missed Sunday), fall back to the topic-only setup.
 
 Show:
 
 ```
 🎙 Podcast · week of 11-04
 Topic: 내 주말 (what you did, one thing that went wrong or surprised you, what's next)
+Outline (your answers this week):
+  1. 시작 — 주말에 여자친구랑 곱창 먹으러 갔어요. (Q1, Sun ✔)
+  2. 왜 — 과제가 많아서 위로해 주려고… (Q1 follow-up)
+  3. 반전 — 자리가 없는 바람에 30분 기다렸어요. (Q3)
+  4. 마무리 — 다음에는 예약할 거예요. (Q5)
 Length: 3:00 (aim), 2:30–3:30 is fine
 Borrow from the clip: 제가 얼마 전에 ~했거든요 · 그러다 보니까 · 근데 진짜 · -더라고요 · 아무튼 · 오늘은 여기까지
 Grammar: #57 -았/었더니 (something you did and what happened) · #58 -느라(고) (something you couldn't do because you were busy)

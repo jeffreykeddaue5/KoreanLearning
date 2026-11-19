@@ -1,6 +1,6 @@
 ---
 name: weekly-check
-description: Tuesday no-hint test before the Wednesday lesson — 10 items on the week's new grammar, older points and the user's worst mistake type, plus a check of the podcast v1's unsure sentences (homework is a separate block) — then levels points up or down (the only way to reach levels 3–5), writes the weekly report (blocks done vs planned, levels, no-hint uses, open mistakes by type, listening result, Anki streak) and the questions for the tutor. Use when the user runs /weekly-check, on Tuesday, or when korean-mentor reaches the weekly check block.
+description: Tuesday no-hint test before the Wednesday lesson — the week's question set from progress/questions.md asked again, timed and with no hints (10 scored items covering the week's new grammar, due older points and the user's worst mistake type), plus a check of the podcast v1's unsure sentences (homework is a separate block) — then levels points up or down (the only way to reach levels 3–5), writes the weekly report (blocks done vs planned, levels, no-hint uses, open mistakes by type, listening result, Anki streak) and the questions for the tutor. Use when the user runs /weekly-check, on Tuesday, or when korean-mentor reaches the weekly check block.
 ---
 
 # Weekly check
@@ -11,23 +11,22 @@ Runs the night before the lesson, so what goes wrong becomes Wednesday's questio
 
 1. Read the newest plan in `weeks/`, `progress/grammar.md`, `progress/mistakes.md`, and `Grammar/README.md` to find the point files you need.
 2. If **Weekly report** in the plan is already filled in, say so and ask whether to run it again (counts don't change twice in a week).
-3. Pick 10 items:
-   - **4 on this week's new points** (2 each; in a light week, 4 on the last 3 weeks' new points).
-   - **4 older points**: first those at level 2 or higher that are due within the next 7 days (a pass moves them up to 3–5), then any due point. No two items on the same point.
-   - **1 on the worst mistake type**: the type tag with the most open items in `progress/mistakes.md`. If that's `[문법]`, use the grammar point that shows up most among those items. Use a new situation, not the old sentence.
-   - **1 open item** combining a new point with a due point in one answer (e.g. a 2–3 sentence story).
-4. Tell the user in one line: `Weekly check: 10 items, no hints. Take your time.`
+3. Pick 10 scored items **from the week's question set** in `progress/questions.md` (since 2026-11-18 the test asks the questions the user practiced all week, not new situations, so the score shows whether the practice stuck):
+   - **6–7 week-set questions**, roughest first, so that each new point is the natural answer to at least 2 of them (in a light week: the last 3 weeks' points). Weekend questions are asked in their past version.
+   - **3–4 follow-ups**, each carrying one older point: first those at level 2+ due within 7 days (a pass moves them to 3–5), then any due point. No two items on the same point.
+   - **The worst mistake type** (most open items by tag in `progress/mistakes.md`; for `[문법]`, the point that shows up most): one of the follow-ups must force it (e.g. for `[시제]`, ask about yesterday right after a question about tomorrow).
+   - A follow-up reacts to what the user just said, like in a session; only its target is planned.
+4. Tell the user in one line: `Weekly test: this week's questions, no hints. ⏱ 30 s each, say it, send ., then type it.`
 
-## Item formats
+## How it runs
 
-Mix them; most should make the user produce Korean:
-- **Situation → Korean** (5–6 items): a short situation in English, e.g. "You had coffee at 9pm and couldn't sleep. Tell your friend." The point must be the natural choice, but don't name it.
-- **Fix this sentence** (2 items): a sentence with one mistake, in a new situation.
-- **Question → 2–3 sentences** (the last 1–2 items): a Korean question that calls for a short story or reason.
+Same as a grammar session (`.claude/skills/korean-mentor/session.md`: prompt card, speak.sh + timer started before the card, say it → `.` → type it), with these differences:
+- **No grammar hints**, and no `?` help: a stuck answer is just ✏️ with the target version.
+- `[n/10]` instead of `Qn / total`. Every card still has one Anki word.
+- One-line ✔ or ✏️ right after each answer, with last time (from the question's history) so the user sees the week's change: `⏱ 18s spoken · ✔ (Thu 1:12 ✏️)`. Don't re-ask missed items.
+- Add each answer to the question's history line in `progress/questions.md` with `(weekly)`; ✔ ≤ 30 s twice in a row still moves it to **Smooth**.
 
-Show `[n/10]` before each item. Play each Korean prompt with `.claude/skills/korean-mentor/speak.sh "<Korean>"` (plain Bash, only the Korean sentence). Give a one-line ✔ or ✏️ right after each answer, with a short English reason for ✏️. Don't re-ask missed items; the result is what counts.
-
-A point counts as **right** only if it's used correctly and naturally with no hint. Using a different, also-correct structure is not wrong, but it doesn't count as a pass for that point (say so and give the target version).
+A point counts as **right** only if it's used correctly and naturally with no hint, **within 60 s**. Over 60 s it's ✔ for the history but no level change. Using a different, also-correct structure is not wrong, but it doesn't count as a pass for that point (say so and give the target version).
 
 ## Homework check
 
@@ -55,10 +54,12 @@ Copy the Anki collection to the scratchpad (`cp ~/snap/anki-desktop/common/User\
 python3 -I .claude/skills/weekly-check/stats.py weeks/<plan>.md "$SCRATCH/collection.anki2"
 ```
 
+Add to the line the test's average spoken time and how it compares with the first time those questions were asked (Thu): `check 7/10 · avg 0:31 (Thu 1:05)`.
+
 Last week's numbers are in **Weekly reports** in `progress/log.md`. Write a one-line report at the top of that section, and a short version under **Weekly report** in the plan:
 
 ```
-2026-11-10 · week 1 · blocks 15/21 · check 7/10 · new: #57 L1, #58 L2 · level 3+: 8 (+2) · no-hint 34 (+6) · open mistakes 28 (−2), most: [조사] 6 · listening 60% → 85% · podcast 3:10 (self 4/3/4/3) · Anki 80-day streak, 6/7 days
+2026-11-10 · week 1 · blocks 15/21 · check 7/10 · avg 0:31 (Thu 1:05) · new: #57 L1, #58 L2 · level 3+: 8 (+2) · no-hint 34 (+6) · open mistakes 28 (−2), most: [조사] 6 · listening 60% → 85% · podcast 3:10 (self 4/3/4/3) · Anki 80-day streak, 6/7 days
 ```
 
 - **podcast** = the newest `Speaking/log.md` podcast line this week, or `podcast –` if there isn't one.
