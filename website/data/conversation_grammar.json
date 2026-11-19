@@ -1,0 +1,13 @@
+{
+  "_readme": "오늘의 회화 문법 설명 (Naver 대신). 키 = Naver 문법 제목 그대로. fetch_conversation.py가 읽는다. 없으면 'NEED NOTE'를 출력 → 여기에 써 넣고 스크립트를 다시 실행.",
+  "Vst는/은/ㄴ 건 아니고": {
+    "form": "V-는 건 아니고 · A-(으)ㄴ 건 아니고 · 지난 일: V-(으)ㄴ 건 아니고 · 있다/없다 → -는 건 아니고",
+    "meaning": "It's not (exactly) that …, (it's just that) …",
+    "notes": [
+      "Corrects a guess: the other person's idea is close, but not quite. You say what it isn't, then what it really is.",
+      "건 = 것은. Softer than just 아니에요, because you give the real answer right after.",
+      "-는 게 아니라 is a stronger contrast (not X <b>but</b> Y). -는 건 아니고 = not exactly X, just Y.",
+      "❌ 싫는 건 아니고 → ✅ 싫은 건 아니고 (adjectives take -(으)ㄴ)"
+    ]
+  }
+}

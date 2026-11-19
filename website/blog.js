@@ -2,12 +2,13 @@
 const CATEGORIES = {
   // daily: { name: "일상", color: "yellow" },  // 일상 숨김 (2026-11-18)
   lesson: { name: "수업", color: "blue" },
-  article: { name: "기사", color: "orange" },  // 매일 기사 (daily-article 스킬, 2026-11-18)
+  // article: { name: "기사", color: "orange" },  // 기사 숨김 → 오늘의 회화 (2026-11-19)
+  conversation: { name: "회화", color: "orange" },  // 네이버 오늘의 회화 (fetch_conversation.py, 2026-11-19)
   // weekly: { name: "주간 정리", color: "green" },  // 주간 정리 숨김 → 오늘의 실수 (2026-11-18)
 };
 // 카테고리 색 (style.css의 .ac-*)
 const acOf = (key) => (CATEGORIES[key] ? `ac-${CATEGORIES[key].color}` : "");
-const HOME_POSTS_PER_CATEGORY = 3;
+const HOME_POSTS_PER_CATEGORY = 5;
 const SITE_TITLE = "일지";
 
 const content = document.getElementById("content");
@@ -73,6 +74,19 @@ function renderBlock(b) {
     return figure(`<video src="${b.video}" ${attrs}></video>`, b.caption);
   }
   if (b.audio) return figure(`<audio src="${b.audio}" controls preload="none"></audio>`, b.caption);
+  // listen: [로컬 mp3, 예비 링크] — 앞의 것이 없으면 다음 것을 재생
+  if (b.listen) {
+    const sources = b.listen.map((s) => `<source src="${s}" type="audio/mpeg">`).join("");
+    return figure(`<audio controls preload="none">${sources}</audio>`, b.caption);
+  }
+  // lines: 한 줄씩 ▶ 듣기 + 한국어 + 번역(눌러야 보임)
+  if (b.lines) {
+    const row = (l) => `
+      <li>${l.src ? `<button class="play" data-src="${l.src.join(" ")}" title="듣기">▶</button>` : ""}
+        <span class="line-text"><span>${l.who ? `<span class="who">${escapeHtml(l.who)}</span>` : ""}<span class="ko">${escapeHtml(l.ko)}</span></span>
+        ${l.en ? `<span class="en" title="눌러서 번역 보기">${escapeHtml(l.en)}</span>` : ""}</span></li>`;
+    return `<ul class="lines">${b.lines.map(row).join("")}</ul>`;
+  }
   if (b.youtube) {
     return figure(
       `<div class="yt"><iframe src="https://www.youtube.com/embed/${b.youtube}" allowfullscreen></iframe></div>`,
@@ -101,7 +115,7 @@ function mediaBadges(p) {
   let out = "";
   if (has("image") || has("gallery")) out += '<span class="badge">사진</span>';
   if (has("video") || has("youtube")) out += '<span class="badge">영상</span>';
-  if (has("audio")) out += '<span class="badge">음성</span>';
+  if (has("audio") || has("listen") || has("lines")) out += '<span class="badge">음성</span>';
   return out;
 }
 
@@ -131,10 +145,17 @@ function postItem(p) {
     </article>`;
 }
 
-function listBox(title, posts, footer = "", cls = "") {
-  const body = posts.length
-    ? posts.map(postItem).join("")
-    : '<p class="small">아직 글이 없습니다.</p>';
+// 제목만 한 줄씩 (홈의 지난 글, 2026-11-19)
+function titleItem(p) {
+  return `<li><span class="small">${normDate(p.date).slice(5)}</span> <a href="#/post/${p.id}">${p.title}</a> ${mediaBadges(p)}</li>`;
+}
+
+function listBox(title, posts, footer = "", cls = "", compact = false) {
+  const body = !posts.length
+    ? '<p class="small">아직 글이 없습니다.</p>'
+    : compact
+      ? `<ul class="title-list">${posts.map(titleItem).join("")}</ul>`
+      : posts.map(postItem).join("");
   return `
     <section class="box ${cls}">
       <div class="box-title">${title}</div>
@@ -431,9 +452,9 @@ function viewHome() {
 
   html += sectionHead("지난 글", "");
   for (const [key, cat] of Object.entries(CATEGORIES)) {
-    const inCat = posts.filter((p) => p.category === key && p !== lesson && !(key === "article" && p.date === today));
+    const inCat = posts.filter((p) => p.category === key && p !== lesson && !(key === "conversation" && p.date === today));
     const more = `<p class="all"><a href="#/category/${key}">→ 전체 보기 (${posts.filter((p) => p.category === key).length})</a></p>`;
-    html += listBox(`▣ ${cat.name}`, inCat.slice(0, HOME_POSTS_PER_CATEGORY), more, acOf(key));
+    html += listBox(`▣ ${cat.name}`, inCat.slice(0, HOME_POSTS_PER_CATEGORY), more, acOf(key), true);
   }
   return { title: "", html, after: fillWeather };
 }
@@ -472,14 +493,14 @@ function pinnedBox() {
     </section>`;
 }
 
-// 오늘의 기사 (없으면 가장 최근 기사)
+// 오늘의 회화 (없으면 가장 최근 회화)
 function todayArticle(posts) {
-  const p = posts.find((x) => x.category === "article");
+  const p = posts.find((x) => x.category === "conversation");
   if (!p) return "";
   const isToday = normDate(p.date) === normDate(ymd(new Date()));
   return `
-    <a class="box today-link ${acOf("article")}" href="#/post/${p.id}">
-      <div class="box-title">▼ ${isToday ? "오늘의 기사" : "최근 기사"} <span class="title-link">${esc((p.tags || [])[0] || "")} · 읽기 »</span></div>
+    <a class="box today-link ${acOf("conversation")}" href="#/post/${p.id}">
+      <div class="box-title">▼ ${isToday ? "오늘의 회화" : "최근 회화"} <span class="title-link">${esc((p.tags || [])[0] || "")} · 듣기 »</span></div>
       <div class="box-body"><p class="today-peek"><b>${p.title}</b></p><p class="small">${esc(p.summary || "")}</p></div>
     </a>`;
 }
@@ -1168,3 +1189,27 @@ window.addEventListener("hashchange", route);
 const rightToday = document.getElementById("right-today");
 if (rightToday) rightToday.innerHTML = todayTodo() + pinnedBox();
 loadPosts().then(route);
+
+// ===== ▶ 한 줄 듣기 (lines 블록) =====
+// data-src="로컬 예비" — 로컬 파일이 없으면(GitHub Pages) 네이버 링크로 재생
+const linePlayer = new Audio();
+let playingBtn = null;
+linePlayer.addEventListener("ended", () => playingBtn && playingBtn.classList.remove("on"));
+document.addEventListener("click", (e) => {
+  const en = e.target.closest(".lines .en");
+  if (en) { en.classList.toggle("show"); return; }
+  const btn = e.target.closest("button.play");
+  if (!btn) return;
+  const srcs = btn.dataset.src.split(" ");
+  let i = 0;
+  if (playingBtn) playingBtn.classList.remove("on");
+  playingBtn = btn;
+  btn.classList.add("on");
+  const tryNext = () => {
+    if (i >= srcs.length) { btn.classList.remove("on"); return; }
+    linePlayer.src = srcs[i++];
+    linePlayer.play().catch(() => {});
+  };
+  linePlayer.onerror = tryNext;
+  tryNext();
+});

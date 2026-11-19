@@ -4,7 +4,7 @@
 // 날씨는 페이지가 Open-Meteo 에서 바로 가져오고, 표현은 아래 weather 모음에서 날씨에 맞게 고른다.
 // 한국어 줄마다 *_en 이 있어야 한다 (흐리게 보이다가 누르면 보인다).
 const TODAY = {
-  week: "2026-11-12 ~ 2026-11-18",
+  week: "2026-11-19 ~ 2026-11-25",
   days: {
     "2026-11-07": {
       mood: {
@@ -270,6 +270,160 @@ const TODAY = {
         tip_en: "Verbs take -는지, adjectives -(으)ㄴ지.",
       },
     },
+    "2026-11-19": {
+      mood: {
+        face: "(*´▽`*)",
+        word: "설레다",
+        meaning: "to feel excited, fluttery (about something new)",
+        sentence: "새로운 걸 배울 때 설레요",
+        sentence_en: "I get excited when I learn something new",
+      },
+      phrase: {
+        grammar: 27,
+        text: "아직 많이 부족한걸요",
+        text_en: "Oh, I still have a long way to go",
+        example: "저도 아직 헷갈리는걸요",
+        example_en: "I still get it mixed up too, though",
+        when: "선생님이 칭찬해 줄 때 겸손하게 대답할 때 써요.",
+        when_en: "Use it to answer modestly when your tutor praises you.",
+        fix: "✕ 아직 많이 부족하는걸요 → ○ 부족한걸요",
+        fix_en: "부족하다 is an adjective, so it takes -(으)ㄴ걸요.",
+        tip: "동사는 -는걸요, 형용사는 -(으)ㄴ걸요.",
+        tip_en: "Verbs take -는걸요, adjectives -(으)ㄴ걸요.",
+      },
+    },
+    "2026-11-20": {
+      mood: {
+        face: "ヽ(>∀<☆)ノ",
+        word: "신나다",
+        meaning: "to be excited, in high spirits",
+        sentence: "금요일이라서 신나요",
+        sentence_en: "It's Friday, so I'm in a great mood",
+      },
+      phrase: {
+        grammar: 24,
+        text: "이렇게 말해도 되죠?",
+        text_en: "It's OK to say it like this, right?",
+        example: "지난 일이니까 과거형으로 써야 되죠?",
+        example_en: "It's a past event, so I should use the past tense, right?",
+        when: "내가 맞는 것 같은데 선생님한테 확인하고 싶을 때 써요.",
+        when_en: "Use it when you think you're right but want your tutor to confirm.",
+        fix: "✕ 이렇게 말해도 돼죠? → ○ 되죠?",
+        fix_en: "되 + -지요 = 되죠 (돼 = 되어, not here).",
+        tip: "-죠? = 확인하는 질문. 끝을 올려서 말해요.",
+        tip_en: "-죠? checks something you think is true. Say it with rising intonation.",
+      },
+    },
+    "2026-11-21": {
+      mood: {
+        face: "(￣ー￣)ゞ",
+        word: "귀찮다",
+        meaning: "to be a hassle, can't be bothered",
+        sentence: "추운 날에는 밖에 나가기 귀찮아요",
+        sentence_en: "On cold days I can't be bothered to go out",
+      },
+      phrase: {
+        grammar: 61,
+        text: "이번 주에는 매일 녹음하기로 했어요",
+        text_en: "I decided to record myself every day this week",
+        example: "다음 수업 전까지 숙제를 보내기로 했어요",
+        example_en: "I agreed to send the homework before the next lesson",
+        when: "이미 정한 계획을 말할 때 써요. 선생님한테 이번 주 계획을 말할 때 좋아요.",
+        when_en: "Use it for a plan that's already decided, like telling your tutor your plan for the week.",
+        fix: "✕ 내일 친구를 만나기로 해요 → ○ 만나기로 했어요",
+        fix_en: "The decision is already made, so 했어요 even for a future plan.",
+        tip: "결정은 끝났으니까 거의 항상 -기로 했어요.",
+        tip_en: "The decision is done, so it's almost always -기로 했어요.",
+      },
+    },
+    "2026-11-22": {
+      mood: {
+        face: "(｀へ´)",
+        word: "답답하다",
+        meaning: "to feel stuck, frustrated (can't get it out)",
+        sentence: "하고 싶은 말이 안 나와서 답답해요",
+        sentence_en: "The words I want to say won't come out, so it's frustrating",
+      },
+      phrase: {
+        grammar: 32,
+        text: "제 문장이 좀 어색할지도 몰라요",
+        text_en: "My sentence might sound a bit awkward",
+        example: "다음 주 수업에 조금 늦을지도 몰라요",
+        example_en: "I might be a little late to next week's lesson",
+        when: "확실하지 않은 일을 미리 말할 때 써요. 문장을 말하기 전에 쓰면 좋아요.",
+        when_en: "Use it to warn about something that might happen, e.g. before you read out a sentence.",
+        fix: "✕ 늦을 지도 몰랐어요 (지금 하는 추측) → ○ 늦을지도 몰라요",
+        fix_en: "A guess you're making now stays in the present: 몰라요.",
+        tip: "지금 추측하면 몰라요, 붙여 써요: -(으)ㄹ지도.",
+        tip_en: "A guess made now → 몰라요, and write -(으)ㄹ지도 as one word.",
+      },
+    },
+    "2026-11-23": {
+      mood: {
+        face: "(´-ω-`)",
+        word: "지치다",
+        meaning: "to be worn out, exhausted",
+        sentence: "월요일에는 쉽게 지쳐요",
+        sentence_en: "I get worn out easily on Mondays",
+      },
+      phrase: {
+        grammar: 62,
+        text: "이번 숙제는 할 만했어요",
+        text_en: "This week's homework was doable",
+        example: "추천해 주신 드라마 볼 만했어요",
+        example_en: "The drama you recommended was worth watching",
+        when: "어렵지 않았다거나 해 볼 가치가 있다고 말할 때 써요. 숙제나 추천 얘기할 때 좋아요.",
+        when_en: "Use it to say something was doable or worth it, e.g. homework or a recommendation.",
+        fix: "✕ 그 드라마는 볼 만한 거예요 → ○ 볼 만해요",
+        fix_en: "만하다 is the ending itself: 볼 만해요, 볼 만한 드라마.",
+        tip: "항상 -(으)ㄹ + 만하다: 할 만해요, 먹을 만해요.",
+        tip_en: "Always -(으)ㄹ before 만하다.",
+      },
+    },
+    "2026-11-24": {
+      mood: {
+        face: "(•̀ᴗ•́)و",
+        word: "뿌듯하다",
+        meaning: "to feel proud, satisfied (with what you did)",
+        sentence: "숙제를 다 끝내면 뿌듯해요",
+        sentence_en: "I feel proud when I finish all my homework",
+      },
+      phrase: {
+        grammar: 13,
+        text: "조금만 천천히 말해 주시면 좋겠어요",
+        text_en: "I'd appreciate it if you could speak a little more slowly",
+        example: "제 발음도 고쳐 주시면 좋겠어요",
+        example_en: "I'd like you to correct my pronunciation too",
+        when: "선생님한테 정중하게 부탁할 때 써요.",
+        when_en: "Use it to ask your tutor for something politely.",
+        fix: "✕ 천천히 말해 주면 좋겠어요 (선생님한테) → ○ 말해 주시면",
+        fix_en: "To your tutor, add -시-: 주시면.",
+        tip: "부탁: -아/어 주시면 좋겠어요.",
+        tip_en: "Polite request: -아/어 주시면 좋겠어요.",
+      },
+    },
+    "2026-11-25": {
+      mood: {
+        face: "(´・ω・`)",
+        word: "아쉽다",
+        meaning: "to be a shame, wish there were more",
+        sentence: "수업이 한 시간밖에 안 돼서 아쉬워요",
+        sentence_en: "It's a shame the lesson is only an hour",
+      },
+      phrase: {
+        grammar: 22,
+        text: "아, 그런 뜻이군요!",
+        text_en: "Oh, so that's what it means!",
+        example: "아, 그래서 보이길래를 쓰는군요",
+        example_en: "Oh, so that's why you use 보이길래",
+        when: "선생님 설명을 듣고 새로 알게 됐을 때 써요.",
+        when_en: "Use it when your tutor explains something and you get it.",
+        fix: "✕ 그래서 보이길래를 쓰군요 → ○ 쓰는군요",
+        fix_en: "Verbs take -는군요; nouns and adjectives take -군요.",
+        tip: "들은 걸 이제 알았을 때: -군요. 내가 본 건: -네요.",
+        tip_en: "Learned it from someone just now → -군요. Saw it yourself → -네요.",
+      },
+    },
   },
 
   // 날씨 표현 모음: 날씨 종류마다 몇 개. 날마다 돌아가면서 하나를 보여 준다.
@@ -311,7 +465,7 @@ const TODAY = {
 
   // 이미 쓴 것 (다시 쓰지 않는다). days 가 생기기 전 표현은 여기에만 있다.
   past: {
-    mood: ["상쾌하다", "후련하다", "흐뭇하다", "보람차다", "든든하다", "느긋하다", "산뜻하다", "홀가분하다", "차분하다", "나른하다", "흡족하다", "아리송하다", "대견하다", "개운하다", "포근하다", "막막하다", "짜릿하다", "들뜨다", "출출하다", "노곤하다", "찌뿌둥하다", "싱숭생숭하다", "시원섭섭하다", "조마조마하다", "두근거리다", "기대되다"],
-    phrase: ["하마터면 큰일 날 뻔했어요", "한번 도전해 볼게요", "막상 해 보니까 괜찮더라고요", "어쩐지 사람이 많더라고요", "영화에 푹 몰입했나 봐요", "진작 할걸 그랬어요", "일하느라 정신이 없었어요", "오랜만에 푹 쉬었더니 살 것 같아요", "벌써 세 시간이나 지났어요", "가격은 비싼 반면에 맛은 최고예요", "익숙해지기까지 시간이 좀 걸릴 거예요", "알람이 안 울리는 바람에 늦잠을 잤어요", "벌써 다 먹어 버렸어요", "어른이라도 어려운 건 어려워요", "지금 후회한들 소용없어요", "피클볼을 세 시간이나 쳤어요", "일찍 잤더니 컨디션이 좋아요", "이게 맞는지 모르겠어요"],
+    mood: ["상쾌하다", "후련하다", "흐뭇하다", "보람차다", "든든하다", "느긋하다", "산뜻하다", "홀가분하다", "차분하다", "나른하다", "흡족하다", "아리송하다", "대견하다", "개운하다", "포근하다", "막막하다", "짜릿하다", "들뜨다", "출출하다", "노곤하다", "찌뿌둥하다", "싱숭생숭하다", "시원섭섭하다", "조마조마하다", "두근거리다", "기대되다", "설레다", "신나다", "귀찮다", "답답하다", "지치다", "뿌듯하다", "아쉽다"],
+    phrase: ["하마터면 큰일 날 뻔했어요", "한번 도전해 볼게요", "막상 해 보니까 괜찮더라고요", "어쩐지 사람이 많더라고요", "영화에 푹 몰입했나 봐요", "진작 할걸 그랬어요", "일하느라 정신이 없었어요", "오랜만에 푹 쉬었더니 살 것 같아요", "벌써 세 시간이나 지났어요", "가격은 비싼 반면에 맛은 최고예요", "익숙해지기까지 시간이 좀 걸릴 거예요", "알람이 안 울리는 바람에 늦잠을 잤어요", "벌써 다 먹어 버렸어요", "어른이라도 어려운 건 어려워요", "지금 후회한들 소용없어요", "피클볼을 세 시간이나 쳤어요", "일찍 잤더니 컨디션이 좋아요", "이게 맞는지 모르겠어요", "아직 많이 부족한걸요", "이렇게 말해도 되죠?", "이번 주에는 매일 녹음하기로 했어요", "제 문장이 좀 어색할지도 몰라요", "이번 숙제는 할 만했어요", "조금만 천천히 말해 주시면 좋겠어요", "아, 그런 뜻이군요!"],
   },
 };

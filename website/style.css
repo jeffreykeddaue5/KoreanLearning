@@ -256,6 +256,7 @@ h1.glitch.active::after { opacity: 0.85; transform: translate(3px, -1px); clip-p
 .menu li a:hover { color: #101114; }
 .menu a.active { background: var(--red); color: #fff; }
 .menu a.active::after { content: " ◀"; }
+.menu li.menu-head { border: 0; padding: 8px 4px 2px; font-size: 0.8em; opacity: 0.7; letter-spacing: 0.05em; }
 
 /* 카운터 */
 .digits {
@@ -669,6 +670,7 @@ a.today-link:hover .box-title { filter: brightness(1.08); }
   .menu { display: flex; flex-wrap: wrap; gap: 0 4px; }
   .menu li { border: 0; }
   .menu li a { padding: 6px 6px; }
+  .menu li.menu-head { flex-basis: 100%; padding: 4px 6px 0; }
   .menu a.active::after { content: ""; }
   .today-pair { grid-template-columns: 1fr; }
 }
@@ -700,3 +702,20 @@ a.today-link:hover .box-title { filter: brightness(1.08); }
 .todo-done { color: var(--dim); text-decoration: line-through; }
 .todo-skip { color: var(--dim); }
 .pin-list li { font-family: var(--font-ko); }
+
+/* 오늘의 회화: 한 줄씩 듣기 */
+.post-content ul.lines { list-style: none; padding: 0; margin: 8px 0 14px; }
+.post-content ul.lines li { display: flex; gap: 8px; align-items: flex-start; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.post-content .line-text { display: flex; flex-direction: column; gap: 2px; }
+.post-content .lines .who { font-weight: bold; color: var(--accent-text, var(--orange-text)); margin-right: 6px; }
+.post-content .lines .ko { font-size: 1.05em; }
+.post-content .lines .en { font-size: 0.85em; opacity: 0.75; filter: blur(4px); cursor: pointer; transition: filter 0.15s; }
+.post-content .lines .en:hover, .post-content .lines .en.show { filter: none; }
+button.play { flex: none; width: 28px; height: 28px; border: 1px solid var(--line); background: transparent; color: inherit; cursor: pointer; border-radius: 50%; font-size: 12px; line-height: 1; }
+button.play:hover, button.play.on { background: var(--orange); color: #101114; }
+
+/* 홈 지난 글: 제목만 */
+ul.title-list { list-style: none; padding: 0; margin: 0 0 6px; }
+ul.title-list li { padding: 4px 0; border-bottom: 1px dashed var(--line); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+ul.title-list li:last-child { border-bottom: none; }
+ul.title-list .small { margin-right: 6px; font-variant-numeric: tabular-nums; }

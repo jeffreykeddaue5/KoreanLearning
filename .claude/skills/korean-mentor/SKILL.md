@@ -92,7 +92,7 @@ Mark folded-in blocks `☑ (Tue)` on the day they were done, so the weekly check
 When the user stops or today's blocks are done:
 1. Recap the day in 2–4 lines: what was done, one highlight (a sentence they got right), one thing for next time.
 2. **Website:** run `.claude/skills/daily-update/SKILL.md` (it rebuilds the side panels and pinned words; the 오늘 panel runs itself from the weekly list). No per-session blog post.
-   Then, if today's article doesn't exist yet, run `.claude/skills/daily-article/SKILL.md` (one news article for the 기사 section).
+   Then, if `website/posts/<today>-conversation.js` doesn't exist yet, run `python3 -I website/fetch_conversation.py` (Naver 오늘의 회화 with audio for the 회화 section; replaced the daily 기사 on 2026-11-19 — run `/daily-article` only if the user asks). If Naver has no conversation yet for today, say so and move on. If it prints `NEED NOTE: <title>`, write your own explanation of that grammar into `website/data/conversation_grammar.json` (key = the title exactly; `form`, `meaning`, 2–4 short `notes` in English, like the Grammar/ files: when to use it, how it differs from a similar point the user knows, one ❌ → ✅) and run the script again. The user prefers these to Naver's explanations (2026-11-19).
 3. **Commit** everything this run changed, in one commit, and don't push:
 
 ```bash

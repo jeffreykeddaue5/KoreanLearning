@@ -5,3 +5,4 @@ Speaking/**/*.mp3
 Speaking/**/*.m4a
 anki/pending.json
 __pycache__/
+website/media/conversation/
