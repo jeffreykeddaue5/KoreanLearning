@@ -6,7 +6,7 @@ Each item starts with a type: [시제] tense · [조사] particles · [어휘] w
 
 Mistakes that happened in 2 or more sessions. No count; being right adds `· right <date>`, being wrong adds the date and sentence. Remove an item once it stops happening.
 
-- [시제] Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에, 사고 싶은데) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past, 2026-10-20 warm-up: 늘 … 뒀어요 for a habit → 둬요, 2026-10-23: 사고 싶은데 → 싶었는데, 2026-10-25: 풀리기까지 2달이 걸려요 → 걸릴 거예요, 500달러가 들어요 → 들었어요, 2026-10-26: 매진되나 봐요 for the future → 매진될 것 같아요, 2026-10-29 warm-up: 풀리기까지 … 걸었어요 → 걸릴 거예요, 500달러가 들어요 → 들었어요, 2026-10-30 drill: 30만 원이 들어요 → 들었어요, 2026-11-06: 팔이 쑤셨어요 (now) → 쑤셔요, 지금 바빴다고 → 바쁘다고, 주말 날씨가 좋더라고요 → 좋을 거래요, 2026-11-07 feelings drill: 친구를 못 만나기 때문에 서운했어요 → 못 만나서, 2026-11-08: 서운할 지도 몰랐지만 (guess now) → 서운할지도 모르지만, 2026-11-09: 이직 혼자 다 해야 돼요 (future guess) → 해야 할 거예요, 2026-11-10 weekly: 좋길래 공원에 가요 → 갔어요, 2026-11-11 prep: 잊어버리는 탓에 → 잊어버린 탓에) · right 2026-11-14 · 2026-11-15: 다 좋아한 것 같아요 (general now) → 좋아하는 것 같아요
+- [시제] Tense doesn't match the time: present for past events (연결할 수 없어요), past for future plans (끝나자마자 샤워했어요), past for ongoing (요즘 버텼거든요), present for past (많거든요, 걸리는 탓에, 사고 싶은데) (2026-10-08, 2026-10-09, 2026-10-11, 2026-10-12, 2026-10-13 warm-up: 요즘 버텼거든요 again, 2026-10-17: 잃어버리나 봐요, 출발해요 for past, 2026-10-20 warm-up: 늘 … 뒀어요 for a habit → 둬요, 2026-10-23: 사고 싶은데 → 싶었는데, 2026-10-25: 풀리기까지 2달이 걸려요 → 걸릴 거예요, 500달러가 들어요 → 들었어요, 2026-10-26: 매진되나 봐요 for the future → 매진될 것 같아요, 2026-10-29 warm-up: 풀리기까지 … 걸었어요 → 걸릴 거예요, 500달러가 들어요 → 들었어요, 2026-10-30 drill: 30만 원이 들어요 → 들었어요, 2026-11-06: 팔이 쑤셨어요 (now) → 쑤셔요, 지금 바빴다고 → 바쁘다고, 주말 날씨가 좋더라고요 → 좋을 거래요, 2026-11-07 feelings drill: 친구를 못 만나기 때문에 서운했어요 → 못 만나서, 2026-11-08: 서운할 지도 몰랐지만 (guess now) → 서운할지도 모르지만, 2026-11-09: 이직 혼자 다 해야 돼요 (future guess) → 해야 할 거예요, 2026-11-10 weekly: 좋길래 공원에 가요 → 갔어요, 2026-11-11 prep: 잊어버리는 탓에 → 잊어버린 탓에) · right 2026-11-14 · 2026-11-15: 다 좋아한 것 같아요 (general now) → 좋아하는 것 같아요 · 2026-11-18 lesson review: 날씨가 끈적끈적해요 (past trip) → 끈적끈적했어요
 - [문법] -(으)ㄹ까 봐: adds -서 (걸릴까 봐서, L7; 멀미할까 봐서, 2026-10-17) and drops 못 (갈까 봐, L16; 받을까 봐, 2026-10-17) · right 2026-10-18
 - [문법] Discovery → -아/어 보니까: 확인하다 보니 (2026-10-17), 찾아볼 때 가다 보니 (2026-10-18), 확인해서 품절됐어요 (2026-10-23), 확인하자마자 품절됐어요 (2026-10-26 warm-up) → 확인해 보니까 품절됐더라고요 · right unprompted 2026-10-29
 - [조사] N에 N for a compound noun: 한국에 여행은 → 한국 여행은 (2026-10-17), 일본에 여행은 → 일본 여행은 (2026-10-20 warm-up)
@@ -17,7 +17,7 @@ Mistakes that happened in 2 or more sessions. No count; being right adds `· rig
 - [어순] 어쩐지 in the same clause as the reason: 세일이 많은 만큼/많아서 어쩐지 … 걸렸어요 → 세일이 많더라고요. 어쩐지 주차하는 데 30분이나 걸리더라고요 (2026-10-29, 2026-11-04 warm-up) · right 2026-11-07
 - [조사] N에 집중하다 / 몰입하다: 영화를 집중할 수 없었어요 → 영화에 (2026-10-29), 게임을 몰입하느라고 → 게임에 (2026-11-06) · right 2026-11-07 · right 2026-11-08
 - [조사] -(으)러 가다/다니다 → place + 에, not 에서: 공원에서 산책하러 → 공원에 (2026-11-04), 바다에서 수영하러 가고 싶어요 → 바다에 (2026-11-07 drill) · right 2026-11-08 · 2026-11-15: 찜질방에서 목욕하러 다녀요 → 찜질방에
-- [문법] 이/가 + transitive verb → intransitive/passive: 표를 다 파는 → 표가 다 팔리는 (L6), 계획이 바꾸는 바람에 → 계획이 바뀌는 바람에 (2026-11-12), 2026-11-14 drill: 문이 닫아서 → 문이 닫혀서 (answered 문을 닫아서; retry 컵이 깨졌어요 ✔) · right 2026-11-13 · 2026-11-17 weekly: 새 카페가 열었나 봐요 → 생겼나 봐요 · right 2026-11-17 weekly (빵이 품절된 것 같아요)
+- [문법] 이/가 + transitive verb → intransitive/passive: 표를 다 파는 → 표가 다 팔리는 (L6), 계획이 바꾸는 바람에 → 계획이 바뀌는 바람에 (2026-11-12), 2026-11-14 drill: 문이 닫아서 → 문이 닫혀서 (answered 문을 닫아서; retry 컵이 깨졌어요 ✔) · right 2026-11-13 · 2026-11-17 weekly: 새 카페가 열었나 봐요 → 생겼나 봐요 · right 2026-11-17 weekly (빵이 품절된 것 같아요) · 2026-11-18 lesson review (other direction): 국물을 녹으면 → 전분을 물에 녹여서 (녹다 = melts by itself, 녹이다 = melt something)
 - [어휘] 커피를 먹다 → 커피를 마시다 (2026-10-11, 2026-10-12 and earlier, 2026-10-22: 많이 먹은 탓에, 2026-11-10 homework: 커피를 먹었더니 → 마셨더니)
 - [문법] State → change before -기까지 ("until I got ___" → -아/어지다 / -게 되다): 익숙하기까지 → 익숙해지기까지 (2026-11-10 homework), 잘 하기까지 → 잘하게 되기까지 (2026-11-11 prep) · right 2026-11-14
 
@@ -25,7 +25,6 @@ Mistakes that happened in 2 or more sessions. No count; being right adds `· rig
 
 Mistakes corrected in sessions. Each session's warm-up picks from here (lowest count, then oldest). +1 when fixed, reset to 0/2 when wrong, delete at 2/2. Same mistake again in a later session → move to Recurring. Max 10 items, drop the oldest.
 
-- [어휘] 컴퓨터가 비싸서 돈을 내 버렸어요 → 돈을 다 써 버렸어요 (spend money = 쓰다; 내다 = pay a bill) (2026-11-13) · 1/2
 - [조사] 조카끼리하고 예능을 봐요 → 조카들하고 (끼리 = only among themselves, not "with") (2026-11-15) · 1/2
 - [조사] 어른들은 말리는 반면에 아이들이 → 아이들은 (contrast → 은/는) (2026-11-15) · 1/2
 - [문법] 찜질방에 가러 다녀요 → 쉬러 다녀요 / 찜질방에 다녀요 (-러 + a purpose verb, not 가다) (2026-11-15) · 1/2
@@ -35,6 +34,7 @@ Mistakes corrected in sessions. Each session's warm-up picks from here (lowest c
 - [문법] 배가 아프는 바람에 → 배탈이 나는 바람에 / 배가 아파서 (-는 바람에 = verbs only) (2026-11-17 weekly) · 0/2
 - [어휘] 알람이 안 돼서 → 알람이 안 울려서 (an alarm goes off = 울리다) (2026-11-17 homework) · 0/2
 - [어휘] 양꼬치가 너무 좋아서 → 너무 맛있어서 (food = 맛있다) (2026-11-17 homework) · 0/2
+- [어휘] 차라리 집에 있어요 → 차라리 집에 있을걸 그랬어요 / 있는 게 나았어요 (차라리 compares: needs 낫다 / -ㄹ걸 / advice) (2026-11-18 lesson review) · 0/2
 
 ## Lesson mistakes
 
