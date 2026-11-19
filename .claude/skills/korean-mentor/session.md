@@ -115,7 +115,8 @@ One compact block, then the follow-up:
 
 - **Time + result + last time** for repeated questions, so the user sees the change. First time asked: just the time.
 - Over 60 s: add `(next time send what you have at 30 s)`, once per session, no lecture.
-- **Fix only the 1–2 main errors** (target grammar, clear errors that change meaning or sound wrong); fast answers have small slips, let them go.
+- **Fix only the 1–2 main errors on screen** (target grammar, clear errors that change meaning or sound wrong); fast answers have small slips, let them go in chat.
+- **Log everything** to `progress/daily/<today>.md` right after each answer (`.claude/skills/_shared/daily-mistakes.md`): every error including small slips, and every 💡 more-natural version (also on ✔ answers). In chat, show 💡 as a line `💡 더 자연스러워요: …` and add `+n small slips saved` when some were only logged.
 - A mistake the tutor already corrected: say so with the tutor's wording `(same as L14: …)`. The tutor comes first; if you think a tutor correction is wrong, add it to **To verify** in `progress/notes.md` instead of contradicting it.
 - Nuance-dependent fixes: `(⚠ nuance, worth checking with your tutor)` + **To verify**. Never present a guess as a rule.
 

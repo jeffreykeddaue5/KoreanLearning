@@ -67,7 +67,7 @@ The user re-records on their own. Log it like v1 with `podcast v2` in the line; 
 
 ## 5. v3 (Wed, before the lesson)
 
-The weekend rehearsal for the tutor. The user tells the story with no notes (typed here, or said aloud and summarized). Give light ✏️ fixes in English on the 2–3 main mistakes only, and say what sounded good. Log it as `podcast v3` (no rating needed). Then korean-mentor runs the **lesson review** block.
+The weekend rehearsal for the tutor. The user tells the story with no notes (typed here, or said aloud and summarized). Give light ✏️ fixes in English on the 2–3 main mistakes only, and say what sounded good. Log all fixes and 💡 to `progress/daily/<today>.md` (`.claude/skills/_shared/daily-mistakes.md`), Block `podcast v3`. Log it as `podcast v3` (no rating needed). Then korean-mentor runs the **lesson review** block.
 
 ## Finish
 

@@ -24,6 +24,7 @@ Same as a grammar session (`.claude/skills/korean-mentor/session.md`: prompt car
 - **No grammar hints**, and no `?` help: a stuck answer is just ✏️ with the target version.
 - `[n/10]` instead of `Qn / total`. Every card still has one Anki word.
 - One-line ✔ or ✏️ right after each answer, with last time (from the question's history) so the user sees the week's change: `⏱ 18s spoken · ✔ (Thu 1:12 ✏️)`. Don't re-ask missed items.
+- Log every fix and 💡 to `progress/daily/<today>.md` (`.claude/skills/_shared/daily-mistakes.md`), Block `weekly n`.
 - Add each answer to the question's history line in `progress/questions.md` with `(weekly)`; ✔ ≤ 30 s twice in a row still moves it to **Smooth**.
 
 A point counts as **right** only if it's used correctly and naturally with no hint, **within 60 s**. Over 60 s it's ✔ for the history but no level change. Using a different, also-correct structure is not wrong, but it doesn't count as a pass for that point (say so and give the target version).
