@@ -2,7 +2,7 @@
 
 ## Current level
 
-Intermediate. Comfortable with points 1–34, working on 35–60. Builds multi-clause sentences well; small slips with particles (을/에, 로/으로) and verb choice (커피를 마시다).
+Intermediate. Comfortable with points 1–34, working on 35–62. Builds multi-clause sentences well; small slips with particles (을/에, 로/으로) and verb choice (커피를 마시다).
 
 ## How levels work
 
@@ -87,3 +87,5 @@ Intermediate. Comfortable with points 1–34, working on 35–60. Builds multi-c
 | 58 | V-느라(고) | 2 | 2026-11-20 | 2026-11-13 | 4 | Check: ✔ 저녁을 하느라고; ✗ two subjects (제가 청소하느라고 남편이…) |
 | 59 | -는 바람에 | 3 | 2026-12-01 | 2026-11-17 | 7 | Weekly check ✔ ×2 (배터리가 다 되는 바람에, 늦잠을 자는 바람에 … 타야 했어요); verbs only: 아프는 ✗ → 배탈이 나는 |
 | 60 | -아/어 버리다 | 3 | 2026-12-01 | 2026-11-17 | 6 | Weekly check ✔ ×3 (해 버려서, 케이크를 다 먹어 버렸어요) |
+| 61 | -기로 하다 | 0 | 2026-11-20 | — | 0 | New (week of 2026-11-18) |
+| 62 | -(으)ㄹ 만하다 | 0 | 2026-11-20 | — | 0 | New (week of 2026-11-18) |

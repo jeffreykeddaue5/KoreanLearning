@@ -48,3 +48,4 @@ Mistakes the tutor corrected (from `Homework/`). +1 for each session where it's 
 - [문법] 막힐 모양이라서 + -는 게 좋겠어요 → 모양이니까 (reason before advice = -(으)니까) (L7) · 1/2
 - [문법] 크니 만큼 → 큰 만큼 (A-(으)ㄴ 만큼) (L15) · 1/2
 - [문법] 공부하기 시작하게 됐어요 → 공부를 시작하게 됐어요 (don't stack -기 시작하다 + -게 되다) (L12) · 1/2
+- [문법] 양꼬치가 맛있는 걸 보니까 10개나 주문했어요 → 맛있어 보이길래 (it looked tasty → -아/어 보이길래; 걸 보니까 = fact → guess) (L21) · 0/2

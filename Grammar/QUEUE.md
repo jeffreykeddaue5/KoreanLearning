@@ -6,8 +6,6 @@ Order: everyday conversation → common in media → TOPIK. Reorder or veto free
 
 ## 1. Everyday conversation
 
-- -기로 하다 — decide to; agree to
-- -(으)ㄹ 만하다 — worth doing; good enough (볼만하다, 먹을 만하다)
 - -는데도 — even though · vs #48 N(이)어도, -아/어도
 - -던데(요) — I noticed… (soft, leaves room to reply) · vs #35 -더라고요
 - -대요 / -래요 / -재요 / -냬요 — short reported speech (they said…) · vs #42, #43

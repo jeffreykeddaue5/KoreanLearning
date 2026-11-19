@@ -103,6 +103,46 @@
 ✔ Negative: -지 말걸 그랬다 = I shouldn't have…
 ✔ 그랬어요 can be dropped in casual speech
 
+### 61. V-기로 하다
+**Form:** V-기로 하다 · past (most common): V-기로 했어요 · together: N(이)랑 V-기로 했어요
+**Meaning:** decide to…; agree to… (a plan that's settled)
+
+- 이번 주말에 친구랑 피클볼을 치기로 했어요.
+  🔁 I agreed with a friend to play pickleball this weekend.
+- 내년부터 운동을 꾸준히 하기로 했어요.
+  🔁 I decided to work out regularly starting next year.
+- 오늘은 일찍 자기로 했어요.
+  🔁 I decided to go to bed early tonight.
+- 여자친구랑 다음 달에 글램핑 가기로 했어요.
+  🔁 My girlfriend and I decided to go glamping next month.
+
+❌ 내일 친구를 만나기로 해요. → ✅ 만나기로 했어요. (the decision is already made → past 했어요, even for a future plan)
+❌ 집에 가서 잘 셈이에요. → ✅ 집에 가서 자기로 했어요. / 자려고요. (your own plan → -기로 했어요 or -(으)려고요, not -(으)ㄹ 셈이다)
+
+✔ Use 했어요 for a decision that's done; the action itself can be future
+✔ More certain than #19 -(으)ㄹ까 하다 (still thinking) and -(으)려고 하다 (intention)
+✔ Negative: -지 않기로 했어요 / 안 V-기로 했어요 (술을 안 마시기로 했어요)
+
+### 62. V-(으)ㄹ 만하다
+**Form:** V-(으)ㄹ 만하다 · 볼 만하다 · 먹을 만하다 · 갈 만하다 · 살 만하다
+**Meaning:** worth doing; good enough to do; (doable, not too bad)
+
+- 그 드라마 볼 만해요. 한번 보세요.
+  🔁 That drama is worth watching. Give it a try.
+- 이 식당 마라탕은 먹을 만해요.
+  🔁 This restaurant's malatang is pretty good (worth eating).
+- 생각보다 맵지 않아서 먹을 만했어요.
+  🔁 It wasn't as spicy as I thought, so it was fine to eat.
+- 줄이 길었지만 기다릴 만했어요.
+  🔁 The line was long, but it was worth the wait.
+
+❌ 그 영화는 볼 만한 거예요. → ✅ 볼 만해요. (만하다 is the predicate itself: 볼 만해요 / 볼 만한 영화)
+❌ 그 영화는 보는 만해요. → ✅ 볼 만해요. (always -(으)ㄹ before 만하다)
+
+✔ Two shades: "worth it" (볼 만해요 = recommend) and "OK, bearable" (먹을 만해요 = not great but fine)
+✔ Before a noun: 볼 만한 영화, 가 볼 만한 곳 (places worth visiting)
+✔ Written 볼 만하다 with a space (볼만하다 is also accepted)
+
 ---
 
 ## Compare
@@ -114,3 +154,5 @@
 | -(으)ㄹ까 하다 (#19) | you're considering a plan | 우산을 살까 해요 |
 | -(으)ㄹ까 봐 (#20) | you're worried it might happen | 비가 올까 봐 우산을 샀어요 |
 | -(으)ㄹ걸 그랬다 (#40) | you regret not doing it | 우산을 가져올걸 그랬어요 |
+| -기로 하다 (#61) | the plan is decided / agreed | 우산을 사기로 했어요 |
+| -(으)ㄹ 만하다 (#62) | it's worth it / good enough | 이 우산은 살 만해요 |

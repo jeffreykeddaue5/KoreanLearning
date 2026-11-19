@@ -82,6 +82,7 @@
 
 ❌ 비가 오길래 우산을 가져가세요. → ✅ 비가 오니까 우산을 가져가세요. (no command or suggestion after -길래)
 ❌ 제가 배고프길래 밥을 먹었어요. → ✅ 배고파서 밥을 먹었어요. (-길래 is for something you noticed, not your own feelings)
+❌ 양꼬치가 맛있는 걸 보니까 10개나 주문했어요 → ✅ 양꼬치가 맛있어 보이길래 10개나 주문했어요 (it *looked* tasty → -아/어 보이길래; -는 걸 보니까 is for a fact you saw, then a guess, L21)
 
 ✔ Introduces a situation that prompted an action
 ✔ Often followed by the speaker's response or decision

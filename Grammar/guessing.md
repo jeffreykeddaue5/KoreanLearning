@@ -24,6 +24,7 @@
 ❌ 너무 달릴 걸 보니까 → ✅ 너무 다른 걸 보니까 (다르다 is an adjective: 다르 + ㄴ → 다른, L12)
 ❌ 표를 다 파는 걸 보니까 → ✅ 표가 다 팔리는 걸 보니까 (the tickets *are sold* → 팔리다, L6)
 ❌ 이런 이유를 보는 걸 보니까 → ✅ 이런 이유가 있는 걸 보니까 (L13)
+❌ 양꼬치가 맛있는 걸 보니까 10개나 주문했어요 → ✅ 맛있어 보이길래 10개나 주문했어요 (an action because of how it looked → #36 -아/어 보이길래; -는 걸 보니까 = a fact you saw → a guess, L21)
 
 ✔ The speaker makes a judgment based on evidence
 ✔ Often followed by guessing expressions (-것 같다, -나 보다, -모양이다)

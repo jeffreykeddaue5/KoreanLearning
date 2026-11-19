@@ -80,6 +80,8 @@ Each point has spoken examples, ❌ → ✅ lines for common mistakes (many from
 | 58 | V-느라(고) | [reasons](reasons.md) |
 | 59 | V-는 바람에 | [reasons](reasons.md) |
 | 60 | V-아/어 버리다 | [time-and-sequence](time-and-sequence.md) |
+| 61 | V-기로 하다 | [plans-wishes-regrets](plans-wishes-regrets.md) |
+| 62 | V-(으)ㄹ 만하다 | [plans-wishes-regrets](plans-wishes-regrets.md) |
 
 ## Adding a point
 
