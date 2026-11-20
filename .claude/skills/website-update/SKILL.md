@@ -9,7 +9,9 @@ The site is in `website/` (see `website/notes.md`). Posts are one JS file each i
 
 Keep everything short and simple: this is a personal blog, not study notes. Posts are in simple Korean, 반말 diary style like the existing ones.
 
-With no arguments, do step 1 (only if the list has run out or the user asks) and step 3. Do step 2 only when called for a post (by lesson-intake, weekly-check, or the user).
+With no arguments, do step 1 (only if the list has run out or the user asks), step 3, and the 회화 fetch below.
+
+**오늘의 회화** (`conversation`): if `website/posts/<today>-conversation.js` doesn't exist, run `python3 -I website/fetch_conversation.py`. If it prints `NEED NOTE: <title>`, add that key to `website/data/conversation_grammar.json` (same shape as the existing entries: `form`, `meaning`, `notes` in English) and run it again. Do step 2 only when called for a post (by lesson-intake, weekly-check, or the user).
 
 ## 1. 오늘 panel: the weekly list (`website/data/today.js`)
 

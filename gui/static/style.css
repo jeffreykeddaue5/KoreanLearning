@@ -1,0 +1,94 @@
+:root {
+  --bg: #fafaf7; --fg: #222; --dim: #888; --card: #fff; --line: #e3e1da;
+  --accent: #3b6ea8; --me: #eef3fa; --ok: #2e8b57; --warn: #d9822b;
+  font-family: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #1b1c1e; --fg: #e8e6e1; --dim: #8b8b8b; --card: #242528;
+          --line: #35363a; --me: #233040; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-size: 17px; line-height: 1.55; }
+[hidden] { display: none !important; }
+.dim { color: var(--dim); }
+.small { font-size: 14px; }
+button {
+  font: inherit; font-size: 15px; padding: 8px 16px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--card); color: var(--fg);
+}
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+button:disabled { opacity: .45; cursor: default; }
+
+/* start screen */
+#start { max-width: 620px; margin: 8vh auto; padding: 0 20px; }
+#start h1 { font-size: 28px; margin: 0 0 4px; }
+#blocks { list-style: none; padding: 0; margin: 20px 0 8px; }
+#blocks li { padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px;
+             margin-bottom: 6px; background: var(--card); }
+#blocks li.done { color: var(--dim); text-decoration: line-through; }
+#choices { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 14px; }
+
+/* chat */
+#chat { display: flex; flex-direction: column; height: 100vh; max-width: 860px; margin: 0 auto; position: relative; }
+#chat header { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+#timer { font-size: 26px; font-variant-numeric: tabular-nums; min-width: 80px; font-weight: 600; }
+#timer.over { color: var(--warn); }
+#timer.stopped { color: var(--dim); }
+#status { flex: 1; font-size: 14px; }
+#stage { flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+#picture { display: flex; justify-content: center; align-items: center; gap: 48px; min-height: 120px; }
+#scene { font-size: 64px; line-height: 1.2; text-align: center; letter-spacing: 4px; }
+#speakerBox { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+#speaker { font-size: 72px; line-height: 1; }
+#bubble { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+          padding: 6px 12px; font-size: 18px; max-width: 320px; }
+#card { background: var(--card); border: 1px solid var(--fg); border-radius: 6px; padding: 14px 18px; }
+#card .label { font-size: 15px; color: var(--dim); margin-bottom: 6px; }
+#card .ko { font-size: 26px; line-height: 1.45; margin: 4px 0 10px; }
+#card .word { font-size: 17px; }
+#card .hint { color: var(--accent); font-size: 15px; }
+#card .big { font-size: 22px; }
+.res { font-size: 20px; font-weight: 600; }
+.fix { margin: 10px 0 0; }
+.fix .said { color: var(--warn); text-decoration: line-through; }
+.fix .better { color: var(--ok); font-weight: 600; }
+.fix .why { color: var(--dim); font-size: 15px; }
+#card table { border-collapse: collapse; margin: 8px 0; }
+#card td { padding: 3px 12px 3px 0; }
+#note:empty { display: none; }
+#note .msg { font-size: 16px; }
+#history { position: absolute; top: 56px; right: 0; bottom: 0; width: min(480px, 100%);
+           background: var(--bg); border-left: 1px solid var(--line); overflow-y: auto; padding: 14px; z-index: 5; }
+.msg { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+       padding: 10px 14px; margin: 0 0 10px; overflow-wrap: anywhere; }
+.msg.user { background: var(--me); margin-left: 15%; }
+.msg.error { border-color: #c44; color: #c44; font-size: 14px; }
+.msg p { margin: 0 0 6px; }
+.msg p:last-child { margin-bottom: 0; }
+.msg blockquote { margin: 6px 0; padding: 6px 12px; border-left: 4px solid var(--accent); background: var(--bg); }
+.msg pre { background: var(--bg); padding: 8px 10px; border-radius: 6px; white-space: pre-wrap; font-size: 14px; }
+.msg table { border-collapse: collapse; font-size: 14px; margin: 6px 0; }
+.msg td { border: 1px solid var(--line); padding: 3px 7px; }
+.msg ul { margin: 4px 0; padding-left: 22px; }
+.msg h3 { font-size: 17px; margin: 6px 0; }
+footer { display: flex; gap: 8px; padding: 10px 16px 14px; border-top: 1px solid var(--line); }
+#input { flex: 1; font: inherit; font-size: 18px; padding: 8px 10px; resize: none;
+         border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--fg); }
+#input:focus { outline: 2px solid var(--accent); }
+#done { white-space: nowrap; color: var(--ok); font-weight: 600; }
+#done.ready { background: var(--accent); color: #fff; border-color: var(--accent); }
+#closed { text-align: center; padding: 14px; border-top: 1px solid var(--line); }
+.typing::after { content: "…"; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: .2; } }
+
+/* focus: the question is the only thing on screen */
+#stage { justify-content: center; }
+#chat header { border-bottom: none; }
+#histBtn, #end { font-size: 13px; padding: 4px 10px; opacity: .55; }
+#histBtn:hover, #end:hover { opacity: 1; }
+footer { border-top: none; }
+#scene { font-size: 44px; letter-spacing: 2px; white-space: nowrap; overflow: hidden; }
+#speaker { font-size: 52px; }
+#picture { min-height: 90px; }
+.replay { font-size: 18px; padding: 2px 8px; vertical-align: middle; border-radius: 20px; }

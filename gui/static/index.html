@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Korean Mentor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="start" hidden>
+  <h1 id="day">…</h1>
+  <p id="meta" class="dim"></p>
+  <ul id="blocks"></ul>
+  <p id="missed" class="dim"></p>
+  <div id="choices"></div>
+  <p class="dim small">Listening, podcast and lesson blocks stay in the terminal.</p>
+</section>
+
+<section id="chat" hidden>
+  <header>
+    <span id="timer"></span>
+    <span id="status" class="dim"></span>
+    <button id="histBtn" title="Everything said so far">History</button>
+    <button id="end" title="Stop for today (그만)">그만</button>
+  </header>
+
+  <main id="stage">
+    <div id="picture">
+      <div id="scene"></div>
+      <div id="speakerBox"><div id="speaker"></div><div id="bubble" hidden></div></div>
+    </div>
+    <div id="card"><p class="dim typing">getting ready</p></div>
+    <div id="note"></div>
+  </main>
+
+  <aside id="history" hidden></aside>
+
+  <footer id="bar">
+    <button id="done" title="Stops the timer (Ctrl+Space)">● Done speaking</button>
+    <textarea id="input" rows="2" placeholder="대답 · Enter = send · Shift+Enter = new line"></textarea>
+    <button id="send">Send</button>
+  </footer>
+  <div id="closed" hidden>
+    <p>Session ended.</p>
+    <button id="home">Back to start</button>
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

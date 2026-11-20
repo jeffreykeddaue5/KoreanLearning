@@ -9,6 +9,8 @@ The user studies every day around a **Wednesday 21:00 lesson** (1 hour: 30 min t
 
 **Anki word in every prompt:** every practice prompt in every block (grammar, weekly test, homework, mistakes drill, lesson review, podcast fixes) recommends one Anki word in brackets with a short gloss, e.g. `(word: 웬만하면 — if possible)`. Pinned first (`pinned_today` from today.py), then `use_trouble` words; rotate, one that fits the prompt. It's not a grammar hint, so it goes in no-hint items too. No exceptions.
 
+**Audio after text, always:** every spoken prompt (speak.sh) must play **after** its text is on screen, never before: speak.sh is the last call before the prompt text (it waits 1.5 s), and in the browser GUI the page plays it after drawing the card, so don't call speak.sh there (session.md **Timer**).
+
 **오늘의 실수 log in every block:** every correction (small slips too) and every 💡 더 자연스러워요 goes to `progress/daily/YYYY-MM-DD.md` right after the feedback (`.claude/skills/_shared/daily-mistakes.md`). The website shows it. No exceptions, like the Anki word.
 
 ## 1. Start: today's state
@@ -51,6 +53,10 @@ Next: grammar (~30 min). Go?
 | `podcast` / `speaking` | the podcast setup or log (speaking skill) |
 | `intake` | lesson-intake |
 | `plan` | just show the checklist and stop |
+| `grammar` | today's grammar block (resumes a paused one) |
+| `gui` [args] | open the browser GUI: run `gui/start.sh [args]` and reply with one line, `Opened in the browser → <url>. Use the GUI until you press 그만 there.` Do nothing else in this run (the GUI runs its own session). |
+
+**GUI session:** when the first message is `/korean-mentor gui-session <args>`, the user is in the browser GUI, started from its start screen, which already showed the checklist. Follow `.claude/skills/korean-mentor/gui-mode.md` for every message's layout (don't read the `gui/` source). Skip step 2 (don't show the checklist again), run `<args>` as above, and when the block ends offer only the GUI's timed blocks (grammar, review, check, mistakes, pinned); for anything else say `Next: <block>, in the terminal.` Everything else is the same: the timer, speak.sh, feedback, logging, ticking the block and the end-of-run steps and commit. The user sends `.` for "done speaking" as usual.
 
 **No arguments:** the first unfinished (☐) block in today's row, in the order written. Blocks:
 

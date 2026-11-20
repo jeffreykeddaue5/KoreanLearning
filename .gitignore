@@ -6,3 +6,4 @@ Speaking/**/*.m4a
 anki/pending.json
 __pycache__/
 website/media/conversation/
+gui/state/
