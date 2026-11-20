@@ -53,6 +53,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-11-07 · feelings words (extra) · drill · strong: 당황 vs 황당, 억울, 서운, 속상, 부담, 긴장 · fix: 어이없다 (speechless), 어지럽다 = messy room, 못 만나서
 - 2026-10-30 · practice-mistakes · drill · strong: 싶었는데, 팔을 다칠, 부끄러웠을 거예요, 일어나는 데, 마감될 것 같아요, 좋아하게 됐어요 · fix: 남은 빵이 식빵밖에, 들었어요, 관심이 없었는데
 - 2026-10-29 · lesson mistakes (L6, L7, L15–L18) + review #7, #37 · drill · strong: 확인해 보니까 (unprompted), 자막 없이, 먹은 탓에, 막히는 모양이에요, 매진될까 봐, 가다 보니까, 줄거리 · fix: 어쩐지 + -더라고요, 걸 보니까 + decision → -니까, 영화에 집중, warm-up 다리를 / 걸릴 거예요 / -는 데
 - 2026-10-26 · -아/어 보니까, #2, #36 + review #29, #37 + pinned words (day 635) · drill · strong: 막상 가 보니까 (unprompted 막상), 걸어온 걸 보니까, 팔리는 걸 보니까, 은근히 재미있더라고요, 뒤끝이 없더라고요 · fix: 슬퍼 보이길래, 매진될 것 같아요 (future), 구경하는 게, 온라인에서, warm-up 뻔하다

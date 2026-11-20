@@ -21,13 +21,12 @@ Mistakes that happened in 2 or more sessions. No count; being right adds `· rig
 - [어휘] 커피를 먹다 → 커피를 마시다 (2026-10-11, 2026-10-12 and earlier, 2026-10-22: 많이 먹은 탓에, 2026-11-10 homework: 커피를 먹었더니 → 마셨더니)
 - [문법] State → change before -기까지 ("until I got ___" → -아/어지다 / -게 되다): 익숙하기까지 → 익숙해지기까지 (2026-11-10 homework), 잘 하기까지 → 잘하게 되기까지 (2026-11-11 prep) · right 2026-11-14
 
-- [어휘] Food quality = 맛있다, not 좋다 / 실력: 양꼬치가 너무 좋아서 → 맛있어서 (2026-11-17 homework), 한국의 실력이 더 좋아요 → 한국 곱창이 훨씬 맛있어요 (cooking skill = 솜씨) (2026-11-19)
+- [어휘] Food quality = 맛있다, not 좋다 / 실력: 양꼬치가 너무 좋아서 → 맛있어서 (2026-11-17 homework), 한국의 실력이 더 좋아요 → 한국 곱창이 훨씬 맛있어요 (cooking skill = 솜씨) (2026-11-19) · 2026-11-20: 한국 솜씨가 더 좋아요 → 한국 식당 솜씨 / 한국 곱창이 훨씬 맛있어요 (솜씨 = a person's or kitchen's skill)
 
 ## Practice mistakes
 
 Mistakes corrected in sessions. Each session's warm-up picks from here (lowest count, then oldest). +1 when fixed, reset to 0/2 when wrong, delete at 2/2. Same mistake again in a later session → move to Recurring. Max 10 items, drop the oldest.
 
-- [문법] 찜질방에 가러 다녀요 → 쉬러 다녀요 / 찜질방에 다녀요 (-러 + a purpose verb, not 가다) (2026-11-15) · 1/2
 - [어휘] 웬만하면 밤에는 안 먹어요 → 웬만하면 밤에는 안 먹으려고 해요 (웬만하면 + -(으)려고 해요) (2026-11-16) · 0/2
 - [어휘] 휴대폰 배터리가 되는 바람에 → 배터리가 다 되는 / 나가는 바람에 (battery dies = 다 되다 / 나가다) (2026-11-17 weekly) · 0/2
 - [어휘] 카페에 아무것도 없더라고요 (no people) → 아무도 없더라고요 (people = 아무도) (2026-11-17 weekly) · 0/2
@@ -36,6 +35,8 @@ Mistakes corrected in sessions. Each session's warm-up picks from here (lowest c
 - [어휘] 차라리 집에 있어요 → 차라리 집에 있을걸 그랬어요 / 있는 게 나았어요 (차라리 compares: needs 낫다 / -ㄹ걸 / advice) (2026-11-18 lesson review) · 0/2
 - [문법] 회사 그만둔다면서요? (they just told me) → 진짜요? 그만두기로 했어요? (-다면서요 = checking what you heard from someone else) (2026-11-19 warm-up) · 0/2
 - [어휘] 2000초반년 드라마 → 2000년대 초반 드라마 (decade = 2000년대, 초반 after) (2026-11-19) · 0/2
+- [어휘] 요즘 유산소 운동을 늘 해요 → 요즘 자주 해요 (늘 = a long habit, clashes with 요즘) (2026-11-20) · 0/2
+- [문법] 한국어 실력이 늘고 싶어요 → 실력을 늘리고 싶어요 / 늘었으면 좋겠어요 (-고 싶다 needs a person; 늘다 happens by itself) (2026-11-20) · 0/2
 
 ## Lesson mistakes
 
