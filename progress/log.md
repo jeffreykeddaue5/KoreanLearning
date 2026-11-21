@@ -11,6 +11,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-20 · practice-mistakes · drill (stopped at 1/10) · strong: 그 중국집은 짜장면이 너무 맛있어서 · fix: —
 - 2026-11-20 · review #61, #62 (stopped at 6/8 + warm-up) · week set Q8, Q9, Q4, Q2, Q1, Q5 · warm-up: react · avg 0:44 (last 1:02; warm-ups 0:44) · strong: Q9 in 0:07, 미국 곱창도 먹을 만해요 (0:29, no hint), 가기로 했어요 (0:20, no hint), 동호회에 가입했어요, 따라 하기로 했어요 · fix: 실력이 늘고 싶어요 → 늘리고 싶어요, 요즘 + 늘 → 자주, 운동장 → 수영장, 솜씨 (person, not country), -았겠어요 for 맞장구
 - 2026-11-19 · new #61, #62 (+ #36) · week set Q1–Q7 (first time) · warm-up: ask · avg 1:02 (warm-ups 0:48) · strong: 보기로 했어요, 완전 볼만해요 in 0:25, 3D 모델링에 도전하기로 했어요, 맛있어 보이길래 (L21 fix) · fix: -다면서요 to the teller, food = 맛있다 (실력), 빠졌어요, 2000년대 초반
 - 2026-11-18 · lesson review L20 3/8 (ended early; rest of the time went to redesigning the weekly loop: questions → podcast → test, say-then-type timer) · strong: 전분을 넣으세요, 재킷이라도 껴입으세요 · fix: 차라리 + -ㄹ걸, 녹이다
@@ -25,4 +26,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-11-08 · long #57, #58 + review #5, #6, #12, #15, #21, #32, #49 · conversation · strong: 실컷 먹었더니 (unprompted), 데이트하느라고, 진작 … 보낼걸 그랬어요, 활발한 반면에, 카페에 마시러 다녀요, 은근히 방해되더라고요 · fix: 사귀다 vs 데이트하다, 모르지만 (tense), 1달밖에 안 걸렸어요, 하 dropped (통화하는지, 일하느라고)
 - 2026-11-07 · practice-mistakes · drill · strong: 남은 음료가 콜라밖에, 청소하느라 못 했어요, 잤나 봐요, 쉬운 반면에, 어쩐지 as new sentence · fix: 바다에 수영하러 (place + 에 with -러 가다)
 - 2026-11-06 · new #57, #58 + review #5, #21, #55 (catch-up for Thu) · conversation · strong: 확인했더니 (unprompted), 일하느라고, 4시간이나, 하다 보니까 (unprompted), 방해되다 (L18) · fix: 게임에 몰입하다, 쉬운 반면에, -느라고 = busy doing, tense (쑤셔요, 바쁘다고, 좋을 거래요)
-- 2026-11-04 · L17–L18 homework review + review #29, #37 + pinned words (day 644) · conversation (stopped at 6/7) · strong: 은근히 벅차더라고요 (unprompted 은근히), 고등학생 나이여도, 자막 없이, 떠맡았는데, 삭제한 탓에 · fix: 몰입했나 봐요, 공원에 산책하러, 어쩐지 + -더라고요 (warm-up)

@@ -21,7 +21,7 @@ Mistakes that happened in 2 or more sessions. No count; being right adds `· rig
 - [어휘] 커피를 먹다 → 커피를 마시다 (2026-10-11, 2026-10-12 and earlier, 2026-10-22: 많이 먹은 탓에, 2026-11-10 homework: 커피를 먹었더니 → 마셨더니)
 - [문법] State → change before -기까지 ("until I got ___" → -아/어지다 / -게 되다): 익숙하기까지 → 익숙해지기까지 (2026-11-10 homework), 잘 하기까지 → 잘하게 되기까지 (2026-11-11 prep) · right 2026-11-14
 
-- [어휘] Food quality = 맛있다, not 좋다 / 실력: 양꼬치가 너무 좋아서 → 맛있어서 (2026-11-17 homework), 한국의 실력이 더 좋아요 → 한국 곱창이 훨씬 맛있어요 (cooking skill = 솜씨) (2026-11-19) · 2026-11-20: 한국 솜씨가 더 좋아요 → 한국 식당 솜씨 / 한국 곱창이 훨씬 맛있어요 (솜씨 = a person's or kitchen's skill)
+- [어휘] Food quality = 맛있다, not 좋다 / 실력: 양꼬치가 너무 좋아서 → 맛있어서 (2026-11-17 homework), 한국의 실력이 더 좋아요 → 한국 곱창이 훨씬 맛있어요 (cooking skill = 솜씨) (2026-11-19) · 2026-11-20: 한국 솜씨가 더 좋아요 → 한국 식당 솜씨 / 한국 곱창이 훨씬 맛있어요 (솜씨 = a person's or kitchen's skill) · right 2026-11-20 drill (짜장면이 너무 맛있어서)
 
 ## Practice mistakes
 
