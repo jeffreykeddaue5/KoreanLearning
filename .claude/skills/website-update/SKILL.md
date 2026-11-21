@@ -5,13 +5,13 @@ description: Updates the Korean blog in website/ — the weekly list for the 오
 
 # Website update
 
-The site is in `website/` (see `website/notes.md`). Posts are one JS file each in `website/posts/`, listed in `website/posts/list.js`. Categories: `lesson` 수업 · `weekly` 주간 정리 · `daily` 일상. (대화 was removed on 2026-11-06.) There is **no** per-session post: a normal study day only changes the panels.
+The site is in `website/` (see `website/notes.md`). Posts are one JS file each in `website/posts/`, listed in `website/posts/list.js`. Categories: `lesson` 수업 · `weekly` 주간 정리 · `daily` 일상 · `conversation` 회화 (from `fetch_conversation.py`) · `article` 기사 (daily-article skill, on request). (대화 was removed on 2026-11-06.) There is **no** per-session post: a normal study day only changes the panels.
 
 Keep everything short and simple: this is a personal blog, not study notes. Posts are in simple Korean, 반말 diary style like the existing ones.
 
 With no arguments, do step 1 (only if the list has run out or the user asks), step 3, and the 회화 fetch below.
 
-**오늘의 회화** (`conversation`): if `website/posts/<today>-conversation.js` doesn't exist, run `python3 -I website/fetch_conversation.py`. If it prints `NEED NOTE: <title>`, add that key to `website/data/conversation_grammar.json` (same shape as the existing entries: `form`, `meaning`, `notes` in English) and run it again. Do step 2 only when called for a post (by lesson-intake, weekly-check, or the user).
+**오늘의 회화** (`conversation`): if `website/posts/<today>-conversation.js` doesn't exist, run `python3 -I website/fetch_conversation.py`. If it prints `NEED NOTE: <title>`, write the note as in korean-mentor step 5 (key = the title exactly; `form`, `meaning`, 2–4 `notes` in English) and run it again. Do step 2 only when called for a post (by lesson-intake, weekly-check, or the user).
 
 ## 1. 오늘 panel: the weekly list (`website/data/today.js`)
 

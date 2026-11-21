@@ -22,4 +22,4 @@ If it prints an Anki error, the rest of the site still updates; say so in one li
 
 ## Check
 
-Run `node --check website/data/today.js` and `node --check website/data/study.js`. Don't stage or commit anything in `website/` or `progress/stats.json`. Don't push. Then tell the user what changed in a few lines (pinned words count, streak).
+Run `node --check website/data/today.js` and `node --check website/data/study.js`. Don't stage or commit anything in `website/` (`progress/stats.json` goes in with the calling skill's `progress/` commit). Don't push. Then tell the user what changed in a few lines (pinned words count, streak).

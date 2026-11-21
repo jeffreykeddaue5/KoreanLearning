@@ -5,7 +5,7 @@ description: Tuesday no-hint test before the Wednesday lesson — the week's que
 
 # Weekly check
 
-Runs the night before the lesson, so what goes wrong becomes Wednesday's questions. Prompts are in Korean, feedback in English. **No hints of any kind**: don't name the grammar point, don't put it in brackets, don't give the first word. The one exception: every item still recommends one Anki word (pinned first, then `use_trouble`) as `(word: 굳이 — bother to)`. It's vocabulary, not a grammar hint.
+Runs the night before the lesson, so what goes wrong becomes Wednesday's questions. Prompts are in Korean, feedback in English. **No hints of any kind**: don't name the grammar point, don't put it in brackets, don't give the first word. The one exception: every item still recommends one Anki word (pinned first, then `use_trouble`) as `word: 굳이 — bother to` on the card. It's vocabulary, not a grammar hint.
 
 ## Setup
 
@@ -29,9 +29,9 @@ Same as a grammar session (`.claude/skills/korean-mentor/session.md`: prompt car
 
 A point counts as **right** only if it's used correctly and naturally with no hint, **within 60 s**. Over 60 s it's ✔ for the history but no level change. Using a different, also-correct structure is not wrong, but it doesn't count as a pass for that point (say so and give the target version).
 
-## Homework check
+## Podcast unsure sentences
 
-If **Podcast** in the plan lists `Unsure:` sentences (from the user's podcast or blog post), check those the same way: ✔ or ✏️ with a short reason. If one is still a nuance question, add it to **To verify** and **Questions for the tutor**.
+Right after the 10 items: if **Podcast** in the plan lists `Unsure:` sentences (from the user's podcast or blog post), check those the same way: ✔ or ✏️ with a short reason. If one is still a nuance question, add it to **To verify** and **Questions for the tutor**.
 
 The 5 homework sentences are no longer checked here: they're their own **homework** block right after this test (korean-mentor), with feedback right away.
 
@@ -79,7 +79,7 @@ Write the 주간 정리 post (format in `.claude/skills/website-update/SKILL.md`
 
 ## Finish
 
-- Tick `☐ weekly check` → `☑ weekly check` in today's Schedule row.
+- Tick `☐ weekly test` → `☑ weekly test` in today's Schedule row (old plans: `weekly check`).
 - Recap in a few lines: the score, points that moved up or down, the report line, and the questions for tomorrow.
 - Commit, don't push:
 

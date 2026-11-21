@@ -6,13 +6,15 @@
 
 | Day | Time | Blocks |
 |---|---|---|
-| **Wed** | ~2 h + lesson | Anki · lesson prep (review, 3 questions for tutor) · **Lesson 9pm** (30 min weekend talk, 30 min homework) · intake after `Homework/NN` exists |
-| **Thu** | 2–2.5 h | Anki · **2 new points** · listening: new TTMIK clip, no transcript + % |
+| **Wed** | ~2 h + lesson | Anki · podcast v3 (weekend story, no notes) · lesson review (last lesson's words + corrections) · **Lesson 9pm** (30 min weekend talk, 30 min homework) · intake after `Homework/NN` exists |
+| **Thu** | 2–2.5 h | Anki · **2 new points** + the week's question set (timed, 30 s) · listening: new TTMIK clip, no transcript + % |
 | **Fri** | 1.5–2 h | Anki · grammar · listening: transcript + why I missed it |
 | **Sat** | 0–1 h | Optional buffer: Anki + mistakes drill or free watching |
 | **Sun** | 2 h | Anki · longer session on the week's points · listening: speech patterns to borrow |
-| **Mon** | 2–2.5 h | Anki · mixed review (due points) · **homework sentences** · listening: shadowing + final % · **podcast** on my own + 일상 post |
-| **Tue** | 1.5 h | Anki · **weekly check** (no hints) + homework check + podcast unsure sentences |
+| **Mon** | 2–2.5 h | Anki · listening: shadowing + final % · **podcast v1** on my own (weekend answers linked into one story) + 일상 post |
+| **Tue** | 1.5 h | Anki · **weekly test** (the week's questions, no hints) + podcast unsure sentences · homework (feedback right away) · podcast v2 |
+
+Optional daily: 회화 recording. Since 2026-11-18 one loop a week: questions (Thu–Sun) → podcast (Mon–Wed) → test (Tue) → lesson.
 
 - Every 4th week is a **light week**: no new grammar, review the month's 8 points, longer podcast.
 - Missed days don't pile up: the next day folds in the due reviews.
@@ -30,12 +32,13 @@ Steps it runs (kept as files under `.claude/skills/`, still callable by name):
 
 | Step | What |
 |---|---|
-| **lesson-intake** | Homework file → new grammar into `Grammar/` (#48+), tutor ❌ into lesson mistakes, writes `weeks/YYYY-Www.md` (2 new points, due reviews, words, 3 tutor questions → `🧐질문`) |
-| **grammar** | New points / review from the weekly plan and spaced repetition |
+| **lesson-intake** | Homework file → new grammar into `Grammar/`, tutor ❌ into lesson mistakes, writes `weeks/YYYY-MM-DD.md` (2 new points, due reviews, words, 3 tutor questions → `🧐질문`, homework, schedule) |
+| **grammar** | Timed conversation on the week's question set (`progress/questions.md`) + spaced-repetition review (`korean-mentor/session.md`) |
 | **listening** | Picks a 5–10 min section of a Talk To Me In 100% Korean video, analyzes the speakers' patterns for the podcast, gets Korean subs with `yt-dlp`, cleans transcript + notes. Logs grammar heard; nothing from the clip goes to Anki |
 | **speaking** | Weekly podcast setup: topic (default: my weekend), length (3 min+), clip patterns + grammar to use. I record and rate myself on my own; unsure sentences go to the weekly check (see §2b) |
-| **weekly-check** | 10 items, no hints (week's points + random old + worst mistake type), homework check, weekly report |
+| **weekly-check** | The week's questions again: 10 items, no hints, timed (week's points + due old + worst mistake type), podcast unsure sentences, weekly report |
 | **practice-mistakes** | Short mistakes drill (Sat or as filler) |
+| **pinned-words** | Drill on the week's pinned Anki words (Sat or as filler) |
 
 ### 2a. Listening method
 
@@ -45,21 +48,21 @@ Steps it runs (kept as files under `.claude/skills/`, still callable by name):
 
 | Day | Step |
 |---|---|
-| Thu | Listen with no transcript → 1-min spoken Korean summary (recorded) → rate % understood |
+| Thu | Listen with no transcript → rate % understood (no spoken summary) |
 | Fri | Transcript: mark each miss and why: unknown word, too fast, sounds blending (연음, 경음화, ㅎ dropping), grammar |
-| Mon | Shadowing: sentence by sentence at 0.8× (`ffmpeg`), then a 1-min section at full speed |
-| Tue | Dictation of 3–5 hard lines → final listen with no transcript, rate again (e.g. 60% → 85%) = listening metric |
+| Sun | Speech patterns to borrow: 5–8 openers, connectors, endings, reactions for the podcast |
+| Mon | Shadowing: sentence by sentence at 0.8×, then a 1-min section at full speed → final listen, rate again (e.g. 60% → 85%) = listening metric |
 
 ### 2b. Speaking method (changed 2026-11-06)
 
-- **One podcast a week, on my own time** (Mon, after listening step 4): a podcast-style monologue, by default about my weekend, so it rehearses the first half of the Wednesday lesson.
+- **One podcast a week, on my own time, in 3 versions** (v1 Mon after listening step 4, v2 Tue after the weekly test, v3 Wed told with no notes before the lesson): a podcast-style monologue, by default about my weekend, so it rehearses the first half of the Wednesday lesson.
 - **Starts at 3 minutes**; +30 s after 3 comfortable weeks, up to 6.
 - **Uses 5–8 patterns borrowed from the week's listening clip** (listening step 3), plus the week's 2 new points.
 - **Self-rated** (flow / patterns / grammar / comfort, 1–5), logged in `Speaking/log.md`. No transcription or corrections from Claude.
 - **Then a blog post** on the same topic. 1–2 sentences I'm unsure about go to the weekly check, and then to the tutor if needed.
 - Why: listening to a clip and speaking on the same day was too much, and it's more useful to study one clip deeply and reuse its patterns.
 
-Removed: `/voice-prep` (ChatGPT), `/hard-words`, `/pinned-words` (folded in), per-session `website-update` posts, `StudyGuide.md`.
+Removed: `/voice-prep` (ChatGPT), `/hard-words`, per-session `website-update` posts, `StudyGuide.md`.
 
 ## 3. Words = Anki
 

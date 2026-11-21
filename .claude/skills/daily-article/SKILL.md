@@ -1,6 +1,6 @@
 ---
 name: daily-article
-description: Writes one short Korean news article a day for the 기사 section of the website (website/posts/, category "article"), about a real news story from today on a rotating topic (게임 / 테크 / K-pop / 요리 / 생활), built around what the user is learning — the week's grammar, due points, the correct forms of their recurring and recent mistakes, lesson and trouble Anki words — with a 문법 · 실수 list, a spot-the-mistake line, a word list and the source link. Use when the user runs /daily-article or asks for today's article; korean-mentor runs it at the end of every run if today's article doesn't exist yet.
+description: Writes one short Korean news article a day for the 기사 section of the website (website/posts/, category "article"), about a real news story from today on a rotating topic (게임 / 테크 / K-pop / 요리 / 생활), built around what the user is learning — the week's grammar, due points, the correct forms of their recurring and recent mistakes, lesson and trouble Anki words — with a 문법 · 실수 list, a spot-the-mistake line, a word list and the source link. Use only when the user runs /daily-article or asks for an article (since 2026-11-19 korean-mentor fetches Naver 오늘의 회화 at the end of a run instead).
 ---
 
 # Daily article (기사)

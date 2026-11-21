@@ -40,7 +40,9 @@ Rules for every step:
 - **Don't reuse the Anki example.** Change the situation so a memorized answer won't work.
 - Don't show what you're looking for until the user has answered.
 - Follow **Feedback** in `.claude/skills/korean-mentor/session.md` (explanations in English), with a one-line ✔ or ✏️ for each answer.
-- Read each Korean prompt aloud as in `korean-mentor`, with `.claude/skills/korean-mentor/speak.sh "<Korean text>"` (plain Bash, not `run_in_background`). Don't mention the audio unless it fails. Pass only the Korean sentence, and skip the Produce step, which has no Korean. If the script fails, say so in one line and carry on without audio.
+- Read each Korean prompt aloud with `.claude/skills/korean-mentor/speak.sh "<Korean text>"` (plain Bash, not `run_in_background`), as the **last tool call** before the prompt text, so the text is on screen before the audio plays (korean-mentor's **Audio after text** rule). Don't mention the audio unless it fails. Pass only the Korean sentence, and skip the Produce step, which has no Korean. If the script fails, say so in one line and carry on without audio.
+- Log every fix and 💡 to `progress/daily/<today>.md` right after the feedback (`.claude/skills/_shared/daily-mistakes.md`), Block `pinned`.
+- **Anki word:** the only exception to korean-mentor's "Anki word in every prompt" rule. The prompts already drill pinned words, and naming an extra word in Produce would give away the answer.
 - After the last word in Recall, Use and Produce, ask the missed words again in a new sentence or situation. Only the first answer in Produce counts.
 
 ## Ending

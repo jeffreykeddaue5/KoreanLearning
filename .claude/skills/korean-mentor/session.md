@@ -106,12 +106,12 @@ Skip if the user says "no warm-up" or it already ran today.
 
 ## Feedback (right after each answer)
 
-One compact block, then the follow-up:
+One compact block, ending with the break line (the Korean reaction and follow-up go in the next prompt card, see **Break between questions**):
 
 ```
 ⏱ 24s spoken · ✔ (last time 1:40 ✏️)
 ✏️ 피곤하는 바람에 → 과제가 많은 바람에 (-는 바람에 = an event, not a state)
-진짜요? 곱창은 어디서 먹었어요?
+Ready? Send anything for Q3.
 ```
 
 - **Time + result + last time** for repeated questions, so the user sees the change. First time asked: just the time.

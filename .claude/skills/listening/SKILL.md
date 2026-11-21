@@ -81,7 +81,7 @@ Progress: `3 ✔ (6 patterns)`.
 2. For each line: show it, play it at 0.8× (`play … 0.8`), the user repeats it aloud, then play it at normal speed and they repeat again. Point out one sound or rhythm thing per line in English if useful (linking, where the pitch rises at the end). Move on when the user says next.
 3. Then pick a ~1-minute passage (consecutive lines). Play it at normal speed 2–3 times while the user speaks along with it, showing the text the first two times and hiding it the last time.
 4. **Final listen:** the whole clip with no text (terminal or YouTube with subtitles off). Ask for the % understood again, and write it at the top of `notes.md`: `**Listening:** 60% → 85%`.
-5. Remind the user that the podcast comes next (`speaking` block), ideally today after shadowing while the patterns are fresh.
+5. Remind the user that **podcast v1** comes next (speaking skill), ideally today after shadowing while the patterns are fresh.
 
 Progress: `4 ✔ (85%)`. The weekly check reads this.
 
