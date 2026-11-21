@@ -9,11 +9,15 @@ gets Claude's output as server-sent events from /api/events.
 """
 import hashlib
 import json
+import random
+import re
+from datetime import date, datetime
 import signal
 import os
 import subprocess
 import sys
 import threading
+import time
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
@@ -23,9 +27,16 @@ STATIC = ROOT / "gui" / "static"
 TODAY = ROOT / ".claude" / "skills" / "korean-mentor" / "today.py"
 TTS = Path.home() / ".local/share/korean-tts/bin/edge-tts"   # same voice as speak.sh
 TTS_CACHE = ROOT / "gui" / "state" / "tts"
+DAILY = ROOT / "progress" / "daily"
+MISTAKES = ROOT / "progress" / "mistakes.md"
+STATE = ROOT / "gui" / "state"
+REC = STATE / "rec"                 # spoken answers, one folder per session (not committed)
+SERVER_FILE = Path(__file__).resolve()
+SERVER_MTIME = SERVER_FILE.stat().st_mtime
+IDLE_STOP_S = 45                    # no page connected this long → send 그만, then stop
 PORT = 8765
 TYPES = {".html": "text/html", ".js": "text/javascript", ".css": "text/css",
-         ".svg": "image/svg+xml", ".png": "image/png"}
+         ".svg": "image/svg+xml", ".png": "image/png", ".webm": "audio/webm", ".ogg": "audio/ogg"}
 
 
 class Session:
@@ -36,6 +47,11 @@ class Session:
         self.events = []          # list of dicts, the page replays them by index
         self.busy = False
         self.cond = threading.Condition()
+        self.sid = ""             # session id: names the recordings folder
+        self.clients = 0          # open /api/events streams
+        self.last_seen = 0.0      # when the last page disconnected or connected
+        self.ended = False        # 그만 already sent
+        self.auto_t = 0.0         # when the idle watcher sent 그만
 
     def alive(self):
         return self.proc is not None and self.proc.poll() is None
@@ -49,6 +65,8 @@ class Session:
         self.stop()
         with self.cond:
             self.events = []
+        self.sid = datetime.now().strftime("%Y-%m-%d-%H%M%S")
+        self.ended, self.auto_t, self.last_seen = False, 0.0, time.time()
         self.proc = subprocess.Popen(
             ["claude", "-p", "--input-format", "stream-json",
              "--output-format", "stream-json", "--verbose",
@@ -62,6 +80,8 @@ class Session:
     def send(self, text, show=True):
         if not self.alive():
             raise RuntimeError("no session")
+        if text.strip() == "그만":
+            self.ended = True
         if show:
             self.emit({"kind": "user", "text": text})
         msg = {"type": "user", "message": {"role": "user", "content": text}}
@@ -123,6 +143,43 @@ def tool_label(block):
 SESSION = Session()
 
 
+def idle_watcher():
+    """Closing the tab = 그만: with no page connected for IDLE_STOP_S, send 그만 so
+    Claude saves the pause point, then stop the session once it's done.
+    A page reload reconnects within a second, so it never triggers this."""
+    while True:
+        time.sleep(5)
+        s = SESSION
+        if not s.alive():
+            continue
+        if s.clients > 0:
+            s.auto_t = 0.0
+            continue
+        idle = time.time() - s.last_seen
+        if idle < IDLE_STOP_S:
+            continue
+        try:
+            if not s.ended:
+                s.send("그만")
+                s.auto_t = time.time()
+            elif not s.busy and time.time() - (s.auto_t or s.last_seen) > 5:
+                s.stop()
+        except (RuntimeError, BrokenPipeError, OSError):
+            s.stop()
+
+
+def restart_server():
+    """Re-exec this file so code changes take effect (only with no session running)."""
+    time.sleep(0.3)               # let the HTTP reply go out first
+    os.execv(sys.executable, [sys.executable, "-I", str(SERVER_FILE)] + sys.argv[1:])
+
+
+def rec_path(sid, name):
+    if not re.fullmatch(r"[\d-]+", sid or "") or not re.fullmatch(r"\d+(-r\d+)?", name or ""):
+        raise KeyError("bad recording name")
+    return REC / sid / f"{name}.webm"
+
+
 def tts(text, rate="+0%"):
     """mp3 bytes for a Korean line, cached so repeats are instant."""
     TTS_CACHE.mkdir(parents=True, exist_ok=True)
@@ -143,6 +200,81 @@ def run_today():
         return json.loads(out)
     except (subprocess.SubprocessError, ValueError) as e:
         return {"error": f"today.py failed: {e}"}
+
+
+# ---------- review game: yesterday's mistakes (no Claude call) ----------
+
+def _cells(line):
+    return [c.strip() for c in line.strip().strip("|").split("|")]
+
+
+def review_date(today=None):
+    """The newest progress/daily file before today (normally yesterday)."""
+    today = today or date.today().isoformat()
+    days = sorted(f.stem for f in DAILY.glob("????-??-??.md") if f.stem < today)
+    return days[-1] if days else None
+
+
+def review_items(day):
+    """Parse progress/daily/<day>.md into game items.
+
+    ✏️ rows: Block | Type | You said | Better | Why (some old rows lack Type).
+    💡 rows: Block | You said | More natural | Why.
+    """
+    f = DAILY / f"{day}.md"
+    if not f.is_file():
+        return []
+    recurring = ""
+    if MISTAKES.is_file():
+        m = re.search(r"^##[^\n]*Recurring[^\n]*\n(.*?)(?=^## |\Z)", MISTAKES.read_text(), re.S | re.M)
+        recurring = m.group(1) if m else ""
+    items, section = [], None
+    for line in f.read_text().splitlines():
+        if line.startswith("## "):
+            section = "fix" if "✏️" in line else "natural" if "💡" in line else None
+            continue
+        if not section or not line.lstrip().startswith("|") or re.match(r"^\s*\|[\s:|-]+\|\s*$", line):
+            continue
+        c = _cells(line)
+        if c[0] == "Block":
+            continue
+        if section == "fix":
+            if len(c) >= 5:
+                block, typ, said, better, why = c[0], c[1], c[2], c[3], " | ".join(c[4:])
+            elif len(c) == 4:
+                block, typ, said, better, why = c[0], "", c[1], c[2], c[3]
+            else:
+                continue
+        else:
+            if len(c) < 4:
+                continue
+            block, typ, said, better, why = c[0], "💡", c[1], c[2], " | ".join(c[3:])
+        alts = [a.strip() for a in better.split(" / ") if a.strip()]
+        slip = "small slip" in why or typ == "맞춤법" or "typo" in why
+        key = re.sub(r"\(.*?\)|\[.*?\]", "", alts[0]).strip() if alts else ""
+        rec = "same as" in why or (len(key) >= 4 and key in recurring)
+        # A ✏️ row with no Type was a rewrite, not an error (it belonged in 💡): round 1 only.
+        natural = section == "natural" or not typ
+        items.append({"block": block, "type": typ or "💡", "said": said, "better": better,
+                      "alts": alts, "why": why, "slip": slip, "natural": natural,
+                      "recurring": rec})
+    return items
+
+
+def review_game(day):
+    """Round 1 (pick the right one): slips + 💡 first, then main fixes that don't fit round 2.
+    Round 2 (type the fix): main fixes, recurring first. Max 10 + 8."""
+    items = review_items(day)
+    for i, it in enumerate(items):
+        it["id"] = i
+    mains = [it for it in items if not it["slip"] and not it["natural"]]
+    random.shuffle(mains)
+    mains.sort(key=lambda it: not it["recurring"])
+    round2 = mains[:8]
+    round1 = [it for it in items if it["slip"] or it["natural"]] + mains[8:]
+    round1 = round1[:10]
+    random.shuffle(round1)
+    return {"date": day, "total": len(items), "round1": round1, "round2": round2}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -167,7 +299,32 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(run_today())
         if url.path == "/api/state":
             return self._json({"alive": SESSION.alive(), "busy": SESSION.busy,
-                               "count": len(SESSION.events)})
+                               "count": len(SESSION.events), "sid": SESSION.sid,
+                               "stale": SERVER_FILE.stat().st_mtime > SERVER_MTIME})
+        if url.path == "/api/daily":
+            day = parse_qs(url.query).get("date", [date.today().isoformat()])[0]
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
+                return self._json({"error": "bad date"}, 400)
+            return self._json({"date": day, "items": review_items(day)})
+        if url.path == "/api/rec/list":
+            sid = parse_qs(url.query).get("sid", [""])[0]
+            d = REC / sid if re.fullmatch(r"[\d-]+", sid) else None
+            return self._json(sorted(f.stem for f in d.glob("*.webm")) if d and d.is_dir() else [])
+        if url.path == "/api/rec":
+            q = parse_qs(url.query)
+            try:
+                f = rec_path(q.get("sid", [""])[0], q.get("name", [""])[0])
+            except KeyError as e:
+                return self._json({"error": str(e)}, 400)
+            if not f.is_file():
+                return self._json({"error": "not found"}, 404)
+            body = f.read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "audio/webm")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
         if url.path == "/api/tts":
             q = parse_qs(url.query)
             try:
@@ -180,6 +337,14 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
             return
+        if url.path == "/api/review":
+            q = parse_qs(url.query)
+            day = q.get("date", [None])[0] or review_date()
+            if not day or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
+                return self._json({"date": None, "total": 0, "round1": [], "round2": []})
+            if "count" in q:
+                return self._json({"date": day, "total": len(review_items(day))})
+            return self._json(review_game(day))
         if url.path == "/api/events":
             return self._events(int(parse_qs(url.query).get("since", ["0"])[0]))
         name = "index.html" if url.path == "/" else url.path.lstrip("/")
@@ -201,6 +366,26 @@ class Handler(BaseHTTPRequestHandler):
                 SESSION.start(self._body().get("args", ""))
             elif path == "/api/send":
                 SESSION.send(self._body()["text"])
+            elif path == "/api/review/result":
+                res = self._body()
+                day = str(res.get("date", ""))
+                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
+                    raise KeyError("date")
+                res["played_at"] = datetime.now().isoformat(timespec="minutes")
+                STATE.mkdir(parents=True, exist_ok=True)
+                (STATE / f"review-{day}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1))
+            elif path == "/api/rec":
+                q = parse_qs(urlparse(self.path).query)
+                f = rec_path(q.get("sid", [""])[0], q.get("name", [""])[0])
+                n = int(self.headers.get("Content-Length") or 0)
+                if n > 20_000_000:
+                    raise KeyError("recording too big")
+                f.parent.mkdir(parents=True, exist_ok=True)
+                f.write_bytes(self.rfile.read(n))
+            elif path == "/api/restart":
+                if SESSION.alive():
+                    raise RuntimeError("a session is running")
+                threading.Thread(target=restart_server, daemon=True).start()
             elif path == "/api/close":
                 SESSION.stop()
             else:
@@ -214,6 +399,9 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", "text/event-stream")
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
+        with SESSION.cond:
+            SESSION.clients += 1
+            SESSION.last_seen = time.time()
         try:
             while True:
                 with SESSION.cond:
@@ -229,12 +417,17 @@ class Handler(BaseHTTPRequestHandler):
                 self.wfile.flush()
         except (BrokenPipeError, ConnectionResetError):
             pass
+        finally:
+            with SESSION.cond:
+                SESSION.clients -= 1
+                SESSION.last_seen = time.time()
 
 
 def main():
     port = int(sys.argv[sys.argv.index("--port") + 1]) if "--port" in sys.argv else PORT
     srv = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     srv.daemon_threads = True
+    threading.Thread(target=idle_watcher, daemon=True).start()
     signal.signal(signal.SIGTERM, lambda *_: sys.exit(0))   # so finally: stops claude too
     print(f"korean-mentor GUI on http://localhost:{port}", flush=True)
     try:

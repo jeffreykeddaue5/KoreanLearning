@@ -17,9 +17,20 @@
   <p class="dim small">Listening, podcast and lesson blocks stay in the terminal.</p>
 </section>
 
+<section id="game" hidden>
+  <header>
+    <span id="gTitle"></span>
+    <span id="gScore" class="dim"></span>
+    <button id="gQuit" title="Back to start">✕</button>
+  </header>
+  <div id="gBar"><div id="gFill"></div></div>
+  <main id="gStage"></main>
+</section>
+
 <section id="chat" hidden>
   <header>
     <span id="timer"></span>
+    <span id="nav"><button id="prev" title="Earlier question (Alt+←)">←</button><span id="dots"></span><button id="next" title="Later question (Alt+→)">→</button></span>
     <span id="status" class="dim"></span>
     <button id="histBtn" title="Everything said so far">History</button>
     <button id="end" title="Stop for today (그만)">그만</button>
@@ -48,5 +59,6 @@
 </section>
 
 <script src="app.js"></script>
+<script src="game.js"></script>
 </body>
 </html>

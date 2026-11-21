@@ -5,6 +5,7 @@ Every block that gives feedback on the user's Korean (grammar session, warm-up, 
 - **Chat stays short** (1–2 main fixes per answer, as each skill says). The log gets **everything**: main errors, small slips you let go in chat (spelling, particles, spacing that changes meaning, word choice), and every 💡.
 - If a fix was only logged, not shown, add one line in chat: `+2 small slips saved to 오늘의 실수`.
 - **💡 더 자연스러워요:** the sentence was correct but a Korean would say it differently (a tutor-style rewrite, a more natural word, a set phrase, a better ending). Log one even on a ✔ answer. Never present a 💡 as an error.
+- **Every ✏️ row has a Type.** A row with no clear error type is a rewrite and goes under 💡 instead. The review game (`gui/static/game.js`) quizzes ✏️ rows by typing the fix and 💡 rows by picking, so mixing them up makes the game unfair.
 - One row per fix. Write the user's sentence as they wrote it (short part around the error is fine), the fix, and a short English reason. Nuance guesses get `(⚠ check with tutor)`.
 
 Create the file if missing:

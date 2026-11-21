@@ -9,7 +9,7 @@ In Claude Code, from this folder:
 ```
 /korean-mentor            # today's checklist, then the next unfinished block
 /korean-mentor 35-44      # a grammar session on those points
-/korean-mentor listening  # or: review, check, mistakes, pinned, podcast, intake, plan
+/korean-mentor listening  # or: review, check, mistakes, pinned, podcast, intake, plan, game
 ```
 
 Say **그만** to stop; the next run picks up at the next block. Prompts are in Korean, explanations in English. The command commits once at the end of the day.
@@ -60,6 +60,7 @@ Every 4th week is light: no new grammar. Grammar points have levels 0–5 with s
 | `daily-update` | Website: rebuilds `website/data/study.js` (end of every run) |
 | `website-update` | Website: the weekly 오늘 list (써먹을 표현, mood), post formats, 오늘의 회화 fetch |
 | `daily-article` | Website: a 기사 post built from my grammar and mistakes, only on request |
+| `gui/` | Browser GUI for the timed blocks (`gui/start.sh`, design in `gui/DESIGN.md`), plus the 🎮 어제 실수 game: yesterday's `progress/daily/` rows as a 2-round quiz, no Claude needed |
 | `_shared/daily-mistakes.md` | Every block logs every fix and 💡 to `progress/daily/<date>.md` (website 오늘의 실수) |
 | `_shared/anki.py` | Anki helper for every skill: AnkiConnect when Anki is open, a read-only copy + `anki/pending.json` queue when it isn't. Trouble words are tagged `use_trouble` |
 

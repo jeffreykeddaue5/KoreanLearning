@@ -9,6 +9,17 @@ cd "$(dirname "$0")/.."
 port=${PORT:-8765}
 url="http://localhost:$port/"
 
+# Server code changed and no session running → restart it so the change takes effect.
+state=$(curl -s "${url}api/state" || true)
+if [ -n "$state" ] && python3 -c 'import json,sys; d=json.loads(sys.argv[1]); sys.exit(0 if d.get("stale") and not d.get("alive") else 1)' "$state" 2>/dev/null; then
+  curl -s -X POST "${url}api/restart" >/dev/null
+  sleep 0.5
+  for _ in $(seq 50); do
+    curl -s -o /dev/null "$url" && break
+    sleep 0.1
+  done
+fi
+
 if ! curl -s -o /dev/null "$url"; then
   mkdir -p gui/state
   nohup python3 -I gui/server.py --port "$port" >gui/state/server.log 2>&1 &

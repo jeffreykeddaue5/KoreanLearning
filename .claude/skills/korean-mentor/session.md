@@ -59,9 +59,10 @@ Keep setup to a few lines on screen; don't show the files you read.
 1. Read `progress/questions.md`, `progress/grammar.md`, `progress/mistakes.md` and the top of `progress/log.md`. Note the user's recent average answer time (Session log) to compare at the end.
 2. Read `Grammar/README.md`, then only the files holding today's targets.
 3. **Due points** (`progress/grammar.md`, Next review ≤ today): fold 2–4 into follow-up questions; they don't get prompts of their own. Missed grammar block earlier this week → +2.
-4. **Open mistakes:** pick 2–3 from **Practice** and **Lesson mistakes** (prefer ones related to the week's points; grep the lesson file for the tutor's wording) and set up follow-ups where the user would make the same choice again.
-5. **Anki words** (`A=.claude/skills/_shared/anki.py`): `python3 -I $A pinned 1` (pinned today) and `python3 -I $A trouble` (pick 2–3, preferring no `use_trouble_1`).
-6. Show one block, e.g.
+4. **Review game misses:** if `gui/state/review-<date>.json` exists for the last day's log, its `misses` (still wrong in the game) come first as follow-up targets: set up the same choice again in a new situation. Then the open mistakes below.
+5. **Open mistakes:** pick 2–3 from **Practice** and **Lesson mistakes** (prefer ones related to the week's points; grep the lesson file for the tutor's wording) and set up follow-ups where the user would make the same choice again.
+6. **Anki words** (`A=.claude/skills/_shared/anki.py`): `python3 -I $A pinned 1` (pinned today) and `python3 -I $A trouble` (pick 2–3, preferring no `use_trouble_1`).
+7. Show one block, e.g.
 
    ```
    Week set: 10 questions (소곱창 weekend) · today: Q1–Q5 again + 2 old (Q3 of 11-11, Q7 of 11-04)

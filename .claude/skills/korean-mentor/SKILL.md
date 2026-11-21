@@ -37,6 +37,7 @@ Next: grammar (~30 min). Go?
 
 - **Anki:** ☑ if reviews were done today and nothing is due (`reviewed_today` > 0, `due_left` 0); otherwise ☐ with the count due. If the user hasn't done Anki yet, remind them once; don't block other work. Mention queued changes only if there are any (`pending`): "Open Anki to apply N queued changes."
 - Show `missed_earlier` in one line, with what happens to it (see **Catching up**).
+- **Review game:** if the newest `progress/daily/` file before today has rows and there's no `gui/state/review-<that date>.json` yet, add one line: `Warm-up option: 어제 실수 게임, 5 min (/korean-mentor game)`. Offer it, never push it; it isn't a block and is never ticked or caught up.
 
 ## 3. Pick what to run
 
@@ -53,6 +54,7 @@ Next: grammar (~30 min). Go?
 | `podcast` / `speaking` | the podcast setup or log (speaking skill) |
 | `homework` | the homework block |
 | `article` | the daily-article skill (only on request) |
+| `game` | the 어제의 실수 review game: run `gui/start.sh review-game` and reply with one line, `Opened in the browser → <url>.` Nothing else; the game needs no Claude. |
 | `intake` | lesson-intake |
 | `plan` | just show the checklist and stop |
 | `grammar` | today's grammar block (resumes a paused one) |

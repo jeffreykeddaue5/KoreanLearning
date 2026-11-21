@@ -47,7 +47,7 @@ Paused 16:05 at warm-up react 1/5 → resume Q8, Q9, Q4…
 
 The button starts the Claude session with `/korean-mentor [gui] <args>`. Claude does its setup (reads progress files, picks the questions) while a short "getting today's questions…" line shows, then sends the first prompt. Only timed blocks get buttons; listening, podcast etc. stay in the terminal.
 
-**Closing early:** the ✕ button (or closing the tab) sends `그만`, so Claude saves the pause point like it does now (`paused 16:05 at …`) and the start screen offers **Resume** next time.
+**Closing early:** the 그만 button sends `그만`; closing the tab makes the server send it after 45 s with no page connected, so Claude saves the pause point like it does now (`paused 16:05 at …`) and the start screen offers **Resume** next time.
 
 ## 4. Turn protocol
 
@@ -84,7 +84,7 @@ The GUI sends answers as: `⏱ 24s spoken\n<typed answer>` (or `?` / English for
 - **Ready (Enter)** loads the next prompt. Ask-a-question box for "why?" questions about the fix.
 
 **C. Going back to earlier questions**
-- The page keeps every turn of today's session in a list: prompt, scene, word, your typed answer, time, feedback. It's saved to `gui/state/<date>.json` after every turn, so a page reload or a resumed session keeps it.
+- The page builds every turn of the session (prompt, scene, word, your typed answer, time, feedback, recording) from the server's event list, so a page reload keeps it while the server runs.
 - **←** (or Alt+←) steps back through earlier questions; **→** steps forward; **→** on the newest one returns to the live question. A row of dots at the bottom (● ✔ green, ● ✏️ orange, ○ current) shows where you are and jumps on click.
 - Looking back is read-only and free: no Claude call, and the live question's timer **pauses** while you're away (the paused seconds don't count) and restarts when you come back.
 - On an earlier question: **🔊** replays it, and **Try again** answers it once more (timed). Claude gets `[retry Q4] ⏱ 18s spoken\n<answer>`, gives feedback, and logs it as a second try; then you're back at the live question.
@@ -135,6 +135,8 @@ Making a picture for every scenario is too much work, so no image files. Claude 
 
 ## 7. Build order
 
+All 9 steps are built (2026-11-20), plus: closing the tab = 그만 after 45 s with no page connected (`idle_watcher` in server.py; a reload reconnects first), and the server restarts itself when `server.py` changed and no session is running (start screen and `start.sh`).
+
 1. server.py + start.sh + one page: show Claude's text, input box, send. (Korean typing works; already useful.)
 2. Start screen from today.py + `/korean-mentor gui` + desktop launcher.
 3. GUI mode in session.md + JSON block parsing → prompt card + feedback view.
@@ -143,9 +145,18 @@ Making a picture for every scenario is too much work, so no image files. Claude 
 6. Turn history in `gui/state/` + ← → going back + Try again.
 7. End screen from `progress/daily/<today>.md`.
 8. Emoji scene + speaker face, saved per question.
-9. Optional: record your spoken answer (MediaRecorder) and play it back on the feedback screen, saved to Speaking/ for the daily 회화 recording.
+9. Record the spoken answer (MediaRecorder, from timer start to Done speaking) and play it back on the feedback card next to 🔊 for each fix. Saved to `gui/state/rec/<session id>/<turn>.webm` (retries `<turn>-r<k>`), not committed.
 
-## 8. Open questions
+## 8. Review game: 어제의 실수 (built 2026-11-20)
+
+A 5-minute warm-up on the last day's `progress/daily/<date>.md`, run entirely by the page (`static/game.js`) and the server (`/api/review`, `/api/review/result`): no Claude call.
+
+- **Round 1 · 어느 게 맞아요?** (max 10): two sentences, what I said vs the fix, ← / →. Small slips, 💡 rows and ✏️ rows with no Type (rewrites). 10 pts, +5 if under 5 s, streak counter. No auto-play; the 🔊 button reads the right one.
+- **Round 2 · 고쳐 보세요** (max 8): ✏️ rows with a Type (real errors), Recurring first. I type the fix; checked ignoring spaces and punctuation against every `/` alternative. ≥ 80% similar = close, with a character diff and an **I had it** button.
+- **End:** score, best streak, misses, one replay of the misses. Results go to `gui/state/review-<date>.json`; the next grammar session uses the misses as follow-up targets (session.md setup). Levels and mistake counts don't change.
+- Ways in: the 🎮 button on the start screen, `gui/start.sh review-game`, or `/korean-mentor game`.
+
+## 9. Open questions
 
 - Grammar block only, or other blocks too (weekly check, mistakes drill)? Suggest grammar only for v1; the protocol works for any timed prompt later.
 - Emoji only, or allow simple ASCII art too?

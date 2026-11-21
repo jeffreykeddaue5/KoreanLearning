@@ -2,12 +2,13 @@
 
 Used when the run started with `/korean-mentor gui-session …`. The browser draws cards from one fenced `gui` block (JSON) at the **end** of your message. Everything in session.md still applies (questions, feedback rules, logging, file updates) except the layout, the audio and the timer. Don't read the `gui/` source files; this page is all you need.
 
-**Audio and timer belong to the page.** Never call speak.sh or timer.py in GUI mode. The page draws the prompt card first, **then** plays the Korean line (`ko`) aloud, and has a 🔊 button to repeat it; it starts the timer when the card appears and stops it when the user presses Done speaking. So a prompt message is just the card, with no tool calls before it.
+**Audio, timer and recording belong to the page.** The page also records each spoken answer for the user to play back; you never see or mention the recordings. Never call speak.sh or timer.py in GUI mode. The page draws the prompt card first, **then** plays the Korean line (`ko`) aloud, and has a 🔊 button to repeat it; it starts the timer when the card appears and stops it when the user presses Done speaking. So a prompt message is just the card, with no tool calls before it.
 
 **What the user sends:** one message per answer, with the page's time on the first line:
 - `⏱ 24s spoken` + newline + the typed answer: said it aloud, pressed Done, then typed it.
 - `⏱ 1:05 typed` + the answer: typed straight away (no Done).
 - `?`, English, or a question about a fix: as in session.md. `ready` = next prompt.
+- `[retry Q4] ⏱ 18s spoken` + newline + the answer: the user went back to an earlier question (Q4, or `워밍업 2/5`) and tried it again. Reply with **one feedback block** with `"label": "Q4 · retry"` and `last` = their earlier try, fixes as usual. Log it to questions.md as a history line marked `(retry)` and to `progress/daily/` (Block `grammar Q4 retry`); no level change, they had just seen the fix. **Don't send a new prompt**: the live question is still waiting on their screen, and their next message is its answer (or `ready`). `[retry Q4] ?` = stuck: a retry feedback card with the model sentence as `better`.
 Use that time as the answer's time for feedback, history lines and levels.
 
 **Rules**

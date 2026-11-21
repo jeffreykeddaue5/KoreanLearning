@@ -92,3 +92,62 @@ footer { border-top: none; }
 #speaker { font-size: 52px; }
 #picture { min-height: 90px; }
 .replay { font-size: 18px; padding: 2px 8px; vertical-align: middle; border-radius: 20px; }
+
+/* review game: 어제의 실수 */
+#game { max-width: 760px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+#game header { display: flex; align-items: center; gap: 12px; padding: 12px 16px; }
+#gTitle { font-weight: 600; flex: 1; }
+#gScore { font-variant-numeric: tabular-nums; }
+#gQuit { font-size: 13px; padding: 4px 10px; opacity: .55; }
+#gBar { height: 4px; background: var(--line); margin: 0 16px; border-radius: 2px; }
+#gFill { height: 100%; width: 0; background: var(--accent); border-radius: 2px; transition: width .3s; }
+#gStage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 20px; }
+.gq { font-size: 15px; color: var(--dim); }
+.gq .tag { border: 1px solid var(--line); border-radius: 10px; padding: 1px 8px; margin-left: 6px; font-size: 13px; }
+.gchoices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.gchoice { font-size: 22px; line-height: 1.45; padding: 22px 16px; text-align: left; min-height: 110px; position: relative; }
+.gchoice kbd { position: absolute; top: 6px; right: 10px; font-size: 12px; color: var(--dim); }
+.gchoice.right { border: 2px solid var(--ok); background: color-mix(in srgb, var(--ok) 12%, var(--card)); }
+.gchoice.wrong { border: 2px solid var(--warn); opacity: .7; }
+.gsaid { font-size: 24px; color: var(--warn); text-decoration: line-through; text-decoration-thickness: 1px; }
+.gans { width: 100%; font: inherit; font-size: 22px; padding: 10px 12px; border-radius: 8px;
+        border: 1px solid var(--line); background: var(--card); color: var(--fg); }
+.gans:focus { outline: 2px solid var(--accent); }
+.gres { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; }
+.gres .big { font-size: 22px; font-weight: 600; }
+.gres .better { color: var(--ok); font-size: 22px; font-weight: 600; }
+.gres .why { color: var(--dim); font-size: 15px; margin-top: 4px; }
+.gdiff ins { background: color-mix(in srgb, var(--ok) 25%, transparent); text-decoration: none; }
+.gdiff del { background: color-mix(in srgb, var(--warn) 30%, transparent); }
+.gbtns { display: flex; gap: 8px; flex-wrap: wrap; }
+.gtimer { height: 3px; background: var(--ok); width: 100%; transition: width 5s linear; border-radius: 2px; }
+.gtimer.go { width: 0; }
+.streak { color: var(--warn); font-weight: 600; }
+.gmiss { border-bottom: 1px solid var(--line); padding: 8px 0; }
+.gmiss .said { color: var(--warn); text-decoration: line-through; }
+.gmiss .better { color: var(--ok); font-weight: 600; }
+
+/* going back: dots + arrows in the header */
+#nav { display: flex; align-items: center; gap: 6px; }
+#nav button { font-size: 13px; padding: 2px 8px; opacity: .6; }
+#nav button:disabled { opacity: .2; }
+#dots { display: flex; gap: 4px; flex-wrap: wrap; max-width: 360px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--dim); cursor: pointer; }
+.dot.ok { background: var(--ok); border-color: var(--ok); }
+.dot.fix { background: var(--warn); border-color: var(--warn); }
+.dot.live { background: transparent; border-color: var(--accent); }
+.dot.cur { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mine { margin: 10px 0; padding: 8px 12px; background: var(--me); border-radius: 8px; }
+.try { border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 8px; }
+.replay.rec { font-size: 14px; border-radius: 14px; margin-left: 6px; }
+/* end screen: 오늘의 실수 */
+#daily h3 { font-size: 18px; margin: 18px 0 6px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.chip { font-size: 13px; padding: 2px 10px; border-radius: 12px; }
+.chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.drow { border-bottom: 1px solid var(--line); padding: 6px 0; }
+.drow.link { cursor: pointer; }
+.drow.link:hover { background: var(--me); }
+.drow .said { color: var(--warn); text-decoration: line-through; }
+.drow .better { color: var(--ok); font-weight: 600; }
+.drow .why { color: var(--dim); font-size: 14px; }
