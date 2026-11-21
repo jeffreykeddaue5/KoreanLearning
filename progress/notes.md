@@ -39,6 +39,9 @@ Real sentences from listening clips, dramas or conversations that use a grammar 
 
 | Date | Sentence | # | Source |
 | --- | --- | --- | --- |
+| 2026-11-21 | 열심히 노력해서 하는 거다 보니 계속 하기는 힘들더라고요 | #37 | Talk To Me In 100% Korean, 티티믹의 회식 문화 |
+| 2026-11-21 | 집에 늦게 가는 게 싫은가 보다 | #29 | Talk To Me In 100% Korean, 티티믹의 회식 문화 |
+| 2026-11-21 | 그리고 했을 때마다 재미있긴 했거든요? | #11 | Talk To Me In 100% Korean, 티티믹의 회식 문화 |
 | 2026-11-13 | 약간은 충동적으로 구매를 해 버렸습니다 | #60 | Didi's Korean Culture Podcast, 한국에서 인생 첫 차를 샀어요! |
 | 2026-11-13 | 제가 인생 첫 차가 생기게 됐어요 | #25 | Didi's Korean Culture Podcast, 한국에서 인생 첫 차를 샀어요! |
 | 2026-11-13 | 대중교통이 잘 되어 있긴 해요 | #11 | Didi's Korean Culture Podcast, 한국에서 인생 첫 차를 샀어요! |
