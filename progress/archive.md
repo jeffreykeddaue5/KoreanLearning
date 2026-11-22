@@ -71,3 +71,10 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 - 2026-10-11 · weakest: #7, 11, 19, 29, 39, 44 · conversation · strong: 치고는 + 잘 + 네요, 까 해요, 탓에 unprompted, 다 보니, 줄 몰랐다 · fix: 아침 일찍, 커피를 마시다, 남기다, tense of 2nd clause
 - 2026-10-10 · #36, 42–45 + review #7, #29 · drill · strong: 다면서요, 자마자, 길래, 나 봐요, 다던데 + suggestion · fix: 치고는 + 잘 치네요, 회사 근처에, 탓에 needs prompting
 - 2026-10-09 · #11, 36, 37, 38, 39 + review #7, #29 · conversation · strong: 기는 했지만, 다 보니, 서 그런지, 텐데, 려다가 · fix: 탓에 needs a bad result, tense, -나/이나 after vowels
+
+## Practice mistakes (dropped, max 10)
+
+- [어휘] 카페에 아무것도 없더라고요 (no people) → 아무도 없더라고요 (people = 아무도) (2026-11-17 weekly) · 1/2 · dropped 2026-11-22
+- [문법] 배가 아프는 바람에 → 배탈이 나는 바람에 / 배가 아파서 (-는 바람에 = verbs only) (2026-11-17 weekly) · 1/2 · dropped 2026-11-22
+- [어휘] 알람이 안 돼서 → 알람이 안 울려서 (an alarm goes off = 울리다) (2026-11-17 homework) · 1/2 · dropped 2026-11-22
+- [어휘] 차라리 집에 있어요 → 차라리 집에 있을걸 그랬어요 / 있는 게 나았어요 (차라리 compares: needs 낫다 / -ㄹ걸 / advice) (2026-11-18 lesson review) · 1/2 · dropped 2026-11-22

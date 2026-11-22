@@ -23,21 +23,22 @@ Mistakes that happened in 2 or more sessions. No count; being right adds `· rig
 
 - [어휘] Food quality = 맛있다, not 좋다 / 실력: 양꼬치가 너무 좋아서 → 맛있어서 (2026-11-17 homework), 한국의 실력이 더 좋아요 → 한국 곱창이 훨씬 맛있어요 (cooking skill = 솜씨) (2026-11-19) · 2026-11-20: 한국 솜씨가 더 좋아요 → 한국 식당 솜씨 / 한국 곱창이 훨씬 맛있어요 (솜씨 = a person's or kitchen's skill) · right 2026-11-20 drill (짜장면이 너무 맛있어서) · right 2026-11-21 drill (갈비가 너무 맛있어서)
 - [어휘] 웬만하면 + -(으)려고 해요 / -(으)세요, not plain present: 웬만하면 밤에는 안 먹어요 → 안 먹으려고 해요 (2026-11-16), 2026-11-21 drill: 웬만하면 오후에는 커피를 안 마셔요 → 안 마시려고 해요 (redo ✔ 일찍 일어나려고 해요)
+- [어휘] 늘 for 'lately / since then': 요즘 유산소 운동을 늘 해요 → 자주 (2026-11-20), 늘 약을 먹어요 → 그때부터 계속 약을 먹고 있어요 (2026-11-22) (늘 = a long habit)
 
 ## Practice mistakes
 
 Mistakes corrected in sessions. Each session's warm-up picks from here (lowest count, then oldest). +1 when fixed, reset to 0/2 when wrong, delete at 2/2. Same mistake again in a later session → move to Recurring. Max 10 items, drop the oldest.
 
-- [어휘] 카페에 아무것도 없더라고요 (no people) → 아무도 없더라고요 (people = 아무도) (2026-11-17 weekly) · 1/2
-- [문법] 배가 아프는 바람에 → 배탈이 나는 바람에 / 배가 아파서 (-는 바람에 = verbs only) (2026-11-17 weekly) · 1/2
-- [어휘] 알람이 안 돼서 → 알람이 안 울려서 (an alarm goes off = 울리다) (2026-11-17 homework) · 1/2
-- [어휘] 차라리 집에 있어요 → 차라리 집에 있을걸 그랬어요 / 있는 게 나았어요 (차라리 compares: needs 낫다 / -ㄹ걸 / advice) (2026-11-18 lesson review) · 1/2
 - [문법] 회사 그만둔다면서요? (they just told me) → 진짜요? 그만두기로 했어요? (-다면서요 = checking what you heard from someone else) (2026-11-19 warm-up) · 0/2
 - [어휘] 2000초반년 드라마 → 2000년대 초반 드라마 (decade = 2000년대, 초반 after) (2026-11-19) · 0/2
-- [어휘] 요즘 유산소 운동을 늘 해요 → 요즘 자주 해요 (늘 = a long habit, clashes with 요즘) (2026-11-20) · 0/2
 - [문법] 한국어 실력이 늘고 싶어요 → 실력을 늘리고 싶어요 / 늘었으면 좋겠어요 (-고 싶다 needs a person; 늘다 happens by itself) (2026-11-20) · 0/2
 - [문법] 빵집 앞을 지나가서 빵을 샀어요 → 지나가다가 (while passing = -다가 / -는데; -아서 = finished, then) (2026-11-21 drill) · 0/2
 - [문법] 다른 식당에 먹어 갈걸 → 먹으러 갈걸 (go to eat = -(으)러 가다) (2026-11-21 drill) · 0/2
+- [문법] 금요일부터 감기에 걸렸어요 (2× today) → 금요일에 감기에 걸렸어요 / 금요일부터 감기 기운이 있어요 (걸리다 = one moment → 에; 부터 needs an ongoing state) (2026-11-22) · 0/2
+- [어휘] 여자친구도 감기에 못 걸릴 수도 / 동료한테 감기에 걸려 줄 수도 → 옮을까 봐 / 동료한테 감기를 옮길 수도 있잖아요 (pass a cold = 옮기다; catch it from = 옮다) (2026-11-22) · 0/2
+- [어순] 안 운전하려고 해요 → 운전 안 하려고 해요 (N하다: 안 before 하) (2026-11-22) · 0/2
+- [조사] 일주일에는 수업에 빠지면 → 일주일 동안 (for a week = 동안; 일주일에 = per week) (2026-11-22) · 0/2
+- [문법] 줄거리는 … 다투는 편이에요 → 부부가 자주 다투는 이야기예요 (줄거리는 … ends in a noun; 신랑/신부 = wedding day only) (2026-11-22) · 0/2
 
 ## Lesson mistakes
 

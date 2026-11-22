@@ -11,6 +11,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-22 · long #61, #62 · Q1–Q3 (past) + role-play 약국 (surprise: 졸린 약) + disagree ×3 · warm-up: explain · avg 2:00 (last 0:44; spoken 0:48, rest typed 1–5 min) · strong: 드라마를 다 보기로 했어요 (0:41), 쉬라고 해서 … 웬만하면 일주일 동안 안 하려고 해요, 감기 기운이 있어요 right after learning it, 볼만해요 ×2 · fix: 부터 + 걸렸어요 (2×), 감기를 옮기다, 운전 안 하려고, 일주일 동안, 늘 (recurring)
 - 2026-11-21 · practice-mistakes · drill 10/10 + 2 redos · strong: 맛있어 보이길래 (L21, no hint), 배터리가 다 돼서, 아무도 없더라고요 (0:10), 갈걸 그랬어요, redo 일어나려고 해요 (0:07) · fix: 꺼지다 / 열리다 (2×), 웬만하면 + -려고 해요, 지나가다가, 먹으러 갈걸
 - 2026-11-20 · practice-mistakes · drill (stopped at 1/10) · strong: 그 중국집은 짜장면이 너무 맛있어서 · fix: —
 - 2026-11-20 · review #61, #62 (stopped at 6/8 + warm-up) · week set Q8, Q9, Q4, Q2, Q1, Q5 · warm-up: react · avg 0:44 (last 1:02; warm-ups 0:44) · strong: Q9 in 0:07, 미국 곱창도 먹을 만해요 (0:29, no hint), 가기로 했어요 (0:20, no hint), 동호회에 가입했어요, 따라 하기로 했어요 · fix: 실력이 늘고 싶어요 → 늘리고 싶어요, 요즘 + 늘 → 자주, 운동장 → 수영장, 솜씨 (person, not country), -았겠어요 for 맞장구
@@ -25,4 +26,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-11-10 · weekly check 3/10 + homework · test · strong: 못 살까 봐 걱정이에요, 많을 텐데 예약해 두는 게 좋겠어요, 막상 먹어 보니까 · fix: -느라(고) one subject, 입양했다면서요, 좋길래 … 갔어요, 오자마자 (not 왔더니), #57 not produced ×3, 커피를 마시다, 익숙해지기까지
 - 2026-11-09 · review #57, #58 + #13, #27, #28, #34, #55 · conversation · strong: 데이트하느라고 (no hint), 말한들, 질리기까지 1달밖에 안 걸렸어요, 벅찬가 봐요 (unprompted) · fix: 휴일에라도, 이직 → 결국 + 해야 할 거예요, 일은 쉬운걸요, 안 걸렸어요
 - 2026-11-08 · long #57, #58 + review #5, #6, #12, #15, #21, #32, #49 · conversation · strong: 실컷 먹었더니 (unprompted), 데이트하느라고, 진작 … 보낼걸 그랬어요, 활발한 반면에, 카페에 마시러 다녀요, 은근히 방해되더라고요 · fix: 사귀다 vs 데이트하다, 모르지만 (tense), 1달밖에 안 걸렸어요, 하 dropped (통화하는지, 일하느라고)
-- 2026-11-07 · practice-mistakes · drill · strong: 남은 음료가 콜라밖에, 청소하느라 못 했어요, 잤나 봐요, 쉬운 반면에, 어쩐지 as new sentence · fix: 바다에 수영하러 (place + 에 with -러 가다)
