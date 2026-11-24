@@ -15,6 +15,7 @@ Finished items, kept for reference. Skills can grep here (e.g. to notice a ✓ m
 - 자막이 없이 → 자막 없이 (L17) · ✓ 2026-11-04
 - [어휘] 방해되다 (be disturbed) vs 방해하다 (disturb): 영화 보는 데 방해됐어요 (L18) · ✓ 2026-11-08
 - [문법] 축제 갈까 봐서 → 축제 못 갈까 봐 (worry about not getting it → 못) (L16) · ✓ 2026-11-10
+- [문법] 볼까 해요 (50–60%) vs 볼 것 같아요 (80–90%) (L15) · ✓ 2026-11-24 (lesson review: 볼지도 몰라요, no hint)
 
 ## Hard words (✓ done)
 
@@ -53,6 +54,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-11-08 · long #57, #58 + review #5, #6, #12, #15, #21, #32, #49 · conversation · strong: 실컷 먹었더니 (unprompted), 데이트하느라고, 진작 … 보낼걸 그랬어요, 활발한 반면에, 카페에 마시러 다녀요, 은근히 방해되더라고요 · fix: 사귀다 vs 데이트하다, 모르지만 (tense), 1달밖에 안 걸렸어요, 하 dropped (통화하는지, 일하느라고)
 - 2026-11-07 · feelings words (extra) · drill · strong: 당황 vs 황당, 억울, 서운, 속상, 부담, 긴장 · fix: 어이없다 (speechless), 어지럽다 = messy room, 못 만나서
 - 2026-11-06 · new #57, #58 + review #5, #21, #55 (catch-up for Thu) · conversation · strong: 확인했더니 (unprompted), 일하느라고, 4시간이나, 하다 보니까 (unprompted), 방해되다 (L18) · fix: 게임에 몰입하다, 쉬운 반면에, -느라고 = busy doing, tense (쑤셔요, 바쁘다고, 좋을 거래요)
 - 2026-11-04 · L17–L18 homework review + review #29, #37 + pinned words (day 644) · conversation (stopped at 6/7) · strong: 은근히 벅차더라고요 (unprompted 은근히), 고등학생 나이여도, 자막 없이, 떠맡았는데, 삭제한 탓에 · fix: 몰입했나 봐요, 공원에 산책하러, 어쩐지 + -더라고요 (warm-up)

@@ -44,7 +44,6 @@ Mistakes corrected in sessions. Each session's warm-up picks from here (lowest c
 
 Mistakes the tutor corrected (from `Homework/`). +1 for each session where it's right without a hint. At 2/2, move the line to `archive.md` with `· ✓ <date>`. Wrong again (even an archived one) → reset to 0/2, bring it back here, and add it to Recurring.
 
-- [문법] 볼까 해요 (50–60%) vs 볼 것 같아요 (80–90%) (L15) · 1/2
 - [어휘] 월급 vs 월세: 월세가 비쌀 텐데요 (L13) · 1/2
 - [문법] 표를 다 파는 걸 보니까 → 표가 다 팔리는 걸 보니까 (L6; again 2026-11-12: 계획이 바꾸는 → 바뀌는) · 1/2 (right 2026-11-13: 표가 매진되는, 친구가 계획을 바꾸는)
 - [시제] 직접 운전하는 걸 보니까 → 운전한 걸 보니까 (past evidence → past, L10) · 1/2
