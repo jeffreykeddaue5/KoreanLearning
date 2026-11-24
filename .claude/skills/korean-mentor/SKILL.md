@@ -49,6 +49,7 @@ Next: grammar (~30 min). Go?
 | `review` | a review grammar session (due points only) |
 | `listening` | the listening skill's next step |
 | `check` / `weekly` | the weekly check |
+| `lesson-review` / `lesson` | the lesson review block |
 | `mistakes` | the practice-mistakes drill |
 | `pinned` | the pinned-words drill |
 | `podcast` / `speaking` | the podcast setup or log (speaking skill) |
@@ -60,7 +61,9 @@ Next: grammar (~30 min). Go?
 | `grammar` | today's grammar block (resumes a paused one) |
 | `gui` [args] | open the browser GUI: run `gui/start.sh [args]` and reply with one line, `Opened in the browser → <url>. Use the GUI until you press 그만 there.` Do nothing else in this run (the GUI runs its own session). |
 
-**GUI session:** when the first message is `/korean-mentor gui-session <args>`, the user is in the browser GUI, started from its start screen, which already showed the checklist. Follow `.claude/skills/korean-mentor/gui-mode.md` for every message's layout (don't read the `gui/` source). Skip step 2 (don't show the checklist again), run `<args>` as above, and when the block ends offer only the GUI's timed blocks (grammar, review, check, mistakes, pinned); for anything else say `Next: <block>, in the terminal.` Everything else is the same: the timer, speak.sh, feedback, logging, ticking the block and the end-of-run steps and commit. The user sends `.` for "done speaking" as usual.
+**GUI session:** when the first message is `/korean-mentor gui-session <args>`, the user is in the browser GUI, started from its start screen, which already showed the checklist. Follow `.claude/skills/korean-mentor/gui-mode.md` for every message's layout (don't read the `gui/` source). Skip step 2 (don't show the checklist again), run `<args>` as above, and when the block ends offer only the GUI's timed blocks (grammar, review, lesson review, check, mistakes, pinned); for anything else say `Next: <block>, in the terminal.` Everything else is the same: the timer, speak.sh, feedback, logging, ticking the block and the end-of-run steps and commit. The user sends `.` for "done speaking" as usual.
+
+**Daily mistakes drill (GUI, asked 2026-11-24):** every GUI session ends its block with a short mistakes drill, before the end-of-run steps: 5 items from `progress/mistakes.md` following `.claude/skills/practice-mistakes/SKILL.md` (Recurring first, then Practice and Lesson; skip any already used in this block), in the same cards (gui-mode.md **Mistakes drill**), with counts, logging (Block `mistakes drill`) and no commit of its own. Once a day: skip it if today's `progress/daily/` file already has `mistakes drill` rows. Don't ask, just go into it after the block's last feedback; the user can press 그만 to skip.
 
 **No arguments:** the first unfinished (☐) block in today's row, in the order written. Blocks:
 
@@ -73,7 +76,7 @@ Next: grammar (~30 min). Go?
 | **weekly test** (Tue) | Follow `.claude/skills/weekly-check/SKILL.md`: the week's question set again, timed, no hints. Old plans' `weekly check` blocks count as this. |
 | **회화 recording** (Mon–Thu, optional; never Fri–Sun, asked 2026-11-24) | The user memorizes the day's 오늘의 회화 (`website/posts/<date>-conversation.js`; fetch it first if missing, see step 5) and records it on their own. Offer it once at the end of the day's blocks; tick it when they say done, never push it or catch it up. |
 | **mistakes drill** (Sat, optional) | Follow `.claude/skills/practice-mistakes/SKILL.md`. On Saturday, offer it or `pinned` and accept "no" happily. |
-| **lesson review** (Wed, after podcast v4, before 21:00) | ~15 min, a no-hint quiz on last week's lesson so it sticks before the new one: 4–5 of the plan's **Lesson words** (situation in natural Korean → use the word) and 3–4 open **Lesson mistakes** from that lesson (set up the same choice again, or "fix this" with the user's old sentence). ✔ / ✏️ right after each; lesson-mistake counts update as in session.md; log fixes to `progress/daily/` (Block `lesson review`). **Questions for the tutor** stays in the plan as a list the user can glance at; no block for it. Old plans' `lesson prep` blocks count as this. |
+| **lesson review** (Wed, after podcast v4, before 21:00) | ~15 min, a quiz on last week's lesson (hints available in the GUI; a hinted answer gets no +1) so it sticks before the new one: 4–5 of the plan's **Lesson words** (situation in natural Korean → use the word) and 3–4 open **Lesson mistakes** from that lesson (set up the same choice again, or "fix this" with the user's old sentence). ✔ / ✏️ right after each; lesson-mistake counts update as in session.md; log fixes to `progress/daily/` (Block `lesson review`). **Questions for the tutor** stays in the plan as a list the user can glance at; no block for it. Old plans' `lesson prep` blocks count as this. Runs in the GUI too (`gui lesson-review`; layout in gui-mode.md). |
 | **lesson-intake** (Wed after the lesson) | If today's `Homework/` file exists (`lesson_file_today`), follow `.claude/skills/lesson-intake/SKILL.md`. If it's after 21:00 and there's no file yet, ask the user to write their lesson notes first. |
 
 Optional extras like "optional 일상 post" are only offered, never pushed.

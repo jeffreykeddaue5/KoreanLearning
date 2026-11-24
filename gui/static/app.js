@@ -37,28 +37,26 @@ async function showStart() {
 
   const grammar = blocks.find((b) => /grammar/.test(b) && b.includes("☐"));
   const test = blocks.find((b) => /weekly test/.test(b) && b.includes("☐"));
-  const choices = [];
-  if (t.intake_due) choices.push(["Lesson intake", "intake", true]);
-  if (grammar) choices.push([/paused/.test(grammar) ? "Resume grammar" : "Start grammar", "grammar", !t.intake_due]);
-  if (test) choices.push(["Weekly test", "check", !grammar]);
-  choices.push(["Review session", "review"], ["Mistakes drill", "mistakes"], ["Pinned words", "pinned"]);
+  const lesson = blocks.find((b) => /lesson (review|prep)/.test(b) && b.includes("☐"));
+  // One button: the next block the GUI can run (asked 2026-11-24). Each session ends with a short mistakes drill.
+  let next = null;
+  if (t.intake_due) next = ["Lesson intake", "intake"];
+  else if (grammar) next = [/paused/.test(grammar) ? "Resume grammar" : "Start grammar", "grammar"];
+  else if (lesson) next = ["Start lesson review", "lesson-review"];
+  else if (test) next = ["Start weekly test", "check"];
   $("choices").innerHTML = "";
-  for (const [label, args, primary] of choices) {
+  if (next) {
     const btn = document.createElement("button");
-    btn.textContent = label;
-    if (primary) btn.className = "primary";
-    btn.onclick = () => startSession(args);
+    btn.textContent = next[0];
+    btn.className = "primary";
+    btn.onclick = () => startSession(next[1]);
     $("choices").append(btn);
-  }
-  // Review game (game.js): yesterday's logged mistakes, no Claude call.
-  const rv = await (await fetch("/api/review?count=1")).json();
-  if (rv.total) {
-    const y = new Date(Date.now() - 864e5 - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
-    const btn = document.createElement("button");
-    btn.textContent = `🎮 ${rv.date === y ? "어제 실수 게임" : "실수 게임 " + rv.date.slice(5)} (${rv.total})`;
-    btn.title = "5-minute game on the last day's 오늘의 실수";
-    btn.onclick = () => startGame(rv.date);
-    $("choices").prepend(btn);
+  } else {
+    const open = blocks.find((b) => b.includes("☐") && !/optional|Anki/.test(b));
+    const p = document.createElement("p");
+    p.className = "dim";
+    p.textContent = open ? `Next: ${open.replace(/☐\s*/, "").split(":")[0]}, in the terminal.` : "All done for today.";
+    $("choices").append(p);
   }
 }
 

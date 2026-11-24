@@ -35,9 +35,21 @@ Use that time as the answer's time for feedback, history lines and levels.
 - **Hints (asked 2026-11-24):** every prompt carries both, hidden behind two buttons the user opens only if needed. The point is to answer in Korean patterns instead of translating from English.
   - `frame` (💬 Format): a whole-sentence frame made of natural chunks: an opener, the grammar point the question targets, a natural ending (막상, 은근히, 생각보다, 그냥, -더라고요, -거든요…). `___` only for the user's own content; the grammar and chunks stay written out. Only grammar and chunks the user already knows (progress/grammar.md, the week's listening patterns). E.g. `처음엔 그냥 ___는데, 보다 보니까 은근히 ___더라고요.`
   - `trap` (🔁 Past mistake): the one item from `progress/mistakes.md` this question is most likely to trigger (Recurring first, then Practice; e.g. a past-trip question → the tense item), as the user's own old sentence → the fix, `why` in English, `date` MM-DD. `null` when nothing fits.
-  - Weekly test (no-hint): `"frame": ""`, `"trap": null`, so the page shows no buttons.
+  - Weekly test only (no-hint): `"frame": ""`, `"trap": null`, so the page shows no buttons. Every other block, lesson review and the mistakes drill included, gets both hints.
 - `scene`: 2–6 emoji (plus a short number or time if needed) that show the situation without giving away the Korean words. `speaker`: one face for the person talking (😆 😮 😢 🤔 😴 🥶 😵 🙂).
 - `target_s`: 15 warm-up, 30 questions.
+
+## Lesson review (`lesson-review`)
+
+Same cards as above, one `prompt` per item (no warm-up), **with both hints** (`frame` and `trap`, asked 2026-11-24), `target_s` 30. An answer with `used: frame` counts as a hint, so that lesson mistake gets no +1.
+- `label`: `Lesson 3/8 · 단어` for a lesson word, `Lesson 6/8 · 실수` for an old lesson mistake.
+- Word items: the situation in `ko`, the lesson word to use in `extra` (`use: 두 달에 한 번씩 — once every two months`). The Anki word still goes in `word`/`gloss`.
+- Mistake items: set up the same choice again in `ko`, `extra` `""` (it's the test). A "fix this" item puts the old sentence in `ko` and `fix this sentence` in `extra`.
+- `feedback` after each answer as usual (`last` `""`); end with a `summary` (`q` = the word or mistake, `then` `""`).
+
+## Mistakes drill (end of every GUI session)
+
+After the block's last feedback card, go straight into 5 `prompt` cards labelled `실수 1/5` … `실수 5/5`: the situation that triggers the old mistake in `ko`, `extra` `""`, **with both hints** (`frame`; `trap` = that same old mistake), `target_s` 30. With `used: frame` there's no +1. Feedback as usual (`last` = the item's last result from mistakes.md, e.g. `11-21 ✔`). Then one `summary` for the whole session, the drill rows included.
 
 ## feedback: after the typed answer
 

@@ -74,19 +74,19 @@ If the tutor gave homework, do that and use this week's points where they fit. O
 … 5 in total
 
 ## Schedule
-Each skill ticks its own block (☐ → ☑). The weekly check counts them (not optional ones).
+Each skill ticks its own block (☐ → ☑). The weekly check counts them (not optional ones). 🖥️ = runs in the browser GUI (`/korean-mentor gui`); every GUI session ends with a 5-item mistakes drill. Everything else runs in the terminal.
 
 회화 recording (optional, Mon–Thu only): memorize the day's Naver 오늘의 회화 (website 회화 section) and record it on my own.
 
 | Day | Blocks |
 |---|---|
-| Thu 11-12 | ☐ Anki · ☐ grammar: new #57, #58 · ☐ listening: step 1 (pick TTMIK clip, listen with no transcript, %) · ☐ podcast v1: my weekend plans (1–2 min) · optional: ☐ 회화 recording |
-| Fri 11-13 | ☐ Anki · ☐ grammar: review · ☐ listening: step 2 (transcript + why I missed it) |
+| Thu 11-12 | ☐ Anki · ☐ grammar: new #57, #58 🖥️ · ☐ listening: step 1 (pick TTMIK clip, listen with no transcript, %) · ☐ podcast v1: my weekend plans (1–2 min) · optional: ☐ 회화 recording |
+| Fri 11-13 | ☐ Anki · ☐ grammar: review 🖥️ · ☐ listening: step 2 (transcript + why I missed it) |
 | Sat 11-14 | Optional: ☐ Anki · ☐ mistakes drill |
-| Sun 11-15 | ☐ Anki · ☐ grammar: weekend session (what I did this weekend) · ☐ listening: step 3 (speech patterns to borrow) |
+| Sun 11-15 | ☐ Anki · ☐ grammar: weekend session (what I did this weekend) 🖥️ · ☐ listening: step 3 (speech patterns to borrow) |
 | Mon 11-16 | ☐ Anki · ☐ listening: step 4 (shadowing) · ☐ podcast v2: link my weekend answers into one story, record, mark 1–2 unsure lines · optional: ☐ 회화 recording |
-| Tue 11-17 | ☐ Anki · ☐ weekly test (the week's questions again, no hints, timed) · ☐ homework: write the 5 sentences, feedback right away · ☐ podcast v3: fix the unsure lines, add 2 patterns, re-record · optional: ☐ 회화 recording |
-| Wed 11-18 | ☐ Anki · ☐ listening: step 5 (final listen, no transcript, %) · ☐ podcast v4: tell it with no notes (weekend rehearsal) · ☐ lesson review: quiz on last lesson's words + tutor corrections · lesson 21:00 · ☐ lesson-intake · optional: ☐ 회화 recording |
+| Tue 11-17 | ☐ Anki · ☐ weekly test (the week's questions again, no hints, timed) 🖥️ · ☐ homework: write the 5 sentences, feedback right away · ☐ podcast v3: fix the unsure lines, add 2 patterns, re-record · optional: ☐ 회화 recording |
+| Wed 11-18 | ☐ Anki · ☐ listening: step 5 (final listen, no transcript, %) · ☐ podcast v4: tell it with no notes (weekend rehearsal) · ☐ lesson review: quiz on last lesson's words + tutor corrections 🖥️ · lesson 21:00 · ☐ lesson-intake · optional: ☐ 회화 recording |
 
 ## Podcast
 (filled in by listening step 3 and the speaking skill: patterns to borrow, topic, length, unsure sentences)
@@ -96,6 +96,7 @@ Each skill ticks its own block (☐ → ☑). The weekly check counts them (not 
 ```
 
 - For a light week, **New grammar** says "Light week: no new points" and lists the last 3 weeks' new points to review instead; the podcast is a longer topic that uses them.
+- Mark every block the GUI can run (grammar, lesson review, weekly test) with 🖥️ at the end of its text, before the next `·`.
 - Use the new points' numbers in the grammar blocks. Keep every block even if its skill doesn't exist yet; each skill ticks its own block (`☐ grammar` → `☑ grammar`).
 
 ## 6. Website
