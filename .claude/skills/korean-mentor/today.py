@@ -50,9 +50,10 @@ if plan:
         rows.append((d, "Optional" in m[4], blocks))
     out["today_blocks"] = next((b for d, o, b in rows if d == today), [])
     out["missed_earlier"] = [f"{d:%a} {b}" for d, o, bl in rows if d < today and not o
-                             for b in bl if "☐" in b and "Anki" not in b]
+                             for b in bl if "☐" in b and "Anki" not in b and "optional" not in b.lower()]
     out["week_blocks"] = {"done": sum(b.count("☑") for _, _, bl in rows for b in bl),
-                          "open": sum(b.count("☐") for _, o, bl in rows for b in bl if not o)}
+                          "open": sum(b.count("☐") for _, o, bl in rows for b in bl
+                                      if not o and "optional" not in b.lower())}
 
 # listening progress for this week's clip
 if plan:

@@ -1,11 +1,11 @@
 ---
 name: listening
-description: Weekly intensive listening on one 5–10 minute section of a Talk To Me In 100% Korean (TTMIK) video that the skill picks (at about 90–95% known words, matching the week's grammar and lesson topics), studied for its speech patterns — 4 steps across the week (Thu listen with no transcript + % understood, Fri transcript + why each part was missed, Sun speech patterns to borrow for the user's own podcast, Mon shadowing + final rating), saving notes in Listening/, and grammar heard in progress/notes.md. Nothing from the clip goes into Anki. No speaking practice here; the user's podcast is the speaking skill. Use when the user runs /listening, wants listening practice, or korean-mentor reaches a listening block.
+description: Weekly intensive listening on one 5–10 minute section of a Talk To Me In 100% Korean (TTMIK) video that the skill picks (at about 90–95% known words, matching the week's grammar and lesson topics), studied for its speech patterns — 5 steps across the week (Thu listen with no transcript + % understood, Fri transcript + why each part was missed, Sun speech patterns to borrow for the user's own podcast, Mon shadowing, Wed final listen with no transcript + % again), saving notes in Listening/, and grammar heard in progress/notes.md. Nothing from the clip goes into Anki. No speaking practice here; the user's podcast is the speaking skill. Use when the user runs /listening, wants listening practice, or korean-mentor reaches a listening block.
 ---
 
 # Listening
 
-One clip a week from Talk To Me In 100% Korean, worked through in 4 steps. The goal is to understand the clip fully **and** to learn how the speakers talk (their openers, connectors, endings, fillers, reactions), so the user can reuse those patterns in their own podcast at the end of the week (`.claude/skills/speaking/SKILL.md`). Explanations are in English; the clip is in Korean. Keep turns short. **Don't ask the user to speak or summarize aloud** in any step except repeating lines in shadowing.
+One clip a week from Talk To Me In 100% Korean, worked through in 5 steps. The goal is to understand the clip fully **and** to learn how the speakers talk (their openers, connectors, endings, fillers, reactions), so the user can reuse those patterns in their own podcast at the end of the week (`.claude/skills/speaking/SKILL.md`). Explanations are in English; the clip is in Korean. Keep turns short. **Don't ask the user to speak or summarize aloud** in any step except repeating lines in shadowing.
 
 Helper (always `python3 -I`): `.claude/skills/listening/listen.py` (run it with no arguments for usage). It uses a current yt-dlp in `~/.local/share/korean-tools`; the system `yt-dlp` is too old for YouTube.
 
@@ -19,10 +19,10 @@ python3 -I $L play Listening/<folder> 4 4 0.8 # play line 4 at 0.8×; returns at
 
 ## Which step
 
-Find this week's clip: the newest `Listening/YYYY-MM-DD-*` folder dated on or after the newest `weeks/` plan's lesson date. Its `notes.md` starts with a **Progress** line, e.g. `**Progress:** 1 ✔ (60%) · 2 ☐ · 3 ☐ · 4 ☐`.
+Find this week's clip: the newest `Listening/YYYY-MM-DD-*` folder dated on or after the newest `weeks/` plan's lesson date. Its `notes.md` starts with a **Progress** line, e.g. `**Progress:** 1 ✔ (60%) · 2 ☐ · 3 ☐ · 4 ☐ · 5 ☐`. Older clips have no step 5.
 
 - No clip this week → **Step 1** (normally Thursday).
-- Otherwise do the next ☐ step. The weekday in the plan is a guide, not a rule: if the user is behind, do the next step; don't skip steps. If all 4 are done, say so and offer to replay the clip.
+- Otherwise do the next ☐ step. The weekday in the plan is a guide, not a rule: if the user is behind, do the next step; don't skip steps. If all 5 are done, say so and offer to replay the clip.
 
 ## Step 1: pick the clip, listen with no transcript (Thu, ~20 min)
 
@@ -39,7 +39,7 @@ Tell the user in 3–4 lines: title, section and length, ~% known, and why (e.g.
 
 **Rating.** Ask: "About what % did you understand?" and, optionally, "In a line or two (English is fine), what was it about?" Reply with one line on what they got. No spoken summary.
 
-Write `notes.md` (see **Notes format**) with the Progress line `1 ✔ (60%) · 2 ☐ · 3 ☐ · 4 ☐`.
+Write `notes.md` (see **Notes format**) with the Progress line `1 ✔ (60%) · 2 ☐ · 3 ☐ · 4 ☐ · 5 ☐`.
 
 ## Step 2: transcript, and why each part was missed (Fri, ~30 min)
 
@@ -71,19 +71,26 @@ Take apart **how** the speakers talk, not what they say. From `transcript.md`, f
 
 1. Show 10–12 patterns in a short table: the pattern, the speaker's sentence (with time), what it does, in English. Play 3–4 of them (`play`) so the user hears the rhythm.
 2. Link any numbered point (`#35 -더라고요`). Patterns that aren't numbered but are worth learning go to `Grammar/QUEUE.md` only if the user asks.
-3. The user picks **5–8 patterns to borrow** for this week's podcast. Save them in `notes.md` under **Patterns to borrow**, and copy that list into the plan under **Podcast** (the speaking skill reads it from there).
+3. The user picks **5–8 patterns to borrow** for this week's podcast. Save them in `notes.md` under **Patterns to borrow**, and copy that list into the plan under **Podcast** (the speaking skill reads it from there for Monday's podcast v2).
 
 Progress: `3 ✔ (6 patterns)`.
 
-## Step 4: shadowing and final rating (Mon, ~25 min)
+## Step 4: shadowing (Mon, ~25 min)
 
 1. Choose 6–8 lines: the lines with the **Patterns to borrow** first, then lines from **Missed**.
 2. For each line: show it, play it at 0.8× (`play … 0.8`), the user repeats it aloud, then play it at normal speed and they repeat again. Point out one sound or rhythm thing per line in English if useful (linking, where the pitch rises at the end). Move on when the user says next.
 3. Then pick a ~1-minute passage (consecutive lines). Play it at normal speed 2–3 times while the user speaks along with it, showing the text the first two times and hiding it the last time.
-4. **Final listen:** the whole clip with no text (terminal or YouTube with subtitles off). Ask for the % understood again, and write it at the top of `notes.md`: `**Listening:** 60% → 85%`.
-5. Remind the user that **podcast v1** comes next (speaking skill), ideally today after shadowing while the patterns are fresh.
+5. Remind the user that **podcast v2** comes next (speaking skill), ideally today after shadowing while the patterns are fresh.
 
-Progress: `4 ✔ (85%)`. The weekly check reads this.
+Progress: `4 ✔ (7 lines)`.
+
+## Step 5: final listen (Wed, ~10 min)
+
+The week's progress number, before the lesson.
+1. The whole clip once at normal speed with **no text** (terminal `play <folder> 1 <last line>`, or YouTube with subtitles off).
+2. Ask for the % understood, and write it at the top of `notes.md`: `**Listening:** 60% → 85%`. One line back: the change since step 1, and the one part that's still hard (if they say), with its time.
+
+Progress: `5 ✔ (85%)`. The weekly check reads the `**Listening:**` line; if step 5 isn't done yet on Tuesday, it reports step 1's % with `(final on Wed)`.
 
 ## Notes format
 
@@ -92,7 +99,7 @@ Progress: `4 ✔ (85%)`. The weekly check reads this.
 ```markdown
 # <slug> — 문장 & 패턴
 
-**Progress:** 1 ✔ (60%) · 2 ✔ · 3 ☐ · 4 ☐
+**Progress:** 1 ✔ (60%) · 2 ✔ · 3 ☐ · 4 ☐ · 5 ☐
 **Listening:** 60% → (final)
 Source: <channel>, <title> (<section>) · <YouTube link with &t=> · ~92% known · Full text: [transcript.md](transcript.md)
 

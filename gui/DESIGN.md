@@ -145,7 +145,19 @@ All 9 steps are built (2026-11-20), plus: closing the tab = 그만 after 45 s wi
 6. Turn history in `gui/state/` + ← → going back + Try again.
 7. End screen from `progress/daily/<today>.md`.
 8. Emoji scene + speaker face, saved per question.
-9. Record the spoken answer (MediaRecorder, from timer start to Done speaking) and play it back on the feedback card next to 🔊 for each fix. Saved to `gui/state/rec/<session id>/<turn>.webm` (retries `<turn>-r<k>`), not committed.
+9. Record the spoken answer (MediaRecorder; since 2026-11-24 a Record toggle, see 7b) and play it back on the feedback card next to 🔊 for each fix. Saved to `gui/state/rec/<session id>/<turn>.webm` (retries `<turn>-r<k>`), not committed.
+
+## 7b. Hints, hidden Korean, record toggle (built 2026-11-24)
+
+Mockup: https://claude.ai/artifact/1Bnk8pAQvnjHr7QMzb15MV
+
+- **Step bar** under the header: Listen → Speak → Type → Feedback. **Timer ring** with `goal 0:30` / `✓ under 0:30` as text; it runs from the end of the audio to Done speaking.
+- **Korean line covered** until clicked (Alt+K); the speaker's reaction on the feedback card too. Covered again when going back or retrying.
+- **Two hint buttons** on every prompt: Format (`frame`, Alt+1) and Past mistake (`trap`, Alt+2). The answer's first line gets `· used: frame, trap, text`; only `frame` counts as a hint (gui-mode.md).
+- **Record toggle** (Alt+R): on = new take (the old one is thrown away), off = keep it, ▶ 내 목소리 next to it. Recording no longer starts by itself and never affects the timer. Replay moved to Alt+P.
+- **Footer**: actions row (Record · take · Done/Next) and the typing row, shown only in Type / Feedback (or after "Type instead").
+- **End screen** tiles: average time, right first try, understood without the text, hints used; then → now rows get help chips.
+- Contrast: `--dim` #5f5e58, `--warn` #a85612 (4.5:1 on white); every button ≥ 44 px; icons are inline SVG.
 
 ## 8. Review game: 어제의 실수 (built 2026-11-20)
 

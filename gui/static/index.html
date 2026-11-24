@@ -29,12 +29,21 @@
 
 <section id="chat" hidden>
   <header>
-    <span id="timer"></span>
-    <span id="nav"><button id="prev" title="Earlier question (Alt+←)">←</button><span id="dots"></span><button id="next" title="Later question (Alt+→)">→</button></span>
+    <div id="clock" hidden>
+      <svg id="ring" width="44" height="44" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="20" class="track"></circle>
+        <circle id="ringFill" cx="24" cy="24" r="20" class="fill" transform="rotate(-90 24 24)"></circle>
+      </svg>
+      <div class="clockText"><span id="timer"></span><span id="goal" class="small"></span></div>
+    </div>
+    <span id="nav"><button id="prev" aria-label="Earlier question" title="Earlier question (Alt+←)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><span id="dots"></span><button id="next" aria-label="Later question" title="Later question (Alt+→)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></span>
     <span id="status" class="dim"></span>
     <button id="histBtn" title="Everything said so far">History</button>
     <button id="end" title="Stop for today (그만)">그만</button>
   </header>
+  <ol id="steps" aria-label="Steps" hidden>
+    <li data-step="listen">Listen</li><li data-step="speak">Speak</li><li data-step="type">Type</li><li data-step="feedback">Feedback</li>
+  </ol>
 
   <main id="stage">
     <div id="picture">
@@ -48,9 +57,23 @@
   <aside id="history" hidden></aside>
 
   <footer id="bar">
-    <button id="done" title="Stops the timer (Ctrl+Space)">● Done speaking</button>
-    <textarea id="input" rows="2" placeholder="대답 · Enter = send · Shift+Enter = new line"></textarea>
-    <button id="send">Send</button>
+    <div id="actions">
+      <button id="rec" aria-pressed="false" title="Record your answer (Alt+R). Pressing it again saves the take; the next press replaces it.">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+        <span id="recLabel">Record</span> <kbd>Alt R</kbd>
+      </button>
+      <span id="take"></span>
+      <span id="recHelp" class="dim small"></span>
+      <button id="done" class="primary"><span id="doneLabel">Done speaking</span> <kbd>Ctrl Space</kbd></button>
+      <button id="typeInstead" class="link">Type instead</button>
+    </div>
+    <div id="typing">
+      <label for="input" id="inputLabel" class="dim small">Your answer</label>
+      <div class="row">
+        <textarea id="input" rows="2" placeholder="대답 · Enter = send · Shift+Enter = new line"></textarea>
+        <button id="send">Send <kbd>Enter</kbd></button>
+      </div>
+    </div>
   </footer>
   <div id="closed" hidden>
     <p>Session ended.</p>

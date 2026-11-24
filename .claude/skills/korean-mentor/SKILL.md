@@ -66,14 +66,14 @@ Next: grammar (~30 min). Go?
 
 | Block | What to do |
 |---|---|
-| **grammar** | Follow `.claude/skills/korean-mentor/session.md`: timed (30 s) conversation on the week's repeating question set in `progress/questions.md`, after a 5-min warm-up (ask / react / explain). Kind: `new` for "new #…", `long` for "longer session" (role-play + disagree), otherwise `review`. |
-| **listening** | Follow `.claude/skills/listening/SKILL.md` (it finds the right step). These are for listening and analysis only: no speaking blocks on the same day. |
-| **podcast v1 / v2 / v3** (Mon / Tue / Wed, v3 before 21:00) | Follow `.claude/skills/speaking/SKILL.md`, the section for that version. The same weekend story gets a bit better each day: v1 link the user's own answers to the week's weekend questions into one story and record it, v2 fix it and re-record, v3 tell it with no notes. The user records on their own, so v1/v2 stay ☐ until they say done; then log it. Old plans' `speaking` / `podcast` blocks count as v1. |
+| **grammar** | Follow `.claude/skills/korean-mentor/session.md`: timed (30 s) conversation on the week's repeating question set in `progress/questions.md`, after a 5-min warm-up (ask / react / explain). Kind: `new` for "new #…", `weekend` for "weekend session" (Sun; old plans' "longer session" counts as this), otherwise `review`. |
+| **listening** | Follow `.claude/skills/listening/SKILL.md` (it finds the right step). |
+| **podcast v1 / v2 / v3 / v4** (Thu / Mon / Tue / Wed, v4 before 21:00) | Follow `.claude/skills/speaking/SKILL.md`, the section for that version. v1 the user's weekend plans (short), v2 what they actually did, linked from their own answers to Sunday's weekend questions and recorded, v3 fix it and re-record, v4 tell it with no notes. The user records on their own, so v1–v3 stay ☐ until they say done; then log it. Old plans' `speaking` / `podcast` blocks count as the next version due. |
 | **homework** (Tue, after the weekly test) | Show the 5 **Homework** prompts from the plan (or ask what the tutor assigned), one at a time. The user writes each in Korean and gets feedback **right away**: ✔, or ✏️ with the fix and a one-line English reason (✔ = +1 No-hint for that point, same rules as the weekly check; ✏️ → **Practice mistakes** with `(date homework)`). Nuance questions → **To verify** + **Questions for the tutor**. Save the sentences (with fixes) under `## My homework` in the plan for the tutor, and log every fix and 💡 to `progress/daily/` (Block `homework n`). Old plans' `homework sentences` blocks count as this. |
 | **weekly test** (Tue) | Follow `.claude/skills/weekly-check/SKILL.md`: the week's question set again, timed, no hints. Old plans' `weekly check` blocks count as this. |
-| **회화 recording** (daily, optional) | The user memorizes the day's 오늘의 회화 (`website/posts/<date>-conversation.js`; fetch it first if missing, see step 5) and records it on their own. Offer it once at the end of the day's blocks; tick it when they say done, never push it or catch it up. |
+| **회화 recording** (Mon–Thu, optional; never Fri–Sun, asked 2026-11-24) | The user memorizes the day's 오늘의 회화 (`website/posts/<date>-conversation.js`; fetch it first if missing, see step 5) and records it on their own. Offer it once at the end of the day's blocks; tick it when they say done, never push it or catch it up. |
 | **mistakes drill** (Sat, optional) | Follow `.claude/skills/practice-mistakes/SKILL.md`. On Saturday, offer it or `pinned` and accept "no" happily. |
-| **lesson review** (Wed, after podcast v3, before 21:00) | ~15 min, a no-hint quiz on last week's lesson so it sticks before the new one: 4–5 of the plan's **Lesson words** (situation in natural Korean → use the word) and 3–4 open **Lesson mistakes** from that lesson (set up the same choice again, or "fix this" with the user's old sentence). ✔ / ✏️ right after each; lesson-mistake counts update as in session.md; log fixes to `progress/daily/` (Block `lesson review`). **Questions for the tutor** stays in the plan as a list the user can glance at; no block for it. Old plans' `lesson prep` blocks count as this. |
+| **lesson review** (Wed, after podcast v4, before 21:00) | ~15 min, a no-hint quiz on last week's lesson so it sticks before the new one: 4–5 of the plan's **Lesson words** (situation in natural Korean → use the word) and 3–4 open **Lesson mistakes** from that lesson (set up the same choice again, or "fix this" with the user's old sentence). ✔ / ✏️ right after each; lesson-mistake counts update as in session.md; log fixes to `progress/daily/` (Block `lesson review`). **Questions for the tutor** stays in the plan as a list the user can glance at; no block for it. Old plans' `lesson prep` blocks count as this. |
 | **lesson-intake** (Wed after the lesson) | If today's `Homework/` file exists (`lesson_file_today`), follow `.claude/skills/lesson-intake/SKILL.md`. If it's after 21:00 and there's no file yet, ask the user to write their lesson notes first. |
 
 Optional extras like "optional 일상 post" are only offered, never pushed.
@@ -92,9 +92,9 @@ After a block ends:
 Missed blocks from earlier days (not optional ones) don't pile up:
 - **grammar** → today's grammar session adds 2 extra due points; no second session.
 - **listening** → the listening skill simply does the next step; skip a step only if the user asks.
-- **podcast v1/v2** → a missed version merges into the next one (v1 missed Mon → Tue does v1 and skips v2's fixes); v3 is never skipped before the lesson.
-- **homework** → do it Wednesday before podcast v3.
-- **weekly test** missed on Tuesday → run it Wednesday before podcast v3.
+- **podcast v1–v3** → a missed version merges into the next one (v1 missed Thu → no plans version, Mon's v2 goes on; v2 missed Mon → Tue does v2 and skips v3's fixes); v4 is never skipped before the lesson.
+- **homework** → do it Wednesday before podcast v4.
+- **weekly test** missed on Tuesday → run it Wednesday before podcast v4.
 
 Mark folded-in blocks `☑ (Tue)` on the day they were done, so the weekly check counts them.
 

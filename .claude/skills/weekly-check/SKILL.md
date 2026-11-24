@@ -67,7 +67,7 @@ Last week's numbers are in **Weekly reports** in `progress/log.md`. Write a one-
 
 - **check** = items right out of 10. **(+n)** = change since last week's line; leave it out the first week.
 - In the plan, add 2–3 lines under the numbers: what improved, what to watch, and the focus for next week (in English).
-- **Too much planned?** If blocks done are under 70% of planned this week *and* last week, suggest a lighter plan in one line (e.g. drop Saturday and the Friday listening step), and ask before changing anything.
+- **Too much planned?** If blocks done are under 70% of planned this week *and* last week, suggest a lighter plan in one line (e.g. make Thursday's podcast v1 one unscripted minute, or drop Saturday), and ask before changing anything.
 
 ## Questions for the tutor
 

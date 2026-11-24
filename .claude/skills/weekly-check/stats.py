@@ -42,17 +42,19 @@ for line in Path("progress/mistakes.md").read_text().splitlines():
 out["mistakes"] = {"open": sum(types.values()), "by_type": dict(types.most_common()),
                    "by_section": dict(sections)}
 
-# blocks in the plan's schedule (optional Saturday blocks don't count toward planned)
+# blocks in the plan's schedule (optional ones, e.g. 회화, don't count toward planned)
 done = planned = 0
 in_sched = False
 for line in plan.read_text().splitlines():
     if line.startswith("## "):
         in_sched = line.startswith("## Schedule")
     if in_sched and line.startswith("| ") and not line.startswith("| Day"):
-        optional = "Optional" in line
-        d, p = line.count("☑"), line.count("☑") + line.count("☐")
-        done += d
-        planned += 0 if optional else p
+        row_optional = "Optional" in line
+        for block in line.split("|")[2].split("·"):
+            d, p = block.count("☑"), block.count("☑") + block.count("☐")
+            optional = row_optional or "optional" in block.lower()
+            done += 0 if optional else d
+            planned += 0 if optional else p
 out["blocks"] = {"done": done, "planned": planned}
 
 # listening: this week's clip folder

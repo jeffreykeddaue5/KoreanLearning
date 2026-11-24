@@ -25,7 +25,7 @@ Create the file if missing:
 | grammar Q2 | 맛있어서 또 가고 싶어요 | 너무 맛있어서 또 가 보고 싶어요 | 가 보다 = try going again, softer |
 ```
 
-**Block:** `grammar Q3`, `warm-up`, `lesson review`, `homework 2`, `weekly 4`, `mistakes drill`, `pinned`, `podcast v3`, `listening`, `article`.
+**Block:** `grammar Q3`, `warm-up`, `lesson review`, `homework 2`, `weekly 4`, `mistakes drill`, `pinned`, `podcast v4`, `listening`, `article`.
 **Type:** `시제` tense · `조사` particles · `어휘` word choice · `어순` word order · `문법` grammar · `맞춤법` spelling · `존댓말` politeness.
 
 This log is in addition to `progress/mistakes.md` (which tracks what to practice) and the session notes; don't skip those.

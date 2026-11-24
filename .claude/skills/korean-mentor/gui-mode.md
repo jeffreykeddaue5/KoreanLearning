@@ -2,11 +2,12 @@
 
 Used when the run started with `/korean-mentor gui-session …`. The browser draws cards from one fenced `gui` block (JSON) at the **end** of your message. Everything in session.md still applies (questions, feedback rules, logging, file updates) except the layout, the audio and the timer. Don't read the `gui/` source files; this page is all you need.
 
-**Audio, timer and recording belong to the page.** The page also records each spoken answer for the user to play back; you never see or mention the recordings. Never call speak.sh or timer.py in GUI mode. The page draws the prompt card first, **then** plays the Korean line (`ko`) aloud, and has a 🔊 button to repeat it; it starts the timer when the card appears and stops it when the user presses Done speaking. So a prompt message is just the card, with no tool calls before it.
+**Audio, timer and recording belong to the page.** The user can record takes with a Record button to play back; you never see or mention the recordings. Never call speak.sh or timer.py in GUI mode. The page draws the prompt card first, **then** plays the Korean line (`ko`) aloud, and has a 🔊 button to repeat it; the timer starts when the audio ends and stops when the user presses Done speaking. The Korean line starts **covered** (listening practice): the user uncovers it only if they need to. So a prompt message is just the card, with no tool calls before it. So a prompt message is just the card, with no tool calls before it.
 
 **What the user sends:** one message per answer, with the page's time on the first line:
 - `⏱ 24s spoken` + newline + the typed answer: said it aloud, pressed Done, then typed it.
 - `⏱ 1:05 typed` + the answer: typed straight away (no Done).
+- Either first line may end with `· used: frame, trap, text` (any of them): the user opened the format hint, the past-mistake hint, or uncovered the Korean line. **`frame` = answered with a hint** (session.md level and Smooth rules: no level up, not a no-hint ✔, history line marked `(hint)`). `trap` and `text` don't count as hints; log `text` only as a listening note.
 - `?`, English, or a question about a fix: as in session.md. `ready` = next prompt.
 - `[retry Q4] ⏱ 18s spoken` + newline + the answer: the user went back to an earlier question (Q4, or `워밍업 2/5`) and tried it again. Reply with **one feedback block** with `"label": "Q4 · retry"` and `last` = their earlier try, fixes as usual. Log it to questions.md as a history line marked `(retry)` and to `progress/daily/` (Block `grammar Q4 retry`); no level change, they had just seen the fix. **Don't send a new prompt**: the live question is still waiting on their screen, and their next message is its answer (or `ready`). `[retry Q4] ?` = stuck: a retry feedback card with the model sentence as `better`.
 Use that time as the answer's time for feedback, history lines and levels.
@@ -22,12 +23,19 @@ Use that time as the answer's time for feedback, history lines and levels.
 
 ```gui
 {"type": "prompt", "label": "워밍업 1/5 · 맞장구", "ko": "저 어제 회식 때문에 새벽 세 시에 집에 들어갔어요.",
- "word": "어쩐지", "gloss": "no wonder", "extra": "", "hint": "", "target_s": 15,
+ "word": "어쩐지", "gloss": "no wonder", "extra": "",
+ "frame": "어쩐지 ___더라고요. ___아/어서 그랬구나.",
+ "trap": {"said": "요즘 버텼거든요", "better": "요즘 버티고 있거든요", "why": "ongoing now → present, not past", "date": "10-13"},
+ "target_s": 15,
  "scene": "🍻🍻🍻 → 🌙3:00 → 🛏️", "speaker": "😵"}
 ```
 
 - `label`: `워밍업 n/5 · 맞장구|질문하기|설명하기` or `Q8 · 3/8` (question id · turn/total).
-- `extra`: related forms or the explain-word's English gloss; `hint`: `try #61` only when session.md allows a hint.
+- `extra`: related forms or the explain-word's English gloss.
+- **Hints (asked 2026-11-24):** every prompt carries both, hidden behind two buttons the user opens only if needed. The point is to answer in Korean patterns instead of translating from English.
+  - `frame` (💬 Format): a whole-sentence frame made of natural chunks: an opener, the grammar point the question targets, a natural ending (막상, 은근히, 생각보다, 그냥, -더라고요, -거든요…). `___` only for the user's own content; the grammar and chunks stay written out. Only grammar and chunks the user already knows (progress/grammar.md, the week's listening patterns). E.g. `처음엔 그냥 ___는데, 보다 보니까 은근히 ___더라고요.`
+  - `trap` (🔁 Past mistake): the one item from `progress/mistakes.md` this question is most likely to trigger (Recurring first, then Practice; e.g. a past-trip question → the tense item), as the user's own old sentence → the fix, `why` in English, `date` MM-DD. `null` when nothing fits.
+  - Weekly test (no-hint): `"frame": ""`, `"trap": null`, so the page shows no buttons.
 - `scene`: 2–6 emoji (plus a short number or time if needed) that show the situation without giving away the Korean words. `speaker`: one face for the person talking (😆 😮 😢 🤔 😴 🥶 😵 🙂).
 - `target_s`: 15 warm-up, 30 questions.
 
