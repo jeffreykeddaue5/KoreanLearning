@@ -206,6 +206,7 @@ function onBlock(b, isNew) {
     if (isNew && b.reaction) afterPaint(() => play(b.reaction));
   } else if (b.type === "summary") {
     live.kind = "summary"; live.block = b;
+    if (isNew) saveNotes(b);
     stopTimer(true);
     if (viewing !== null) { savedPhase = "summary"; drawNav(); return; }
     phase = "summary";
@@ -220,6 +221,78 @@ function afterPaint(f) { requestAnimationFrame(() => requestAnimationFrame(f)); 
 function startPrompt(b) {
   lastKo = b.ko || "";
   afterPaint(() => play(lastKo, () => startTimer(b.target_s || 30)));
+}
+
+// ---------- weekly test game (asked 2026-11-24): hearts, combo, boss, stars, story, beat last week ----------
+// Prompts carry "game": {"kind": "test"|"boss"|"star", "last_week": {...}?}. Everything else is counted here
+// from the feedback results, so it's only for fun: levels are graded by Claude as usual.
+let lastWeek = null;
+function gameState() {
+  const g = turns.filter((t) => t.prompt && t.prompt.game);
+  const ok = (t) => t.feedback && /✔/.test(t.feedback.result || "");
+  const bad = (t) => t.feedback && !ok(t);
+  const scored = g.filter((t) => t.prompt.game.kind !== "star");
+  const stars = g.filter((t) => t.prompt.game.kind === "star");
+  let combo = 0, best = 0;
+  for (const t of g) { if (!t.feedback) continue; combo = ok(t) ? combo + 1 : 0; best = Math.max(best, combo); }
+  const secs = scored.filter((t) => t.feedback).map((t) => toSecs(t.time || t.feedback.time)).filter((x) => x > 0);
+  const boss = scored.filter((t) => t.prompt.game.kind === "boss");
+  return {
+    on: g.length > 0, cur: g.length ? g[g.length - 1] : null,
+    hearts: Math.max(0, 3 - scored.filter(bad).length),
+    combo, best, right: scored.filter(ok).length, done: scored.filter((t) => t.feedback).length,
+    stars: stars.filter(ok).length, starsAsked: stars.length,
+    bossLeft: Math.max(0, 2 - boss.filter(ok).length), bossOn: boss.length > 0,
+    avg: secs.length ? Math.round(secs.reduce((a, b) => a + b, 0) / secs.length) : 0,
+    lines: g,
+  };
+}
+function toSecs(t) { const m = String(t || "").match(/(?:(\d+):)?(\d+)/); return m ? (+(m[1] || 0)) * 60 + +m[2] : 0; }
+function drawGame() {
+  const s = gameState();
+  $("hud").hidden = !s.on; $("story").hidden = !s.on;
+  if (!s.on) return;
+  for (const t of s.lines) if (t.prompt.game.last_week) lastWeek = t.prompt.game.last_week;
+  const kind = s.cur.prompt.game.kind;
+  const hearts = "♥".repeat(s.hearts) + "♡".repeat(3 - s.hearts);
+  $("hud").innerHTML = `<span class="hearts" title="Lose one per wrong answer (just for fun)">${hearts}</span>
+    ${s.combo >= 2 ? `<span class="combo">COMBO ×${s.combo}</span>` : ""}
+    <span class="dim">✔ ${s.right}/${s.done} · ★ ${s.stars}/${Math.max(5, s.starsAsked)}</span>
+    ${kind === "boss" ? `<span class="boss">BOSS <span class="hp">${"■".repeat(s.bossLeft)}${"□".repeat(2 - s.bossLeft)}</span></span>` : ""}
+    ${kind === "star" ? '<span class="starTag">★ homework line · bonus star</span>' : ""}`;
+  // story so far: the last 3 finished exchanges, as a chat
+  const past = s.lines.filter((t) => t.feedback).slice(-3);
+  $("story").innerHTML = past.map((t) => `<div class="sl tutor">${esc(t.prompt.ko || "")}</div>
+    <div class="sl me ${t.prompt.game.kind === "star" ? "star" : ""}">${t.prompt.game.kind === "star" ? "★ " : ""}${esc(t.answer || "")} ${/✔/.test(t.feedback.result || "") ? "✔" : "✏️"}</div>`).join("");
+  $("story").hidden = !past.length;
+}
+// The final page's notes → progress/daily/<today>.md (website 오늘의 실수 · 세션 노트, folded)
+function saveNotes(b) {
+  const done = turns.filter((t) => t.prompt && t.feedback);
+  const s = gameState();
+  const blocks = [...new Set(done.map((t) => (t.label || "").replace(/\s*[\d/]+.*$/, "").replace(/^Q$/, "grammar").trim() || "grammar"))];
+  const stats = [["avg", b.avg || "–"], ["first try", b.first_try || "–"],
+    ["heard", `${done.filter((t) => !t.used.text).length}/${done.length}`],
+    ["hints", `${done.filter((t) => t.used.frame).length} format · ${done.filter((t) => t.used.trap).length} mistake`]];
+  if (s.on) stats.push(["test", `${s.right}/${s.done} · ★ ${s.stars}/${s.starsAsked} · best combo ${s.best}`]);
+  const help = (q) => { const i = findTurn(qidOf(String(q).split(" ")[0])); if (i < 0) return ""; const u = turns[i].used; return [u.frame && "format hint", u.trap && "past mistake", u.text && "read text"].filter(Boolean).join(", "); };
+  const now = new Date();
+  const title = `${blocks.slice(0, 3).join(" + ")} (GUI) · ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+  fetch("/api/notes", { method: "POST", body: JSON.stringify({
+    title, stats, rows: (b.rows || []).map((r) => [r.q || "", r.then || "", r.now || "", help(r.q)]),
+    keep: b.keep || [], next: b.next || "" }) }).catch(() => {});
+}
+
+function beatHtml() {
+  const s = gameState();
+  if (!s.on) return "";
+  const lw = lastWeek || {};
+  const row = (k, a, b) => `<tr><td>${k}</td><td class="dim">${esc(a == null ? "–" : String(a))}</td><td><b>${esc(String(b))}</b></td></tr>`;
+  return `<div class="label">Beat last week</div><table class="beat">
+    <tr><td></td><td class="dim small">last week</td><td class="small">now</td></tr>
+    ${row("Score", lw.score, `${s.right}/${s.done}`)}${row("Avg time", lw.avg, s.avg ? s.avg + "s" : "–")}
+    ${row("Best combo", lw.combo, s.best)}${row("Hearts left", null, "♥".repeat(s.hearts) || "0")}${row("Stars ★", null, `${s.stars}/${s.starsAsked}`)}
+    ${s.bossOn ? row("Boss", null, s.bossLeft ? "survived" : "beaten 🎉") : ""}</table>`;
 }
 
 // ---------- drawing ----------
@@ -243,14 +316,18 @@ function drawLive() {
     setCard(feedbackHtml(b, cur.rec, cur.used));
   } else if (live.kind === "summary") {
     setPicture("🎉", "");
-    setCard(summaryHtml(b) + '<div id="daily"></div>');
+    setCard(beatHtml() + summaryHtml(b) + '<div id="daily"></div>');
     drawDaily();
   }
   setPhase(phase);
+  drawGame();
   drawNotes();
   drawNav();
 }
 
+// Shown Korean line: click it (or Alt+K) to cover it again (asked 2026-11-24).
+const koShown = (u) => u.shown !== undefined ? u.shown : !!u.text;
+const shownKo = (text) => `<p class="ko shown" data-hide="ko" title="Hide the Korean again (Alt+K)">${esc(text)} <span class="hideTag">${ICON.eye} hide</span></p>`;
 // The Korean line starts covered (listening first); `used` remembers what was opened on this question.
 // Hints: `frame` (format to answer with; old `hint` field as a fallback) and `trap` (a past mistake).
 const speakerBtn = (text, title) => `<button class="replay" data-say="${attr(text)}" aria-label="${attr(title)}" title="${attr(title)}">${ICON.speaker}</button>`;
@@ -258,10 +335,10 @@ function promptHtml(b, label, used) {
   used = used || {};
   const frame = b.frame || b.hint || "";
   const trap = b.trap && b.trap.better ? b.trap : null;
-  const ko = used.text ? `<p class="ko">${esc(b.ko || "")}</p>`
+  const ko = koShown(used) ? shownKo(b.ko || "")
     : `<button class="cover" data-reveal="ko" aria-label="Show the Korean sentence (Alt+K)">${ICON.eye} Listen first · tap to show Korean <kbd>Alt K</kbd></button>`;
   const frameBox = `<div class="hintBox frame" data-box="frame"${used.frameOpen ? "" : " hidden"}><div class="head">Say it with this pattern</div>
-      <div class="body">${esc(frame)}</div><div class="note">Counts as a hint: the level stays the same this time.</div></div>`;
+      <div class="body">${esc(frame)}</div><div class="note">No penalty: use it whenever it helps.</div></div>`;
   const trapBox = trap ? `<div class="hintBox trap" data-box="trap"${used.trapOpen ? "" : " hidden"}><div class="head">You said this before${trap.date ? ` (${esc(trap.date)})` : ""}</div>
       <div class="body"><span class="said">${esc(trap.said || "")}</span> → <span class="better">${esc(trap.better)}</span></div>
       <div class="note">${esc(trap.why || "")}${trap.why ? " · " : ""}Doesn't count as a hint.</div></div>` : "";
@@ -279,7 +356,7 @@ function recBtn(url) { return url ? ` <button class="replay rec" data-rec="${att
 
 function usedChips(u) {
   if (!u) return "";
-  return (u.frame ? '<span class="used">Format hint used → level stays</span>' : "") +
+  return (u.frame ? '<span class="used">Format hint used</span>' : "") +
     (u.trap ? '<span class="used trap">Past mistake shown</span>' : "") +
     (u.text ? '<span class="used text">Showed Korean</span>' : "");
 }
@@ -303,7 +380,7 @@ function feedbackHtml(b, rec, used) {
 
 // The reaction under the picture is covered too (more listening).
 function drawBubble(text) {
-  $("bubble").innerHTML = (bubbleShown ? esc(text)
+  $("bubble").innerHTML = (bubbleShown ? `<span data-reveal="bubble" class="shown" title="Hide again (Alt+K)">${esc(text)}</span>`
     : `<button class="cover" data-reveal="bubble" aria-label="Show the reaction in Korean (Alt+K)">${ICON.eye} Reaction · tap to show</button>`) +
     " " + speakerBtn(text, "Play again");
   $("bubble").hidden = false;
@@ -681,16 +758,17 @@ async function doneSpeaking() {
 function curUsed() { return retry ? retry.used : viewing !== null ? viewUsed : (turns[turns.length - 1] || {}).used; }
 function redrawCard() { if (viewing !== null) drawTurn(viewing); else drawLive(); }
 function reveal(which) {
-  if (which === "bubble" || (phase === "feedback" && !$("card").querySelector('[data-reveal="ko"]'))) {
-    if (live.kind !== "feedback" || viewing !== null || bubbleShown) return;
-    bubbleShown = true;
+  if (which === "bubble" || (which !== "ko" && phase === "feedback" && !$("card").querySelector('[data-reveal="ko"]'))) {
+    if (live.kind !== "feedback" || viewing !== null) return;
+    bubbleShown = !bubbleShown;
     return drawBubble(live.block.reaction || "");
   }
   const u = curUsed();
-  if (!u || u.text || !$("card").querySelector('[data-reveal="ko"]')) return;
-  u.text = true;
+  if (!u) return;
   const btn = $("card").querySelector('[data-reveal="ko"]');
-  btn.outerHTML = `<p class="ko">${esc(lastKo)}</p>`;
+  const shown = $("card").querySelector('[data-hide="ko"]');
+  if (btn) { u.text = true; u.shown = true; btn.outerHTML = shownKo(lastKo); }
+  else if (shown) { u.shown = false; shown.outerHTML = `<button class="cover" data-reveal="ko" aria-label="Show the Korean sentence (Alt+K)">${ICON.eye} Listen first · tap to show Korean <kbd>Alt K</kbd></button>`; }
 }
 function toggleHint(kind) {
   const u = curUsed();
@@ -784,6 +862,7 @@ document.addEventListener("click", (e) => {
   if ($("chat").hidden) return;
   const rv = e.target.closest("[data-reveal]");
   if (rv) return reveal(rv.dataset.reveal);
+  if (e.target.closest("[data-hide]")) return reveal("ko");
   const h = e.target.closest("[data-hint]");
   if (h) return toggleHint(h.dataset.hint);
   const say = e.target.closest("[data-say]");

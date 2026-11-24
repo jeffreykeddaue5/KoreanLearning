@@ -17,7 +17,7 @@ Intermediate. Comfortable with points 1–34, working on 35–62. Builds multi-c
 
 - **Session, right without a hint:** +1 level, but sessions can only take a point up to 2. Count it in **No-hint**.
 - **Weekly check or a recording, right without a hint:** +1 level (this is the only way to reach 3–5). Count it in **No-hint**.
-- **Right with a hint:** level stays the same.
+- **Right with a hint:** level stays the same (terminal `(try #59)` hints only). GUI hint buttons carry no penalty (2026-11-24): graded like no hint.
 - **Wrong or struggled:** −1 level (minimum 0).
 - At most one level change per point per day. After any practice, set **Last practiced** to today and **Next review** to today + the interval for the new level.
 - **Due** = Next review is today or earlier. Review picks due points with the lowest level first, then the oldest Next review.

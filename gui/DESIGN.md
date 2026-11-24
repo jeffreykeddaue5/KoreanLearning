@@ -152,8 +152,8 @@ All 9 steps are built (2026-11-20), plus: closing the tab = 그만 after 45 s wi
 Mockup: https://claude.ai/artifact/1Bnk8pAQvnjHr7QMzb15MV
 
 - **Step bar** under the header: Listen → Speak → Type → Feedback. **Timer ring** with `goal 0:30` / `✓ under 0:30` as text; it runs from the end of the audio to Done speaking.
-- **Korean line covered** until clicked (Alt+K); the speaker's reaction on the feedback card too. Covered again when going back or retrying.
-- **Two hint buttons** on every prompt: Format (`frame`, Alt+1) and Past mistake (`trap`, Alt+2). The answer's first line gets `· used: frame, trap, text`; only `frame` counts as a hint (gui-mode.md).
+- **Korean line covered** until clicked (Alt+K); the speaker's reaction on the feedback card too. Covered again when going back or retrying. Since 2026-11-24 it's a toggle: click the shown line (or Alt+K) to cover it again.
+- **Two hint buttons** on every prompt: Format (`frame`, Alt+1) and Past mistake (`trap`, Alt+2). The answer's first line gets `· used: frame, trap, text`. Since 2026-11-24 no hint carries a penalty (gui-mode.md); format-hint blanks are labelled `___(word)` / `___(phrase)`.
 - **Record toggle** (Alt+R): on = new take (the old one is thrown away), off = keep it, ▶ 내 목소리 next to it. Recording no longer starts by itself and never affects the timer. Replay moved to Alt+P.
 - **Footer**: actions row (Record · take · Done/Next) and the typing row, shown only in Type / Feedback (or after "Type instead").
 - **End screen** tiles: average time, right first try, understood without the text, hints used; then → now rows get help chips.
@@ -173,3 +173,12 @@ A 5-minute warm-up on the last day's `progress/daily/<date>.md`, run entirely by
 - Grammar block only, or other blocks too (weekly check, mistakes drill)? Suggest grammar only for v1; the protocol works for any timed prompt later.
 - Emoji only, or allow simple ASCII art too?
 - Agent SDK vs `claude -p --resume`: SDK is faster per turn; `claude -p` needs nothing installed. Check both on day 1.
+
+## 7c. Weekly test game, session notes, auto rebuild (built 2026-11-24)
+
+Mockups: `gui/mockups/weekly-test-fun.png`, `gui/mockups/website-mistakes-v2.png`.
+
+- **Weekly test game:** prompts with `"game": {"kind": "test"|"boss"|"star", "last_week"?}` turn on `#hud` (♥ hearts, combo, ✔ score, ★ stars, boss HP) and `#story` (last 3 exchanges as a chat). The final page starts with a Beat-last-week table. All counted in the page from feedback results; levels stay Claude's job (weekly-check **Fun mode**).
+- **Session notes:** the final page POSTs `/api/notes`; the server writes `## 📝 세션 노트` / `### <title>` into `progress/daily/<today>.md` (same title replaces), and the website shows it folded in 오늘의 실수.
+- **Website gold rule:** after every Claude turn the server rebuilds `website/data/study.js` when anything in `progress/` is newer.
+

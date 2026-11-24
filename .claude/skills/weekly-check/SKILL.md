@@ -1,6 +1,6 @@
 ---
 name: weekly-check
-description: Tuesday no-hint test before the Wednesday lesson — the week's question set from progress/questions.md asked again, timed and with no hints (10 scored items covering the week's new grammar, due older points and the user's worst mistake type), plus a check of the podcast v1's unsure sentences (homework is a separate block) — then levels points up or down (the only way to reach levels 3–5), writes the weekly report (blocks done vs planned, levels, no-hint uses, open mistakes by type, listening result, Anki streak) and the questions for the tutor. Use when the user runs /weekly-check, on Tuesday, or when korean-mentor reaches the weekly check block.
+description: Tuesday no-hint test before the Wednesday lesson — the week's question set from progress/questions.md asked again, timed and with no hints (10 scored items covering the week's new grammar, due older points and the user's worst mistake type), in fun mode (one story with the tutor, hearts and combo, a boss round on the worst mistake type, the 5 homework sentences as unscored ★ story lines, beat last week), plus a check of the podcast v1's unsure sentences — then levels points up or down (the only way to reach levels 3–5), writes the weekly report (blocks done vs planned, levels, no-hint uses, open mistakes by type, listening result, Anki streak) and the questions for the tutor. Use when the user runs /weekly-check, on Tuesday, or when korean-mentor reaches the weekly check block.
 ---
 
 # Weekly check
@@ -18,6 +18,16 @@ Runs the night before the lesson, so what goes wrong becomes Wednesday's questio
    - A follow-up reacts to what the user just said, like in a session; only its target is planned.
 4. Tell the user in one line: `Weekly test: this week's questions, no hints. ⏱ 30 s each, say it, send ., then type it.`
 
+## Fun mode: story, hearts, boss, stars (asked 2026-11-24)
+
+The test is a fun review, not an exam. The scoring rules below don't change (no hints, timed, the 10 items set the levels); only the wrapping does. Mockup: `gui/mockups/weekly-test-fun.png`.
+- **Story mode:** the test is one conversation with a tutor who asks about your week and weekend. Order the 10 items so they flow as one talk (week questions, then the weekend in its past version), and word each `ko` as the tutor's next line, reacting briefly to the last answer (`와, 그렇게 재미있어요? 그럼 지난주에는요?`). The page shows the last few exchanges as a chat.
+- **Boss round:** the last 2 scored items (9–10) both target the worst mistake type (step 3): `"kind": "boss"`. The page shows a boss with 2 HP; 2 right answers beat it.
+- **Hearts and combo:** the page counts them from your ✔/✏️ (3 ♥, one lost per ✏️; a combo from 2 ✔ in a row). For fun only.
+- **Homework as story lines (★ stars):** the plan's 5 homework sentences come **inside** the story, not after it, as `"kind": "star"` cards. A/B dialogue items: the tutor says A in `ko`, the user answers as B. Others: the tutor asks a cue question whose natural answer is the homework sentence; put the English sentence to say in `extra` (`say: That drama is worth watching…`). Spread them between the scored items (never in the boss round). Feedback right away as usual; they earn ★, not test points, and follow the homework rules (✔ = +1 No-hint, no level change; ✏️ → Practice mistakes `(date homework)`).
+- **Beat last week:** the first card carries `"last_week"` from the newest line in **Weekly reports** in `progress/log.md` (`{"score": "7/10", "avg": "41s", "combo": null}`); the final page compares.
+- GUI fields: every card gets `"game": {"kind": "test"|"boss"|"star"}` (first card also `"last_week": {...}`); labels `[n/10]` for scored items, `★ 2/5` for stars. In the terminal, keep the same order and story wording, and show `♥♥♡ · combo 3 · ★ 2/5` in the one-line feedback.
+
 ## How it runs
 
 Same as a grammar session (`.claude/skills/korean-mentor/session.md`: prompt card, speak.sh + timer started before the card, say it → `.` → type it), with these differences:
@@ -33,7 +43,7 @@ A point counts as **right** only if it's used correctly and naturally with no hi
 
 Right after the 10 items: if **Podcast** in the plan lists `Unsure:` sentences (from the user's podcast or blog post), check those the same way: ✔ or ✏️ with a short reason. If one is still a nuance question, add it to **To verify** and **Questions for the tutor**.
 
-The 5 homework sentences are no longer checked here: they're their own **homework** block right after this test (korean-mentor), with feedback right away.
+The 5 homework sentences come inside the story as ★ star cards (see **Fun mode**; since 2026-11-24, when a separate homework block was too much for Tuesday), logged to `progress/daily/` (Block `homework n`) and saved under `## My homework` in the plan as the homework block would, but not counted in the score; then tick the homework too.
 
 ## Update progress
 

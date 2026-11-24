@@ -443,7 +443,7 @@ function viewHome() {
   const posts = visiblePosts();
   const today = ymd(new Date());
   let html = sectionHead(`오늘 · ${dayLabel(today)}`, "매일 바뀌어요");
-  html += todayLink() + todayArticle(posts) + mistakesBox(5);
+  html += todayLink() + todayArticle(posts) + mistakesBox(8);
 
   html += sectionHead("이번 주", "수요일 수업 후 바뀌어요");
   html += weekSummary() + listenLink();
@@ -509,29 +509,61 @@ function todayArticle(posts) {
 // ✏️ 틀린 문장 → 고친 문장 (종류 · 어디서), 💡 맞지만 더 자연스러운 말
 const MISTAKE_TYPES = ["시제", "조사", "어휘", "어순", "문법", "맞춤법", "존댓말"];
 
-function mistakeRow(r, mark) {
+// 카드 하나: 왼쪽 = 내가 한 말 → 고친 말 (크게), 오른쪽 = 이유 · 어디서 + 예) 새 예문 (2026-11-24)
+function mistakeCard(r, nat) {
   return `
-    <li class="dm-row">
-      <span class="dm-meta">${r.type ? `<span class="badge bad">${esc(r.type)}</span>` : ""}<span class="small">${esc(r.block || "")}</span></span>
-      <span class="dm-said">${mark} ${r.said}</span>
-      <span class="dm-better">→ ${r.better}</span>
-      ${r.why ? `<span class="dm-why small">${r.why}</span>` : ""}
+    <li class="dm-card ${nat ? "nat" : "fix"}">
+      <div class="dm-pair">
+        <span class="dm-said">${nat ? "○" : "✗"} ${r.said}</span>
+        <span class="dm-better">${nat ? "★" : "✓"} ${r.better}</span>
+      </div>
+      <div class="dm-side">
+        <span class="dm-why small">${r.why || ""}${r.block ? ` <span class="dm-block">· ${esc(r.block)}</span>` : ""}</span>
+        ${r.example ? `<span class="dm-ex">예) ${r.example}</span>` : ""}
+      </div>
     </li>`;
 }
 
-// 종류별 개수: 시제 3 · 조사 2 …
-function mistakeSummary(day) {
-  const n = {};
-  day.mistakes.forEach((r) => { if (r.type) n[r.type] = (n[r.type] || 0) + 1; });
-  const keys = Object.keys(n).sort((a, b) => n[b] - n[a] || MISTAKE_TYPES.indexOf(a) - MISTAKE_TYPES.indexOf(b));
-  return keys.length ? `<p class="dm-summary">${keys.map((k) => `<span class="badge bad">${esc(k)} ${n[k]}</span>`).join(" ")}</p>` : "";
+// 그룹: 종류 배지 + 설명 + 카드들
+const TYPE_NOTE = { 시제: "tense", 조사: "particles", 어휘: "word choice", 어순: "word order", 문법: "grammar", 맞춤법: "spelling & spacing", 존댓말: "politeness" };
+const NAT_KINDS = ["단어 선택", "표현", "더 정확하게"];
+const NAT_NOTE = { "단어 선택": "a better word", 표현: "a better pattern", "더 정확하게": "say it more exactly", 기타: "more natural" };
+function groupBy(rows, key, order) {
+  const g = {};
+  rows.forEach((r) => { const k = r[key] || "기타"; (g[k] = g[k] || []).push(r); });
+  return Object.keys(g).sort((a, b) => g[b].length - g[a].length || (order.indexOf(a) + 99 * (order.indexOf(a) < 0)) - (order.indexOf(b) + 99 * (order.indexOf(b) < 0)))
+    .map((k) => [k, g[k]]);
+}
+function mistakeGroup(name, note, rows, nat) {
+  return `
+    <div class="dm-group">
+      <p class="dm-ghead"><span class="dm-tag ${nat ? "nat" : ""}" data-type="${esc(name)}" data-kind="${esc(name)}">${esc(name)} · ${rows.length}</span> <span class="small">${esc(note || "")}</span></p>
+      <ul class="dm-cards">${rows.map((r) => mistakeCard(r, nat)).join("")}</ul>
+    </div>`;
 }
 
-function mistakeRows(day, full = day) {
+// 세션 노트 (GUI 마지막 화면): 한 줄 요약 + 접힌 상세
+function notesLine(day) {
+  const n = day.notes || [];
+  if (!n.length) return "";
+  return n.map((s) => `
+    <details class="dm-notes">
+      <summary>${esc(s.title)}${s.stats.length ? " · " + s.stats.map(([k, v]) => `${esc(k)} ${esc(v)}`).join(" · ") : ""} <span class="dm-open">▸ 세션 노트</span></summary>
+      ${s.rows.length ? `<table class="dm-tn">${s.rows.map((c) => `<tr>${c.map((x, i) => `<td${i === 1 ? ' class="small"' : ""}>${esc(x)}</td>`).join("")}</tr>`).join("")}</table>` : ""}
+      ${s.keep.map((k) => `<p class="dm-keep">Keep: ${k}</p>`).join("")}
+      ${s.next ? `<p class="small">Next time: ${s.next}</p>` : ""}
+    </details>`).join("");
+}
+
+function mistakeRows(day) {
+  const fixes = groupBy(day.mistakes, "type", MISTAKE_TYPES);
+  const nats = groupBy(day.natural, "kind", NAT_KINDS);
   return `
-    ${mistakeSummary(full)}
-    ${day.mistakes.length ? `<h4>✏️ 고쳤어요 (${day.mistakes.length})</h4><ul class="dm-list">${day.mistakes.map((r) => mistakeRow(r, "✏️")).join("")}</ul>` : ""}
-    ${day.natural.length ? `<h4>💡 더 자연스러워요 (${day.natural.length})</h4><ul class="dm-list">${day.natural.map((r) => mistakeRow(r, "💡")).join("")}</ul>` : ""}`;
+    ${notesLine(day)}
+    ${day.mistakes.length ? `<h4 class="dm-h">✏️ 고쳤어요 <b>${day.mistakes.length}</b> <span class="small">wrong → right, grouped by type</span></h4>
+      ${fixes.map(([k, rows]) => mistakeGroup(k, TYPE_NOTE[k], rows, false)).join("")}` : ""}
+    ${day.natural.length ? `<h4 class="dm-h">💡 더 자연스러워요 <b>${day.natural.length}</b> <span class="small">already right → sounds more natural</span></h4>
+      ${nats.map(([k, rows]) => mistakeGroup(k, NAT_NOTE[k], rows, true)).join("")}` : ""}`;
 }
 
 function mistakeDays() {
@@ -547,7 +579,7 @@ function mistakesBox(limit = 0) {
   return `
     <section class="box ac-mistake">
       <div class="box-title">▣ 오늘의 실수 ${day ? `<span class="small">· ${head}</span>` : ""} <a class="title-link" href="#/mistakes">전체 보기 »</a></div>
-      <div class="box-body">${day ? mistakeRows(day, day0) : '<p class="small">아직 없어요.</p>'}
+      <div class="box-body">${day ? mistakeRows(day) : '<p class="small">아직 없어요.</p>'}
         ${day0 && limit && (day0.mistakes.length + day0.natural.length > day.mistakes.length + day.natural.length)
           ? `<p class="all"><a href="#/mistakes">→ 나머지 ${day0.mistakes.length + day0.natural.length - day.mistakes.length - day.natural.length}개 더 보기</a></p>` : ""}</div>
     </section>`;
@@ -558,7 +590,7 @@ function viewMistakes() {
   const days = mistakeDays();
   const items = days.map((d, i) => `
     <details class="past-item" ${i === 0 ? "open" : ""}>
-      <summary><span class="past-date">${dayLabel(d.date)}</span> ✏️ ${d.mistakes.length} · 💡 ${d.natural.length}</summary>
+      <summary><span class="past-date">${dayLabel(d.date)}</span> ✏️ ${d.mistakes.length} · 💡 ${d.natural.length}${(d.notes || []).length ? ` · 📝 ${d.notes.length}` : ""}</summary>
       <div class="past-body">${mistakeRows(d)}</div>
     </details>`).join("");
   return {

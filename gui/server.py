@@ -30,6 +30,8 @@ TTS_CACHE = ROOT / "gui" / "state" / "tts"
 DAILY = ROOT / "progress" / "daily"
 MISTAKES = ROOT / "progress" / "mistakes.md"
 STATE = ROOT / "gui" / "state"
+BUILD_DATA = ROOT / "website" / "build_data.py"
+STUDY_JS = ROOT / "website" / "data" / "study.js"
 REC = STATE / "rec"                 # spoken answers, one folder per session (not committed)
 SERVER_FILE = Path(__file__).resolve()
 SERVER_MTIME = SERVER_FILE.stat().st_mtime
@@ -114,6 +116,7 @@ class Session:
                     elif block.get("type") == "tool_use":
                         self.emit({"kind": "tool", "text": tool_label(block)})
             elif t == "result":
+                threading.Thread(target=rebuild_site_if_stale, daemon=True).start()
                 self.busy = False
                 self.emit({"kind": "busy", "on": False})
                 if d.get("is_error"):
@@ -126,6 +129,58 @@ class Session:
         for line in proc.stderr:
             if line.strip():
                 self.emit({"kind": "error", "text": line.strip()})
+
+
+def _md(x):
+    return str(x).replace("|", "/").replace("\n", " ").strip()
+
+
+def save_session_notes(n):
+    """The GUI final page → '## 📝 세션 노트' in progress/daily/<today>.md (website 오늘의 실수, folded).
+    One '### <title>' per session; saving the same session again replaces its block."""
+    day = date.today().isoformat()
+    title = _md(n.get("title") or "GUI session")
+    lines = [f"### {title}"]
+    lines += [f"- {_md(k)}: {_md(v)}" for k, v in (n.get("stats") or [])]
+    rows = n.get("rows") or []
+    if rows:
+        lines += ["| Item | Then | Now | Help |", "|---|---|---|---|"]
+        lines += ["| " + " | ".join(_md(c) for c in (r + ["", "", "", ""])[:4]) + " |" for r in rows]
+    lines += [f"- Keep: {_md(k)}" for k in (n.get("keep") or [])]
+    if n.get("next"):
+        lines.append(f"- Next: {_md(n['next'])}")
+    block = "\n".join(lines) + "\n"
+    DAILY.mkdir(parents=True, exist_ok=True)
+    f = DAILY / f"{day}.md"
+    txt = f.read_text() if f.is_file() else f"# {day}\n"
+    head = "## 📝 세션 노트"
+    if head not in txt:
+        txt = txt.rstrip("\n") + f"\n\n{head}\n"
+    # replace this session's old block, if any (same title)
+    txt = re.sub(rf"^### {re.escape(title)}\n(?:(?!^###|^## ).*\n?)*", "", txt, flags=re.M)
+    m = re.search(rf"^{re.escape(head)}[^\n]*\n(.*?)(?=^## |\Z)", txt, re.M | re.S)
+    end = m.end()
+    txt = txt[:end].rstrip("\n") + "\n\n" + block + ("\n" + txt[end:] if txt[end:] else "")
+    f.write_text(txt)
+
+
+_build_lock = threading.Lock()
+
+
+def rebuild_site_if_stale():
+    """Website gold rule (2026-11-24): after every Claude turn, if anything in
+    progress/ is newer than website/data/study.js, rebuild it. A safety net so the
+    final summary screen always leaves the website up to date."""
+    with _build_lock:
+        try:
+            built = STUDY_JS.stat().st_mtime if STUDY_JS.exists() else 0
+            newest = max((f.stat().st_mtime for f in (ROOT / "progress").rglob("*") if f.is_file()), default=0)
+            if newest <= built:
+                return
+            subprocess.run([sys.executable, "-I", str(BUILD_DATA)], cwd=ROOT,
+                           capture_output=True, text=True, timeout=120)
+        except Exception as e:  # never break the session over the website
+            print(f"website rebuild failed: {e}", file=sys.stderr)
 
 
 def tool_label(block):
@@ -239,8 +294,8 @@ def review_items(day):
         if c[0] == "Block":
             continue
         if section == "fix":
-            if len(c) >= 5:
-                block, typ, said, better, why = c[0], c[1], c[2], c[3], " | ".join(c[4:])
+            if len(c) >= 5:   # | Block | Type | You said | Better | Why | Example? |
+                block, typ, said, better, why = c[0], c[1], c[2], c[3], c[4]
             elif len(c) == 4:
                 block, typ, said, better, why = c[0], "", c[1], c[2], c[3]
             else:
@@ -248,7 +303,7 @@ def review_items(day):
         else:
             if len(c) < 4:
                 continue
-            block, typ, said, better, why = c[0], "💡", c[1], c[2], " | ".join(c[3:])
+            block, typ, said, better, why = c[0], "💡", c[1], c[2], c[3]   # then Kind?, Example?
         alts = [a.strip() for a in better.split(" / ") if a.strip()]
         slip = "small slip" in why or typ == "맞춤법" or "typo" in why
         key = re.sub(r"\(.*?\)|\[.*?\]", "", alts[0]).strip() if alts else ""
@@ -366,6 +421,9 @@ class Handler(BaseHTTPRequestHandler):
                 SESSION.start(self._body().get("args", ""))
             elif path == "/api/send":
                 SESSION.send(self._body()["text"])
+            elif path == "/api/notes":
+                save_session_notes(self._body())
+                threading.Thread(target=rebuild_site_if_stale, daemon=True).start()
             elif path == "/api/review/result":
                 res = self._body()
                 day = str(res.get("date", ""))

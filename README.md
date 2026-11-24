@@ -24,7 +24,7 @@ Say **그만** to stop; the next run picks up at the next block. Prompts are in 
 | Sat | optional: mistakes or pinned-words drill |
 | Sun | Anki · long session (weekend questions, role-play, disagree) · listening 3 (speech patterns) |
 | Mon | Anki · listening 4 (shadowing) · **podcast v1** on my own (my weekend answers as one story, 3 min+) + 일상 post |
-| Tue | Anki · **weekly test** (the week's questions, no hints, + podcast unsure sentences) · homework · podcast v2 |
+| Tue | Anki · **weekly test** (fun mode: one story with the tutor, no hints, boss round, homework sentences as ★ lines, + podcast unsure sentences) · podcast v2 |
 
 Optional every day: 회화 recording (memorize the day's Naver 오늘의 회화 and record it). One loop a week: questions → podcast → test → lesson.
 
@@ -53,15 +53,15 @@ Every 4th week is light: no new grammar. Grammar points have levels 0–5 with s
 | `lesson-intake` | Wed: lesson file → new grammar, tutor mistakes, the week's plan, 수업 post |
 | `listening` | Weekly Talk To Me In 100% Korean clip at ~90–95% known words, 4 steps: listen, transcript, speech patterns to borrow, shadowing (no Anki cards) |
 | `speaking` | Weekly podcast setup: topic (default: my weekend), length, clip patterns + grammar to use; I record and rate myself, then log it |
-| `weekly-check` | Tue: the week's questions again (10 items, no hints, timed), podcast unsure sentences, levels, weekly report, 주간 정리 post |
+| `weekly-check` | Tue: the week's questions again (10 items, no hints, timed, fun mode with homework as ★ story lines), podcast unsure sentences, levels, weekly report, 주간 정리 post |
 | `practice-mistakes` | Short drill on open mistakes |
 | `pinned-words` | Drill on the week's pinned Anki words |
 | `anki-vocab` | 70 conversational words a week as a CSV for Anki |
-| `daily-update` | Website: rebuilds `website/data/study.js` (end of every run) |
+| `daily-update` | Website: rebuilds `website/data/study.js` after **every** korean-mentor session (gold rule; the GUI server also rebuilds after each turn) |
 | `website-update` | Website: the weekly 오늘 list (써먹을 표현, mood), post formats, 오늘의 회화 fetch |
 | `daily-article` | Website: a 기사 post built from my grammar and mistakes, only on request |
 | `gui/` | Browser GUI for the timed blocks (`gui/start.sh`, design in `gui/DESIGN.md`), plus the 🎮 어제 실수 game: yesterday's `progress/daily/` rows as a 2-round quiz, no Claude needed |
-| `_shared/daily-mistakes.md` | Every block logs every fix and 💡 to `progress/daily/<date>.md` (website 오늘의 실수) |
+| `_shared/daily-mistakes.md` | Every block logs every fix and 💡 to `progress/daily/<date>.md` with an example sentence (website 오늘의 실수: cards grouped by type/kind, GUI 세션 노트 folded) |
 | `_shared/anki.py` | Anki helper for every skill: AnkiConnect when Anki is open, a read-only copy + `anki/pending.json` queue when it isn't. Trouble words are tagged `use_trouble` |
 
 ## Setup

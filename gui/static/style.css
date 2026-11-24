@@ -242,3 +242,24 @@ button.link { border: none; background: none; color: var(--accent); text-decorat
   button.primary, #done, #rec.on, #steps li.now, .chip.on { color: #141414; }
   button.primary kbd, #rec.on kbd { color: #141414; border-color: rgba(0,0,0,.45); }
 }
+
+/* shown Korean / reaction: click to cover again (2026-11-24) */
+.shown { cursor: pointer; }
+.ko.shown .hideTag { font-size: 12px; color: var(--dim); display: inline-flex; align-items: center; gap: 4px; vertical-align: middle; margin-left: 6px; }
+.ko.shown .hideTag svg { width: 14px; height: 14px; }
+.ko.shown:hover .hideTag { color: var(--accent); }
+
+/* weekly test game (2026-11-24) */
+#hud { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 15px; }
+#hud .hearts { color: #ff5a6e; font-size: 22px; letter-spacing: 2px; }
+#hud .combo { background: #ff8a3d; color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 600; }
+#hud .boss { background: #2b1d3d; color: #ffcf5a; border-radius: 6px; padding: 3px 10px; font-weight: 600; }
+#hud .boss .hp { color: #e0475a; margin-left: 6px; letter-spacing: 2px; }
+#hud .starTag { color: #b08a1e; background: #fff4d6; border: 1px solid #f2c14e; border-radius: 6px; padding: 2px 8px; }
+#story { display: flex; flex-direction: column; gap: 6px; }
+#story .sl { max-width: 80%; padding: 6px 12px; border-radius: 12px; font-size: 15px; }
+#story .tutor { align-self: flex-start; background: var(--mute); }
+#story .me { align-self: flex-end; background: var(--me); }
+#story .me.star { border: 1px solid #f2c14e; }
+table.beat { margin: 4px 0 14px; border-collapse: collapse; }
+table.beat td { padding: 3px 14px 3px 0; }

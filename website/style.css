@@ -682,14 +682,6 @@ a.today-link:hover .box-title { filter: brightness(1.08); }
 }
 
 /* 오늘의 실수 */
-.dm-list { list-style: none; margin: 4px 0 10px; padding: 0; }
-.dm-row { display: flex; flex-direction: column; gap: 1px; padding: 5px 0; border-bottom: 1px dotted var(--line-soft); font-family: var(--font-ko); }
-.dm-row:last-child { border-bottom: 0; }
-.dm-said { color: var(--red-text); }
-.dm-better { color: var(--green-text); font-weight: bold; }
-.dm-why { font-family: inherit; }
-.dm-meta { display: flex; gap: 6px; align-items: center; }
-.dm-summary { margin: 2px 0 8px; display: flex; flex-wrap: wrap; gap: 4px; }
 
 /* 홈: 오늘 / 이번 주 / 지난 글 */
 .home-section { font-size: 1.05rem; margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--line-soft); }
@@ -719,3 +711,36 @@ ul.title-list { list-style: none; padding: 0; margin: 0 0 6px; }
 ul.title-list li { padding: 4px 0; border-bottom: 1px dashed var(--line); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 ul.title-list li:last-child { border-bottom: none; }
 ul.title-list .small { margin-right: 6px; font-variant-numeric: tabular-nums; }
+
+/* ===== 오늘의 실수 카드 (2026-11-24): 종류별 그룹, 카드 = 내가 한 말 → 고친 말 + 이유 + 예) ===== */
+[data-type="맞춤법"] { --t: var(--ice); }
+[data-type="존댓말"] { --t: var(--grape); }
+[data-kind="단어 선택"] { --t: var(--jungle); }
+[data-kind="표현"] { --t: var(--grape); }
+[data-kind="더 정확하게"] { --t: var(--fire); }
+.dm-h { margin: 14px 0 4px; font-size: 16px; color: var(--strong); }
+.dm-h b { margin: 0 4px; }
+.dm-h .small { font-weight: normal; }
+.dm-group { margin: 6px 0 10px; }
+.dm-ghead { margin: 4px 0 6px !important; }
+.dm-tag { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 3px; color: #101114; background: var(--t, var(--red-text)); }
+.dm-cards { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.dm-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px 16px; align-items: center;
+           background: var(--deep); border-left: 4px solid var(--red); border-radius: 4px; padding: 10px 12px; font-family: var(--font-ko); }
+.dm-card.nat { border-left-color: var(--yellow); }
+.dm-pair, .dm-side { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.dm-card .dm-said { color: var(--red-text); font-size: 15px; }
+.dm-card .dm-better { color: var(--green-text); font-size: 17px; font-weight: bold; }
+.dm-card.nat .dm-said { color: var(--dim); }
+.dm-card.nat .dm-better { color: var(--yellow-text); }
+.dm-side .dm-why { color: var(--dim); }
+.dm-block { opacity: 0.8; }
+.dm-ex { color: var(--text); }
+@media (max-width: 640px) { .dm-card { grid-template-columns: 1fr; } }
+.dm-notes { background: var(--deep); border-radius: 4px; padding: 6px 10px; margin: 0 0 8px; font-size: 13px; color: var(--dim); }
+.dm-notes summary { cursor: pointer; }
+.dm-notes .dm-open { color: var(--blue-text); margin-left: 6px; }
+.dm-notes[open] .dm-open { display: none; }
+.dm-tn { margin: 6px 0; border-collapse: collapse; font-family: var(--font-ko); }
+.dm-tn td { padding: 2px 10px 2px 0; color: var(--text); }
+.dm-keep { color: var(--green-text); }

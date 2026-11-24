@@ -284,6 +284,33 @@ def snapshot(wk, pts, by_type):
 
 
 # ---------- daily mistakes (sessions/*.md) ----------
+def session_notes(txt):
+    """'## 📝 세션 노트' blocks the GUI writes at its final page: one '### <title>' per session,
+    then '- key: value' lines (stats, keep, next) and a then→now table."""
+    m = re.search(r"^## 📝 세션 노트[^\n]*\n(.*?)(?=^## |\Z)", txt, re.M | re.S)
+    if not m:
+        return []
+    out = []
+    for part in re.split(r"^### ", m.group(1), flags=re.M)[1:]:
+        lines = part.splitlines()
+        s = {"title": lines[0].strip(), "stats": [], "keep": [], "next": "", "rows": []}
+        for l in lines[1:]:
+            l = l.strip()
+            if l.startswith("- Keep:"):
+                s["keep"].append(md_inline(l[7:].strip()))
+            elif l.startswith("- Next:"):
+                s["next"] = md_inline(l[7:].strip())
+            elif l.startswith("- ") and ":" in l:
+                k, v = l[2:].split(":", 1)
+                s["stats"].append([k.strip(), v.strip()])
+            elif l.startswith("|") and not set(l) <= set("|-: "):
+                c = [x.strip() for x in l.strip("|").split("|")]
+                if c[0] != "Item":
+                    s["rows"].append(c)
+        out.append(s)
+    return out[::-1]   # newest first
+
+
 def daily_mistakes(days=14):
     """Per day, newest first: ✏️ corrections and 💡 more-natural suggestions.
     Main source: progress/daily/YYYY-MM-DD.md (every block logs there, see .claude/skills/_shared/daily-mistakes.md).
@@ -293,12 +320,18 @@ def daily_mistakes(days=14):
         txt = p.read_text()
         out[p.stem] = {
             "date": p.stem,
+            # ✏️ | Block | Type | You said | Better | Why | Example |
             "mistakes": [{"block": r[0], "type": r[1], "said": md_inline(r[2]), "better": md_inline(r[3]),
-                          "why": md_inline(r[4]) if len(r) > 4 else ""}
+                          "why": md_inline(r[4]) if len(r) > 4 else "",
+                          "example": md_inline(r[5]) if len(r) > 5 else ""}
                          for r in _table(txt, "✏️ 고쳤어요") if len(r) > 3],
+            # 💡 | Block | You said | More natural | Why | Kind | Example |  (Kind: 단어 선택 / 표현 / 더 정확하게)
             "natural": [{"block": r[0], "said": md_inline(r[1]), "better": md_inline(r[2]),
-                         "why": md_inline(r[3]) if len(r) > 3 else ""}
+                         "why": md_inline(r[3]) if len(r) > 3 else "",
+                         "kind": r[4] if len(r) > 4 else "",
+                         "example": md_inline(r[5]) if len(r) > 5 else ""}
                         for r in _table(txt, "💡 더 자연스러워요") if len(r) > 2],
+            "notes": session_notes(txt),
         }
     logged = set(out)
     for p in sorted((ROOT / "sessions").glob("20??-??-??*.md")):
@@ -309,7 +342,9 @@ def daily_mistakes(days=14):
                  "why": md_inline(r[2]) if len(r) > 2 else ""} for r in _table(p.read_text(), "Corrections") if len(r) > 1]
         day = out.setdefault(d, {"date": d, "mistakes": [], "natural": []})
         day["mistakes"] += rows
-    filled = [v for v in out.values() if v["mistakes"] or v["natural"]]
+    for v in out.values():
+        v.setdefault("notes", [])
+    filled = [v for v in out.values() if v["mistakes"] or v["natural"] or v["notes"]]
     return sorted(filled, key=lambda v: v["date"], reverse=True)[:days]
 
 
