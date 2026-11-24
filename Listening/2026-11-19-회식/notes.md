@@ -1,6 +1,6 @@
 # 회식 — 문장 & 패턴
 
-**Progress:** 1 ✔ (~35%) · 2 ✔ (missed: ~30 단어, 17 문법/phrasing, 0 소리, 0 속도) · 3 ☐ · 4 ☐
+**Progress:** 1 ✔ (~35%) · 2 ✔ (missed: ~30 단어, 17 문법/phrasing, 0 소리, 0 속도) · 3 ✔ (7 patterns) · 4 ☐
 **Listening:** ~35% (followed to ~3:00; knows the words and grammar, but processing them at speed is hard) → (final)
 Source: Talk To Me In 100% Korean, 티티믹의 회식 문화 (0:00–8:52, whole episode) · https://www.youtube.com/watch?v=jb-b_H3FkUw&t=0 · ~92% known · Full text: [transcript.md](transcript.md) (step 2)
 
@@ -97,5 +97,24 @@ Hardest part: 3:20–3:50 (사전적인 정의, 섭취하다, 부분일식/개�
 ## Speech patterns (step 3)
 | Kind | Pattern | Sentence (speaker) | What it does |
 |---|---|---|---|
+| Opener | 오늘은 ~에 대해서 이야기해 보겠습니다 | 오늘은 한국의 회식 문화에 대해서 이야기해 보겠습니다. (0:03) | names the topic |
+| Opener | 제가 알기로는 ~ | 경화 님은 제가 알기로는 회식 별로 안 좋아하시고 (0:08) | "as far as I know" |
+| Opener | 원래는 (사실) ~ 아예 없었어요 | 원래는 사실 회식이 아예 없었어요. (2:32) | starts a "how it used to be" story |
+| Connector | 왜냐하면 ~거든요 (#16) | 왜냐하면 점심을 엄청 많이 먹거든요. (0:26) | reason right after an opinion |
+| Connector | 원래는 ~었다가 ~(으)면서 | 원래는 없었다가 인원이 많아지면서 (3:41) | describes a change over time |
+| Connector | 그게 어떤 상황이냐면 | 왜냐하면 그게 어떤 상황이냐면 (5:58) | sets up an explanation |
+| Ending | ~는 거예요 (reveal) | 이미 20접시가 쌓여 있는 거예요. (1:06) | the surprise moment of a story |
+| Ending | ~잖아요 (#17) | '회식'이라고 하면 점심 회식이 아니잖아요. (1:31) | shared knowledge |
+| Ending | ~다 보니 ~기는 힘들더라고요 (#37, #35) | 노력해서 하는 거다 보니 계속 하기는 힘들더라고요. (5:05) | looking-back reflection |
+| Softener | ~는 건 아닌데 약간 ~에 따라 달라요 | 아예 싫은 건 아닌데 그게 또 약간 상황에 따라 달라요. (5:55) | hedged opinion |
+| Reaction | 너무 충격적이었어요 · 진짜 신기하네요 (#18) | (1:11) · (7:13) | comment on own story / react |
+| Closer | 한번 ~해 보시죠 | 한번 시도해 보시죠. (8:27) | "let's try it" wrap-up |
 
 ## Patterns to borrow
+- 원래는 (사실) ~ 아예 없었어요 (opener) — also 원래 ~(으)려고 했는데 ~아/어서 (plan changed)
+- 왜냐하면 ~거든요 (connector, #16)
+- 원래는 ~었다가 ~(으)면서 (connector: change)
+- ~는 거예요 (ending: story reveal)
+- ~다 보니 ~기는 힘들더라고요 (ending: reflection, #37 + #35)
+- ~는 건 아닌데 약간 ~에 따라 달라요 (softener)
+- 너무 충격적이었어요 · 진짜 신기하네요 (reaction, #18)
