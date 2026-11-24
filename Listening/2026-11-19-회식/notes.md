@@ -1,6 +1,6 @@
 # 회식 — 문장 & 패턴
 
-**Progress:** 1 ✔ (~35%) · 2 ✔ (missed: ~30 단어, 17 문법/phrasing, 0 소리, 0 속도) · 3 ✔ (7 patterns) · 4 ☐
+**Progress:** 1 ✔ (~35%) · 2 ✔ (missed: ~30 단어, 17 문법/phrasing, 0 소리, 0 속도) · 3 ✔ (7 patterns) · 4 ✔ (shadowing 7 lines + 2 speak-along rounds; final listen skipped)
 **Listening:** ~35% (followed to ~3:00; knows the words and grammar, but processing them at speed is hard) → (final)
 Source: Talk To Me In 100% Korean, 티티믹의 회식 문화 (0:00–8:52, whole episode) · https://www.youtube.com/watch?v=jb-b_H3FkUw&t=0 · ~92% known · Full text: [transcript.md](transcript.md) (step 2)
 
