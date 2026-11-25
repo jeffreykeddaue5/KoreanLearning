@@ -4,6 +4,7 @@ const CATEGORIES = {
   lesson: { name: "수업", color: "blue" },
   // article: { name: "기사", color: "orange" },  // 기사 숨김 → 오늘의 회화 (2026-11-19)
   conversation: { name: "회화", color: "orange" },  // 네이버 오늘의 회화 (fetch_conversation.py, 2026-11-19)
+  podcast: { name: "팟캐스트 노트", color: "green" },  // 주간 팟캐스트 노트 (2026-11-24)
   // weekly: { name: "주간 정리", color: "green" },  // 주간 정리 숨김 → 오늘의 실수 (2026-11-18)
 };
 // 카테고리 색 (style.css의 .ac-*)
