@@ -1,53 +1,73 @@
 {
- "_readme": "오늘의 회화 문법 설명 (Naver 대신). 키 = Naver 문법 제목 그대로. fetch_conversation.py가 읽는다. 없으면 'NEED NOTE'를 출력 → 여기에 써 넣고 스크립트를 다시 실행.",
- "Vst는/은/ㄴ 건 아니고": {
-  "form": "V-는 건 아니고 · A-(으)ㄴ 건 아니고 · 지난 일: V-(으)ㄴ 건 아니고 · 있다/없다 → -는 건 아니고",
-  "meaning": "It's not (exactly) that …, (it's just that) …",
-  "notes": [
-   "Corrects a guess: the other person's idea is close, but not quite. You say what it isn't, then what it really is.",
-   "건 = 것은. Softer than just 아니에요, because you give the real answer right after.",
-   "-는 게 아니라 is a stronger contrast (not X <b>but</b> Y). -는 건 아니고 = not exactly X, just Y.",
-   "❌ 싫는 건 아니고 → ✅ 싫은 건 아니고 (adjectives take -(으)ㄴ)"
-  ]
- },
- "N이/가 N만 못하다": {
-  "form": "N이/가 N만 못하다 · 어떤 N도 N만 못하다",
-  "meaning": "… is not as good as …",
-  "notes": [
-   "Compares two things: the first one falls short of the second. 만 here means 'as much as', not 'only'.",
-   "어떤 N도 N만 못하다 = nothing is as good as N (어떤 음료도 물만 못해요 = no drink beats water).",
-   "Same idea as N보다 못하다, but N만 못하다 sounds more natural in sayings and set phrases.",
-   "❌ 물만 안 좋아요 → ✅ 물만 못해요 (use 못하다, not 안 좋다)"
-  ]
- },
- "Avst을/ㄹ 기회가 있었으면 좋겠어요.": {
-  "form": "V-(으)ㄹ 기회가 있었으면 좋겠어요",
-  "meaning": "I hope I get a chance to …",
-  "notes": [
-   "A polite, soft wish: 기회 = chance, -았/었으면 좋겠어요 = 'I wish / it would be nice if'.",
-   "The past form 있었으면 doesn't mean the past here; it's how Korean says 'if only…' about the future.",
-   "Softer than -고 싶어요: 한국에 가고 싶어요 = I want to go; 한국에 갈 기회가 있었으면 좋겠어요 = I hope I get the chance to go.",
-   "For a missed chance in the past, use 좋았을 텐데요: ❌ 어제 만날 기회가 있었으면 좋겠어요 → ✅ 어제 만날 기회가 있었으면 좋았을 텐데요"
-  ]
- },
- "AVst도록 하다": {
-  "form": "V-도록 하다",
-  "meaning": "make sure to / (please) do V — a polite instruction or a decision to do something",
-  "notes": [
-   "Used for instructions in formal or semi-formal settings: 쓰도록 하세요 = please write (softer and more official than 쓰세요).",
-   "With 저/제가 it's a promise or decision: 내일까지 보내도록 하겠습니다 = I'll make sure to send it by tomorrow.",
-   "Compare -게 하다 = make someone do: -도록 하다 sounds more formal and is common in notices, at work and with teachers.",
-   "❌ 친구한테: 밥 먹도록 해! → ✅ 밥 먹어! (too stiff between friends)"
-  ]
- },
- "Vst었다면/았다면/였다면": {
-  "form": "V/A-았/었다면 (+ -았/었을 거예요)",
-  "meaning": "if (it had been) — an imagined past that didn't happen, usually followed by what would have happened",
-  "notes": [
-   "Pair it with -았/었을 거예요 for the result: 시간이 많았다면 질문을 많이 했을 거예요 = if I'd had more time, I would have asked a lot.",
-   "-았/었으면 means the same and is more everyday in speech; -았/었다면 sounds a bit more hypothetical or written.",
-   "Compare -(으)ㄹ 뻔했다: 안 샀으면 못 살 뻔했어요 = it almost happened. -았/었다면 … -았/었을 거예요 is the imagined result.",
-   "❌ 시간이 많으면 질문을 많이 했어요 → ✅ 시간이 많았다면 질문을 많이 했을 거예요 (both halves in the past-imagined form)"
-  ]
- }
+  "_readme": "오늘의 회화 문법 설명 (Naver 대신). 키 = Naver 문법 제목 그대로. fetch_conversation.py가 읽는다. 없으면 'NEED NOTE'를 출력 → 여기에 써 넣고 스크립트를 다시 실행.",
+  "Vst는/은/ㄴ 건 아니고": {
+    "form": "V-는 건 아니고 · A-(으)ㄴ 건 아니고 · 지난 일: V-(으)ㄴ 건 아니고 · 있다/없다 → -는 건 아니고",
+    "meaning": "It's not (exactly) that …, (it's just that) …",
+    "notes": [
+      "Corrects a guess: the other person's idea is close, but not quite. You say what it isn't, then what it really is.",
+      "건 = 것은. Softer than just 아니에요, because you give the real answer right after.",
+      "-는 게 아니라 is a stronger contrast (not X <b>but</b> Y). -는 건 아니고 = not exactly X, just Y.",
+      "❌ 싫는 건 아니고 → ✅ 싫은 건 아니고 (adjectives take -(으)ㄴ)"
+    ]
+  },
+  "N이/가 N만 못하다": {
+    "form": "N이/가 N만 못하다 · 어떤 N도 N만 못하다",
+    "meaning": "… is not as good as …",
+    "notes": [
+      "Compares two things: the first one falls short of the second. 만 here means 'as much as', not 'only'.",
+      "어떤 N도 N만 못하다 = nothing is as good as N (어떤 음료도 물만 못해요 = no drink beats water).",
+      "Same idea as N보다 못하다, but N만 못하다 sounds more natural in sayings and set phrases.",
+      "❌ 물만 안 좋아요 → ✅ 물만 못해요 (use 못하다, not 안 좋다)"
+    ]
+  },
+  "Avst을/ㄹ 기회가 있었으면 좋겠어요.": {
+    "form": "V-(으)ㄹ 기회가 있었으면 좋겠어요",
+    "meaning": "I hope I get a chance to …",
+    "notes": [
+      "A polite, soft wish: 기회 = chance, -았/었으면 좋겠어요 = 'I wish / it would be nice if'.",
+      "The past form 있었으면 doesn't mean the past here; it's how Korean says 'if only…' about the future.",
+      "Softer than -고 싶어요: 한국에 가고 싶어요 = I want to go; 한국에 갈 기회가 있었으면 좋겠어요 = I hope I get the chance to go.",
+      "For a missed chance in the past, use 좋았을 텐데요: ❌ 어제 만날 기회가 있었으면 좋겠어요 → ✅ 어제 만날 기회가 있었으면 좋았을 텐데요"
+    ]
+  },
+  "AVst도록 하다": {
+    "form": "V-도록 하다",
+    "meaning": "make sure to / (please) do V — a polite instruction or a decision to do something",
+    "notes": [
+      "Used for instructions in formal or semi-formal settings: 쓰도록 하세요 = please write (softer and more official than 쓰세요).",
+      "With 저/제가 it's a promise or decision: 내일까지 보내도록 하겠습니다 = I'll make sure to send it by tomorrow.",
+      "Compare -게 하다 = make someone do: -도록 하다 sounds more formal and is common in notices, at work and with teachers.",
+      "❌ 친구한테: 밥 먹도록 해! → ✅ 밥 먹어! (too stiff between friends)"
+    ]
+  },
+  "Vst었다면/았다면/였다면": {
+    "form": "V/A-았/었다면 (+ -았/었을 거예요)",
+    "meaning": "if (it had been) — an imagined past that didn't happen, usually followed by what would have happened",
+    "notes": [
+      "Pair it with -았/었을 거예요 for the result: 시간이 많았다면 질문을 많이 했을 거예요 = if I'd had more time, I would have asked a lot.",
+      "-았/었으면 means the same and is more everyday in speech; -았/었다면 sounds a bit more hypothetical or written.",
+      "Compare -(으)ㄹ 뻔했다: 안 샀으면 못 살 뻔했어요 = it almost happened. -았/었다면 … -았/었을 거예요 is the imagined result.",
+      "❌ 시간이 많으면 질문을 많이 했어요 → ✅ 시간이 많았다면 질문을 많이 했을 거예요 (both halves in the past-imagined form)"
+    ]
+  },
+  "Vst고말고요.": {
+    "form": "V/A-고말고요 · N이고말고요 · 있다/없다 → 있고말고요",
+    "meaning": "Of course! / Absolutely (it is)!",
+    "notes": [
+      "A strong yes to a question: \"is it true / can you?\" → \"of course it is\". Spoken, friendly, a bit emphatic.",
+      "Usually repeats the verb from the question: 있어요? → 있고말고요. 할 수 있어요? → 할 수 있고말고요.",
+      "Stronger and warmer than 그럼요 or 당연하죠; less common in everyday chat, so 당연하죠 is the safe default.",
+      "❌ 맞아요고말고요 → ✅ 맞고말고요 (attach to the stem)"
+    ]
+  },
+  "N이라든가/라든가 N 같은 N": {
+    "form": "N이라든가 (after a consonant) / N라든가 (after a vowel) … N 같은 N",
+    "meaning": "things like A or B — giving a couple of examples of a bigger group",
+    "notes": [
+      "Lists one or two examples, then names the group: 기자라든가 아나운서 같은 언론인 = journalists, like reporters or announcers.",
+      "Softer and a bit more formal than N(이)나 N 같은: 피자나 치킨 같은 음식 means the same in casual speech.",
+      "The examples are just samples, not the full list. That's why 같은 + the group word usually follows.",
+      "❌ 기자든가 아나운서 같은 → ✅ 기자라든가 아나운서 같은 (keep 라: -든가 alone means 'either… or')"
+    ]
+  }
 }

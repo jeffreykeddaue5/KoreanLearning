@@ -4,6 +4,11 @@
 // 새 글 쓰기:  _template.js 를 복사 → 이름 바꾸기 → 여기에 한 줄 추가
 // 글 지우기:  여기서 그 줄을 지운다 (파일은 지워도 되고 남겨도 된다)
 const POST_FILES = [
+  "2026-11-26-podcast-week-11-25",
+  "2026-11-26-conversation",
+  "2026-11-25-lesson-22",
+  "2026-11-25-week-3-check",
+  "2026-11-25-conversation",
   "2026-11-24-podcast-week-11-18",
   "2026-11-24-conversation",
   "2026-11-23-conversation",

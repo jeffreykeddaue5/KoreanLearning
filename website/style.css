@@ -664,7 +664,7 @@ a.today-link:hover .box-title { filter: brightness(1.08); }
 /* ===== 휴대폰 ===== */
 @media (max-width: 860px) {
   #wrap { margin: 0; border-left: 0; border-right: 0; }
-  #layout, #layout.no-right { grid-template-columns: 1fr; }
+  #layout, #layout.no-right { grid-template-columns: minmax(0, 1fr); }
   #header { height: 130px; }
   h1.glitch { font-size: 32px; }
   .menu { display: flex; flex-wrap: wrap; gap: 0 4px; }
@@ -744,3 +744,31 @@ ul.title-list .small { margin-right: 6px; font-variant-numeric: tabular-nums; }
 .dm-tn { margin: 6px 0; border-collapse: collapse; font-family: var(--font-ko); }
 .dm-tn td { padding: 2px 10px 2px 0; color: var(--text); }
 .dm-keep { color: var(--green-text); }
+
+/* ===== 홈: 오늘 할 일 + 이번 주 한눈에 (2026-11-26, 읽기 전용) ===== */
+.today-plan .box-body { font-size: 16px; }
+.tp-bar { margin: 2px 0 8px; }
+.tp-list { list-style: none; margin: 0; padding: 0; }
+.tp-row { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--line-soft); }
+.tp-row:last-child { border-bottom: 0; }
+.tp-mark { width: 1.4em; text-align: center; font-weight: bold; color: var(--blue-text); }
+.tp-done .tp-mark { color: var(--green-text); }
+.tp-done .tp-text, .tp-skip .tp-text, .tp-opt .tp-text { color: var(--dim); }
+.tp-done .tp-text b { text-decoration: line-through; }
+.tp-text { display: flex; flex-direction: column; min-width: 0; }
+.tp-detail { overflow-wrap: anywhere; }
+.tp-next { margin-top: 8px; }
+.tp-note { opacity: 0.7; }
+.wg-wrap { overflow-x: auto; }
+.wg { border-collapse: collapse; width: 100%; font-size: 14px; table-layout: fixed; }
+.wg th, .wg td { padding: 5px 4px; text-align: left; vertical-align: top; border-bottom: 1px dashed var(--line-soft); }
+.wg th { font-weight: normal; color: var(--dim); }
+.wg .wg-cat { color: var(--text); }
+.wg .wg-today { background: var(--row); color: var(--strong); }
+.wg-done { color: var(--green-text); }
+.wg-opt, .wg-none, .wg-skip { color: var(--dim); }
+.mm-list { list-style: none; margin: 0; padding: 0; }
+.mm-list li { padding: 5px 0; border-bottom: 1px dashed var(--line-soft); }
+.mm-list li:last-child { border-bottom: 0; }
+.wg tr > th:first-child { width: 44px; }
+@media (max-width: 640px) { .wg { min-width: 600px; } }

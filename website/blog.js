@@ -440,11 +440,115 @@ function sectionHead(title, note) {
   return `<h2 class="home-section">${title} <span class="small">${note}</span></h2>`;
 }
 
+// ===== 홈 위쪽: 오늘 할 일 + 이번 주 한눈에 (2026-11-26) =====
+// 읽기 전용: 상태는 weeks/ 계획의 ☑/☐에서 (build_data.py), 사이트에서는 아무것도 바꾸지 않는다.
+const BLOCK_KO = [
+  [/^anki/i, "Anki", "anki"], [/^lesson-intake/i, "수업 정리", "etc"], [/^lesson review/i, "수업 복습", "grammar"],
+  [/^weekly test|^weekly check/i, "주간 테스트", "grammar"], [/^grammar/i, "문법", "grammar"],
+  [/^mistakes drill/i, "실수 연습", "grammar"], [/^listening/i, "듣기", "listen"],
+  [/^podcast/i, "녹음 · 팟캐스트", "record"], [/^recording/i, "녹음", "record"],
+  [/^회화 recording/i, "회화 녹음", "record"], [/^homework/i, "숙제", "grammar"],
+];
+const STATE_MARK = { done: "✓", todo: "○", skip: "–", note: "·" };
+// "podcast v1: my month + weekend plans (1–2 min) 🖥️" → {label, detail, cat, short}
+function blockInfo(b) {
+  let t = b.text.replace(/🖥️/g, "").trim();
+  let optional = false;
+  if (/^optional:?\s*/i.test(t)) { optional = true; t = t.replace(/^optional:?\s*[☐☑]?\s*/i, ""); }
+  if (/^\(\w{3}\)\s*/.test(t)) t = t.replace(/^\(\w{3}\)\s*/, "");
+  const [head, ...rest] = t.split(":");
+  const more = rest.join(":").trim();
+  const hit = BLOCK_KO.find(([re]) => re.test(head.trim()));
+  const ver = (head.match(/\b(v\d|step \d)\b/) || [])[0] || "";
+  const label = hit ? hit[1] + (ver && !more.startsWith(ver) ? ` · ${ver}` : "") : head.trim();
+  const short = (more.replace(/\s*\(.*?\)/g, "").split(/[,·]/)[0] || ver || "").trim();
+  return { label, detail: more, cat: hit ? hit[2] : "etc", short: shortKo(head.trim(), short),
+    optional: optional || /optional/i.test(b.text) || /^mistakes drill/i.test(head.trim()), state: b.state };
+}
+// 표 칸용 아주 짧은 이름
+function shortKo(head, s) {
+  if (/^recording/i.test(head)) return "1분 메모";
+  if (/^weekly test|^weekly check/i.test(head)) return "테스트";
+  if (/^lesson review/i.test(head)) return "수업 복습";
+  if (/^mistakes drill/i.test(head)) return "실수 연습";
+  if (/^listening/i.test(head) && /clip once more/i.test(s)) return "다시 듣기";
+  if (/^grammar/i.test(head)) return /^new/i.test(s) ? "새 세트" : /^weekend/i.test(s) ? "주말" : "복습";
+  return s.length > 12 ? s.slice(0, 11) + "…" : s;
+}
+function scheduleRow(date) {
+  return ((S.week && S.week.schedule) || []).find((d) => d.date === date);
+}
+function realBlocks(row) {
+  return row ? row.blocks.filter((b) => b.state !== "note") : [];
+}
+
+function todayPlan() {
+  const today = ymd(new Date());
+  const row = scheduleRow(today);
+  const blocks = realBlocks(row).map(blockInfo);
+  const main = blocks.filter((b) => !b.optional);
+  const done = main.filter((b) => b.state === "done").length;
+  const items = blocks.map((b) => `
+    <li class="tp-row tp-${b.state}${b.optional ? " tp-opt" : ""}">
+      <span class="tp-mark">${STATE_MARK[b.state] || "·"}</span>
+      <span class="tp-text"><b>${esc(b.label)}</b>${b.optional ? ' <span class="small">(선택)</span>' : ""}
+        ${b.detail ? `<span class="tp-detail small">${esc(b.detail)}</span>` : ""}</span>
+    </li>`).join("");
+  const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+  const next = realBlocks(scheduleRow(ymd(tomorrow))).map(blockInfo).filter((b) => !b.optional);
+  const cd = lessonCountdown();
+  return `
+    <section class="box ac-blue today-plan">
+      <div class="box-title">▣ 오늘 할 일 <span class="small">· ${done} / ${main.length} 끝${cd ? ` · 다음 수업 ${cd.label}` : ""}</span></div>
+      <div class="box-body">
+        ${row ? `<p class="bar tp-bar">${bar(done, main.length, 20)}</p><ul class="tp-list">${items}</ul>` : '<p class="small">오늘 계획이 없어요.</p>'}
+        ${next.length ? `<p class="small tp-next">내일: ${next.map((b) => esc(b.label + (b.short ? " " + b.short : ""))).join(" · ")}</p>` : ""}
+        <p class="small tp-note">계획 파일(weeks/)에서 읽어요. 끝난 것은 세션이 끝나면 ✓가 돼요.</p>
+      </div>
+    </section>`;
+}
+
+// 이번 주 한눈에: 날짜 × (Anki · 문법 · 듣기 · 녹음) — 표시만, 체크 칸 없음
+function weekGlance() {
+  const sched = (S.week && S.week.schedule) || [];
+  if (!sched.length) return "";
+  const today = ymd(new Date());
+  const cats = [["anki", "Anki"], ["grammar", "문법"], ["listen", "듣기"], ["record", "녹음"]];
+  const head = sched.map((r) => `<th class="${r.date === today ? "wg-today" : ""}">${"일월화수목금토"[new Date(r.date + "T00:00").getDay()]} ${r.date.slice(5).replace("-", "/")}${r.date === today ? " · 오늘" : ""}${r.blocks.some((b) => /^lesson \d/.test(b.text)) ? " · 수업" : ""}</th>`).join("");
+  const body = cats.map(([key, name]) => `<tr><th class="wg-cat">${name}</th>${sched.map((r) => {
+    const bs = realBlocks(r).map(blockInfo).filter((b) => b.cat === key && !(key === "record" && b.label === "회화 녹음"));
+    const cell = bs.map((b) => `<span class="wg-${b.state}${b.optional ? " wg-opt" : ""}">${STATE_MARK[b.state]} ${esc(key === "anki" ? (b.optional ? "선택" : "") : (b.label.match(/\b(v\d)\b/) || [])[1] || b.short)}</span>`).join("<br>");
+    return `<td class="${r.date === today ? "wg-today" : ""}">${cell || '<span class="wg-none">–</span>'}</td>`;
+  }).join("")}</tr>`).join("");
+  return `
+    <section class="box ac-blue">
+      <div class="box-title">▣ 이번 주 한눈에 <span class="small">· ✓ 끝 · ○ 남음 · – 없음</span> <a class="title-link" href="#/week">계획 »</a></div>
+      <div class="box-body wg-wrap"><table class="wg">${"<tr><th></th>" + head + "</tr>" + body}</table>
+        <p class="small">회화 녹음은 월–목 선택이라 표에 안 넣어요.</p></div>
+    </section>`;
+}
+
+// 읽을 것: 써먹을 표현 · 오늘의 회화 · 어제 실수 (짧게)
+function todayPhraseCard() {
+  const d = todayEntry();
+  const p = d && d.phrase;
+  const m = d && d.mood;
+  if (!p) return todayLink();
+  return `
+    <a class="box today-link ac-orange" href="#/today">
+      <div class="box-title">▼ 써먹을 표현 <span class="title-link">#${p.grammar} · 기분 · 날씨 »</span></div>
+      <div class="box-body"><p class="today-peek"><b>${esc(p.text)}</b></p><p class="small">${esc(p.text_en || "")}${m ? ` · 기분: ${esc(m.word)}` : ""}</p></div>
+    </a>`;
+}
+
 function viewHome() {
   const posts = visiblePosts();
   const today = ymd(new Date());
   let html = sectionHead(`오늘 · ${dayLabel(today)}`, "매일 바뀌어요");
-  html += todayLink() + todayArticle(posts) + mistakesBox(8);
+  html += todayPlan();
+  html += `<div class="home-grid">${todayPhraseCard()}${todayArticle(posts)}</div>`;
+  html += mistakesMini(3);
+  html += weekGlance();
 
   html += sectionHead("이번 주", "수요일 수업 후 바뀌어요");
   html += weekSummary() + listenLink();
@@ -583,6 +687,21 @@ function mistakesBox(limit = 0) {
       <div class="box-body">${day ? mistakeRows(day) : '<p class="small">아직 없어요.</p>'}
         ${day0 && limit && (day0.mistakes.length + day0.natural.length > day.mistakes.length + day.natural.length)
           ? `<p class="all"><a href="#/mistakes">→ 나머지 ${day0.mistakes.length + day0.natural.length - day.mistakes.length - day.natural.length}개 더 보기</a></p>` : ""}</div>
+    </section>`;
+}
+
+// 홈용 짧은 실수 목록: 한 줄에 하나 (틀린 말 → 고친 말)
+function mistakesMini(n) {
+  const day = mistakeDays()[0];
+  if (!day) return "";
+  const today = ymd(new Date());
+  const rows = day.mistakes.slice(0, n);
+  const rest = day.mistakes.length + day.natural.length - rows.length;
+  return `
+    <section class="box ac-mistake">
+      <div class="box-title">▣ ${day.date === today ? "오늘" : "어제"}의 실수 <span class="small">· ${dayLabel(day.date)} · ✏️ ${day.mistakes.length} · 💡 ${day.natural.length}</span> <a class="title-link" href="#/mistakes">전체 보기 »</a></div>
+      <div class="box-body"><ul class="mm-list">${rows.map((r) => `<li><span class="dm-said">✗ ${r.said}</span> → <span class="dm-better">✓ ${r.better}</span></li>`).join("")}</ul>
+        ${rest > 0 ? `<p class="all"><a href="#/mistakes">→ ${rest}개 더 보기</a></p>` : ""}</div>
     </section>`;
 }
 
@@ -1193,7 +1312,7 @@ function route() {
 
   content.innerHTML = page.html;
   // 오른쪽 칸 (다음 수업, Anki, 자꾸 까먹는 단어 …)은 홈에서만 보인다
-  document.getElementById("layout").classList.toggle("no-right", view !== "");
+  document.getElementById("layout").classList.add("no-right"); // 오늘 할 일은 홈 본문으로 옮김 (2026-11-26)
   if (page.after) page.after();
   document.title = page.title ? `${page.title} :: ${SITE_TITLE}` : `${SITE_TITLE} :: 한국어 공부 일지`;
 
@@ -1220,7 +1339,7 @@ function route() {
 window.addEventListener("hashchange", route);
 // 오른쪽: 오늘 할 일 + 오늘의 단어
 const rightToday = document.getElementById("right-today");
-if (rightToday) rightToday.innerHTML = todayTodo() + pinnedBox();
+// (2026-11-26) 오른쪽 칸은 안 쓴다: 오늘 할 일 → 홈 본문 todayPlan()
 loadPosts().then(route);
 
 // ===== ▶ 한 줄 듣기 (lines 블록) =====

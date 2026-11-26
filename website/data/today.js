@@ -4,7 +4,7 @@
 // 날씨는 페이지가 Open-Meteo 에서 바로 가져오고, 표현은 아래 weather 모음에서 날씨에 맞게 고른다.
 // 한국어 줄마다 *_en 이 있어야 한다 (흐리게 보이다가 누르면 보인다).
 const TODAY = {
-  week: "2026-11-19 ~ 2026-11-25",
+  week: "2026-11-26 ~ 2026-12-02",
   days: {
     "2026-11-07": {
       mood: {
@@ -424,6 +424,160 @@ const TODAY = {
         tip_en: "Learned it from someone just now → -군요. Saw it yourself → -네요.",
       },
     },
+    "2026-11-26": {
+      mood: {
+        face: "(˘ω˘)🏕",
+        word: "아늑하다",
+        meaning: "cozy, snug (a small warm room, a tent)",
+        sentence: "작은 방이지만 아늑해서 좋아요",
+        sentence_en: "It's a small room, but I like it because it's cozy",
+      },
+      phrase: {
+        grammar: 58,
+        text: "숙제하느라 늦게 잤어요",
+        text_en: "I went to bed late because I was busy doing my homework",
+        example: "어제 버그 잡느라 드라마를 못 봤어요",
+        example_en: "Yesterday I was busy fixing a bug, so I couldn't watch my drama",
+        when: "선생님한테 왜 피곤한지, 왜 못 했는지 말할 때 써요.",
+        when_en: "Use it to tell your tutor why you're tired or why you couldn't do something.",
+        fix: "✕ 제가 청소하느라고 남편이 요리했어요 → ○ 제가 청소하느라고 요리를 못 했어요",
+        fix_en: "Both halves of -느라(고) need the same person.",
+        tip: "-느라(고) 다음에는 보통 못 했어요, 늦었어요, 바빴어요.",
+        tip_en: "After -느라(고): usually couldn't, was late, or was busy.",
+      },
+    },
+    "2026-11-27": {
+      mood: {
+        face: "(￣ー￣;)",
+        word: "뻐근하다",
+        meaning: "stiff and sore (shoulders, neck, back)",
+        sentence: "오래 앉아 있었더니 어깨가 뻐근해요",
+        sentence_en: "I sat for a long time, and now my shoulders are stiff",
+      },
+      phrase: {
+        grammar: 57,
+        text: "자막 없이 봤더니 생각보다 많이 들렸어요",
+        text_en: "I watched it without subtitles, and I could hear more than I expected",
+        example: "매일 녹음했더니 말이 조금 빨라졌어요",
+        example_en: "I recorded every day, and now I speak a bit faster",
+        when: "내가 해 본 연습과 그 결과를 선생님한테 말할 때 써요.",
+        when_en: "Use it to tell your tutor what practice you did and what came of it.",
+        fix: "✕ 자막 없이 봤더니 내일 더 잘 들릴 거예요 → ○ 봤더니 더 잘 들렸어요",
+        fix_en: "The result after -았/었더니 already happened, so no future.",
+        tip: "-았/었더니 + 결과 (과거나 지금).",
+        tip_en: "-았/었더니 + a result (past or now).",
+      },
+    },
+    "2026-11-28": {
+      mood: {
+        face: "(´-ω-`)",
+        word: "허전하다",
+        meaning: "to feel empty, like something is missing",
+        sentence: "수업이 없는 주말은 좀 허전해요",
+        sentence_en: "A weekend without a lesson feels a bit empty",
+      },
+      phrase: {
+        grammar: 59,
+        text: "말이 막히는 바람에 다시 녹음했어요",
+        text_en: "I got stuck mid-sentence, so I had to record it again",
+        example: "알람이 안 울리는 바람에 늦잠을 잤어요",
+        example_en: "My alarm didn't go off, so I overslept",
+        when: "갑자기 생긴 일 때문에 계획대로 안 됐을 때 써요.",
+        when_en: "Use it when something unexpected messed up what you were doing.",
+        fix: "✕ 머리가 아프는 바람에 → ○ 두통이 생기는 바람에",
+        fix_en: "-는 바람에 goes on verbs (things that happen), not adjectives.",
+        tip: "-는 바람에 뒤는 보통 안 좋은 결과예요.",
+        tip_en: "What follows -는 바람에 is usually a bad result.",
+      },
+    },
+    "2026-11-29": {
+      mood: {
+        face: "(´；ω；`)",
+        word: "뭉클하다",
+        meaning: "touched, a lump in your throat",
+        sentence: "드라마 마지막 장면이 너무 뭉클했어요",
+        sentence_en: "The last scene of the drama was so touching",
+      },
+      phrase: {
+        grammar: 60,
+        text: "외운 표현을 다 잊어버렸어요",
+        text_en: "I completely forgot the expressions I memorized",
+        example: "주말에 드라마를 다 봐 버렸어요",
+        example_en: "I ended up watching the whole drama on the weekend",
+        when: "뭔가 완전히 끝나 버렸을 때, 특히 아쉬울 때 써요.",
+        when_en: "Use it when something got completely done or gone, often with regret.",
+        fix: "✕ 다 잊어버려요 (어제 일) → ○ 다 잊어버렸어요",
+        fix_en: "It already happened, so past tense.",
+        tip: "-아/어 버리다 = 완전히 + 아쉽거나 후련하게.",
+        tip_en: "-아/어 버리다 = completely, with regret or relief.",
+      },
+    },
+    "2026-11-30": {
+      mood: {
+        face: "(；・∀・)",
+        word: "찝찝하다",
+        meaning: "uneasy, not quite right (a doubt that won't go away; also sticky, unclean)",
+        sentence: "숙제를 다 안 해서 좀 찝찝해요",
+        sentence_en: "I didn't finish my homework, so I feel a bit uneasy",
+      },
+      phrase: {
+        grammar: 61,
+        text: "이번 주에는 자막 없이 보기로 했어요",
+        text_en: "This week I decided to watch without subtitles",
+        example: "웬만하면 밤에는 게임을 안 하기로 했어요",
+        example_en: "I decided not to play games at night if I can help it",
+        when: "내가 정한 계획이나 약속을 말할 때 써요.",
+        when_en: "Use it to say a plan or rule you've settled on.",
+        fix: "✕ 자막을 못 켜기로 했어요 → ○ 안 켜기로 했어요",
+        fix_en: "-기로 하다 is a choice, so use 안, not 못.",
+        tip: "-기로 했어요 = 이미 정했어요.",
+        tip_en: "-기로 했어요 = it's already decided.",
+      },
+    },
+    "2026-12-01": {
+      mood: {
+        face: "(＞﹏＜)",
+        word: "벅차다",
+        meaning: "overwhelming, a lot to handle",
+        sentence: "이번 주는 일이 많아서 좀 벅차요",
+        sentence_en: "There's a lot of work this week, so it's a bit overwhelming",
+      },
+      phrase: {
+        grammar: 62,
+        text: "이 표현은 외울 만해요?",
+        text_en: "Is this expression worth memorizing?",
+        example: "그 드라마는 자막 없이 볼 만해요",
+        example_en: "That drama is easy enough to watch without subtitles",
+        when: "선생님한테 표현이나 드라마가 배울 만한지 물어볼 때 써요.",
+        when_en: "Use it to ask your tutor whether something is worth learning or doable.",
+        fix: "✕ 이 표현은 외우는 만해요? → ○ 외울 만해요?",
+        fix_en: "It's always V-(으)ㄹ 만하다.",
+        tip: "볼 만해요, 먹을 만해요, 할 만해요.",
+        tip_en: "Worth watching, worth eating, doable.",
+      },
+    },
+    "2026-12-02": {
+      mood: {
+        face: "(°ロ°;)",
+        word: "긴장되다",
+        meaning: "to feel nervous",
+        sentence: "수업 전에는 아직도 조금 긴장돼요",
+        sentence_en: "I still get a little nervous before the lesson",
+      },
+      phrase: {
+        grammar: 16,
+        text: "이 부분이 좀 어렵거든요",
+        text_en: "This part is a bit hard for me, you see",
+        example: "그래서 한 번 더 설명해 주시면 좋겠어요",
+        example_en: "So I'd like you to explain it one more time",
+        when: "질문하기 전에 이유를 부드럽게 말할 때 써요. 다음 문장이 이어져요.",
+        when_en: "Use it to give a soft reason before you ask something; another sentence follows.",
+        fix: "✕ 한국 곱창이 훨씬 맛있어요. 더 먹을걸 그랬어요 → ○ 맛있거든요",
+        fix_en: "When the sentence explains the next one, -거든요 sounds natural (L22).",
+        tip: "-거든요 = 상대가 모르는 이유. 아는 이유는 -잖아요.",
+        tip_en: "-거든요 = a reason they don't know; one they know → -잖아요.",
+      },
+    },
   },
 
   // 날씨 표현 모음: 날씨 종류마다 몇 개. 날마다 돌아가면서 하나를 보여 준다.
@@ -465,7 +619,7 @@ const TODAY = {
 
   // 이미 쓴 것 (다시 쓰지 않는다). days 가 생기기 전 표현은 여기에만 있다.
   past: {
-    mood: ["상쾌하다", "후련하다", "흐뭇하다", "보람차다", "든든하다", "느긋하다", "산뜻하다", "홀가분하다", "차분하다", "나른하다", "흡족하다", "아리송하다", "대견하다", "개운하다", "포근하다", "막막하다", "짜릿하다", "들뜨다", "출출하다", "노곤하다", "찌뿌둥하다", "싱숭생숭하다", "시원섭섭하다", "조마조마하다", "두근거리다", "기대되다", "설레다", "신나다", "귀찮다", "답답하다", "지치다", "뿌듯하다", "아쉽다"],
-    phrase: ["하마터면 큰일 날 뻔했어요", "한번 도전해 볼게요", "막상 해 보니까 괜찮더라고요", "어쩐지 사람이 많더라고요", "영화에 푹 몰입했나 봐요", "진작 할걸 그랬어요", "일하느라 정신이 없었어요", "오랜만에 푹 쉬었더니 살 것 같아요", "벌써 세 시간이나 지났어요", "가격은 비싼 반면에 맛은 최고예요", "익숙해지기까지 시간이 좀 걸릴 거예요", "알람이 안 울리는 바람에 늦잠을 잤어요", "벌써 다 먹어 버렸어요", "어른이라도 어려운 건 어려워요", "지금 후회한들 소용없어요", "피클볼을 세 시간이나 쳤어요", "일찍 잤더니 컨디션이 좋아요", "이게 맞는지 모르겠어요", "아직 많이 부족한걸요", "이렇게 말해도 되죠?", "이번 주에는 매일 녹음하기로 했어요", "제 문장이 좀 어색할지도 몰라요", "이번 숙제는 할 만했어요", "조금만 천천히 말해 주시면 좋겠어요", "아, 그런 뜻이군요!"],
+    mood: ["상쾌하다", "후련하다", "흐뭇하다", "보람차다", "든든하다", "느긋하다", "산뜻하다", "홀가분하다", "차분하다", "나른하다", "흡족하다", "아리송하다", "대견하다", "개운하다", "포근하다", "막막하다", "짜릿하다", "들뜨다", "출출하다", "노곤하다", "찌뿌둥하다", "싱숭생숭하다", "시원섭섭하다", "조마조마하다", "두근거리다", "기대되다", "설레다", "신나다", "귀찮다", "답답하다", "지치다", "뿌듯하다", "아쉽다", "아늑하다", "뻐근하다", "허전하다", "뭉클하다", "찝찝하다", "벅차다", "긴장되다"],
+    phrase: ["하마터면 큰일 날 뻔했어요", "한번 도전해 볼게요", "막상 해 보니까 괜찮더라고요", "어쩐지 사람이 많더라고요", "영화에 푹 몰입했나 봐요", "진작 할걸 그랬어요", "일하느라 정신이 없었어요", "오랜만에 푹 쉬었더니 살 것 같아요", "벌써 세 시간이나 지났어요", "가격은 비싼 반면에 맛은 최고예요", "익숙해지기까지 시간이 좀 걸릴 거예요", "알람이 안 울리는 바람에 늦잠을 잤어요", "벌써 다 먹어 버렸어요", "어른이라도 어려운 건 어려워요", "지금 후회한들 소용없어요", "피클볼을 세 시간이나 쳤어요", "일찍 잤더니 컨디션이 좋아요", "이게 맞는지 모르겠어요", "아직 많이 부족한걸요", "이렇게 말해도 되죠?", "이번 주에는 매일 녹음하기로 했어요", "제 문장이 좀 어색할지도 몰라요", "이번 숙제는 할 만했어요", "조금만 천천히 말해 주시면 좋겠어요", "아, 그런 뜻이군요!", "숙제하느라 늦게 잤어요", "자막 없이 봤더니 생각보다 많이 들렸어요", "말이 막히는 바람에 다시 녹음했어요", "외운 표현을 다 잊어버렸어요", "이번 주에는 자막 없이 보기로 했어요", "이 표현은 외울 만해요?", "이 부분이 좀 어렵거든요"],
   },
 };

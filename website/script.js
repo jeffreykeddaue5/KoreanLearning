@@ -68,9 +68,9 @@ function renderTicker() {
 renderTicker();
 
 // ===== 왼쪽: 프로필 (기분 · 날씨 · 표현은 홈의 오늘 패널, blog.js) =====
-$("lesson-count").textContent = S.lessons ?? "-";
+if ($("lesson-count")) $("lesson-count").textContent = S.lessons ?? "-"; // 프로필은 숨김 (2026-11-26)
 $("generated").textContent = S.generated || "-";
-if (S.listening && S.listening.url) {
+if (S.listening && S.listening.url && $("banner-clip")) {
   const b = $("banner-clip");
   b.href = S.listening.url;
   b.target = "_blank";
