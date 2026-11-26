@@ -1,11 +1,11 @@
 ---
 name: anki-vocab
-description: Generates a week of Korean vocab (70 words, 10 per day) as a semicolon CSV in anki/ for Anki import, focused on conversational words, with conjugation help for verbs and adjectives and no repeats of words already learned. Use when the user wants new Anki vocab or runs /anki-vocab, optionally with a theme (e.g. "/anki-vocab travel").
+description: Generates a week of Korean vocab (60 words, 10 per day for 6 days) as a semicolon CSV in anki/ for Anki import, focused on conversational words, with conjugation help for verbs and adjectives and no repeats of words already learned. Use when the user wants new Anki vocab or runs /anki-vocab, optionally with a theme (e.g. "/anki-vocab travel").
 ---
 
 # Anki Vocab
 
-Make one CSV of 70 new words for the week: 7 days × 10 words.
+Make one CSV of 60 new words for the week: 6 days × 10 words (`day1`–`day6`). The 7th day has no new cards, so only reviews (cut from 70 on 2026-11-26: 30-day retention was 85.5% and 229 of 411 cards were still young; go back to 70 once young-card retention has held at about 88–90% for 2–3 weeks).
 
 ## Setup
 
@@ -17,7 +17,7 @@ Make one CSV of 70 new words for the week: 7 days × 10 words.
    **Never take words or phrases from the listening clips** (`Listening/`: transcripts, notes, 단어 tables). Choose words independently of the listening clips.
 3. **Level and topics.** Read **Current level** in `progress/grammar.md` for the user's level (intermediate, aiming for TOPIK 4급). Skim the 2–3 most recent `Homework/` lessons to see which topics come up in their conversations.
 
-4. **Mood words from the website.** Every `mood.word` in `website/data/today.js` (`TODAY.days`) dated up to the end of this new week that isn't already in `anki/*.csv` or in Anki (`python3 -I .claude/skills/_shared/anki.py words | grep -x <word>`) goes into this file. They count toward the 70: put them on a feelings day (or spread them if there are more than 10), and use the day's `mood.sentence` as the example if it's natural. Mention how many came from the site.
+4. **Mood words from the website.** Every `mood.word` in `website/data/today.js` (`TODAY.days`) dated up to the end of this new week that isn't already in `anki/*.csv` or in Anki (`python3 -I .claude/skills/_shared/anki.py words | grep -x <word>`) goes into this file. They count toward the 60: put them on a feelings day (or spread them if there are more than 10), and use the day's `mood.sentence` as the example if it's natural. Mention how many came from the site.
 
 ## Choosing words
 
@@ -29,7 +29,7 @@ Make one CSV of 70 new words for the week: 7 days × 10 words.
 - Aim for TOPIK 3–4. Include TOPIK words only if they're also common in speech. Skip words that are rare, technical, or only used in writing.
 - Mix of roughly 50% verbs and adjectives, 35% nouns, and 15% adverbs and expressions.
 - **Each day is a small theme**, e.g. making plans, feelings and reactions, at home, work, going out, health, money. If the user gave a theme, build the week around it.
-- Count the rows yourself: exactly 70, 10 per day, with no duplicates.
+- Count the rows yourself: exactly 60, 10 per day for day1–day6, with no duplicates.
 - **Words and short phrases only.** The word field is a single word or a short set phrase (e.g. 약속을 잡다, 그러게요), never a full sentence. Sentences belong only in the example field.
 
 ## Row format
@@ -66,7 +66,7 @@ Example row:
 
 ## Finish
 
-Write the file as UTF-8. Check that every row has exactly 6 fields and that there are 70 rows. Then tell the user, in a few lines:
+Write the file as UTF-8. Check that every row has exactly 6 fields and that there are 60 rows. Then tell the user, in a few lines:
 - the file name and the 7 day themes
 - the import steps the first time only: in Anki, go to File → Import and set Field separator to Semicolon, check Allow HTML, map field 6 to Tags, and set the deck's New cards/day to 10
 - that after importing they just tell you (Anki can stay open), and you'll add the audio
@@ -80,4 +80,4 @@ Every new word gets an mp3: the word (Front) and the example sentence (Example).
 ~/.local/share/anki-tts/venv/bin/python -I anki/add_audio.py
 ```
 
-It adds Korean TTS (edge-tts, free, voice ko-KR-SunHiNeural) to every `conversation` card that doesn't have audio yet. With Anki open it goes through AnkiConnect; with Anki closed it edits the collection directly after a backup. 70 cards take a few minutes, so run it in the background. Check afterwards that no `conversation` note is left without `[sound:` in Front and Example. If the venv is missing, recreate it: `python3 -m venv ~/.local/share/anki-tts/venv && ~/.local/share/anki-tts/venv/bin/pip install edge-tts anki==<Anki version>`. Get the version from `snap list anki-desktop` (26.09.3 → `26.9.3`).
+It adds Korean TTS (edge-tts, free, voice ko-KR-SunHiNeural) to every `conversation` card that doesn't have audio yet. With Anki open it goes through AnkiConnect; with Anki closed it edits the collection directly after a backup. 60 cards take a few minutes, so run it in the background. Check afterwards that no `conversation` note is left without `[sound:` in Front and Example. If the venv is missing, recreate it: `python3 -m venv ~/.local/share/anki-tts/venv && ~/.local/share/anki-tts/venv/bin/pip install edge-tts anki==<Anki version>`. Get the version from `snap list anki-desktop` (26.09.3 → `26.9.3`).

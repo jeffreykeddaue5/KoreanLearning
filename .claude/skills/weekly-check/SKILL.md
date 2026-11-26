@@ -64,6 +64,8 @@ Copy the Anki collection to the scratchpad (`cp ~/snap/anki-desktop/common/User\
 python3 -I .claude/skills/weekly-check/stats.py weeks/<plan>.md "$SCRATCH/collection.anki2"
 ```
 
+Also add the Anki young-card retention for the last 7 days (review-type reviews of cards with interval < 21 days, from `revlog` in the copied collection: 1 − Again/total), e.g. `Anki young 87%`. The weekly word list is 60 since 2026-11-26 (it was 70); when young retention has been about 88–90% or higher for 2–3 weeks in a row, say so in the report and suggest going back to 70.
+
 Add to the line the test's average spoken time and how it compares with the first time those questions were asked (Thu): `check 7/10 · avg 0:31 (Thu 1:05)`.
 
 Last week's numbers are in **Weekly reports** in `progress/log.md`. Write a one-line report at the top of that section, and a short version under **Weekly report** in the plan:
