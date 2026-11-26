@@ -11,7 +11,6 @@ Next step up, once TTMIK feels easy: IYAGI by Talk To Me In Korean (natural-spee
 ## Candidates
 
 - uuDjr_EGfBs · How do you choose your lunch menu? (18 min)
-- BsOSdowMzqM · The season I dislike is... (11 min)
 - fpZ7vHBA_n4 · My habit I recommend to others (15 min)
 
 ## Used
@@ -21,3 +20,4 @@ The skill adds one line per clip, so videos aren't reused (and moves it out of C
 - 2026-10-27 · Didi의 한국문화 Podcast · 한국의 전세 시스템 (0:00–8:55) · `Listening/2026-10-27-전세`
 - 2026-11-07 · Didi의 한국문화 Podcast · 한국에서 인생 첫 차를 샀어요! (0:00–4:30) · `Listening/2026-11-12-첫차` (fetched 11-07, not started; carried to week of 11-11)
 - 2026-11-19 · Talk To Me In 100% Korean · 티티믹의 회식 문화 (0:00–8:52) · `Listening/2026-11-19-회식`
+- 2026-11-26 · Talk To Me In 100% Korean · 내가 싫어하는 계절은... (2:21–10:43) · `Listening/2026-11-26-계절`
