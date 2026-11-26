@@ -111,12 +111,19 @@ When the user stops or today's blocks are done:
 1. Recap the day in 2–4 lines: what was done, one highlight (a sentence they got right), one thing for next time.
 2. **Website (GOLD RULE, never skip):** after every `progress/` write is done, run `.claude/skills/daily-update/SKILL.md` (it rebuilds the side panels and pinned words; the 오늘 panel runs itself from the weekly list). No per-session blog post.
    Then, if `website/posts/<today>-conversation.js` doesn't exist yet, run `python3 -I website/fetch_conversation.py` (Naver 오늘의 회화 with audio for the 회화 section; replaced the daily 기사 on 2026-11-19 — run `/daily-article` only if the user asks). If Naver has no conversation yet for today, say so and move on. If it prints `NEED NOTE: <title>`, write your own explanation of that grammar into `website/data/conversation_grammar.json` (key = the title exactly; `form`, `meaning`, 2–4 short `notes` in English, like the Grammar/ files: when to use it, how it differs from a similar point the user knows, one ❌ → ✅) and run the script again. The user prefers these to Naver's explanations (2026-11-19).
-3. **Commit** everything this run changed, in one commit, and don't push:
+3. **Coherence check (asked 2026-11-26):** after the website step, run
 
 ```bash
-git add progress/ sessions/ weeks/ Listening/ Speaking/ Grammar/ Homework/README.md
+python3 -I .claude/skills/korean-mentor/check.py
+```
+
+   It checks (read-only): today's plan row, the daily mistakes log, grammar.md intervals, mistakes.md limits/tags/duplicates, that study.js is newer than progress/ and weeks/, today's today.js entry and 회화 post, listening Progress vs the plan, the newest Anki CSV imported with audio, and what's left uncommitted. Fix every ⚠ that this run caused (rebuild, tick, log, fix the interval) and run it again; a ⚠ that needs the user (import Anki, Naver has no 회화 yet) goes in the recap as one line. Then check by eye what the script can't: every block done this run is ☑ in the plan (and nothing else was ticked), every correction this run is in `progress/daily/`, the levels moved the way the feedback said (✔ up, ✏️ down), and the plan's sections still agree with each other (new grammar ↔ schedule, Podcast ↔ listening patterns). Say `Checked: all coherent` (or what you fixed) in the recap.
+4. **Commit** everything this run changed, in one commit, and don't push:
+
+```bash
+git add progress/ sessions/ weeks/ Listening/ Speaking/ Grammar/ Homework/README.md anki/*.csv .claude/skills/
 git commit -m "Day 2026-11-05: grammar (new #57, #58), listening step 1"
 ```
 
    The second line, if useful, matches the Session log entry. Never stage `website/` (daily-update leaves it for the user) or `anki/pending.json`.
-4. Tell the user the short commit hash, what's next (`Tomorrow: grammar review, listening step 2`), and how many Anki changes are queued, if any.
+5. Tell the user the short commit hash, what's next (`Tomorrow: grammar review, listening step 2`), and how many Anki changes are queued, if any.

@@ -105,14 +105,22 @@ Listen + record every day (asked 2026-11-26, for consistency): each day has one 
 
 Write the 수업 post (format in `.claude/skills/website-update/SKILL.md`, step 2) from the lesson file, fill the 오늘 panel's list for Thursday through the next Wednesday from the new plan (same file, step 1), then run `python3 -I website/build_data.py` so the 이번 주 page shows the new plan. Don't stage `website/`.
 
+## 6b. New-week setup (asked 2026-11-26)
+
+lesson-intake also gets the rest of the week ready, so nothing waits for its day:
+
+1. **Anki words.** Unless `anki/` already has a CSV dated on or after the lesson date, follow `.claude/skills/anki-vocab/SKILL.md` (60 words). Tell the user to import it; when they say "imported", add the audio (anki-vocab **Audio**). Don't block on it: if they import later, the end-of-run check flags it.
+2. **Listening clip.** Do only the **Pick** part of listening step 1 (`.claude/skills/listening/SKILL.md`, Pick 1–5) with the new plan: choose and fetch the clip into `Listening/YYYY-MM-DD-<slug>/` (today's date), add it to **Used** in `sources.md`, and write `notes.md` with the title, Source line and `**Progress:** 1 ☐ (picked) · 2 ☐ · 3 ☐ · 4 ☐ · 5 ☐`. Don't play it and don't show any text: Thursday's step 1 is the first listen. Mention the clip in one line (title, length, ~% known). Pick an easier one if the last clip's step 1 was under ~50% (see the last notes.md).
+3. **Podcast topic.** Under **Podcast** in the plan, write one line: `Topic (suggested): …` (the weekend by default; the month recap in a light week). The v1 outline still comes from the user's own Thursday answers (speaking skill).
+
 ## 7. Finish
 
-Tell the user in a few lines: the 2 new points (one-line English meaning each), how many reviews are due this week, mistakes added, questions answered, and the light week if it is one.
+Tell the user in a few lines: the 2 new points (one-line English meaning each), how many reviews are due this week, mistakes added, questions answered, the light week if it is one, and the setup: Anki file (imported or not), the clip picked, the podcast topic.
 
 Then commit only what this skill changed, and don't push:
 
 ```bash
-git add Grammar/ Homework/README.md progress/ weeks/
+git add Grammar/ Homework/README.md progress/ weeks/ Listening/ anki/*.csv
 git commit -m "Lesson intake L19 (2026-11-04): #57, #58"
 ```
 

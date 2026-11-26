@@ -21,7 +21,7 @@ python3 -I $L play Listening/<folder> 4 4 0.8 # play line 4 at 0.8×; returns at
 
 Find this week's clip: the newest `Listening/YYYY-MM-DD-*` folder dated on or after the newest `weeks/` plan's lesson date. Its `notes.md` starts with a **Progress** line, e.g. `**Progress:** 1 ✔ (60%) · 2 ☐ · 3 ☐ · 4 ☐ · 5 ☐`. Older clips have no step 5.
 
-- No clip this week → **Step 1** (normally Thursday).
+- No clip this week → **Step 1** (normally Thursday). Since 2026-11-26 lesson-intake picks the clip ahead of time (`1 ☐ (picked)` in Progress): then step 1 skips **Pick** and starts at **Listen**.
 - Otherwise do the next ☐ step. The weekday in the plan is a guide, not a rule: if the user is behind, do the next step; don't skip steps. If all 5 are done, say so and offer to replay the clip.
 
 ## Step 1: pick the clip, listen with no transcript (Thu, ~20 min)
