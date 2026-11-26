@@ -6,7 +6,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-port=${PORT:-8765}
+port=${PORT:-8766}  # 8765 is AnkiConnect (Anki open)
 url="http://localhost:$port/"
 
 # Server code changed and no session running → restart it so the change takes effect.

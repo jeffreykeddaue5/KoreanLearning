@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Local GUI server for /korean-mentor (see gui/DESIGN.md).
 
-  python3 -I gui/server.py [--port 8765]
+  python3 -I gui/server.py [--port 8766]
 
 Serves the page in gui/static/, runs today.py for the start screen, and keeps
 one live Claude Code session (claude -p with stream-json in and out). The page
@@ -36,7 +36,7 @@ REC = STATE / "rec"                 # spoken answers, one folder per session (no
 SERVER_FILE = Path(__file__).resolve()
 SERVER_MTIME = SERVER_FILE.stat().st_mtime
 IDLE_STOP_S = 45                    # no page connected this long → send 그만, then stop
-PORT = 8765
+PORT = 8766
 TYPES = {".html": "text/html", ".js": "text/javascript", ".css": "text/css",
          ".svg": "image/svg+xml", ".png": "image/png", ".webm": "audio/webm", ".ogg": "audio/ogg"}
 

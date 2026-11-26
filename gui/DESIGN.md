@@ -19,7 +19,7 @@ Claude stays the brain; the GUI only renders and times. No session logic is dupl
 
 ```
 browser (gui/index.html, app.js, style.css)
-   ⇅ fetch / SSE on localhost:8765
+   ⇅ fetch / SSE on localhost:8766
 gui/server.py  (Python stdlib)
    ├─ Claude Agent SDK client, one live session  (fallback: claude -p --resume <id>)
    └─ /tts?text=…  → edge-tts mp3 (reuses speak.sh settings)
@@ -31,7 +31,7 @@ gui/server.py  (Python stdlib)
 
 The GUI runs its **own** Claude session, so the terminal and the browser never both talk to the same session. Two ways in, same result:
 
-1. **From Claude Code:** `/korean-mentor gui` (or answer "gui" when the checklist says `Next: grammar. Go?`). korean-mentor runs `gui/start.sh` and replies with one line: `Grammar session open in the browser → http://localhost:8765`. Then the terminal is done; don't type there until the GUI session ends.
+1. **From Claude Code:** `/korean-mentor gui` (or answer "gui" when the checklist says `Next: grammar. Go?`). korean-mentor runs `gui/start.sh` and replies with one line: `Grammar session open in the browser → http://localhost:8766`. Then the terminal is done; don't type there until the GUI session ends.
 2. **Without a terminal:** a desktop launcher (`~/.local/share/applications/korean-mentor.desktop`) or a `mentor` shell alias, both running `gui/start.sh`.
 
 `gui/start.sh`: starts `server.py` in the background if it isn't already running (port check), then opens the browser.
