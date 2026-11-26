@@ -3,8 +3,7 @@
 // (POST /api/review/result → gui/state/review-<date>.json); the next grammar
 // session uses the misses as follow-up targets (session.md).
 // Audio only plays when the 🔊 button is pressed.
-// Round 1: pick the right/more natural sentence (5 s for a speed bonus).
-// Round 2: type the fix for a real error; checked locally, "I had it" for valid alternatives.
+// One round (2026-11-25): type the fix for a real error; checked locally, "I had it" for valid alternatives.
 
 let G = null;
 
@@ -17,11 +16,9 @@ async function startGame(day, then = null) {
   $("game").hidden = false;
   $("gTitle").textContent = `어제의 실수 · ${r.date.slice(5)}`;
   updateScore();
-  gStage(`<div class="gq">${r.total} fixes logged on ${r.date}</div>
-    <div class="gres"><div class="big">Round 1 · 어느 게 맞아요? (${r.round1.length})</div>
-      <div class="why">Pick the right or more natural sentence. Answer within 5 s for a bonus.</div></div>
-    <div class="gres"><div class="big">Round 2 · 고쳐 보세요 (${r.round2.length})</div>
-      <div class="why">Type the fix. Spacing and punctuation don't count; "I had it" if your version is also right.</div></div>
+  gStage(`<div class="gq">${r.round2.length} fixes from ${r.date}</div>
+    <div class="gres"><div class="big">고쳐 보세요</div>
+      <div class="why">Your sentence → type the fix. Spacing and punctuation don't count; "I had it" if your version is also right.</div></div>
     <div class="gbtns"><button class="primary" id="gGo">Start (Enter)</button></div>`);
   $("gGo").onclick = () => runQueue(buildQueue());
   G.key = (e) => { if (e.key === "Enter") runQueue(buildQueue()); };
@@ -47,7 +44,7 @@ function tags(it) {
 function counter(round) {
   const n = G.queue.filter((x, j) => j <= G.i && x.round === round).length;
   const t = G.queue.filter((x) => x.round === round).length;
-  return `${G.mode === "replay" ? "Replay" : "Round " + round} · ${n}/${t}`;
+  return `${G.mode === "replay" ? "Replay" : "Fix"} · ${n}/${t}`;
 }
 
 // ---------- round 1: pick ----------
@@ -162,7 +159,7 @@ function endScreen() {
   const replayDone = G.mode === "replay";
   const rp = replayDone ? `<p>Replay: ${G.replay.filter((r) => r.result === "right").length}/${G.replay.length} right</p>` : "";
   gStage(`<div class="gres"><div class="big">🎉 ${G.score} pts · best streak ${G.best}</div>
-      <p>Round 1: ${n(1, true)}/${n(1)} · Round 2: ${n(2, true)}/${n(2)}</p>${rp}</div>
+      <p>${n(2, true)}/${n(2)} fixed</p>${rp}</div>
     ${misses.length ? `<div class="gq">Still to fix (${misses.length}): these come back in the next grammar session</div>
       <div>${misses.map((m) => `<div class="gmiss">${m.recurring ? "🔁 " : ""}<span class="said">${esc(m.said)}</span> → <span class="better">${esc(m.better)}</span><div class="why">${esc(m.why)}</div></div>`).join("")}</div>`
       : `<div class="gq">No misses. 완벽해요!</div>`}

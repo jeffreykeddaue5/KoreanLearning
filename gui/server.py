@@ -317,19 +317,18 @@ def review_items(day):
 
 
 def review_game(day):
-    """Round 1 (pick the right one): slips + 💡 first, then main fixes that don't fit round 2.
-    Round 2 (type the fix): main fixes, recurring first. Max 10 + 8."""
+    """One round (asked 2026-11-25): type the fix. Real errors first (recurring first), then
+    💡 lines; typo/spacing slips are left out. Max 10. round1 stays empty for old clients."""
     items = review_items(day)
     for i, it in enumerate(items):
         it["id"] = i
     mains = [it for it in items if not it["slip"] and not it["natural"]]
     random.shuffle(mains)
     mains.sort(key=lambda it: not it["recurring"])
-    round2 = mains[:8]
-    round1 = [it for it in items if it["slip"] or it["natural"]] + mains[8:]
-    round1 = round1[:10]
-    random.shuffle(round1)
-    return {"date": day, "total": len(items), "round1": round1, "round2": round2}
+    natural = [it for it in items if it["natural"] and not it["slip"] and not it["said"].startswith("(")]  # "(didn't answer …)" isn't a sentence to fix
+    random.shuffle(natural)
+    fix = (mains + natural)[:10]
+    return {"date": day, "total": len(fix), "round1": [], "round2": fix}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -398,7 +397,7 @@ class Handler(BaseHTTPRequestHandler):
             if not day or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
                 return self._json({"date": None, "total": 0, "round1": [], "round2": []})
             if "count" in q:
-                return self._json({"date": day, "total": len(review_items(day)),
+                return self._json({"date": day, "total": review_game(day)["total"],
                                    "played": (STATE / f"review-{day}.json").is_file()})
             return self._json(review_game(day))
         if url.path == "/api/events":

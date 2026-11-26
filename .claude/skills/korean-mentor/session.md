@@ -6,7 +6,7 @@ What the user asked for (2026-11-18), and why the session looks like this:
 - **Repetition:** the same questions come back across the week and later weeks, instead of new made-up situations every day.
 - **Coherence:** one week = one set of questions on one theme, so sessions build on each other.
 - **Visible progress:** after each repeated answer, show last time vs now (time, ✔/✏️), and a then → now summary at the end.
-- **Speed (timed answers):** the user tends to sit on one prompt for 10 minutes, zone out, and still get it wrong. Every answer is timed: **30 s target** (15 s in warm-ups). Short and imperfect beats perfect and late.
+- **Speed (timed answers):** the user tends to sit on one prompt for 10 minutes, zone out, and still get it wrong. Every answer is timed: **30 s target**. Short and imperfect beats perfect and late.
 - **Say it, then type it (2026-11-18):** the timer measures *speaking*, not typing. The user says the answer out loud, sends `.` the moment they finish (that stops the timer), then types what they said, untimed. Feedback is on the typed version.
 - **One loop per week (2026-11-18):** the week's questions feed the podcast (v1 and v2 are built from the user's own answers) and the Tuesday weekly test (the same questions, with hints). Questions → podcast → test → lesson.
 
@@ -66,25 +66,17 @@ Keep setup to a few lines on screen; don't show the files you read.
 
    ```
    Week set: 10 questions (소곱창 weekend) · today: Q1–Q5 again + 2 old (Q3 of 11-11, Q7 of 11-04)
-   Warm-up: react (last: ask) · Points: #59, #60 + due #5, #21 · Words: 차라리, 껴입다 (+6 pinned)
+   Points: #59, #60 + due #5, #21 · Words: 차라리, 껴입다 (+6 pinned)
    ⏱ 30 s per answer · last session avg 1:12
    8 turns
    ```
 
-## Warm-up (5 min, timed 15 s)
-
-Rotate by the last warm-up type in the Session log: **ask → react → explain → ask…** 4–5 quick items, one at a time, `1/5` count. About half are repeats of that type's earlier items from **Warm-up items** (ones that were slow or ✏️ first).
-
-- **ask:** I say something short about my day ("저 주말에 캠핑 갔다 왔어요."). The user keeps it going with one natural follow-up question (누구랑 갔어요? 안 추웠어요?). Fix: whether the question sounds natural.
-- **react (맞장구):** I say a line ("저 어제 지갑 잃어버렸어요."). The user reacts in 1–3 words (헐, 진짜요? 어쩐지… 그러게요. 말도 안 돼요) + a short comment or question.
-- **explain:** I give a word (Anki words first, English gloss shown). The user explains it in Korean without saying it (전분 → "감자로 만든 하얀 가루 있잖아요, 국물 걸쭉하게 할 때 넣는 거"). Trains talking around a forgotten word.
-
-Skip if the user says "no warm-up" or it already ran today.
+**No warm-up** (removed 2026-11-25, asked by the user): the session goes straight into the questions.
 
 ## How to run it
 
 - Polite 해요체, short turns (1–2 sentences) so the user talks more than you.
-- **One prompt per turn**, `[n/total]` before it, then the Anki word: every prompt (warm-ups too) recommends one Anki word in brackets with a short gloss, `(word: 웬만하면 — if possible)`, pinned first, then trouble words; no repeats until the others have come up. Always, no exceptions.
+- **One prompt per turn**, `[n/total]` before it, then the Anki word: every prompt recommends one Anki word in brackets with a short gloss, `(word: 웬만하면 — if possible)`, pinned first, then trouble words; no repeats until the others have come up. Always, no exceptions.
 - **Short answers are fine:** 1–2 sentences. Don't ask for a story; the follow-up questions make it a conversation.
 - **Follow up on what they said**, like the tutor: react in one short Korean line, then the next question (a follow-up or the next question in the set). Follow-ups are where due points and open mistakes go.
 - **Real life, no inventing:** questions are about the user's real life (weekend, girlfriend, pickleball, work, the plan's podcast topic). If they have no real answer, any simple answer is fine; never make them build a scenario.
@@ -149,7 +141,7 @@ Then 1–2 corrections to keep (fixed sentence), and one thing for next time.
 
 Update, keeping it short:
 
-- **`progress/questions.md`:** history lines, new questions, Smooth moves, warm-up items, role-plays.
+- **`progress/questions.md`:** history lines, new questions, Smooth moves, role-plays.
 - **`progress/grammar.md`**, every point practiced (rules in **How levels work**): right, no hint, ≤ 60 s → +1 level (max 2 a session) and +1 No-hint; right with a hint **or over 60 s** → same level; wrong → −1. Last practiced = today, Next review = today + interval.
 - **`progress/mistakes.md`:**
   - **Practice:** add each clear mistake with a type tag: `[조사] 회사에 근처에 → 회사 근처에 (2026-10-10) · 0/2`. Open items used in follow-ups: +1 if right, reset to 0/2 if wrong, delete at 2/2. The same mistake in a later session → **Recurring**. Max 10, drop the oldest.
@@ -158,7 +150,7 @@ Update, keeping it short:
   - If **Session log** has a `practice-mistakes` line dated today, counts can't go up, but resets apply.
 - **Anki words** (`python3 -I .claude/skills/_shared/anki.py tag <word> …`): a trouble word used right without a hint → `right`; any word clearly misused or not produced → `trouble`.
 - **`progress/notes.md`:** new To verify items.
-- **`progress/log.md`:** one line at the top of **Session log**, with the warm-up type and average time, e.g. `2026-11-19 · new #59, #60 · week set Q1–Q7 · warm-up: react · avg 0:41 (last 1:12) · strong: 과제가 많은 바람에 · fix: 피곤해서`. Keep 15 lines; move older ones to `progress/archive.md`.
+- **`progress/log.md`:** one line at the top of **Session log**, with the average time, e.g. `2026-11-19 · new #59, #60 · week set Q1–Q7 · warm-up: react · avg 0:41 (last 1:12) · strong: 과제가 많은 바람에 · fix: 피곤해서`. Keep 15 lines; move older ones to `progress/archive.md`.
 - **Session notes** in `sessions/YYYY-MM-DD.md` (add `-2` if taken):
 
 ```markdown
