@@ -161,7 +161,7 @@ Mockup: https://claude.ai/artifact/1Bnk8pAQvnjHr7QMzb15MV
 
 ## 8. Review game: 어제의 실수 (built 2026-11-20)
 
-A 5-minute warm-up on the last day's `progress/daily/<date>.md`, run entirely by the page (`static/game.js`) and the server (`/api/review`, `/api/review/result`): no Claude call.
+A 5-minute warm-up on the last day's `progress/daily/<date>.md`, run by the page (`static/game.js`) and the server (`/api/review`, `/api/review/result`). Each typed fix is judged by a one-shot `claude -p` (Opus, no tools, `/api/review/judge`, ~5 s): any correct, natural fix counts, not just the saved wording (asked 2026-11-26: no string check). "I had it ✔" stays as an override.
 
 - **Round 1 · 어느 게 맞아요?** (max 10): two sentences, what I said vs the fix, ← / →. Small slips, 💡 rows and ✏️ rows with no Type (rewrites). 10 pts, +5 if under 5 s, streak counter. No auto-play; the 🔊 button reads the right one.
 - **Round 2 · 고쳐 보세요** (max 8): ✏️ rows with a Type (real errors), Recurring first. I type the fix; checked ignoring spaces and punctuation against every `/` alternative. ≥ 80% similar = close, with a character diff and an **I had it** button.

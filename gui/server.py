@@ -331,6 +331,36 @@ def review_game(day):
     return {"date": day, "total": len(fix), "round1": [], "round2": fix}
 
 
+# ---------- review game: Claude judges each typed fix (asked 2026-11-26: no string check) ----------
+JUDGE_PROMPT = """You check one answer in a Korean "fix yesterday's mistake" game. The learner is intermediate (TOPIK 3–4).
+
+Original sentence (had a mistake): {said}
+Tutor's fix (alternatives split by " / "): {better}
+Why it was wrong: {why}
+The learner now typed: {answer}
+
+Is the typed sentence correct, natural spoken Korean that fixes that mistake and keeps the meaning? Any correct, natural fix counts, not only the tutor's wording. Ignore spacing and punctuation. A one-letter typo in an otherwise right answer = "close". Still has the original mistake, a new grammar error, or changes the meaning = "wrong".
+
+Reply with JSON only, no code fence:
+{{"verdict": "right" | "close" | "wrong", "note": "one short English line (max 20 words): why it's right, or exactly what to change", "fixed": "the learner's sentence corrected with the smallest change, or \"\" if right"}}"""
+
+
+def judge_fix(item):
+    prompt = JUDGE_PROMPT.format(**{k: str(item.get(k, ""))[:400] for k in ("said", "better", "why", "answer")})
+    STATE.mkdir(parents=True, exist_ok=True)
+    out = subprocess.run(
+        ["claude", "-p", prompt, "--model", os.environ.get("JUDGE_MODEL", "opus"),
+         "--output-format", "json", "--disallowedTools", "Bash", "Edit", "Write", "Read",
+         "Glob", "Grep", "WebFetch", "WebSearch", "Agent", "Skill"],
+        cwd=STATE, capture_output=True, text=True, timeout=90)   # gui/state: no project context, faster
+    text = json.loads(out.stdout).get("result", "")
+    m = re.search(r"\{.*\}", text, re.S)
+    res = json.loads(m.group(0)) if m else {}
+    if res.get("verdict") not in ("right", "close", "wrong"):
+        raise RuntimeError("judge gave no verdict")
+    return {"verdict": res["verdict"], "note": str(res.get("note", "")), "fixed": str(res.get("fixed", ""))}
+
+
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *a):
         pass
@@ -432,6 +462,11 @@ class Handler(BaseHTTPRequestHandler):
                 res["played_at"] = datetime.now().isoformat(timespec="minutes")
                 STATE.mkdir(parents=True, exist_ok=True)
                 (STATE / f"review-{day}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1))
+            elif path == "/api/review/judge":
+                try:
+                    return self._json(judge_fix(self._body()))
+                except (subprocess.SubprocessError, ValueError, OSError, RuntimeError) as e:
+                    return self._json({"error": f"couldn't check: {e}"}, 502)
             elif path == "/api/rec":
                 q = parse_qs(urlparse(self.path).query)
                 f = rec_path(q.get("sid", [""])[0], q.get("name", [""])[0])

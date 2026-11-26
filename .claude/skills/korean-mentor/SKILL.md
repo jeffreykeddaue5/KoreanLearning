@@ -57,7 +57,7 @@ Next: grammar (~30 min). Go?
 | `podcast` / `speaking` | the podcast setup or log (speaking skill) |
 | `homework` | the homework block |
 | `article` | the daily-article skill (only on request) |
-| `game` | the 어제의 실수 review game: run `gui/start.sh review-game` and reply with one line, `Opened in the browser → <url>.` Nothing else; the game needs no Claude. |
+| `game` | the 어제의 실수 review game: run `gui/start.sh review-game` and reply with one line, `Opened in the browser → <url>.` Nothing else; the game runs on its own (each typed fix is judged by a one-shot Claude call from the server, not by you). |
 | `intake` | lesson-intake |
 | `plan` | just show the checklist and stop |
 | `grammar` | today's grammar block (resumes a paused one) |
@@ -65,7 +65,7 @@ Next: grammar (~30 min). Go?
 
 **GUI session:** when the first message is `/korean-mentor gui-session <args>`, the user is in the browser GUI, started from its start screen, which already showed the checklist. Follow `.claude/skills/korean-mentor/gui-mode.md` for every message's layout (don't read the `gui/` source). Skip step 2 (don't show the checklist again), run `<args>` as above, and when the block ends offer only the GUI's timed blocks (grammar, review, lesson review, check, mistakes, pinned); for anything else say `Next: <block>, in the terminal.` Everything else is the same: the timer, speak.sh, feedback, logging, ticking the block and the end-of-run steps and commit. The user sends `.` for "done speaking" as usual.
 
-**어제 실수 game first (GUI, asked 2026-11-25; replaced the end-of-session mistakes drill):** when a GUI session starts, the page runs the 어제의 실수 review game on its own first (once a day: only if the newest `progress/daily/` file before today has rows and there's no `gui/state/review-<that date>.json` yet), then starts the session. It needs no Claude, so do nothing for it; there's **no mistakes drill at the end** of GUI sessions any more. The game's misses are follow-up targets in the session (session.md).
+**어제 실수 game first (GUI, asked 2026-11-25; replaced the end-of-session mistakes drill):** when a GUI session starts, the page runs the 어제의 실수 review game on its own first (once a day: only if the newest `progress/daily/` file before today has rows and there's no `gui/state/review-<that date>.json` yet), then starts the session. It runs on its own (the server asks a one-shot Claude to judge each typed fix), so do nothing for it; there's **no mistakes drill at the end** of GUI sessions any more. The game's misses are follow-up targets in the session (session.md).
 
 **No arguments:** the first unfinished (☐) block in today's row, in the order written. Blocks:
 

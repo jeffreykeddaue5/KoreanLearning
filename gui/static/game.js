@@ -1,9 +1,9 @@
-// Review game: 어제의 실수. Runs in the page with no Claude call.
+// Review game: 어제의 실수. Claude checks each typed fix (POST /api/review/judge); nothing else calls Claude.
 // The server parses progress/daily/<date>.md (GET /api/review) and saves results
 // (POST /api/review/result → gui/state/review-<date>.json); the next grammar
 // session uses the misses as follow-up targets (session.md).
 // Audio only plays when the 🔊 button is pressed.
-// One round (2026-11-25): type the fix for a real error; checked locally, "I had it" for valid alternatives.
+// One round (2026-11-25): type the fix for a real error; Claude judges it (2026-11-26, no string check).
 
 let G = null;
 
@@ -18,7 +18,7 @@ async function startGame(day, then = null) {
   updateScore();
   gStage(`<div class="gq">${r.round2.length} fixes from ${r.date}</div>
     <div class="gres"><div class="big">고쳐 보세요</div>
-      <div class="why">Your sentence → type the fix. Spacing and punctuation don't count; "I had it" if your version is also right.</div></div>
+      <div class="why">Your sentence → type the fix. Claude checks it: any correct, natural fix counts.</div></div>
     <div class="gbtns"><button class="primary" id="gGo">Start (Enter)</button></div>`);
   $("gGo").onclick = () => runQueue(buildQueue());
   G.key = (e) => { if (e.key === "Enter") runQueue(buildQueue()); };
@@ -95,20 +95,32 @@ function showFix(it) {
   };
 }
 
-function check(it, ans) {
-  let best = { alt: it.alts[0] || it.better, r: 0 };
-  for (const alt of it.alts.length ? it.alts : [it.better]) {
-    const r = ratio(norm(ans), norm(alt));
-    if (r > best.r) best = { alt, r };
+// Claude judges the answer (POST /api/review/judge, asked 2026-11-26): any correct, natural fix
+// counts, not just the saved wording. No string matching.
+async function check(it, ans) {
+  if (!ans) return showResult(it, ans, "wrong", { note: "", fixed: "" });
+  $("gOut").innerHTML = `<div class="gres"><div class="big">… Claude is checking</div></div>`;
+  let j;
+  try {
+    const r = await fetch("/api/review/judge", { method: "POST",
+      body: JSON.stringify({ said: it.said, better: it.better, why: it.why, answer: ans }) });
+    j = await r.json();
+    if (j.error) throw new Error(j.error);
+  } catch (e) {
+    return showResult(it, ans, "unchecked", { note: String(e.message || e), fixed: "" });
   }
-  const same = norm(ans) === norm(it.said);   // typed the original mistake again
-  const res = !ans || same ? "wrong" : best.r === 1 ? "right" : best.r >= 0.8 ? "close" : "wrong";
-  const head = { right: "✔ 맞아요", close: "≈ Close", wrong: ans ? "✏️ Not quite" : "✏️ Answer" }[res];
-  record(it, 2, res, res === "right" ? 10 : 0);
-  const diff = ans && res !== "right" ? `<div class="gdiff">${diffHtml(ans, clean(best.alt))}</div>` : "";
-  $("gOut").innerHTML = resultBox(head, it, diff, true) +
+  showResult(it, ans, j.verdict, j);
+}
+
+function showResult(it, ans, res, j) {
+  const head = { right: "✔ 맞아요", close: "≈ Close", wrong: ans ? "✏️ Not quite" : "✏️ Answer",
+                 unchecked: "? Couldn't check" }[res];
+  record(it, 2, res === "unchecked" ? "self" : res, res === "right" ? 10 : 0);
+  const extra = (j.fixed && res !== "right" ? `<div class="gdiff">${diffHtml(ans, j.fixed)}</div>` : "") +
+    (j.note ? `<div class="why">${esc(j.note)}</div>` : "");
+  $("gOut").innerHTML = resultBox(head, it, extra, true) +
     `<div class="gbtns"><button class="primary" id="gNext">Next (Enter)</button>${ans && res !== "right" ? '<button id="gHad">I had it ✔</button>' : ""}</div>`;
-  G.say = clean(best.alt);
+  G.say = clean(res === "right" ? ans : (j.fixed || it.alts[0] || it.better));
   if ($("gHad")) $("gHad").onclick = () => {
     const last = G.results[G.results.length - 1];
     last.result = "self";
@@ -188,17 +200,6 @@ function gStage(html) { $("gStage").innerHTML = html; }
 
 // "3D 모델링 [쓰리디]" → "3D 모델링": drop notes in brackets for audio and checking.
 function clean(s) { return s.replace(/\(.*?\)|\[.*?\]/g, "").replace(/\s+/g, " ").trim(); }
-function norm(s) { return clean(s).replace(/[\s.,?!~…·"'“”‘’]/g, ""); }
-
-function ratio(a, b) {
-  if (!a && !b) return 1;
-  const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
-  for (let j = 1; j <= b.length; j++) d[0][j] = j;
-  for (let i = 1; i <= a.length; i++)
-    for (let j = 1; j <= b.length; j++)
-      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-  return 1 - d[a.length][b.length] / Math.max(a.length, b.length);
-}
 
 // Character diff: <del> = only in your answer, <ins> = missing from it.
 function diffHtml(a, b) {
