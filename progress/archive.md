@@ -4,6 +4,8 @@ Finished items, kept for reference. Skills can grep here (e.g. to notice a ✓ m
 
 ## Lesson mistakes (✓ done)
 
+- [문법] 양꼬치가 맛있는 걸 보니까 10개나 주문했어요 → 맛있어 보이길래 (L21; right 2026-11-21 drill, 2026-11-25 homework: 곱창이 맛있어 보이길래 2인분 시켰어요) · ✓ 2026-11-25
+- [문법] 표를 다 파는 걸 보니까 → 표가 다 팔리는 걸 보니까 (L6; right 2026-11-13, 2026-11-25 weekly: 빵이 다 품절된 걸 보니까) · ✓ 2026-11-25
 - [문법] 어른이아도 → 어른이라도 ("even as an adult": nouns take (이)라도, not -아도) (L20) · ✓ 2026-11-17
 - 다가 for "as soon as" → -자마자 · 시험을 시작했어요 → 시험이 시작됐어요 (L14) · ✓ 2026-10-10
 - 갔는 김에 / 먹었는 김에 → 간 김에 / 먹은 김에 (L7) · ✓ 2026-10-10

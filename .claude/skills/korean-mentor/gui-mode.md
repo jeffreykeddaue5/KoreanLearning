@@ -30,12 +30,12 @@ Use that time as the answer's time for feedback, history lines and levels.
  "scene": "🍻🍻🍻 → 🌙3:00 → 🛏️", "speaker": "😵"}
 ```
 
-- `label`: `워밍업 n/5 · 맞장구|질문하기|설명하기` or `Q8 · 3/8` (question id · turn/total).
+- `label`: `워밍업 n/5 · 맞장구|질문하기|설명하기` or `Q8 · 3/8` (question id · turn/total); weekly test `Test n/10`, then `Homework n/5`.
 - `extra`: related forms or the explain-word's English gloss.
 - **Hints (asked 2026-11-24):** every prompt carries both, hidden behind two buttons the user opens only if needed. The point is to answer in Korean patterns instead of translating from English.
   - `frame` (💬 Format): a whole-sentence frame made of natural chunks: an opener, the grammar point the question targets, a natural ending (막상, 은근히, 생각보다, 그냥, -더라고요, -거든요…). Blanks only for the user's own content, and **every blank says what goes in it** (asked 2026-11-24): `___(word)` for one word, `___(phrase)` for a few words or a clause, e.g. `여자친구가 ___(phrase) 삐질까 봐`, `여자친구가 ___(word)를 좋아해서`. The grammar and chunks stay written out. Only grammar and chunks the user already knows (progress/grammar.md, the week's listening patterns). E.g. `처음엔 그냥 ___(phrase)는데, 보다 보니까 은근히 ___(word)더라고요.`
   - `trap` (🔁 Past mistake): the one item from `progress/mistakes.md` this question is most likely to trigger (Recurring first, then Practice; e.g. a past-trip question → the tense item), as the user's own old sentence → the fix, `why` in English, `date` MM-DD. `null` when nothing fits.
-  - Weekly test only (no-hint): `"frame": ""`, `"trap": null`, so the page shows no buttons, plus the `game` field (weekly-check **Fun mode**): `"game": {"kind": "test"|"boss"|"star"}`, the first card also `"last_week": {...}`. The page draws hearts, combo, boss HP, stars, the story chat and the Beat-last-week table itself. Every other block, lesson review and the mistakes drill included, gets both hints.
+  - Every block gets both hints: grammar, review, the weekly test (since 2026-11-25; no `game` field any more), lesson review and the mistakes drill.
 - `scene`: 2–6 emoji (plus a short number or time if needed) that show the situation without giving away the Korean words. `speaker`: one face for the person talking (😆 😮 😢 🤔 😴 🥶 😵 🙂).
 - `target_s`: 15 warm-up, 30 questions.
 
@@ -47,7 +47,7 @@ Same cards as above, one `prompt` per item (no warm-up), **with both hints** (`f
 - Mistake items: set up the same choice again in `ko`, `extra` `""` (it's the test). A "fix this" item puts the old sentence in `ko` and `fix this sentence` in `extra`.
 - `feedback` after each answer as usual (`last` `""`); end with a `summary` (`q` = the word or mistake, `then` `""`).
 
-## Mistakes drill (end of every GUI session)
+## Mistakes drill (end of every GUI session except the weekly test)
 
 After the block's last feedback card, go straight into 5 `prompt` cards labelled `실수 1/5` … `실수 5/5`: the situation that triggers the old mistake in `ko`, `extra` `""`, **with both hints** (`frame`; `trap` = that same old mistake), `target_s` 30. Hints carry no penalty. Feedback as usual (`last` = the item's last result from mistakes.md, e.g. `11-21 ✔`). Then one `summary` for the whole session, the drill rows included.
 

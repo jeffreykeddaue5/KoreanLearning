@@ -10,7 +10,7 @@ Intermediate. Comfortable with points 1–34, working on 35–62. Builds multi-c
 |---|---|---|
 | 0 | New, not practiced, or got it wrong | 1 day |
 | 1 | Right with a hint | 3 days |
-| 2 | Right without a hint in a session | 7 days |
+| 2 | -(으)ㄴ/는 걸 보니(까) | 2 | 2026-12-02 | 2026-11-25 | 1 | Weekly ✔ 0:54 (빵이 다 품절된 걸 보니까 …가 봐요); guess after, not a decision |
 | 3 | Passed the weekly check without a hint | 14 days |
 | 4 | Passed again | 30 days |
 | 5 | Known | 60 days |
@@ -36,9 +36,9 @@ Intermediate. Comfortable with points 1–34, working on 35–62. Builds multi-c
 | 7 | -(으)ㄴ/는 탓에 | 1 | 2026-11-07 | 2026-11-04 | 1 | Right with hint (파일을 삭제한 탓에); 아쉽다 → -아서 ⚠ |
 | 8 | -(으)ㄴ/는/(으)ㄹ 모양이다 | 1 | 2026-11-13 | 2026-10-29 | 0 | Right with hint (막히는 모양이에요); link to advice with 모양이니까 |
 | 9 | -(으)ㄴ/는/(으)ㄹ 셈이다 | 1 | 2026-11-10 | 2026-10-22 | 0 | Used -는 셈 for a plan → -(으)ㄹ 셈; amounts to: 14잔 마시는 셈 |
-| 10 | -(으)ㄴ/는 줄 몰랐다 | 2 | 2026-11-14 | 2026-10-11 | 1 | Used unprompted (이렇게 어려운 줄 몰랐어요) |
+| 10 | -(으)ㄴ/는 줄 몰랐다 | 2 | 2026-12-02 | 2026-11-25 | 1 | Weekly ✔ but 1:11 (over 60 s → same level); 💡 반전이 있을 줄은 몰랐어요 |
 | 11 | -기는 하지만 | 1 | 2026-11-09 | 2026-10-18 | 0 | Past form right again with hint (모르기는 했지만) |
-| 12 | -는지 모르겠어요 | 0 | 2026-11-14 | 2026-11-13 | 0 | Form right with hint; meaning: 치는지 → 치고 싶은지 (wonder if they want) |
+| 12 | -는지 모르겠어요 | 0 | 2026-11-26 | 2026-11-25 | 0 | Not used in weekly (할 만해요 / -는지 모르겠어요 skipped) |
 | 13 | -(으)면 좋겠어요 | 0 | 2026-11-16 | 2026-11-15 | 0 | Right with hint (웬만하면 … 이야기했으면 좋겠어요) |
 | 14 | -는 편이다 | 3 | 2026-11-29 | 2026-11-15 | 5 | Unprompted again (예능을 보는 편이에요) |
 | 15 | N끼리 | 0 | 2026-11-16 | 2026-11-15 | 0 | 끼리 = among themselves only: 조카끼리하고 ✗ → 조카들하고; retry 어른들끼리 ✔ |
@@ -51,7 +51,7 @@ Intermediate. Comfortable with points 1–34, working on 35–62. Builds multi-c
 | 22 | -군요 | 1 | 2026-11-08 | 2026-10-12 | 0 | 유명하군요 ✔; verbs take -는군요 (가는군요); heard → -군요 not -더라고요 |
 | 23 | N밖에 없다 | 1 | 2026-11-14 | 2026-10-29 | 0 | Right with hint (비싼 자리밖에 없더라고요); add the subject (남은 자리가, L6) |
 | 24 | -지요 (-죠) | 0 | 2026-11-14 | 2026-11-13 | 0 | Right with hint (질렸죠); better 질릴 때도 있죠 |
-| 25 | -게 되다 | 2 | 2026-11-20 | 2026-11-13 | 3 | Right unprompted (매일 커피를 마시게 됐어요) |
+| 25 | -게 되다 | 2 | 2026-12-02 | 2026-11-25 | 3 | Weekly ✔ 배우게 됐어요 but 1:28 (over 60 s → same level) |
 | 26 | -는 게 좋겠어요 | 2 | 2026-11-15 | 2026-11-08 | 1 | Unprompted (밖에서 통화하는 게 좋겠어요) |
 | 27 | -는걸(요) | 0 | 2026-11-10 | 2026-11-09 | 0 | Form right with hint (쉬운걸요); 일은 for contrast |
 | 28 | -(으)ㄴ들 | 1 | 2026-11-20 | 2026-11-17 | 1 | Homework ✔ (지금 후회한들 어쩔 수 없어요) |
@@ -87,5 +87,5 @@ Intermediate. Comfortable with points 1–34, working on 35–62. Builds multi-c
 | 58 | V-느라(고) | 2 | 2026-11-20 | 2026-11-13 | 4 | Check: ✔ 저녁을 하느라고; ✗ two subjects (제가 청소하느라고 남편이…) |
 | 59 | -는 바람에 | 3 | 2026-12-01 | 2026-11-17 | 7 | Weekly check ✔ ×2 (배터리가 다 되는 바람에, 늦잠을 자는 바람에 … 타야 했어요); verbs only: 아프는 ✗ → 배탈이 나는 |
 | 60 | -아/어 버리다 | 3 | 2026-12-01 | 2026-11-17 | 6 | Weekly check ✔ ×3 (해 버려서, 케이크를 다 먹어 버렸어요) |
-| 61 | -기로 하다 | 2 | 2026-11-29 | 2026-11-22 | 3 | No hint ✔ (드라마를 다 보기로 했어요 0:41, 쉬기로 했어요) |
-| 62 | -(으)ㄹ 만하다 | 1 | 2026-11-25 | 2026-11-22 | 1 | No hint ✔ 완전 볼만해요 ×2 but typed 3–4 min (over 60 s → same level); 미국 곱창도 먹을 만해요 (0:29) |
+| 61 | -기로 하다 | 2 | 2026-12-02 | 2026-11-25 | 3 | Weekly mixed: ✔ 쉬기로 했어요 0:20 · ✏️ 못 만나기로 → 안 만나기로 (choice → 안) |
+| 62 | -(으)ㄹ 만하다 | 2 | 2026-12-02 | 2026-11-25 | 2 | Weekly ✔ 미국 곱창도 먹을 만해요 0:34; 볼/갈 만해요 ✔ but over 60 s |

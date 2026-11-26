@@ -68,7 +68,7 @@ Write `weeks/YYYY-MM-DD.md`:
 ## Questions for the tutor
 1. … (the 3 oldest items in To verify, worded so they can be asked in Korean or English)
 
-## Homework (inside the Tuesday weekly test as ★ story lines)
+## Homework (inside the Tuesday weekly test, after the 10 items)
 If the tutor gave homework, do that and use this week's points where they fit. Otherwise:
 1. (English sentence to translate, using a new point + a due review point, in the tutor's homework style)
 … 5 in total
@@ -85,7 +85,7 @@ Each skill ticks its own block (☐ → ☑). The weekly check counts them (not 
 | Sat 11-14 | Optional: ☐ Anki · ☐ mistakes drill |
 | Sun 11-15 | ☐ Anki · ☐ grammar: weekend session (what I did this weekend) 🖥️ · ☐ listening: step 3 (speech patterns to borrow) |
 | Mon 11-16 | ☐ Anki · ☐ listening: step 4 (shadowing) · ☐ podcast v2: link my weekend answers into one story, record, mark 1–2 unsure lines · optional: ☐ 회화 recording |
-| Tue 11-17 | ☐ Anki · ☐ weekly test, fun mode: one story with the tutor (the week's questions, no hints, timed), boss round, the 5 homework sentences as ★ story lines 🖥️ · ☐ podcast v3: fix the unsure lines, add 2 patterns, re-record · optional: ☐ 회화 recording |
+| Tue 11-17 | ☐ Anki · ☐ weekly test: the week's questions again (timed, with hints), then the 5 homework sentences 🖥️ · ☐ podcast v3: fix the unsure lines, add 2 patterns, re-record · optional: ☐ 회화 recording |
 | Wed 11-18 | ☐ Anki · ☐ listening: step 5 (final listen, no transcript, %) · ☐ podcast v4: tell it with no notes (weekend rehearsal) · ☐ lesson review: quiz on last lesson's words + tutor corrections 🖥️ · lesson 21:00 · ☐ lesson-intake · optional: ☐ 회화 recording |
 
 ## Podcast

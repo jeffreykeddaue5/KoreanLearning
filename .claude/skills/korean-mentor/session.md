@@ -8,7 +8,7 @@ What the user asked for (2026-11-18), and why the session looks like this:
 - **Visible progress:** after each repeated answer, show last time vs now (time, ✔/✏️), and a then → now summary at the end.
 - **Speed (timed answers):** the user tends to sit on one prompt for 10 minutes, zone out, and still get it wrong. Every answer is timed: **30 s target** (15 s in warm-ups). Short and imperfect beats perfect and late.
 - **Say it, then type it (2026-11-18):** the timer measures *speaking*, not typing. The user says the answer out loud, sends `.` the moment they finish (that stops the timer), then types what they said, untimed. Feedback is on the typed version.
-- **One loop per week (2026-11-18):** the week's questions feed the podcast (v1 and v2 are built from the user's own answers) and the Tuesday weekly test (the same questions, no hints). Questions → podcast → test → lesson.
+- **One loop per week (2026-11-18):** the week's questions feed the podcast (v1 and v2 are built from the user's own answers) and the Tuesday weekly test (the same questions, with hints). Questions → podcast → test → lesson.
 
 ## Kind of session
 
