@@ -11,7 +11,7 @@ Don't record, transcribe or correct the recording, and don't ask the user to spe
 
 ## 0. v1: weekend plans (Thu, after the grammar session)
 
-A short warm-up episode, **1–2 minutes**, about what the user plans to do this weekend. Built from their answers in today's grammar session to the set's weekend questions (plan version, `이번 주말에 뭐 할 거예요?`). Show one block like v2's below, smaller: Topic `이번 주말 계획`, an Outline of 2–3 lines from those answers, Length 1:30, Grammar: the future and plan forms (-기로 했어요, -(으)려고 해요, -(으)ㄹ 것 같아요) plus any of the week's new points that fit, Borrow: 2–3 patterns from **last** week's clip (this week's patterns come Sunday), Word. No unsure lines needed. Log it as `podcast v1` (length + self-rating). Monday's v2 compares plans with what really happened, a natural place for -(으)려고 했는데, -기로 했는데.
+A short warm-up episode, **1–2 minutes**, about what the user plans to do this weekend. Built from their answers in today's grammar session to the set's weekend questions (plan version, `이번 주말에 뭐 할 거예요?`). Show one block like v2's below, smaller: Topic `이번 주말 계획`, an Outline of 2–3 lines from those answers, Length 1:30, Grammar: the future and plan forms (-기로 했어요, -(으)려고 해요, -(으)ㄹ 것 같아요) plus any of the week's new points that fit, Borrow: 2–3 patterns from **last** week's clip (this week's patterns come Sunday), Word. No unsure lines needed. Put it on the site too (**Website** below, in section 1). Log it as `podcast v1` (length + self-rating). Monday's v2 compares plans with what really happened, a natural place for -(으)려고 했는데, -기로 했는데.
 
 ## 1. Prepare v2 (Mon, after listening step 4)
 
@@ -42,6 +42,8 @@ Word: 실컷
 - **Grammar:** the week's 2 new points, each as a situation (don't phrase it as a drill), plus the top Recurring mistake as one **Watch** line, and 1 trouble word.
 
 Add the same block under **Podcast** in the plan.
+
+**Website (every version, v1 included):** also write or update the week's 팟캐스트 노트 post, `website/posts/<date>-podcast-week-<MM-DD of the plan>.js` (category `podcast`, format like `2026-11-26-podcast-week-11-25.js`: a version tracker at the top, outline, length, borrow patterns each with a one-line English explanation and a 예) sentence, grammar, watch, word), add it to `posts/list.js` the first time, and rebuild. The user reads it while recording (asked 2026-11-24, again 2026-11-26).
 
 ## 2. Tips (once, only the first time or if asked)
 
