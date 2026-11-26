@@ -39,7 +39,7 @@ Next: grammar (~30 min). Go?
 
 - **Anki:** ☑ if reviews were done today and nothing is due (`reviewed_today` > 0, `due_left` 0); otherwise ☐ with the count due. If the user hasn't done Anki yet, remind them once; don't block other work. Mention queued changes only if there are any (`pending`): "Open Anki to apply N queued changes."
 - Show `missed_earlier` in one line, with what happens to it (see **Catching up**).
-- **Review game:** if the newest `progress/daily/` file before today has rows and there's no `gui/state/review-<that date>.json` yet, add one line: `Warm-up option: 어제 실수 게임, 5 min (/korean-mentor game)`. Offer it, never push it; it isn't a block and is never ticked or caught up.
+- **Review game:** the GUI runs it automatically before its first session of the day. Only if today's blocks are all terminal ones and it hasn't been played (no `gui/state/review-<date>.json` for the newest earlier `progress/daily/` file), add one line: `Warm-up option: 어제 실수 게임, 5 min (/korean-mentor game)`. It isn't a block and is never ticked or caught up.
 
 ## 3. Pick what to run
 
@@ -65,7 +65,7 @@ Next: grammar (~30 min). Go?
 
 **GUI session:** when the first message is `/korean-mentor gui-session <args>`, the user is in the browser GUI, started from its start screen, which already showed the checklist. Follow `.claude/skills/korean-mentor/gui-mode.md` for every message's layout (don't read the `gui/` source). Skip step 2 (don't show the checklist again), run `<args>` as above, and when the block ends offer only the GUI's timed blocks (grammar, review, lesson review, check, mistakes, pinned); for anything else say `Next: <block>, in the terminal.` Everything else is the same: the timer, speak.sh, feedback, logging, ticking the block and the end-of-run steps and commit. The user sends `.` for "done speaking" as usual.
 
-**Daily mistakes drill (GUI, asked 2026-11-24):** every GUI session ends its block with a short mistakes drill, before the end-of-run steps: 5 items from `progress/mistakes.md` following `.claude/skills/practice-mistakes/SKILL.md` (Recurring first, then Practice and Lesson; skip any already used in this block), in the same cards (gui-mode.md **Mistakes drill**), with counts, logging (Block `mistakes drill`) and no commit of its own. Once a day: skip it if today's `progress/daily/` file already has `mistakes drill` rows. **Never after the weekly test** (asked 2026-11-25: 10 items + 5 homework is already the whole session; the drill on top was way too much). Don't ask, just go into it after the block's last feedback; the user can press 그만 to skip.
+**어제 실수 game first (GUI, asked 2026-11-25; replaced the end-of-session mistakes drill):** when a GUI session starts, the page runs the 어제의 실수 review game on its own first (once a day: only if the newest `progress/daily/` file before today has rows and there's no `gui/state/review-<that date>.json` yet), then starts the session. It needs no Claude, so do nothing for it; there's **no mistakes drill at the end** of GUI sessions any more. The game's misses are follow-up targets in the session (session.md).
 
 **No arguments:** the first unfinished (☐) block in today's row, in the order written. Blocks:
 

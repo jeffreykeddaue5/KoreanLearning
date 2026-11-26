@@ -8,11 +8,11 @@
 
 let G = null;
 
-async function startGame(day) {
+async function startGame(day, then = null) {
   const r = await (await fetch("/api/review" + (day ? "?date=" + day : ""))).json();
-  if (!r.total) { alert("No mistakes logged for that day."); return; }
+  if (!r.total) { if (then) return then(); alert("No mistakes logged for that day."); return; }
   G = { date: r.date, total: r.total, r1: r.round1, r2: r.round2, queue: [], i: 0,
-        score: 0, streak: 0, best: 0, results: [], replay: null, mode: "main", key: null };
+        score: 0, streak: 0, best: 0, results: [], replay: null, mode: "main", key: null, then };
   for (const s of ["start", "chat"]) $(s).hidden = true;
   $("game").hidden = false;
   $("gTitle").textContent = `어제의 실수 · ${r.date.slice(5)}`;
@@ -167,7 +167,7 @@ function endScreen() {
       <div>${misses.map((m) => `<div class="gmiss">${m.recurring ? "🔁 " : ""}<span class="said">${esc(m.said)}</span> → <span class="better">${esc(m.better)}</span><div class="why">${esc(m.why)}</div></div>`).join("")}</div>`
       : `<div class="gq">No misses. 완벽해요!</div>`}
     <div class="gbtns">${misses.length && !replayDone ? `<button class="primary" id="gReplay">Replay misses (${misses.length})</button>` : ""}
-      <button id="gDone" ${misses.length && !replayDone ? "" : 'class="primary"'}>Done</button></div>`);
+      <button id="gDone" ${misses.length && !replayDone ? "" : 'class="primary"'}>${G.then ? "Start session →" : "Done"}</button></div>`);
   if ($("gReplay")) $("gReplay").onclick = () => {
     G.mode = "replay"; G.replay = [];
     const ids = new Set(misses.map((m) => m.id));
@@ -185,7 +185,7 @@ function save(misses) {
     replay: G.replay }) });
 }
 
-function quitGame() { G = null; $("game").hidden = true; showStart(); }
+function quitGame() { const then = G && G.then; G = null; $("game").hidden = true; then ? then() : showStart(); }
 
 function gStage(html) { $("gStage").innerHTML = html; }
 

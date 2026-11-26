@@ -38,7 +38,7 @@ async function showStart() {
   const grammar = blocks.find((b) => /grammar/.test(b) && b.includes("☐"));
   const test = blocks.find((b) => /weekly test/.test(b) && b.includes("☐"));
   const lesson = blocks.find((b) => /lesson (review|prep)/.test(b) && b.includes("☐"));
-  // One button: the next block the GUI can run (asked 2026-11-24). Each session ends with a short mistakes drill.
+  // One button: the next block the GUI can run (asked 2026-11-24). Each session starts with yesterday's 실수 game (once a day).
   let next = null;
   if (t.intake_due) next = ["Lesson intake", "intake"];
   else if (grammar) next = [/paused/.test(grammar) ? "Resume grammar" : "Start grammar", "grammar"];
@@ -60,7 +60,15 @@ async function showStart() {
   }
 }
 
-async function startSession(args) {
+async function startSession(args, warmedUp = false) {
+  // 어제의 실수 game first, once a day (asked 2026-11-25; replaced the end-of-session mistakes drill).
+  // Quitting the game also goes on to the session.
+  if (!warmedUp && !/^(intake|review-game)\b/.test(args)) {
+    try {
+      const r = await (await fetch("/api/review?count=1")).json();
+      if (r.total && !r.played) return startGame(null, () => startSession(args, true));
+    } catch (e) { /* no game, go straight on */ }
+  }
   await fetch("/api/start", { method: "POST", body: JSON.stringify({ args }) });
   showChat();
 }

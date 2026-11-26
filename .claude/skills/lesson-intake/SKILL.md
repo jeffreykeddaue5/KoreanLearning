@@ -74,7 +74,7 @@ If the tutor gave homework, do that and use this week's points where they fit. O
 … 5 in total
 
 ## Schedule
-Each skill ticks its own block (☐ → ☑). The weekly check counts them (not optional ones). 🖥️ = runs in the browser GUI (`/korean-mentor gui`); every GUI session ends with a 5-item mistakes drill. Everything else runs in the terminal.
+Each skill ticks its own block (☐ → ☑). The weekly check counts them (not optional ones). 🖥️ = runs in the browser GUI (`/korean-mentor gui`); every GUI session starts with yesterday's 실수 game (once a day). Everything else runs in the terminal.
 
 회화 recording (optional, Mon–Thu only): memorize the day's Naver 오늘의 회화 (website 회화 section) and record it on my own.
 

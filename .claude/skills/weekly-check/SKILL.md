@@ -25,7 +25,7 @@ Same as every other review block, no game wrapping (no story, hearts, boss or st
 - **Hints on every card**, built exactly as in a grammar session (gui-mode.md **Hints**): `frame` = a whole-sentence frame with the point the item targets and natural chunks, blanks labelled `___(word)` / `___(phrase)`; `trap` = the past mistake the item is most likely to trigger (for the worst-type item, that Recurring item), or `null`.
 - **Then the 5 homework sentences**, labelled `Homework n/5`, same cards with hints. A/B dialogue items: A in `ko`, the user answers as B. Others: a cue question whose natural answer is the homework sentence, with the English sentence to say in `extra` (`say: That drama is worth watching…`). Unscored (see **Podcast unsure sentences** below for how they're logged).
 - No `game` field in the GUI. In the terminal, the usual one-line feedback.
-- **No mistakes drill after it** (asked 2026-11-25): the test ends with the homework cards, then a summary.
+- The test ends with the homework cards, then a summary (the 어제 실수 game runs before it, on the page).
 
 ## How it runs
 

@@ -398,7 +398,8 @@ class Handler(BaseHTTPRequestHandler):
             if not day or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
                 return self._json({"date": None, "total": 0, "round1": [], "round2": []})
             if "count" in q:
-                return self._json({"date": day, "total": len(review_items(day))})
+                return self._json({"date": day, "total": len(review_items(day)),
+                                   "played": (STATE / f"review-{day}.json").is_file()})
             return self._json(review_game(day))
         if url.path == "/api/events":
             return self._events(int(parse_qs(url.query).get("since", ["0"])[0]))
