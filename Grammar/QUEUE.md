@@ -6,6 +6,8 @@ Order: everyday conversation → common in media → TOPIK. Reorder or veto free
 
 ## 1. Everyday conversation
 
+- -고 나서 / -고 나면 / -고 나니(까) — after finishing (하고 나면 노곤해요, 샤워하고 나니까 개운하더라고요) · asked 2026-11-25, practice soon
+- -(으)니까 vs -아/어서 — reason: -(으)니까 before advice/commands/suggestions and for 'I found that…'; -아/어서 for plain causes and with 고마워요/미안해요 · asked 2026-11-25, practice soon · ties to #50 V-아/어 보니(까)
 - -는데도 — even though · vs #48 N(이)어도, -아/어도
 - -던데(요) — I noticed… (soft, leaves room to reply) · vs #35 -더라고요
 - -대요 / -래요 / -재요 / -냬요 — short reported speech (they said…) · vs #42, #43

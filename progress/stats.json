@@ -36,7 +36,7 @@
    "done": 19,
    "planned": 26
   },
-  "level_3_plus": 12,
+  "level_3_plus": 13,
   "mistakes": {
    "문법": 17,
    "시제": 2,
@@ -44,7 +44,7 @@
    "어휘": 7,
    "조사": 6
   },
-  "no_hint": 85,
-  "points": 63
+  "no_hint": 96,
+  "points": 62
  }
 }
