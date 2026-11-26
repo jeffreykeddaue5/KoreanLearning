@@ -16,9 +16,9 @@ The day's Schedule row says which kind; arguments override it (`/korean-mentor 3
 
 | Kind | When | Main block | Turns |
 |---|---|---|---|
-| **new** | Thu | intro of the 2 new points, then **this week's question set**, first time | 7 |
-| **review** | Fri (and catch-up days) | the week's question set again + 2–3 rough questions from earlier weeks | 8 |
-| **weekend** | Sun | the weekend questions in the past, with follow-ups that build the story (feeds Monday's podcast) | 8 |
+| **new** | Thu | intro of the 2 new points, then **this week's question set**, first time | 5 |
+| **review** | Fri (and catch-up days) | the week's question set again + 2–3 rough questions from earlier weeks | 6 |
+| **weekend** | Sun | the weekend questions in the past, with follow-ups that build the story (feeds Monday's podcast) | 6 |
 
 **Introducing a new point** (kind new, or a point the user hasn't seen): before the timer starts, explain in English in 4–6 lines: meaning, form (one irregular example if relevant), when to use it, how it differs from the closest point they know (the file's **Compare** table). 2 examples with translations. Then one easy prompt with a hint, untimed.
 
@@ -47,7 +47,7 @@ Real-life questions from grammar sessions. Each comes back until it's smooth (�
 ```
 
 - **Weekend questions:** 2–3 questions in every set are about the coming weekend, because they feed the podcast. Thursday asks the plan version (`이번 주말에 뭐 할 거예요?` → future tense; these answers are podcast v1); from Sunday on the same question flips to the past (`주말에 뭐 했어요?`). Keep one history list under one heading: `### Q1 · 이번 주말에 뭐 할 거예요? → 주말에 뭐 했어요? (Sun on)`. The flip is a built-in tense check.
-- **Week's question set (8–10 questions):** written at the first session of the week (kind new) from the plan: the podcast/weekend topic, the lesson's topics and words, the 2 new points, and 1–2 open lesson mistakes. Each question is something a Korean friend or the tutor would really ask about the user's real life ("주말에 뭐 했어요?", "곱창 먹어 봤어요? 어땠어요?", "요즘 왜 그렇게 피곤해요?"), and its natural answer calls for a target point (noted in brackets for you). Questions in one week share the theme, so they form one conversation.
+- **Week's question set (6–8 questions; cut by 3/4 on 2026-11-26, quality over quantity):** written at the first session of the week (kind new) from the plan: the podcast/weekend topic, the lesson's topics and words, the 2 new points, and 1–2 open lesson mistakes. Each question is something a Korean friend or the tutor would really ask about the user's real life ("주말에 뭐 했어요?", "곱창 먹어 봤어요? 어땠어요?", "요즘 왜 그렇게 피곤해요?"), and its natural answer calls for a target point (noted in brackets for you). Questions in one week share the theme, so they form one conversation.
 - **Picking each session:** the week's set first (roughest and least asked first), then 2–3 rough questions from earlier weeks, then the **Smooth** list once in a while as a check. Same question, follow-ups can change.
 - **History line** after every answer: `- date · time · ✔/✏️ answer (→ fix)`. ✔ without a hint and ≤ 30 s twice in a row → move the question to **Smooth** with the date.
 - Max 40 open questions; drop the oldest smooth-ish ones.
@@ -65,7 +65,7 @@ Keep setup to a few lines on screen; don't show the files you read.
 7. Show one block, e.g.
 
    ```
-   Week set: 10 questions (소곱창 weekend) · today: Q1–Q5 again + 2 old (Q3 of 11-11, Q7 of 11-04)
+   Week set: 8 questions (소곱창 weekend) · today: Q1–Q5 again + 2 old (Q3 of 11-11, Q7 of 11-04)
    Points: #59, #60 + due #5, #21 · Words: 차라리, 껴입다 (+6 pinned)
    ⏱ 30 s per answer · last session avg 1:12
    8 turns

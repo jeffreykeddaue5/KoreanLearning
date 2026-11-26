@@ -30,7 +30,7 @@ Use that time as the answer's time for feedback, history lines and levels.
  "scene": "🍻🍻🍻 → 🌙3:00 → 🛏️", "speaker": "😵"}
 ```
 
-- `label`: `Q8 · 3/8` (question id · turn/total); weekly test `Test n/10`, then `Homework n/5`.
+- `label`: `Q8 · 3/8` (question id · turn/total); weekly test `Test n/7`, then `Homework n/5`.
 - `extra`: related forms or the explain-word's English gloss.
 - **Hints (asked 2026-11-24):** every prompt carries both, hidden behind two buttons the user opens only if needed. The point is to answer in Korean patterns instead of translating from English.
   - `frame` (💬 Format): a whole-sentence frame made of natural chunks: an opener, the grammar point the question targets, a natural ending (막상, 은근히, 생각보다, 그냥, -더라고요, -거든요…). Blanks only for the user's own content, and **every blank says what goes in it** (asked 2026-11-24): `___(word)` for one word, `___(phrase)` for a few words or a clause, e.g. `여자친구가 ___(phrase) 삐질까 봐`, `여자친구가 ___(word)를 좋아해서`. The grammar and chunks stay written out. Only grammar and chunks the user already knows (progress/grammar.md, the week's listening patterns). E.g. `처음엔 그냥 ___(phrase)는데, 보다 보니까 은근히 ___(word)더라고요.`

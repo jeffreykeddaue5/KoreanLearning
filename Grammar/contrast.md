@@ -62,6 +62,7 @@
   🔁 Even if I regret it now, it's no use. (L20)
 
 ❌ 출발하는들 → ✅ 출발한들 (stem + (으)ㄴ들 — no 는, L7)
+❌ 지금도 잠을 더 잔들 피곤할 거예요 → ✅ 지금 잠을 더 잔들 (지금도 = 'still, as before'; just 지금 for 'now', L22)
 
 ✔ Often followed by a rhetorical question
 ✔ Tutor (L20): a strong, skeptical concession ("what good would it do?"); the plain "even if" is A/V-아/어도 / N(이)라도 (#34, #48)

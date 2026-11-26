@@ -76,16 +76,18 @@ If the tutor gave homework, do that and use this week's points where they fit. O
 ## Schedule
 Each skill ticks its own block (☐ → ☑). The weekly check counts them (not optional ones). 🖥️ = runs in the browser GUI (`/korean-mentor gui`); every GUI session starts with yesterday's 실수 game (once a day). Everything else runs in the terminal.
 
+Listen + record every day (asked 2026-11-26, for consistency): each day has one listening and one recording; on days without a clip step or podcast version they're 5-minute ones (clip re-listen, 1-min voice memo).
+
 회화 recording (optional, Mon–Thu only): memorize the day's Naver 오늘의 회화 (website 회화 section) and record it on my own.
 
 | Day | Blocks |
 |---|---|
 | Thu 11-12 | ☐ Anki · ☐ grammar: new #57, #58 🖥️ · ☐ listening: step 1 (pick TTMIK clip, listen with no transcript, %) · ☐ podcast v1: my weekend plans (1–2 min) · optional: ☐ 회화 recording |
-| Fri 11-13 | ☐ Anki · ☐ grammar: review 🖥️ · ☐ listening: step 2 (transcript + why I missed it) |
-| Sat 11-14 | Optional: ☐ Anki · ☐ mistakes drill |
-| Sun 11-15 | ☐ Anki · ☐ grammar: weekend session (what I did this weekend) 🖥️ · ☐ listening: step 3 (speech patterns to borrow) |
+| Fri 11-13 | ☐ Anki · ☐ grammar: review 🖥️ · ☐ listening: step 2 (transcript + why I missed it) · ☐ recording: 1-min voice memo (one of this week's questions, out loud) |
+| Sat 11-14 | ☐ listening: the clip once more, no transcript (5 min) · ☐ recording: 1-min voice memo (오늘 뭐 했어요?) · optional: ☐ Anki · ☐ mistakes drill |
+| Sun 11-15 | ☐ Anki · ☐ grammar: weekend session (what I did this weekend) 🖥️ · ☐ listening: step 3 (speech patterns to borrow) · ☐ recording: 1-min voice memo (주말에 뭐 했어요? → feeds podcast v2) |
 | Mon 11-16 | ☐ Anki · ☐ listening: step 4 (shadowing) · ☐ podcast v2: link my weekend answers into one story, record, mark 1–2 unsure lines · optional: ☐ 회화 recording |
-| Tue 11-17 | ☐ Anki · ☐ weekly test: the week's questions again (timed, with hints), then the 5 homework sentences 🖥️ · ☐ podcast v3: fix the unsure lines, add 2 patterns, re-record · optional: ☐ 회화 recording |
+| Tue 11-17 | ☐ Anki · ☐ weekly test: the week's questions again (timed, with hints), then the 5 homework sentences 🖥️ · ☐ listening: the clip once more, with the transcript (5 min) · ☐ podcast v3: fix the unsure lines, add 2 patterns, re-record · optional: ☐ 회화 recording |
 | Wed 11-18 | ☐ Anki · ☐ listening: step 5 (final listen, no transcript, %) · ☐ podcast v4: tell it with no notes (weekend rehearsal) · ☐ lesson review: quiz on last lesson's words + tutor corrections 🖥️ · lesson 21:00 · ☐ lesson-intake · optional: ☐ 회화 recording |
 
 ## Podcast

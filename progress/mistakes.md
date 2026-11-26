@@ -51,3 +51,6 @@ Mistakes the tutor corrected (from `Homework/`). +1 for each session where it's 
 - [문법] 막힐 모양이라서 + -는 게 좋겠어요 → 모양이니까 (reason before advice = -(으)니까) (L7) · 1/2
 - [문법] 크니 만큼 → 큰 만큼 (A-(으)ㄴ 만큼) (L15) · 1/2
 - [문법] 공부하기 시작하게 됐어요 → 공부를 시작하게 됐어요 (don't stack -기 시작하다 + -게 되다) (L12) · 1/2
+- [문법] 미국 곱창이랑 비교하면 훨씬 맛있어요 → 맛있거든요 (reason for the next sentence → -거든요) (L22) · 0/2
+- [어휘] 글램핑을 하면 좋겠는데 이번에는 제 처음이에요 → 항상 가고 싶었는데 이번에 처음 가요 (first time = 처음 가요, not 제 처음이에요) (L22) · 0/2
+- [어휘] 지금도 잠을 더 잔들 → 지금 잠을 더 잔들 (지금도 = still, the same thing going on) (L22) · 0/2

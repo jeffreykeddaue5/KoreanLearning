@@ -45,6 +45,7 @@
   🔁 I couldn't sleep last night. The neighbors were really loud, you see.
 
 ❌ (to a friend who was there) 어제 비가 왔거든요. → ✅ 어제 비가 왔잖아요. (they already know → -잖아요, #17)
+❌ (giving the reason behind 'I should have eaten more') 비교하면 훨씬 맛있어요. → ✅ 맛있거든요. (the sentence explains the next one → soft reason -거든요, L22)
 
 ✔ Gives a reason the listener didn't know
 ✔ Can also introduce background information before continuing a story (third example)
