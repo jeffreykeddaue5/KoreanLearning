@@ -56,6 +56,7 @@ Anki words the user finds hard to use (added with `/hard-words`). Each item is m
 
 ## Session log (older)
 
+- 2026-11-09 · review #57, #58 + #13, #27, #28, #34, #55 · conversation · strong: 데이트하느라고 (no hint), 말한들, 질리기까지 1달밖에 안 걸렸어요, 벅찬가 봐요 (unprompted) · fix: 휴일에라도, 이직 → 결국 + 해야 할 거예요, 일은 쉬운걸요, 안 걸렸어요
 - 2026-11-08 · long #57, #58 + review #5, #6, #12, #15, #21, #32, #49 · conversation · strong: 실컷 먹었더니 (unprompted), 데이트하느라고, 진작 … 보낼걸 그랬어요, 활발한 반면에, 카페에 마시러 다녀요, 은근히 방해되더라고요 · fix: 사귀다 vs 데이트하다, 모르지만 (tense), 1달밖에 안 걸렸어요, 하 dropped (통화하는지, 일하느라고)
 - 2026-11-07 · feelings words (extra) · drill · strong: 당황 vs 황당, 억울, 서운, 속상, 부담, 긴장 · fix: 어이없다 (speechless), 어지럽다 = messy room, 못 만나서
 - 2026-11-06 · new #57, #58 + review #5, #21, #55 (catch-up for Thu) · conversation · strong: 확인했더니 (unprompted), 일하느라고, 4시간이나, 하다 보니까 (unprompted), 방해되다 (L18) · fix: 게임에 몰입하다, 쉬운 반면에, -느라고 = busy doing, tense (쑤셔요, 바쁘다고, 좋을 거래요)

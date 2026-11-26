@@ -2,6 +2,20 @@
 
 Real-life questions from grammar sessions. Each comes back until it's smooth (✔ without a hint, ≤ 30 s, twice in a row). Format and rules: `.claude/skills/korean-mentor/session.md`.
 
+## Week of 11-25 · theme: this month & Thanksgiving weekend (light week, review #57–#62)
+### Q1 · 이번 주말에 뭐 할 거예요? → 주말에 뭐 했어요? (Sun on) (#61 -기로 했어요; who decided: -자고 해서요)
+- 11-26 · 0:28 · ✔ 이번 주말에는 쇼핑하기로 했어요. 여자친구가 쇼핑하자고 해서요. (frame; 💡 가자고 해서요)
+### Q2 · 오늘 추수감사절이죠? 뭐 해 먹었어요? (#58 -느라고; L22 칠면조, 으깨다, 전자레인지; weekend)
+- 11-26 · 1:14 · ✔ 오늘은 칠면조를 만들기로 했어요. 아까부터 요리하느라고 좀 바빠요. (frame; 💡 칠면조를 굽기로)
+### Q3 · 감기는 좀 나았어요? 기침은요? (#59 -는 바람에, #60 -아/어 버리다; L22 기침; 감기 기운 / 옮기다)
+- 11-26 · 1:03 · ✏️ 갑자기 기침을 하는 바람에 다시 심해졌거든요 → 추운 데서 피클볼을 치는 바람에 (cause = outside event) · ✔ 많이 나았는데 아직 머리가 좀 어지러워요 (어지려워요 typo) (frame)
+### Q4 · 한국 드라마 볼 때 자막 켜고 봐요? (#57 -았/었더니, #62 해 볼 만해요; L22 자막을 가리다/끄다)
+- 11-26 · 0:46 · ✏️ 생각보다 이해하더라고요 → 생각보다 많이 이해되더라고요 / 잘 들리더라고요 · ✔ 자막을 꺼 봤더니 (#57), 한번 해 볼 만해요 (#62) (frame)
+### Q5 · 이번 달에 한 것 중에 제일 기억에 남는 게 뭐예요? (#57, #60; month recap → podcast)
+### Q6 · 요즘 퇴근하고 나면 보통 뭐 해요? (habit → present: -고 나면 … -ㄴ데; #58 -느라)
+- 11-26 · 1:24 · ✏️ 3D 모델링을 한데 → 하는데 · 그래도 needs a contrast (좀 피곤한데, 그래도…) · ✔ habit in present (늘 한국어를 공부해요) (frame)
+### Q7 · 한국 여행 갔을 때 아쉬웠던 거 있어요? (#40 -(으)ㄹ걸 그랬어요; L22 맛있거든요, 실컷)
+
 ## Week of 11-18 · theme: plans & is it worth it (decided / 할 만해요)
 ### Q1 · 이번 주말에 뭐 할 거예요? → 주말에 뭐 했어요? (Sun on) (#61 -기로 했어요)
 - 11-19 · 1:02 · ✔ 이번 주말에 웬만하면 일을 안 하기로 했어요. (hint)

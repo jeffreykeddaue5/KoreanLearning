@@ -12,6 +12,7 @@ One line per week, newest first, written by the weekly check.
 
 One line per session, newest first. Keep the last 15 lines; older lines move to `archive.md`.
 
+- 2026-11-26 · new (light week, review #57–#62) · new week set Q1–Q7 written; asked Q1, Q2, Q3, Q4, Q6 (GUI, frame on all) · avg 0:59 (last 1:06) · strong: 쇼핑하기로 했어요. 여자친구가 하자고 해서요 (0:28), 요리하느라고 좀 바빠요, 자막을 꺼 봤더니 … 해 볼 만해요, habit in present (늘 공부해요) · fix: -는 바람에 cause, 생각보다 많이 이해되더라고요, 하는데 (verb), 그래도
 - 2026-11-24 · lesson review L21 8/8 + mistakes drill 5/5 (GUI) · avg 2:13 (frame hint on 12/13; only L8 no-hint, 0:28) · strong: 상쾌하다 / 개운하다 in the right place, 혼자 간 걸 보니까 (past, own choice), 화면이 꺼져 버렸어요, 볼지도 몰라요 (L15 → archived) · fix: 늘었으면 (spelling), 꺼져, spacing 두 달에 한 번씩
 - 2026-11-22 · long #61, #62 · Q1–Q3 (past) + role-play 약국 (surprise: 졸린 약) + disagree ×3 · warm-up: explain · avg 2:00 (last 0:44; spoken 0:48, rest typed 1–5 min) · strong: 드라마를 다 보기로 했어요 (0:41), 쉬라고 해서 … 웬만하면 일주일 동안 안 하려고 해요, 감기 기운이 있어요 right after learning it, 볼만해요 ×2 · fix: 부터 + 걸렸어요 (2×), 감기를 옮기다, 운전 안 하려고, 일주일 동안, 늘 (recurring)
 - 2026-11-21 · practice-mistakes · drill 10/10 + 2 redos · strong: 맛있어 보이길래 (L21, no hint), 배터리가 다 돼서, 아무도 없더라고요 (0:10), 갈걸 그랬어요, redo 일어나려고 해요 (0:07) · fix: 꺼지다 / 열리다 (2×), 웬만하면 + -려고 해요, 지나가다가, 먹으러 갈걸
@@ -26,4 +27,3 @@ One line per session, newest first. Keep the last 15 lines; older lines move to 
 - 2026-11-12 · new #59, #60 (+ #34 L20) · conversation · strong: 비가 오는 바람에 (no hint), 잊어버리는 바람에 길을 잃어버렸어요, 지금 어른이라도 (no hint, L20), 실컷 해 버렸어요 · fix: 계획이 바뀌는, 그려 버렸는데 → 그렸는데, 그림을 못 그려요, 실컷 + no count, warm-up 해야 할 거예요
 - 2026-11-11 · lesson prep (#57, #58 + weekend rehearsal + tutor questions) · conversation · strong: 사진을 봤더니 감동을 받았어요, 저녁 식사를 하느라고, 가 봤더니 은근히 맛있더라고요, 계획을 안 세웠어요 · fix: 먹었더니 (3rd person) → 먹더니, 잊어버린 탓에, 양이 많아서, 한 게 재미있었어요, 잘하게 되기까지, 갈지도 몰라요
 - 2026-11-10 · weekly check 3/10 + homework · test · strong: 못 살까 봐 걱정이에요, 많을 텐데 예약해 두는 게 좋겠어요, 막상 먹어 보니까 · fix: -느라(고) one subject, 입양했다면서요, 좋길래 … 갔어요, 오자마자 (not 왔더니), #57 not produced ×3, 커피를 마시다, 익숙해지기까지
-- 2026-11-09 · review #57, #58 + #13, #27, #28, #34, #55 · conversation · strong: 데이트하느라고 (no hint), 말한들, 질리기까지 1달밖에 안 걸렸어요, 벅찬가 봐요 (unprompted) · fix: 휴일에라도, 이직 → 결국 + 해야 할 거예요, 일은 쉬운걸요, 안 걸렸어요
